@@ -1,0 +1,182 @@
+======== COMBO cp_gate
+ungated VAL nonempty=0.6393 empty_fp=0.402 floor=0.6193 paste=True gate_fp=False
+[gate] ep 1/50 loss=2.1061 auroc=0.486 nonempty=0.6407 empty_fp=0.411 rec=1.000 (31.4s)
+  saved HEAD_BEST auroc=0.4860
+[gate] ep 2/50 loss=0.9590 auroc=0.531 nonempty=0.6427 empty_fp=0.399 rec=1.000 (27.9s)
+  saved HEAD_BEST auroc=0.5306
+[gate] ep 3/50 loss=0.9760 auroc=0.501 nonempty=0.6419 empty_fp=0.411 rec=1.000 (28.0s)
+[gate] ep 4/50 loss=0.8886 auroc=0.550 nonempty=0.6444 empty_fp=0.411 rec=1.000 (27.7s)
+  saved HEAD_BEST auroc=0.5495
+[gate] ep 5/50 loss=0.8915 auroc=0.530 nonempty=0.6402 empty_fp=0.408 rec=1.000 (27.7s)
+[gate] ep 6/50 loss=0.8389 auroc=0.494 nonempty=0.6439 empty_fp=0.408 rec=1.000 (27.7s)
+[gate] ep 7/50 loss=0.8759 auroc=0.542 nonempty=0.6455 empty_fp=0.411 rec=1.000 (27.7s)
+[gate] ep 8/50 loss=0.8876 auroc=0.580 nonempty=0.6436 empty_fp=0.408 rec=1.000 (27.7s)
+  saved HEAD_BEST auroc=0.5801
+[gate] ep 9/50 loss=0.8322 auroc=0.611 nonempty=0.6408 empty_fp=0.402 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6108
+[gate] ep 10/50 loss=0.7841 auroc=0.605 nonempty=0.6437 empty_fp=0.411 rec=1.000 (27.8s)
+[gate] ep 11/50 loss=0.8122 auroc=0.576 nonempty=0.6441 empty_fp=0.411 rec=1.000 (27.8s)
+[gate] ep 12/50 loss=0.8133 auroc=0.611 nonempty=0.6416 empty_fp=0.399 rec=1.000 (27.8s)
+[gate] ep 13/50 loss=0.8214 auroc=0.579 nonempty=0.6416 empty_fp=0.408 rec=1.000 (27.8s)
+[gate] ep 14/50 loss=0.8450 auroc=0.604 nonempty=0.6437 empty_fp=0.402 rec=1.000 (27.8s)
+[gate] ep 15/50 loss=0.8362 auroc=0.619 nonempty=0.6454 empty_fp=0.405 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6193
+[gate] ep 16/50 loss=0.8035 auroc=0.643 nonempty=0.6471 empty_fp=0.396 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6432
+[gate] ep 17/50 loss=0.7646 auroc=0.587 nonempty=0.6415 empty_fp=0.414 rec=1.000 (27.8s)
+[gate] ep 18/50 loss=0.7467 auroc=0.640 nonempty=0.6449 empty_fp=0.414 rec=1.000 (27.8s)
+[gate] ep 19/50 loss=0.7912 auroc=0.622 nonempty=0.6425 empty_fp=0.417 rec=1.000 (27.8s)
+[gate] ep 20/50 loss=0.8200 auroc=0.621 nonempty=0.6470 empty_fp=0.408 rec=1.000 (27.8s)
+[gate] ep 21/50 loss=0.8346 auroc=0.653 nonempty=0.6416 empty_fp=0.414 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6531
+[gate] ep 22/50 loss=0.7853 auroc=0.640 nonempty=0.6420 empty_fp=0.417 rec=1.000 (27.8s)
+[gate] ep 23/50 loss=0.8080 auroc=0.626 nonempty=0.6415 empty_fp=0.420 rec=1.000 (27.8s)
+[gate] ep 24/50 loss=0.7237 auroc=0.633 nonempty=0.6429 empty_fp=0.411 rec=1.000 (27.8s)
+[gate] ep 25/50 loss=0.8009 auroc=0.656 nonempty=0.6398 empty_fp=0.396 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6565
+[gate] ep 26/50 loss=0.8124 auroc=0.663 nonempty=0.6407 empty_fp=0.408 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6627
+[gate] ep 27/50 loss=0.8164 auroc=0.641 nonempty=0.6457 empty_fp=0.417 rec=1.000 (27.8s)
+[gate] ep 28/50 loss=0.7714 auroc=0.675 nonempty=0.6422 empty_fp=0.408 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6750
+[gate] ep 29/50 loss=0.7933 auroc=0.668 nonempty=0.6436 empty_fp=0.414 rec=1.000 (27.8s)
+[gate] ep 30/50 loss=0.7557 auroc=0.649 nonempty=0.6376 empty_fp=0.408 rec=1.000 (27.8s)
+[gate] ep 31/50 loss=0.7544 auroc=0.628 nonempty=0.6466 empty_fp=0.414 rec=1.000 (27.8s)
+[gate] ep 32/50 loss=0.7582 auroc=0.652 nonempty=0.6429 empty_fp=0.408 rec=1.000 (27.8s)
+[gate] ep 33/50 loss=0.7698 auroc=0.604 nonempty=0.6472 empty_fp=0.411 rec=1.000 (27.8s)
+[gate] ep 34/50 loss=0.7762 auroc=0.665 nonempty=0.6399 empty_fp=0.423 rec=1.000 (27.8s)
+[gate] ep 35/50 loss=0.7743 auroc=0.677 nonempty=0.6392 empty_fp=0.408 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6772
+[gate] ep 36/50 loss=0.7817 auroc=0.662 nonempty=0.6399 empty_fp=0.426 rec=1.000 (27.8s)
+[gate] ep 37/50 loss=0.7550 auroc=0.663 nonempty=0.6471 empty_fp=0.405 rec=1.000 (27.8s)
+[gate] ep 38/50 loss=0.7974 auroc=0.682 nonempty=0.6455 empty_fp=0.405 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6818
+[gate] ep 39/50 loss=0.7484 auroc=0.659 nonempty=0.6457 empty_fp=0.408 rec=1.000 (27.8s)
+[gate] ep 40/50 loss=0.7461 auroc=0.665 nonempty=0.6470 empty_fp=0.402 rec=1.000 (27.8s)
+[gate] ep 41/50 loss=0.7909 auroc=0.673 nonempty=0.6441 empty_fp=0.414 rec=1.000 (27.8s)
+[gate] ep 42/50 loss=0.7571 auroc=0.637 nonempty=0.6414 empty_fp=0.405 rec=1.000 (27.8s)
+[gate] ep 43/50 loss=0.7505 auroc=0.676 nonempty=0.6444 empty_fp=0.405 rec=1.000 (27.8s)
+[gate] ep 44/50 loss=0.7538 auroc=0.678 nonempty=0.6436 empty_fp=0.408 rec=1.000 (27.8s)
+[gate] ep 45/50 loss=0.8119 auroc=0.684 nonempty=0.6451 empty_fp=0.411 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6836
+[gate] ep 46/50 loss=0.7421 auroc=0.681 nonempty=0.6445 empty_fp=0.417 rec=1.000 (27.8s)
+[gate] ep 47/50 loss=0.7899 auroc=0.688 nonempty=0.6462 empty_fp=0.411 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6884
+[gate] ep 48/50 loss=0.7466 auroc=0.689 nonempty=0.6457 empty_fp=0.408 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.6894
+[gate] ep 49/50 loss=0.8219 auroc=0.701 nonempty=0.6376 empty_fp=0.414 rec=1.000 (27.8s)
+  saved HEAD_BEST auroc=0.7012
+[gate] ep 50/50 loss=0.7683 auroc=0.689 nonempty=0.6452 empty_fp=0.402 rec=1.000 (27.8s)
+  tau=0.05 dice=0.6179 nonempty=0.6426 empty_fp=0.399 rec=1.000 OK
+  tau=0.10 dice=0.6045 nonempty=0.6402 empty_fp=0.420 rec=1.000 OK
+  tau=0.15 dice=0.6094 nonempty=0.6437 empty_fp=0.414 rec=1.000 OK
+  tau=0.20 dice=0.6166 nonempty=0.6438 empty_fp=0.402 rec=1.000 OK
+  tau=0.25 dice=0.6119 nonempty=0.6454 empty_fp=0.411 rec=1.000 OK
+  tau=0.30 dice=0.6124 nonempty=0.6423 empty_fp=0.408 rec=1.000 OK
+  tau=0.35 dice=0.6088 nonempty=0.6377 empty_fp=0.411 rec=1.000 OK
+  tau=0.40 dice=0.6144 nonempty=0.6383 empty_fp=0.402 rec=1.000 OK
+  tau=0.45 dice=0.6153 nonempty=0.6451 empty_fp=0.405 rec=1.000 OK
+  tau=0.50 dice=0.6043 nonempty=0.6397 empty_fp=0.420 rec=1.000 OK
+  tau=0.55 dice=0.6053 nonempty=0.6423 empty_fp=0.420 rec=1.000 OK
+  tau=0.60 dice=0.6170 nonempty=0.6404 empty_fp=0.399 rec=1.000 OK
+  tau=0.65 dice=0.6115 nonempty=0.6445 empty_fp=0.411 rec=1.000 OK
+  tau=0.70 dice=0.6111 nonempty=0.6433 empty_fp=0.411 rec=1.000 OK
+  tau=0.75 dice=0.6137 nonempty=0.6453 empty_fp=0.408 rec=1.000 OK
+  tau=0.80 dice=0.6040 nonempty=0.6435 empty_fp=0.423 rec=1.000 OK
+  tau=0.85 dice=0.6024 nonempty=0.6393 empty_fp=0.423 rec=1.000 OK
+  tau=0.90 dice=0.6276 nonempty=0.6403 empty_fp=0.381 rec=0.991 OK
+TEST ungated 0.5745372772216797 0.39221556886227543
+TEST gated   0.5666945576667786 0.37425149700598803 tau 0.9
+======== COMBO cp_tversky
+init VAL nonempty=0.6454 empty_fp=0.402 floor=0.6254
+[tv] ep 1/30 loss=0.4457 nonempty=0.6353 empty_fp=0.640 (1252.1s)
+  saved BEST fp=0.640 nonempty=0.6353
+[tv] ep 2/30 loss=0.3995 nonempty=0.6408 empty_fp=0.562 (1250.1s)
+  saved BEST fp=0.562 nonempty=0.6408
+[tv] ep 3/30 loss=0.3627 nonempty=0.6236 empty_fp=0.562 (1249.9s)
+[tv] ep 4/30 loss=0.3195 nonempty=0.5583 empty_fp=0.396 (1250.3s)
+[tv] ep 5/30 loss=0.2819 nonempty=0.5728 empty_fp=0.318 (1250.0s)
+[tv] ep 6/30 loss=0.2690 nonempty=0.5368 empty_fp=0.301 (1249.9s)
+[tv] ep 7/30 loss=0.2357 nonempty=0.5469 empty_fp=0.301 (1250.0s)
+[tv] ep 8/30 loss=0.2331 nonempty=0.5423 empty_fp=0.327 (1250.1s)
+[tv] ep 9/30 loss=0.2317 nonempty=0.5225 empty_fp=0.259 (1249.9s)
+[tv] ep 10/30 loss=0.2267 nonempty=0.5548 empty_fp=0.271 (1249.7s)
+[tv] ep 11/30 loss=0.2222 nonempty=0.5068 empty_fp=0.298 (1249.8s)
+[tv] ep 12/30 loss=0.2140 nonempty=0.5584 empty_fp=0.345 (1249.9s)
+early stop @2
+TEST 0.570591926574707 0.5419161676646707
+======== COMBO gate_fp
+ungated VAL nonempty=0.6425 empty_fp=0.417 floor=0.6225 paste=False gate_fp=True
+[gate] ep 1/50 loss=2.4630 auroc=0.632 nonempty=0.5998 empty_fp=0.348 rec=0.930 (30.5s)
+  saved HEAD_BEST auroc=0.6319
+[gate] ep 2/50 loss=2.1366 auroc=0.625 nonempty=0.6234 empty_fp=0.360 rec=0.960 (27.2s)
+[gate] ep 3/50 loss=2.0584 auroc=0.642 nonempty=0.5919 empty_fp=0.312 rec=0.894 (27.2s)
+  saved HEAD_BEST auroc=0.6417
+[gate] ep 4/50 loss=2.0056 auroc=0.630 nonempty=0.5637 empty_fp=0.295 rec=0.872 (27.2s)
+[gate] ep 5/50 loss=2.0224 auroc=0.635 nonempty=0.6262 empty_fp=0.378 rec=0.969 (27.3s)
+[gate] ep 6/50 loss=1.9484 auroc=0.646 nonempty=0.5919 empty_fp=0.315 rec=0.899 (27.3s)
+  saved HEAD_BEST auroc=0.6459
+[gate] ep 7/50 loss=1.9252 auroc=0.668 nonempty=0.6054 empty_fp=0.336 rec=0.912 (27.3s)
+  saved HEAD_BEST auroc=0.6676
+[gate] ep 8/50 loss=1.8618 auroc=0.682 nonempty=0.5799 empty_fp=0.298 rec=0.881 (27.3s)
+  saved HEAD_BEST auroc=0.6822
+[gate] ep 9/50 loss=1.8909 auroc=0.682 nonempty=0.5939 empty_fp=0.318 rec=0.912 (27.3s)
+[gate] ep 10/50 loss=1.8486 auroc=0.672 nonempty=0.6069 empty_fp=0.307 rec=0.916 (27.3s)
+[gate] ep 11/50 loss=1.8213 auroc=0.686 nonempty=0.5769 empty_fp=0.289 rec=0.872 (27.3s)
+  saved HEAD_BEST auroc=0.6860
+[gate] ep 12/50 loss=1.8272 auroc=0.686 nonempty=0.6192 empty_fp=0.330 rec=0.934 (27.3s)
+  saved HEAD_BEST auroc=0.6863
+[gate] ep 13/50 loss=1.7922 auroc=0.698 nonempty=0.5674 empty_fp=0.286 rec=0.859 (27.3s)
+  saved HEAD_BEST auroc=0.6983
+[gate] ep 14/50 loss=1.7588 auroc=0.692 nonempty=0.5574 empty_fp=0.283 rec=0.841 (27.3s)
+[gate] ep 15/50 loss=1.7642 auroc=0.688 nonempty=0.6071 empty_fp=0.327 rec=0.903 (27.3s)
+[gate] ep 16/50 loss=1.7546 auroc=0.687 nonempty=0.6006 empty_fp=0.301 rec=0.899 (27.4s)
+[gate] ep 17/50 loss=1.7187 auroc=0.685 nonempty=0.5305 empty_fp=0.280 rec=0.802 (27.3s)
+[gate] ep 18/50 loss=1.7880 auroc=0.692 nonempty=0.6070 empty_fp=0.327 rec=0.921 (27.3s)
+[gate] ep 19/50 loss=1.6786 auroc=0.710 nonempty=0.5852 empty_fp=0.307 rec=0.881 (27.4s)
+  saved HEAD_BEST auroc=0.7096
+[gate] ep 20/50 loss=1.6379 auroc=0.708 nonempty=0.5899 empty_fp=0.295 rec=0.885 (27.4s)
+[gate] ep 21/50 loss=1.6423 auroc=0.707 nonempty=0.5642 empty_fp=0.274 rec=0.846 (27.4s)
+[gate] ep 22/50 loss=1.6158 auroc=0.705 nonempty=0.5879 empty_fp=0.310 rec=0.881 (27.4s)
+[gate] ep 23/50 loss=1.6492 auroc=0.704 nonempty=0.5801 empty_fp=0.292 rec=0.868 (27.4s)
+[gate] ep 24/50 loss=1.6517 auroc=0.709 nonempty=0.5807 empty_fp=0.304 rec=0.868 (27.4s)
+[gate] ep 25/50 loss=1.5779 auroc=0.718 nonempty=0.5880 empty_fp=0.304 rec=0.881 (27.4s)
+  saved HEAD_BEST auroc=0.7181
+[gate] ep 26/50 loss=1.6034 auroc=0.714 nonempty=0.5933 empty_fp=0.304 rec=0.890 (27.4s)
+[gate] ep 27/50 loss=1.5740 auroc=0.717 nonempty=0.5902 empty_fp=0.307 rec=0.894 (27.4s)
+[gate] ep 28/50 loss=1.5895 auroc=0.720 nonempty=0.5865 empty_fp=0.301 rec=0.885 (27.4s)
+  saved HEAD_BEST auroc=0.7201
+[gate] ep 29/50 loss=1.5818 auroc=0.712 nonempty=0.5841 empty_fp=0.295 rec=0.881 (27.4s)
+[gate] ep 30/50 loss=1.5422 auroc=0.709 nonempty=0.5865 empty_fp=0.292 rec=0.877 (27.4s)
+[gate] ep 31/50 loss=1.5653 auroc=0.717 nonempty=0.5794 empty_fp=0.298 rec=0.872 (27.4s)
+[gate] ep 32/50 loss=1.5450 auroc=0.717 nonempty=0.5745 empty_fp=0.301 rec=0.863 (27.4s)
+[gate] ep 33/50 loss=1.5737 auroc=0.719 nonempty=0.5917 empty_fp=0.301 rec=0.881 (27.4s)
+[gate] ep 34/50 loss=1.5159 auroc=0.717 nonempty=0.5749 empty_fp=0.292 rec=0.868 (27.4s)
+[gate] ep 35/50 loss=1.5512 auroc=0.720 nonempty=0.5853 empty_fp=0.298 rec=0.881 (27.4s)
+[gate] ep 36/50 loss=1.5236 auroc=0.720 nonempty=0.5786 empty_fp=0.292 rec=0.868 (27.4s)
+[gate] ep 37/50 loss=1.5059 auroc=0.720 nonempty=0.5724 empty_fp=0.292 rec=0.863 (27.4s)
+[gate] ep 38/50 loss=1.5555 auroc=0.719 nonempty=0.5826 empty_fp=0.295 rec=0.881 (27.4s)
+[gate] ep 39/50 loss=1.5281 auroc=0.719 nonempty=0.5762 empty_fp=0.301 rec=0.872 (27.4s)
+[gate] ep 40/50 loss=1.5072 auroc=0.718 nonempty=0.5853 empty_fp=0.301 rec=0.877 (27.4s)
+early stop @28
+  tau=0.05 dice=0.6140 nonempty=0.6418 empty_fp=0.405 rec=1.000 OK
+  tau=0.10 dice=0.6266 nonempty=0.6466 empty_fp=0.387 rec=0.991 OK
+  tau=0.15 dice=0.6268 nonempty=0.6383 empty_fp=0.381 rec=0.978 OK
+  tau=0.20 dice=0.6296 nonempty=0.6407 empty_fp=0.378 rec=0.978 OK
+  tau=0.25 dice=0.6352 nonempty=0.6283 empty_fp=0.360 rec=0.960 OK
+  tau=0.30 dice=0.6425 nonempty=0.6287 empty_fp=0.348 rec=0.952 OK
+  tau=0.35 dice=0.6489 nonempty=0.6183 empty_fp=0.330 rec=0.938 drop
+  tau=0.40 dice=0.6600 nonempty=0.6192 empty_fp=0.312 rec=0.930 drop
+  tau=0.45 dice=0.6534 nonempty=0.6030 empty_fp=0.312 rec=0.907 drop
+  tau=0.50 dice=0.6555 nonempty=0.5862 empty_fp=0.298 rec=0.885 drop
+  tau=0.55 dice=0.6581 nonempty=0.5662 empty_fp=0.280 rec=0.850 drop
+  tau=0.60 dice=0.6559 nonempty=0.5341 empty_fp=0.262 rec=0.802 drop
+  tau=0.65 dice=0.6540 nonempty=0.5206 empty_fp=0.256 rec=0.780 drop
+  tau=0.70 dice=0.6573 nonempty=0.4981 empty_fp=0.235 rec=0.749 drop
+  tau=0.75 dice=0.6526 nonempty=0.4643 empty_fp=0.220 rec=0.683 drop
+  tau=0.80 dice=0.6483 nonempty=0.4361 empty_fp=0.208 rec=0.634 drop
+  tau=0.85 dice=0.6480 nonempty=0.3782 empty_fp=0.170 rec=0.546 drop
+  tau=0.90 dice=0.6312 nonempty=0.2968 empty_fp=0.143 rec=0.427 drop
+TEST ungated 0.5790469646453857 0.38023952095808383
+TEST gated   0.5513476729393005 0.3413173652694611 tau 0.3
+wrote D:\Desktop\BT_VAE\results\bp_original\none_plus2_summary.json

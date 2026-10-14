@@ -1,0 +1,17 @@
+{
+  "dataset": "covid",
+  "ratio": 0.3,
+  "mode": "none",
+  "n_train": 223,
+  "n_train_full": 743,
+  "best_ep": 136,
+  "best_val_loss": 0.3809289485216141,
+  "test": {
+    "dice": 0.6398792266845703,
+    "dice_median": 0.7865581512451172,
+    "nonempty_dice": 0.5953453183174133,
+    "empty_fp_rate": 0.3,
+    "n": 94
+  },
+  "seed": 0
+}

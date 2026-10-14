@@ -1,0 +1,26 @@
+{
+  "stage": 3,
+  "skip_mode": "b0b3",
+  "desc": "additive B0..B3 (B4 off)",
+  "seg_best_ckpt": {
+    "epoch": 31,
+    "best_dice": 0.8272653727427773,
+    "scales": null
+  },
+  "test_batch_avg": {
+    "loss": 0.29263573481390875,
+    "main": 0.2919951324972014,
+    "kl": 0.6405998878180981,
+    "dice": 0.7847627314428488,
+    "iou": 0.7150880706806978
+  },
+  "test_per_image": {
+    "n": 94,
+    "empty_gt": 40,
+    "mean_dice_all": 0.7882837098657438,
+    "median_dice_all": 0.8936463296413422,
+    "mean_dice_nonempty": 0.7796049664417902,
+    "median_dice_nonempty": 0.8361421525478363,
+    "mean_iou_all": 0.7203227870018546
+  }
+}

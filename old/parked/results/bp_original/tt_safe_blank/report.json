@@ -1,0 +1,96 @@
+[
+  {
+    "tag": "none",
+    "val": {
+      "raw": {
+        "dice": 0.6172154545783997,
+        "nonempty": 0.6453404426574707,
+        "empty_fp": 0.4017857142857143
+      },
+      "slice_mass_0fn": {
+        "dice": 0.6189916729927063,
+        "nonempty": 0.6453404426574707,
+        "empty_fp": 0.39880952380952384
+      },
+      "patient_mass_0fn": {
+        "dice": 0.6189916729927063,
+        "nonempty": 0.6453404426574707,
+        "empty_fp": 0.39880952380952384
+      },
+      "nonempty_delta_slice": 0.0,
+      "nonempty_delta_patient": 0.0,
+      "n_patients_blanked": 2,
+      "n_patients": 47
+    },
+    "test": {
+      "raw": {
+        "dice": 0.6077910661697388,
+        "nonempty": 0.5817136764526367,
+        "empty_fp": 0.37425149700598803
+      },
+      "slice_mass_0fn": {
+        "dice": 0.6201903223991394,
+        "nonempty": 0.5816841721534729,
+        "empty_fp": 0.3532934131736527
+      },
+      "patient_mass_0fn": {
+        "dice": 0.6290676593780518,
+        "nonempty": 0.5817136764526367,
+        "empty_fp": 0.3383233532934132
+      },
+      "nonempty_delta_slice": -2.950429916381836e-05,
+      "nonempty_delta_patient": 0.0,
+      "n_patients_blanked": 5,
+      "n_patients": 47
+    },
+    "slice_tau_mass": 81.0,
+    "patient_tau_mass": 1068.0
+  },
+  {
+    "tag": "s5",
+    "val": {
+      "raw": {
+        "dice": 0.4251643717288971,
+        "nonempty": 0.6976544260978699,
+        "empty_fp": 0.7589285714285714
+      },
+      "slice_mass_0fn": {
+        "dice": 0.4251643717288971,
+        "nonempty": 0.6976544260978699,
+        "empty_fp": 0.7589285714285714
+      },
+      "patient_mass_0fn": {
+        "dice": 0.44115015864372253,
+        "nonempty": 0.6976544260978699,
+        "empty_fp": 0.7321428571428571
+      },
+      "nonempty_delta_slice": 0.0,
+      "nonempty_delta_patient": 0.0,
+      "n_patients_blanked": 2,
+      "n_patients": 47
+    },
+    "test": {
+      "raw": {
+        "dice": 0.39699336886405945,
+        "nonempty": 0.6604533195495605,
+        "empty_fp": 0.7844311377245509
+      },
+      "slice_mass_0fn": {
+        "dice": 0.398766428232193,
+        "nonempty": 0.6604533195495605,
+        "empty_fp": 0.781437125748503
+      },
+      "patient_mass_0fn": {
+        "dice": 0.4094047248363495,
+        "nonempty": 0.6604533195495605,
+        "empty_fp": 0.7634730538922155
+      },
+      "nonempty_delta_slice": 0.0,
+      "nonempty_delta_patient": 0.0,
+      "n_patients_blanked": 1,
+      "n_patients": 47
+    },
+    "slice_tau_mass": 3.0,
+    "patient_tau_mass": 1121.0
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "stage": 5,
+  "skip_mode": "b0b3_concat",
+  "desc": "concat+3x3 B0..B3 (B4 off)",
+  "seg_best_ckpt": {
+    "epoch": 83,
+    "best_dice": 0.8635895368845566,
+    "scales": null
+  },
+  "test_batch_avg": {
+    "loss": 0.2880347012542188,
+    "main": 0.2874584565870464,
+    "kl": 0.5762479305267334,
+    "dice": 0.8110458068549633,
+    "iou": 0.7467693736155828
+  },
+  "test_per_image": {
+    "n": 94,
+    "empty_gt": 40,
+    "mean_dice_all": 0.8149557281409752,
+    "median_dice_all": 0.9198657274246216,
+    "mean_dice_nonempty": 0.7889970033170862,
+    "median_dice_nonempty": 0.8493846356868744,
+    "mean_iou_all": 0.7525674426071529
+  }
+}

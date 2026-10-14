@@ -1,0 +1,56 @@
+DEVICE: cuda ROOT: D:\Desktop\BT_VAE
+SEG(none_freeze) BP train_30: 1352 563 564 batch=16
+encoder frozen: trainable 80982241/98814081 params
+encoder load missing=0 unexpected=0
+encoder frozen: trainable 80982241/98814081 params
+[SEG none_freeze] ep 1/400 train=2.2119 val=2.1625 dice_term=0.6452 nonempty=0.3909 empty_fp=0.699 (765.3s)
+  saved SEG_BEST loss=2.1625
+[SEG none_freeze] ep 2/400 train=2.0897 val=2.1058 dice_term=0.5229 nonempty=0.5158 empty_fp=0.896 (761.6s)
+  saved SEG_BEST loss=2.1058
+[SEG none_freeze] ep 3/400 train=2.0255 val=2.0802 dice_term=0.4700 nonempty=0.5178 empty_fp=0.923 (762.0s)
+  saved SEG_BEST loss=2.0802
+[SEG none_freeze] ep 4/400 train=2.0030 val=2.0370 dice_term=0.4422 nonempty=0.5689 empty_fp=0.854 (763.1s)
+  saved SEG_BEST loss=2.0370
+[SEG none_freeze] ep 5/400 train=1.9902 val=2.0281 dice_term=0.4271 nonempty=0.5769 empty_fp=0.836 (761.5s)
+  saved SEG_BEST loss=2.0281
+[SEG none_freeze] ep 6/400 train=1.9814 val=2.0171 dice_term=0.4128 nonempty=0.5884 empty_fp=0.824 (761.2s)
+  saved SEG_BEST loss=2.0171
+[SEG none_freeze] ep 7/400 train=1.9742 val=2.0126 dice_term=0.4059 nonempty=0.6119 empty_fp=0.863 (761.3s)
+  saved SEG_BEST loss=2.0126
+[SEG none_freeze] ep 8/400 train=1.9692 val=2.0096 dice_term=0.4010 nonempty=0.6040 empty_fp=0.827 (761.4s)
+  saved SEG_BEST loss=2.0096
+[SEG none_freeze] ep 9/400 train=1.9656 val=2.0099 dice_term=0.3963 nonempty=0.5855 empty_fp=0.765 (761.1s)
+[SEG none_freeze] ep 10/400 train=1.9597 val=2.0102 dice_term=0.3936 nonempty=0.5965 empty_fp=0.833 (761.2s)
+[SEG none_freeze] ep 11/400 train=1.9560 val=2.0052 dice_term=0.3894 nonempty=0.6206 empty_fp=0.830 (761.0s)
+  saved SEG_BEST loss=2.0052
+[SEG none_freeze] ep 12/400 train=1.9536 val=2.0051 dice_term=0.3863 nonempty=0.6082 empty_fp=0.774 (761.2s)
+  saved SEG_BEST loss=2.0051
+[SEG none_freeze] ep 13/400 train=1.9541 val=2.0044 dice_term=0.3858 nonempty=0.6175 empty_fp=0.812 (761.2s)
+  saved SEG_BEST loss=2.0044
+[SEG none_freeze] ep 14/400 train=1.9468 val=1.9989 dice_term=0.3821 nonempty=0.6540 empty_fp=0.872 (761.1s)
+  saved SEG_BEST loss=1.9989
+[SEG none_freeze] ep 15/400 train=1.9499 val=2.0061 dice_term=0.3793 nonempty=0.6282 empty_fp=0.881 (761.2s)
+[SEG none_freeze] ep 16/400 train=1.9363 val=2.0023 dice_term=0.3773 nonempty=0.6285 empty_fp=0.818 (761.3s)
+[SEG none_freeze] ep 17/400 train=1.9402 val=2.0118 dice_term=0.3755 nonempty=0.5667 empty_fp=0.664 (761.2s)
+[SEG none_freeze] ep 18/400 train=1.9422 val=2.0022 dice_term=0.3733 nonempty=0.6305 empty_fp=0.824 (761.2s)
+[SEG none_freeze] ep 19/400 train=1.9415 val=2.0010 dice_term=0.3711 nonempty=0.6420 empty_fp=0.812 (761.5s)
+[SEG none_freeze] ep 20/400 train=1.9306 val=1.9976 dice_term=0.3699 nonempty=0.6461 empty_fp=0.815 (761.2s)
+  saved SEG_BEST loss=1.9976
+[SEG none_freeze] ep 21/400 train=1.9356 val=2.0004 dice_term=0.3685 nonempty=0.6306 empty_fp=0.747 (760.9s)
+[SEG none_freeze] ep 22/400 train=1.9327 val=2.0057 dice_term=0.3650 nonempty=0.6019 empty_fp=0.753 (760.9s)
+[SEG none_freeze] ep 23/400 train=1.9296 val=2.0000 dice_term=0.3643 nonempty=0.6272 empty_fp=0.762 (765.5s)
+[SEG none_freeze] ep 24/400 train=1.9221 val=2.0044 dice_term=0.3633 nonempty=0.6166 empty_fp=0.780 (761.4s)
+[SEG none_freeze] ep 25/400 train=1.9312 val=2.0026 dice_term=0.3602 nonempty=0.6035 empty_fp=0.661 (761.3s)
+[SEG none_freeze] ep 26/400 train=1.8966 val=1.9980 dice_term=0.3618 nonempty=0.6319 empty_fp=0.705 (761.1s)
+[SEG none_freeze] ep 27/400 train=1.9288 val=2.0064 dice_term=0.3587 nonempty=0.6291 empty_fp=0.842 (761.3s)
+[SEG none_freeze] ep 28/400 train=1.9289 val=2.0010 dice_term=0.3606 nonempty=0.6237 empty_fp=0.738 (761.2s)
+[SEG none_freeze] ep 29/400 train=1.9181 val=1.9981 dice_term=0.3545 nonempty=0.6413 empty_fp=0.741 (761.3s)
+[SEG none_freeze] ep 30/400 train=1.9230 val=2.0039 dice_term=0.3525 nonempty=0.6198 empty_fp=0.792 (761.2s)
+[SEG none_freeze] ep 31/400 train=1.9118 val=2.0058 dice_term=0.3527 nonempty=0.6056 empty_fp=0.688 (761.2s)
+[SEG none_freeze] ep 32/400 train=1.9175 val=2.0037 dice_term=0.3517 nonempty=0.6265 empty_fp=0.750 (761.0s)
+[SEG none_freeze] ep 33/400 train=1.9177 val=2.0092 dice_term=0.3502 nonempty=0.5761 empty_fp=0.622 (761.2s)
+[SEG none_freeze] ep 34/400 train=1.9050 val=2.0036 dice_term=0.3494 nonempty=0.6196 empty_fp=0.735 (761.1s)
+[SEG none_freeze] ep 35/400 train=1.9169 val=2.0037 dice_term=0.3475 nonempty=0.6194 empty_fp=0.699 (761.1s)
+[SEG none_freeze] ep 36/400 train=1.9195 val=2.0087 dice_term=0.3499 nonempty=0.6456 empty_fp=0.911 (761.2s)
+[SEG none_freeze] ep 37/400 train=1.9152 val=2.0014 dice_term=0.3481 nonempty=0.6339 empty_fp=0.833 (761.2s)
+# stopped here (user: switch to presence). best val=1.9976 @20, last seen ep 37

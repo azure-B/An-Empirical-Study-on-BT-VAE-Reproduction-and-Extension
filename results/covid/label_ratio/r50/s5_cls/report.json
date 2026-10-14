@@ -1,0 +1,42 @@
+{
+  "dataset": "covid",
+  "ratio": 0.5,
+  "mode": "s5_cls",
+  "n_train": 372,
+  "loss": "BCEWithLogits",
+  "probability": "p = sigmoid(Head(mu)) = P(lesion present | slice)",
+  "tau": 0.39,
+  "tau_rule": "max val mean Dice among tau with nonempty drop <= 0.05",
+  "best_ep": 30,
+  "val_auroc": 0.9772727272727273,
+  "val_prob": {
+    "p_lesion": {
+      "n": 44,
+      "mean": 0.9162773489952087,
+      "median": 0.991074800491333
+    },
+    "p_empty": {
+      "n": 48,
+      "mean": 0.21438638865947723,
+      "median": 0.07197482883930206
+    }
+  },
+  "test_prob": {
+    "p_lesion": {
+      "n": 54,
+      "mean": 0.8764466643333435,
+      "median": 0.9893469214439392
+    },
+    "p_empty": {
+      "n": 40,
+      "mean": 0.23877310752868652,
+      "median": 0.0700194463133812
+    }
+  },
+  "test": {
+    "dice": 0.8073285818099976,
+    "nonempty_dice": 0.7201645374298096,
+    "empty_fp_rate": 0.075
+  },
+  "seed": 0
+}

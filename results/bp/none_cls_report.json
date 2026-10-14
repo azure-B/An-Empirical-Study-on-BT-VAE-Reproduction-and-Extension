@@ -1,0 +1,13 @@
+{
+  "dataset": "bp_train_30",
+  "loss": "BCEWithLogits",
+  "probability": "p = sigmoid(Head(mu)) = P(lesion present | slice)",
+  "tau": 0.7,
+  "best_ep": 32,
+  "val_auroc": 0.7871564925529684,
+  "test": {
+    "dice": 0.6702776551246643,
+    "nonempty_dice": 0.31320253014564514,
+    "empty_fp_rate": 0.08383233532934131
+  }
+}

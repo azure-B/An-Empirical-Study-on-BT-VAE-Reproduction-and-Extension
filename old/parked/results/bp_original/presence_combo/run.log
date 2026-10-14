@@ -1,0 +1,39 @@
+new_tau=0.11 old_tau=0.2 topk_thr=0.9493608448749934
+PICK SOFT_mean thr=0.40 VAL fp=0.360 ne=0.6447 TEST fp=0.344 ne=0.5708
+PICK SOFT_min thr=0.05 VAL fp=0.375 ne=0.6408 TEST fp=0.350 ne=0.5714
+PICK SOFT_prod thr=0.01 VAL fp=0.366 ne=0.6447 TEST fp=0.350 ne=0.5715
+
+=== VAL (key rows) ===
+C0                               dice=0.6193 ne=0.6462 fp=0.399 sens=0.881 TT=200 FT=134 TF=27 FF=202
+AND(C1_topk)                     dice=0.6507 ne=0.6315 fp=0.336 sens=0.828 TT=188 FT=113 TF=39 FF=223
+AND(C2_new)                      dice=0.6383 ne=0.6447 fp=0.366 sens=0.872 TT=198 FT=123 TF=29 FF=213
+AND(P_old)                       dice=0.6743 ne=0.6063 fp=0.280 sens=0.815 TT=185 FT=94 TF=42 FF=242
+AND(C1_topk+C2_new)              dice=0.6703 ne=0.6315 fp=0.304 sens=0.828 TT=188 FT=102 TF=39 FF=234
+AND(C1_topk+P_old)               dice=0.6892 ne=0.5948 fp=0.247 sens=0.775 TT=176 FT=83 TF=51 FF=253
+AND(C2_new+P_old)                dice=0.6814 ne=0.6063 fp=0.268 sens=0.815 TT=185 FT=90 TF=42 FF=246
+AND(C1_topk+C2_new+P_old)        dice=0.6963 ne=0.5948 fp=0.235 sens=0.775 TT=176 FT=79 TF=51 FF=257
+OR(C1_topk+C2_new+P_old)         dice=0.6188 ne=0.6447 fp=0.399 sens=0.872 TT=198 FT=134 TF=29 FF=202
+MAJ2of3                          dice=0.6482 ne=0.6429 fp=0.348 sens=0.868 TT=197 FT=117 TF=30 FF=219
+
+=== TEST (same rules) ===
+C0                               dice=0.6032 ne=0.5792 fp=0.380 sens=0.826 TT=190 FT=127 TF=40 FF=207
+AND(C1_topk)                     dice=0.6580 ne=0.5614 fp=0.275 sens=0.743 TT=171 FT=92 TF=59 FF=242
+AND(C2_new)                      dice=0.6180 ne=0.5763 fp=0.353 sens=0.817 TT=188 FT=118 TF=42 FF=216
+AND(P_old)                       dice=0.6516 ne=0.5325 fp=0.266 sens=0.743 TT=171 FT=89 TF=59 FF=245
+AND(C1_topk+C2_new)              dice=0.6640 ne=0.5588 fp=0.263 sens=0.739 TT=170 FT=88 TF=60 FF=246
+AND(C1_topk+P_old)               dice=0.6752 ne=0.5166 fp=0.216 sens=0.678 TT=156 FT=72 TF=74 FF=262
+AND(C2_new+P_old)                dice=0.6604 ne=0.5325 fp=0.251 sens=0.743 TT=171 FT=84 TF=59 FF=250
+AND(C1_topk+C2_new+P_old)        dice=0.6805 ne=0.5166 fp=0.207 sens=0.678 TT=156 FT=69 TF=74 FF=265
+OR(C1_topk+C2_new+P_old)         dice=0.6084 ne=0.5789 fp=0.371 sens=0.822 TT=189 FT=124 TF=41 FF=210
+MAJ2of3                          dice=0.6386 ne=0.5747 fp=0.317 sens=0.804 TT=185 FT=106 TF=45 FF=228
+empty-FP reject breakdown VAL {
+  "C1_only": 11,
+  "C2_only": 4,
+  "P_only": 23,
+  "C1_and_C2": 0,
+  "C1_and_P": 10,
+  "C2_and_P": 7,
+  "all3": 0,
+  "none_reject": 79
+}
+wrote D:\Desktop\BT_VAE\results\bp_original\presence_combo

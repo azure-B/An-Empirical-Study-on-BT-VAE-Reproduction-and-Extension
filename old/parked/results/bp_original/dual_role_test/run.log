@@ -1,0 +1,17 @@
+collect VAL¡¦
+collect TEST¡¦
+PICK maxp: no constrained thr vs S5 C0
+PICK maxp vsPlain thr=0.86 VAL fp=0.375 ne=0.6502
+PICK head vsPlain thr=0.21 VAL fp=0.446 ne=0.6458
+
+=== TEST ===
+S5_raw                               dice=0.3948 ne=0.6637 fp=0.790 sens=0.974 TT=224 FT=264 TF=6 FF=70
+plain_raw                            dice=0.6032 ne=0.5792 fp=0.380 sens=0.826 TT=190 FT=127 TF=40 FF=207
+soft_merge                           dice=0.6265 ne=0.6014 fp=0.356 sens=0.804 TT=185 FT=119 TF=45 FF=215
+A_hard_head@0.20                     dice=0.5637 ne=0.5909 fp=0.455 sens=0.857 TT=197 FT=152 TF=33 FF=182
+A_hard_head_plainMask@0.20           dice=0.6516 ne=0.5325 fp=0.266 sens=0.743 TT=171 FT=89 TF=59 FF=245
+C_maxp_vsPlain@VAL0.86               dice=0.6375 ne=0.5938 fp=0.332 sens=0.778 TT=179 FT=111 TF=51 FF=223
+A_head_vsPlain@VAL0.21               dice=0.5629 ne=0.5803 fp=0.449 sens=0.843 TT=194 FT=150 TF=36 FF=184
+C_hard_plainMass>0                   dice=0.6255 ne=0.6035 fp=0.359 sens=0.809 TT=186 FT=120 TF=44 FF=214
+VAL S5-emptyFP agree {"n_s5_empty_fp": 257, "rejected_by_head": 104, "rejected_by_plainMass": 125, "rejected_by_both": 65, "kept_by_both": 93, "nonempty_killed_head": 21, "nonempty_killed_plainMass": 27}
+wrote D:\Desktop\BT_VAE\results\bp_original\dual_role_test

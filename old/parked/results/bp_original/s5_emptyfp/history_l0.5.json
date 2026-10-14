@@ -1,0 +1,76 @@
+[
+  {
+    "init_val": {
+      "dice_mean": 0.4184049367904663,
+      "dice_median": 0.4114319682121277,
+      "mean_dice_nonempty": 0.6985109448432922,
+      "median_dice_nonempty": 0.7694235444068909,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.7708333333333334,
+      "empty_fp_penalty": 0.13551383497255762
+    },
+    "s5_ep": 20
+  },
+  {
+    "ep": 1,
+    "train_loss": 0.3872747564985907,
+    "val": {
+      "dice_mean": 0.6495686173439026,
+      "dice_median": 0.8619232177734375,
+      "mean_dice_nonempty": 0.531749427318573,
+      "median_dice_nonempty": 0.6943365335464478,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.2708333333333333,
+      "empty_fp_penalty": 0.05102623788997347
+    }
+  },
+  {
+    "ep": 2,
+    "train_loss": 0.37654142231630855,
+    "val": {
+      "dice_mean": 0.6288321018218994,
+      "dice_median": 0.854016900062561,
+      "mean_dice_nonempty": 0.5684249997138977,
+      "median_dice_nonempty": 0.7260726094245911,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.33035714285714285,
+      "empty_fp_penalty": 0.061040363052854166
+    }
+  },
+  {
+    "ep": 3,
+    "train_loss": 0.37171436828621746,
+    "val": {
+      "dice_mean": 0.6528168320655823,
+      "dice_median": 0.8786309361457825,
+      "mean_dice_nonempty": 0.5398057699203491,
+      "median_dice_nonempty": 0.718112587928772,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.2708333333333333,
+      "empty_fp_penalty": 0.050018844643052715
+    }
+  },
+  {
+    "ep": 4,
+    "train_loss": 0.3690778569885965,
+    "val": {
+      "dice_mean": 0.643254816532135,
+      "dice_median": 0.8738872408866882,
+      "mean_dice_nonempty": 0.5425218343734741,
+      "median_dice_nonempty": 0.7159258127212524,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.28869047619047616,
+      "empty_fp_penalty": 0.053239865598275364
+    }
+  }
+]

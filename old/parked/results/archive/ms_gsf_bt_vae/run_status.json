@@ -1,0 +1,22 @@
+{
+  "updated_at": "2026-09-19 02:42:46",
+  "phase": "done",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\Desktop\\BT_VAE\\train_rtx5060.py\", line 657, in <module>\n    main()\n  File \"D:\\Desktop\\BT_VAE\\train_rtx5060.py\", line 625, in main\n    auto_fit_vram()\n  File \"D:\\Desktop\\BT_VAE\\train_rtx5060.py\", line 136, in auto_fit_vram\n    print(f\"VRAM total={total:.2f}G budget={budget:.2f}G — probing ladder...\")\nUnicodeEncodeError: 'cp949' codec can't encode character '\\u2014' in position 30: illegal multibyte sequence\n",
+  "epoch": 113,
+  "best": 0.5538268301715242,
+  "bad_epochs": 50,
+  "val": {
+    "loss": 60.56369524475531,
+    "main": 53.38628062796086,
+    "kl": 1.4099271644091775,
+    "dice": 0.023017504493308003,
+    "iou": 0.01186892758459614
+  },
+  "test": {
+    "loss": 0.5482330119356196,
+    "main": 0.39850903360556206,
+    "kl": 1.7407462512347716,
+    "dice": 0.5420249922596937,
+    "iou": 0.4905914569273183
+  }
+}

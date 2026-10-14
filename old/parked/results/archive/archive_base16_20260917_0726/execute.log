@@ -1,0 +1,168 @@
+loading /mnt/d/Desktop/BT_VAE/BT_VAE_RTX5060.ipynb
+/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/nbformat/validator.py:434: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  _validate(nbdict, ref, version, version_minor, relax_add_props)
+executing with kernel bt-vae ...
+Traceback (most recent call last):
+  File "/mnt/d/Desktop/BT_VAE/run_rtx5060_nb.py", line 56, in <module>
+    main()
+  File "/mnt/d/Desktop/BT_VAE/run_rtx5060_nb.py", line 47, in main
+    client.execute()
+  File "/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def run_bt_epoch(encoder, loader, optimizer=None, scaler=None, accum_steps=1):
+    training = optimizer is not None
+    encoder.train(training)
+    total, total_bt, total_dist = 0.0, 0.0, 0.0
+    if training:
+        optimizer.zero_grad(set_to_none=True)
+
+    for step, batch in enumerate(loader, 1):
+        v1 = as_bchw(batch[2]).to(DEVICE, non_blocking=True)
+        v2 = as_bchw(batch[3]).to(DEVICE, non_blocking=True)
+        ctx = amp_context() if training else torch.no_grad()
+        with ctx:
+            p1, mu1, lv1 = encoder.forward_bt(v1)
+            p2, mu2, lv2 = encoder.forward_bt(v2)
+            loss_bt = barlow_loss(p1.float(), p2.float())
+            loss_dist = symmetric_diag_kl(mu1, lv1, mu2, lv2)
+            loss = loss_bt + 0.05 * loss_dist
+
+        if training:
+            scaler.scale(loss / accum_steps).backward()
+            if step % accum_steps == 0 or step == len(loader):
+                scaler.unscale_(optimizer)
+                nn.utils.clip_grad_norm_(encoder.parameters(), 1.0)
+                scaler.step(optimizer)
+                scaler.update()
+                optimizer.zero_grad(set_to_none=True)
+
+        total += loss.detach().item()
+        total_bt += loss_bt.detach().item()
+        total_dist += loss_dist.detach().item()
+    n = max(1, len(loader))
+    return {"loss": total/n, "bt": total_bt/n, "dist": total_dist/n}
+
+
+encoder = Encoder(BASE, DROPOUT, LATENT_CH).to(DEVICE)
+bt_optimizer = torch.optim.AdamW(encoder.parameters(), lr=2e-4, weight_decay=1e-4)
+bt_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+    bt_optimizer, mode="min", factor=0.5, patience=5, min_lr=1e-6
+)
+bt_scaler = make_scaler()
+best_bt, bad_epochs = float("inf"), 0
+
+# 중단 후 이어서 실행하려면 마지막 checkpoint를 자동으로 읽습니다.
+start_epoch = 1
+if BT_LAST.exists():
+    state = torch.load(BT_LAST, map_location=DEVICE)
+    encoder.load_state_dict(state["encoder"])
+    bt_optimizer.load_state_dict(state["optimizer"])
+    start_epoch = state["epoch"] + 1
+    best_bt = state.get("best", best_bt)
+    print("BT resume:", start_epoch)
+
+bt_phase_start = time.time()
+for epoch in range(start_epoch, BT_EPOCHS + 1):
+    train_m = run_bt_epoch(encoder, bt_train_loader, bt_optimizer, bt_scaler, BT_ACCUM)
+    val_m = run_bt_epoch(encoder, bt_val_loader)
+    bt_scheduler.step(val_m["loss"])
+
+    state = {
+        "epoch": epoch, "encoder": encoder.state_dict(),
+        "optimizer": bt_optimizer.state_dict(), "best": best_bt,
+        "config": {"base": BASE, "latent_ch": LATENT_CH, "dropout": DROPOUT}
+    }
+    torch.save(state, BT_LAST)
+    if val_m["loss"] < best_bt:
+        best_bt, bad_epochs = val_m["loss"], 0
+        state["best"] = best_bt
+        torch.save(state, BT_BEST)
+    else:
+        bad_epochs += 1
+
+    print(f"[BT {epoch:03d}] train={train_m['loss']:.5f} val={val_m['loss']:.5f} "
+          f"bt={val_m['bt']:.5f} dist={val_m['dist']:.5f} bad={bad_epochs}")
+    if bad_epochs >= BT_PATIENCE:
+        print("BT early stopping")
+        break
+    if time.time() - bt_phase_start >= PRETRAIN_MAX_HOURS * 3600:
+        print("BT time budget reached")
+        break
+------------------
+
+----- stdout -----
+[BT 001] train=0.05458 val=0.00537 bt=0.00536 dist=0.00015 bad=0
+----- stdout -----
+[BT 002] train=0.00402 val=0.00496 bt=0.00496 dist=0.00012 bad=0
+----- stdout -----
+[BT 003] train=0.00277 val=0.00322 bt=0.00322 dist=0.00008 bad=0
+----- stdout -----
+[BT 004] train=0.00255 val=0.00292 bt=0.00291 dist=0.00007 bad=0
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mKeyboardInterrupt[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 55[39m
+[32m     51[39m     print([33m"BT resume:"[39m, start_epoch)
+[32m     52[39m 
+[32m     53[39m bt_phase_start = time.time()
+[32m     54[39m [38;5;28;01mfor[39;00m epoch [38;5;28;01min[39;00m range(start_epoch, BT_EPOCHS + [32m1[39m):
+[32m---> [39m[32m55[39m     train_m = run_bt_epoch(encoder, bt_train_loader, bt_optimizer, bt_scaler, BT_ACCUM)
+[32m     56[39m     val_m = run_bt_epoch(encoder, bt_val_loader)
+[32m     57[39m     bt_scheduler.step(val_m[[33m"loss"[39m])
+[32m     58[39m 
+
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 20[39m, in [36mrun_bt_epoch[39m[34m(encoder, loader, optimizer, scaler, accum_steps)[39m
+[32m     16[39m             loss_dist = symmetric_diag_kl(mu1, lv1, mu2, lv2)
+[32m     17[39m             loss = loss_bt + [32m0.05[39m * loss_dist
+[32m     18[39m 
+[32m     19[39m         [38;5;28;01mif[39;00m training:
+[32m---> [39m[32m20[39m             scaler.scale(loss / accum_steps).backward()
+[32m     21[39m             [38;5;28;01mif[39;00m step % accum_steps == [32m0[39m [38;5;28;01mor[39;00m step == len(loader):
+[32m     22[39m                 scaler.unscale_(optimizer)
+[32m     23[39m                 nn.utils.clip_grad_norm_(encoder.parameters(), [32m1.0[39m)
+
+[36mFile [39m[32m/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/torch/_tensor.py:623[39m, in [36mTensor.backward[39m[34m(self, gradient, retain_graph, create_graph, inputs)[39m
+[32m    613[39m [38;5;28;01mif[39;00m has_torch_function_unary([38;5;28mself[39m):
+[32m    614[39m     [38;5;28;01mreturn[39;00m handle_torch_function(
+[32m    615[39m         Tensor.backward,
+[32m    616[39m         ([38;5;28mself[39m,),
+[32m   (...)[39m[32m    621[39m         inputs=inputs,
+[32m    622[39m     )
+[32m--> [39m[32m623[39m [30;43mtorch[39;49m[30;43m.[39;49m[30;43mautograd[39;49m[30;43m.[39;49m[30;43mbackward[39;49m[30;43m([39;49m
+[32m    624[39m [30;43m    [39;49m[30;43mself[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mgradient[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mretain_graph[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mcreate_graph[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43minputs[39;49m[30;43m=[39;49m[30;43minputs[39;49m
+[32m    625[39m [30;43m[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/torch/autograd/__init__.py:395[39m, in [36mbackward[39m[34m(tensors, grad_tensors, retain_graph, create_graph, grad_variables, inputs)[39m
+[32m    390[39m     retain_graph = create_graph
+[32m    392[39m [38;5;66;03m# The reason we repeat the same comment below is that[39;00m
+[32m    393[39m [38;5;66;03m# some Python versions print out the first line of a multi-line function[39;00m
+[32m    394[39m [38;5;66;03m# calls in the traceback and some print out the last line[39;00m
+[32m--> [39m[32m395[39m [30;43m_engine_run_backward[39;49m[30;43m([39;49m
+[32m    396[39m [30;43m    [39;49m[30;43mtensors[39;49m[30;43m,[39;49m
+[32m    397[39m [30;43m    [39;49m[30;43mgrad_tensors_[39;49m[30;43m,[39;49m
+[32m    398[39m [30;43m    [39;49m[30;43mretain_graph[39;49m[30;43m,[39;49m
+[32m    399[39m [30;43m    [39;49m[30;43mcreate_graph[39;49m[30;43m,[39;49m
+[32m    400[39m [30;43m    [39;49m[30;43minputs_tuple[39;49m[30;43m,[39;49m
+[32m    401[39m [30;43m    [39;49m[30;43mallow_unreachable[39;49m[30;43m=[39;49m[30;43;01mTrue[39;49;00m[30;43m,[39;49m
+[32m    402[39m [30;43m    [39;49m[30;43maccumulate_grad[39;49m[30;43m=[39;49m[30;43;01mTrue[39;49;00m[30;43m,[39;49m
+[32m    403[39m [30;43m[39;49m[30;43m)[39;49m
+
+[36mFile [39m[32m/mnt/d/Desktop/BT_VAE/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:1072[39m, in [36m_engine_run_backward[39m[34m(t_outputs, *args, **kwargs)[39m
+[32m   1069[39m torch._C._stash_obj_in_tls([33m"[39m[33mcontext[39m[33m"[39m, contextvars.copy_context())
+[32m   1071[39m [38;5;28;01mtry[39;00m:
+[32m-> [39m[32m1072[39m     [38;5;28;01mreturn[39;00m [30;43mVariable[39;49m[30;43m.[39;49m[30;43m_execution_engine[39;49m[30;43m.[39;49m[30;43mrun_backward[39;49m[30;43m([39;49m[30;43m  [39;49m[30;43;03m# Calls into the C++ engine to run the backward pass[39;49;00m
+[32m   1073[39m [30;43m        [39;49m[30;43mt_outputs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43margs[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43m*[39;49m[30;43m*[39;49m[30;43mkwargs[39;49m
+[32m   1074[39m [30;43m    [39;49m[30;43m)[39;49m  [38;5;66;03m# Calls into the C++ engine to run the backward pass[39;00m
+[32m   1075[39m [38;5;28;01mfinally[39;00m:
+[32m   1076[39m     [38;5;28;01mif[39;00m attach_logging_hooks:
+
+[31mKeyboardInterrupt[39m: 
+

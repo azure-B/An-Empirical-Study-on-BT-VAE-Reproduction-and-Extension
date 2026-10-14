@@ -1,0 +1,39 @@
+{
+  "ckpt": "D:\\Desktop\\BT_VAE\\results\\bp_original\\none\\seg_best.pt",
+  "best_ep": 48,
+  "best_val_loss": 0.4134387705061171,
+  "val": {
+    "n": 563,
+    "n_nonempty": 227,
+    "n_empty": 336,
+    "mean_dice": 0.6102147698402405,
+    "median_dice": 0.8175110816955566,
+    "mean_iou": 0.5650691390037537,
+    "mean_prec": 0.6876281499862671,
+    "mean_rec": 0.8479783535003662,
+    "mean_dice_nonempty": 0.6455987095832825,
+    "median_dice_nonempty": 0.7657398581504822,
+    "mean_iou_nonempty": 0.5336296558380127,
+    "mean_prec_nonempty": 0.8375975489616394,
+    "mean_rec_nonempty": 0.6229594945907593,
+    "empty_mean_dice": 0.586309552192688,
+    "empty_fp_rate": 0.41369047619047616
+  },
+  "test": {
+    "n": 564,
+    "n_nonempty": 230,
+    "n_empty": 334,
+    "mean_dice": 0.594718873500824,
+    "median_dice": 0.799446702003479,
+    "mean_iou": 0.5525497794151306,
+    "mean_prec": 0.7013838291168213,
+    "mean_rec": 0.819720983505249,
+    "mean_dice_nonempty": 0.580093264579773,
+    "median_dice_nonempty": 0.7311117053031921,
+    "mean_iou_nonempty": 0.47668716311454773,
+    "mean_prec_nonempty": 0.8416542410850525,
+    "mean_rec_nonempty": 0.5579244494438171,
+    "empty_mean_dice": 0.6047903895378113,
+    "empty_fp_rate": 0.39520958083832336
+  }
+}

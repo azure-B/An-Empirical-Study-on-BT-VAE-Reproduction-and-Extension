@@ -1,0 +1,16 @@
+indexed originals 5635 device cuda
+val: official=563 infer=1519
+  val baseline: dice=0.6104 nonempty=0.6461 empty_fp=0.414
+  val isolated_kill: dice=0.6289 nonempty=0.5598 empty_fp=0.324
+  val isolated_or_single: dice=0.6276 nonempty=0.5565 empty_fp=0.324
+  val majority_2of3: dice=0.6276 nonempty=0.5565 empty_fp=0.324
+  val isolated_small_200: dice=0.6140 nonempty=0.6461 empty_fp=0.408
+  val isolated_small_800: dice=0.6219 nonempty=0.6437 empty_fp=0.393
+test: official=564 infer=1520
+  test baseline: dice=0.5897 nonempty=0.5722 empty_fp=0.398
+  test isolated_kill: dice=0.6418 nonempty=0.5130 empty_fp=0.269
+  test isolated_or_single: dice=0.6438 nonempty=0.5091 empty_fp=0.263
+  test majority_2of3: dice=0.6438 nonempty=0.5091 empty_fp=0.263
+  test isolated_small_200: dice=0.6019 nonempty=0.5716 empty_fp=0.377
+  test isolated_small_800: dice=0.6253 nonempty=0.5682 empty_fp=0.335
+wrote D:\Desktop\BT_VAE\results\bp_original\none_neighbor\report.json

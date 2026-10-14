@@ -1,0 +1,7 @@
+DEVICE cuda dual-dec batch 4 lr 3e-05 plain ¥ë 1.5
+loaded skip_net from s5, plain_net from none
+INIT VAL merged {'dice': 0.6237986087799072, 'nonempty': 0.6572625637054443, 'empty_fp': 0.39880952380952384} floor 0.6789
+INIT VAL skip   {'dice': 0.42213043570518494, 'nonempty': 0.6989403367042542, 'empty_fp': 0.7648809523809523}
+INIT VAL plain  {'dice': 0.6099068522453308, 'nonempty': 0.640429675579071, 'empty_fp': 0.4107142857142857}
+[dual] ep 1/80 loss=0.3717 extra=0.0081 merged dice=0.6813 nonempty=0.5268 empty_fp=0.214 | skip ne=0.6266 fp=0.497 plain ne=0.4725 fp=0.220 (335.6s)
+[dual] ep 2/80 loss=0.3719 extra=0.0071 merged dice=0.6632 nonempty=0.5304 empty_fp=0.247 | skip ne=0.6113 fp=0.464 plain ne=0.5129 fp=0.262 (340.8s)

@@ -1,0 +1,149 @@
+{
+  "design": "freeze S5 + Presence25D gate",
+  "best_val_auroc": 0.7557163834696874,
+  "paper_pick": {
+    "val": {
+      "thr": 0.21,
+      "tp": 178,
+      "tn": 193,
+      "fp": 143,
+      "fn": 49,
+      "accuracy": 0.6589698046181173,
+      "sensitivity": 0.7841409691629956,
+      "specificity": 0.5744047619047619,
+      "precision": 0.5545171339563862,
+      "f1": 0.6496350364963503,
+      "auroc": 0.7557163834696874,
+      "nonempty_dice": 0.5832140445709229,
+      "empty_fp_rate": 0.375,
+      "seg_sensitivity": 0.775330396475771,
+      "pick": "dominate_none"
+    },
+    "test": {
+      "thr": 0.21,
+      "tp": 176,
+      "tn": 211,
+      "fp": 123,
+      "fn": 54,
+      "accuracy": 0.6861702127659575,
+      "sensitivity": 0.7652173913043478,
+      "specificity": 0.6317365269461078,
+      "precision": 0.5886287625418061,
+      "f1": 0.665406427221172,
+      "auroc": 0.7713876594636814,
+      "nonempty_dice": 0.5638970136642456,
+      "empty_fp_rate": 0.31736526946107785,
+      "seg_sensitivity": 0.7565217391304347
+    }
+  },
+  "s5_raw_test": {
+    "nonempty_dice": 0.662925660610199,
+    "empty_fp_rate": 0.7874251497005988
+  },
+  "none_ref": {
+    "nonempty_dice": 0.572,
+    "empty_fp_rate": 0.383
+  },
+  "soft_test": {
+    "thr": null,
+    "mode": "soft_mask_times_p",
+    "nonempty_dice": 0.4951896369457245,
+    "empty_fp_rate": 0.7874251497005988,
+    "sensitivity": 0.9608695652173913,
+    "specificity": 0.2125748502994012,
+    "auroc": 0.7713876594636814,
+    "TT": 221,
+    "FT": 263,
+    "TF": 9,
+    "FF": 71
+  },
+  "rows": [
+    {
+      "name": "TEST_s5_raw",
+      "nonempty_dice": 0.662925660610199,
+      "empty_fp_rate": 0.7874251497005988,
+      "sensitivity": 0.9608695652173913,
+      "thr": null
+    },
+    {
+      "name": "TEST_paper_dominate_none",
+      "thr": 0.21,
+      "accuracy": 0.6861702127659575,
+      "sensitivity": 0.7652173913043478,
+      "specificity": 0.6317365269461078,
+      "precision": 0.5886287625418061,
+      "f1": 0.665406427221172,
+      "auroc": 0.7713876594636814,
+      "tp": 176,
+      "tn": 211,
+      "fp": 123,
+      "fn": 54,
+      "nonempty_dice": 0.5638970136642456,
+      "empty_fp_rate": 0.31736526946107785,
+      "seg_sensitivity": 0.7565217391304347,
+      "val_ne": 0.5832140445709229,
+      "val_empty_fp": 0.375,
+      "val_pick": "dominate_none"
+    },
+    {
+      "name": "TEST_sensFloor_0.90",
+      "thr": 0.02,
+      "accuracy": 0.6170212765957447,
+      "sensitivity": 0.9304347826086956,
+      "specificity": 0.40119760479041916,
+      "precision": 0.5169082125603864,
+      "f1": 0.6645962732919254,
+      "auroc": 0.7713876594636814,
+      "tp": 214,
+      "tn": 134,
+      "fp": 200,
+      "fn": 16,
+      "nonempty_dice": 0.6402034759521484,
+      "empty_fp_rate": 0.5179640718562875,
+      "seg_sensitivity": 0.9
+    },
+    {
+      "name": "TEST_sensFloor_0.85",
+      "thr": 0.06,
+      "accuracy": 0.6400709219858156,
+      "sensitivity": 0.8565217391304348,
+      "specificity": 0.49101796407185627,
+      "precision": 0.5367847411444142,
+      "f1": 0.6599664991624791,
+      "auroc": 0.7713876594636814,
+      "tp": 197,
+      "tn": 164,
+      "fp": 170,
+      "fn": 33,
+      "nonempty_dice": 0.6113374829292297,
+      "empty_fp_rate": 0.437125748502994,
+      "seg_sensitivity": 0.8391304347826087
+    },
+    {
+      "name": "TEST_sensFloor_0.80",
+      "thr": 0.15,
+      "accuracy": 0.6719858156028369,
+      "sensitivity": 0.7956521739130434,
+      "specificity": 0.5868263473053892,
+      "precision": 0.5700934579439252,
+      "f1": 0.6642468239564429,
+      "auroc": 0.7713876594636814,
+      "tp": 183,
+      "tn": 196,
+      "fp": 138,
+      "fn": 47,
+      "nonempty_dice": 0.582238495349884,
+      "empty_fp_rate": 0.3592814371257485,
+      "seg_sensitivity": 0.782608695652174
+    },
+    {
+      "name": "TEST_soft",
+      "nonempty_dice": 0.4951896369457245,
+      "empty_fp_rate": 0.7874251497005988,
+      "sensitivity": 0.9608695652173913,
+      "specificity": 0.2125748502994012,
+      "auroc": 0.7713876594636814,
+      "thr": null
+    }
+  ]
+}

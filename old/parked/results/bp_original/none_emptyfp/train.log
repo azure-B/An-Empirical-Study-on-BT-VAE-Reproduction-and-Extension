@@ -1,0 +1,39 @@
+DEVICE: cuda empty-FP FT from D:\Desktop\BT_VAE\results\bp_original\none\seg_best.pt batch=16 lr=3e-05 ¥ë=6.0
+none VAL  dice=0.6129 nonempty=0.6478 empty_fp=0.411 floor=0.6278
+[emptyfp] ep 1/25 loss=0.3760 extra=0.0063 val_dice=0.6608 nonempty=0.5024 empty_fp=0.232 (950.4s)
+[emptyfp] ep 2/25 loss=0.3728 extra=0.0058 val_dice=0.6716 nonempty=0.5776 empty_fp=0.265 (945.7s)
+[emptyfp] ep 3/25 loss=0.3791 extra=0.0054 val_dice=0.6633 nonempty=0.4865 empty_fp=0.217 (926.9s)
+[emptyfp] ep 4/25 loss=0.3715 extra=0.0050 val_dice=0.6661 nonempty=0.4803 empty_fp=0.208 (943.0s)
+[emptyfp] ep 5/25 loss=0.3663 extra=0.0038 val_dice=0.6760 nonempty=0.4917 empty_fp=0.199 (942.6s)
+[emptyfp] ep 6/25 loss=0.3629 extra=0.0040 val_dice=0.6706 nonempty=0.4474 empty_fp=0.179 (945.5s)
+[emptyfp] ep 7/25 loss=0.3657 extra=0.0037 val_dice=0.6643 nonempty=0.5067 empty_fp=0.229 (926.9s)
+[emptyfp] ep 8/25 loss=0.3645 extra=0.0040 val_dice=0.6629 nonempty=0.4899 empty_fp=0.220 (942.9s)
+[emptyfp] ep 9/25 loss=0.3581 extra=0.0033 val_dice=0.6759 nonempty=0.4605 empty_fp=0.179 (942.3s)
+[emptyfp] ep 10/25 loss=0.3622 extra=0.0035 val_dice=0.6677 nonempty=0.5063 empty_fp=0.223 (945.7s)
+[emptyfp] ep 11/25 loss=0.3584 extra=0.0035 val_dice=0.6680 nonempty=0.4806 empty_fp=0.205 (927.0s)
+[emptyfp] ep 12/25 loss=0.3542 extra=0.0029 val_dice=0.6734 nonempty=0.4983 empty_fp=0.208 (943.3s)
+[emptyfp] ep 13/25 loss=0.3555 extra=0.0029 val_dice=0.6625 nonempty=0.5109 empty_fp=0.235 (942.4s)
+[emptyfp] ep 14/25 loss=0.3518 extra=0.0029 val_dice=0.6698 nonempty=0.5026 empty_fp=0.217 (945.5s)
+[emptyfp] ep 15/25 loss=0.3536 extra=0.0033 val_dice=0.6754 nonempty=0.4636 empty_fp=0.182 (927.2s)
+[emptyfp] ep 16/25 loss=0.3523 extra=0.0028 val_dice=0.6630 nonempty=0.5033 empty_fp=0.229 (942.9s)
+[emptyfp] ep 17/25 loss=0.3528 extra=0.0025 val_dice=0.6813 nonempty=0.4562 empty_fp=0.167 (942.3s)
+[emptyfp] ep 18/25 loss=0.3544 extra=0.0028 val_dice=0.6811 nonempty=0.4381 empty_fp=0.155 (945.7s)
+[emptyfp] ep 19/25 loss=0.3495 extra=0.0024 val_dice=0.6664 nonempty=0.4679 empty_fp=0.199 (927.0s)
+[emptyfp] ep 20/25 loss=0.3504 extra=0.0026 val_dice=0.6708 nonempty=0.4699 empty_fp=0.193 (943.0s)
+[emptyfp] ep 21/25 loss=0.3489 extra=0.0024 val_dice=0.6701 nonempty=0.4771 empty_fp=0.199 (942.3s)
+[emptyfp] ep 22/25 loss=0.3508 extra=0.0025 val_dice=0.6650 nonempty=0.4776 empty_fp=0.208 (945.6s)
+[emptyfp] ep 23/25 loss=0.3482 extra=0.0024 val_dice=0.6697 nonempty=0.4715 empty_fp=0.196 (927.1s)
+[emptyfp] ep 24/25 loss=0.3480 extra=0.0022 val_dice=0.6772 nonempty=0.4593 empty_fp=0.176 (943.0s)
+[emptyfp] ep 25/25 loss=0.3464 extra=0.0022 val_dice=0.6822 nonempty=0.4762 empty_fp=0.179 (942.2s)
+no ckpt kept nonempty floor; evaluating last
+TEST emptyfp: {
+  "dice_mean": 0.6722190380096436,
+  "dice_median": 0.9429999589920044,
+  "mean_dice_nonempty": 0.4310067594051361,
+  "median_dice_nonempty": 0.6070810556411743,
+  "n": 564,
+  "n_nonempty": 230,
+  "n_empty": 334,
+  "empty_fp_rate": 0.16167664670658682,
+  "empty_fp_penalty": 0.029619712407313474
+}

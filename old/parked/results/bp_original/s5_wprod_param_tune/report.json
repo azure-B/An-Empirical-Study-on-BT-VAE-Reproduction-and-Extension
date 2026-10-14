@@ -1,0 +1,84 @@
+{
+  "current": {
+    "ne": 0.601,
+    "fp": 0.305
+  },
+  "same_ab_dense": {
+    "val": {
+      "tp": 176,
+      "fp": 93,
+      "fn": 51,
+      "tn": 243,
+      "sensitivity": 0.775330396475771,
+      "specificity": 0.7232142857142857,
+      "nonempty_dice": 0.6022632718086243,
+      "empty_fp_rate": 0.2767857142857143,
+      "auroc": 0.8010410111181037,
+      "thr": 0.005,
+      "min_mass": 1040
+    },
+    "test": {
+      "tp": 171,
+      "fp": 86,
+      "fn": 59,
+      "tn": 248,
+      "sensitivity": 0.7434782608695653,
+      "specificity": 0.7425149700598802,
+      "nonempty_dice": 0.579999566078186,
+      "empty_fp_rate": 0.25748502994011974,
+      "auroc": 0.7969148659203332,
+      "thr": 0.005,
+      "min_mass": 1040
+    },
+    "oracle": {
+      "tp": 182,
+      "fp": 95,
+      "fn": 48,
+      "tn": 239,
+      "sensitivity": 0.7913043478260869,
+      "specificity": 0.7155688622754491,
+      "nonempty_dice": 0.6064938902854919,
+      "empty_fp_rate": 0.2844311377245509,
+      "auroc": 0.7969148659203332,
+      "thr": 0.005,
+      "min_mass": 800
+    }
+  },
+  "best_val_pick": {
+    "recipe": "wprod",
+    "alpha": 1.8,
+    "beta": 0.5,
+    "val_ne": 0.6002395749092102,
+    "val_fp": 0.24702380952380953,
+    "thr": 0.03,
+    "min_mass": 1200,
+    "test_ne": 0.5544903874397278,
+    "test_fp": 0.23952095808383234,
+    "test_sens": 0.7043478260869566,
+    "test_fn": 68,
+    "test_fp_n": 80,
+    "oracle_ne": 0.6010472178459167,
+    "oracle_fp": 0.281437125748503,
+    "oracle_thr": 0.025,
+    "oracle_mass": 800
+  },
+  "test_ceiling": {
+    "recipe": "wprod",
+    "alpha": 1.0,
+    "beta": 1.8,
+    "val_ne": 0.601009726524353,
+    "val_fp": 0.31845238095238093,
+    "thr": 0.005,
+    "min_mass": 640,
+    "test_ne": 0.6018149852752686,
+    "test_fp": 0.2994011976047904,
+    "test_sens": 0.8,
+    "test_fn": 46,
+    "test_fp_n": 100,
+    "oracle_ne": 0.600004255771637,
+    "oracle_fp": 0.2904191616766467,
+    "oracle_thr": 0.005,
+    "oracle_mass": 680
+  },
+  "n_configs": 115
+}

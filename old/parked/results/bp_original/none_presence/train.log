@@ -1,0 +1,115 @@
+DEVICE: cuda presence on frozen none: 1352 563 564 batch=16
+ungated VAL: dice=0.6125 nonempty=0.6425 empty_fp=0.408 tau_floor_nonempty=0.6225
+[presence] ep 1/60 loss=0.7575 acc=0.648 auroc=0.645 val_dice=0.6415 nonempty=0.3884 empty_fp=0.188 pres_rec=0.581 (31.0s)
+  saved HEAD_BEST auroc=0.6448
+[presence] ep 2/60 loss=0.7234 acc=0.677 auroc=0.678 val_dice=0.6471 nonempty=0.4022 empty_fp=0.188 pres_rec=0.599 (27.6s)
+  saved HEAD_BEST auroc=0.6776
+[presence] ep 3/60 loss=0.7042 acc=0.690 auroc=0.662 val_dice=0.6444 nonempty=0.4133 empty_fp=0.199 pres_rec=0.608 (27.6s)
+[presence] ep 4/60 loss=0.6887 acc=0.699 auroc=0.679 val_dice=0.6446 nonempty=0.4755 empty_fp=0.241 pres_rec=0.714 (27.3s)
+  saved HEAD_BEST auroc=0.6790
+[presence] ep 5/60 loss=0.6762 acc=0.720 auroc=0.662 val_dice=0.6358 nonempty=0.4668 empty_fp=0.250 pres_rec=0.696 (27.4s)
+[presence] ep 6/60 loss=0.6739 acc=0.708 auroc=0.686 val_dice=0.6414 nonempty=0.4719 empty_fp=0.244 pres_rec=0.696 (27.4s)
+  saved HEAD_BEST auroc=0.6857
+[presence] ep 7/60 loss=0.6556 acc=0.722 auroc=0.707 val_dice=0.6516 nonempty=0.4752 empty_fp=0.229 pres_rec=0.700 (27.4s)
+  saved HEAD_BEST auroc=0.7072
+[presence] ep 8/60 loss=0.6574 acc=0.724 auroc=0.682 val_dice=0.6394 nonempty=0.4317 empty_fp=0.220 pres_rec=0.626 (27.4s)
+[presence] ep 9/60 loss=0.6390 acc=0.719 auroc=0.688 val_dice=0.6467 nonempty=0.4498 empty_fp=0.220 pres_rec=0.665 (27.4s)
+[presence] ep 10/60 loss=0.6364 acc=0.736 auroc=0.703 val_dice=0.6522 nonempty=0.4591 empty_fp=0.217 pres_rec=0.674 (27.4s)
+[presence] ep 11/60 loss=0.6243 acc=0.736 auroc=0.706 val_dice=0.6549 nonempty=0.4393 empty_fp=0.199 pres_rec=0.648 (27.4s)
+[presence] ep 12/60 loss=0.6267 acc=0.731 auroc=0.713 val_dice=0.6545 nonempty=0.4868 empty_fp=0.232 pres_rec=0.722 (27.4s)
+  saved HEAD_BEST auroc=0.7125
+[presence] ep 13/60 loss=0.6122 acc=0.748 auroc=0.713 val_dice=0.6514 nonempty=0.4350 empty_fp=0.202 pres_rec=0.643 (27.4s)
+  saved HEAD_BEST auroc=0.7128
+[presence] ep 14/60 loss=0.6094 acc=0.737 auroc=0.720 val_dice=0.6630 nonempty=0.4594 empty_fp=0.199 pres_rec=0.683 (27.4s)
+  saved HEAD_BEST auroc=0.7202
+[presence] ep 15/60 loss=0.6189 acc=0.743 auroc=0.725 val_dice=0.6536 nonempty=0.4315 empty_fp=0.196 pres_rec=0.643 (27.4s)
+  saved HEAD_BEST auroc=0.7253
+[presence] ep 16/60 loss=0.6114 acc=0.742 auroc=0.724 val_dice=0.6563 nonempty=0.4250 empty_fp=0.188 pres_rec=0.612 (27.4s)
+[presence] ep 17/60 loss=0.5897 acc=0.765 auroc=0.719 val_dice=0.6540 nonempty=0.4239 empty_fp=0.190 pres_rec=0.608 (27.4s)
+[presence] ep 18/60 loss=0.6003 acc=0.750 auroc=0.703 val_dice=0.6460 nonempty=0.4743 empty_fp=0.238 pres_rec=0.714 (27.4s)
+[presence] ep 19/60 loss=0.5908 acc=0.756 auroc=0.702 val_dice=0.6524 nonempty=0.4110 empty_fp=0.185 pres_rec=0.586 (27.4s)
+[presence] ep 20/60 loss=0.5902 acc=0.762 auroc=0.733 val_dice=0.6629 nonempty=0.4327 empty_fp=0.182 pres_rec=0.634 (27.4s)
+  saved HEAD_BEST auroc=0.7326
+[presence] ep 21/60 loss=0.5780 acc=0.759 auroc=0.690 val_dice=0.6560 nonempty=0.4288 empty_fp=0.190 pres_rec=0.604 (27.4s)
+[presence] ep 22/60 loss=0.5874 acc=0.760 auroc=0.722 val_dice=0.6485 nonempty=0.4322 empty_fp=0.205 pres_rec=0.630 (27.4s)
+[presence] ep 23/60 loss=0.5757 acc=0.770 auroc=0.725 val_dice=0.6607 nonempty=0.4492 empty_fp=0.196 pres_rec=0.652 (27.4s)
+[presence] ep 24/60 loss=0.5749 acc=0.763 auroc=0.731 val_dice=0.6560 nonempty=0.4333 empty_fp=0.193 pres_rec=0.626 (27.4s)
+[presence] ep 25/60 loss=0.5687 acc=0.769 auroc=0.724 val_dice=0.6535 nonempty=0.4137 empty_fp=0.185 pres_rec=0.604 (27.4s)
+[presence] ep 26/60 loss=0.5514 acc=0.772 auroc=0.736 val_dice=0.6585 nonempty=0.4614 empty_fp=0.208 pres_rec=0.670 (27.4s)
+  saved HEAD_BEST auroc=0.7362
+[presence] ep 27/60 loss=0.5566 acc=0.766 auroc=0.737 val_dice=0.6606 nonempty=0.4667 empty_fp=0.208 pres_rec=0.687 (27.4s)
+  saved HEAD_BEST auroc=0.7366
+[presence] ep 28/60 loss=0.5511 acc=0.775 auroc=0.743 val_dice=0.6586 nonempty=0.4747 empty_fp=0.217 pres_rec=0.696 (27.4s)
+  saved HEAD_BEST auroc=0.7426
+[presence] ep 29/60 loss=0.5363 acc=0.789 auroc=0.736 val_dice=0.6562 nonempty=0.4116 empty_fp=0.179 pres_rec=0.586 (27.4s)
+[presence] ep 30/60 loss=0.5382 acc=0.786 auroc=0.730 val_dice=0.6545 nonempty=0.4074 empty_fp=0.179 pres_rec=0.581 (27.4s)
+[presence] ep 31/60 loss=0.5391 acc=0.786 auroc=0.740 val_dice=0.6604 nonempty=0.4177 empty_fp=0.176 pres_rec=0.595 (27.4s)
+[presence] ep 32/60 loss=0.5473 acc=0.785 auroc=0.751 val_dice=0.6624 nonempty=0.4579 empty_fp=0.199 pres_rec=0.665 (27.4s)
+  saved HEAD_BEST auroc=0.7506
+[presence] ep 33/60 loss=0.5231 acc=0.788 auroc=0.753 val_dice=0.6678 nonempty=0.4359 empty_fp=0.176 pres_rec=0.621 (27.4s)
+  saved HEAD_BEST auroc=0.7525
+[presence] ep 34/60 loss=0.5230 acc=0.789 auroc=0.739 val_dice=0.6571 nonempty=0.4403 empty_fp=0.196 pres_rec=0.630 (27.4s)
+[presence] ep 35/60 loss=0.5307 acc=0.797 auroc=0.741 val_dice=0.6645 nonempty=0.4587 empty_fp=0.196 pres_rec=0.665 (27.4s)
+[presence] ep 36/60 loss=0.5218 acc=0.788 auroc=0.753 val_dice=0.6690 nonempty=0.4787 empty_fp=0.202 pres_rec=0.700 (27.4s)
+  saved HEAD_BEST auroc=0.7531
+[presence] ep 37/60 loss=0.5279 acc=0.794 auroc=0.754 val_dice=0.6706 nonempty=0.4606 empty_fp=0.188 pres_rec=0.670 (27.4s)
+  saved HEAD_BEST auroc=0.7539
+[presence] ep 38/60 loss=0.5223 acc=0.794 auroc=0.731 val_dice=0.6540 nonempty=0.4501 empty_fp=0.208 pres_rec=0.643 (27.4s)
+[presence] ep 39/60 loss=0.5117 acc=0.805 auroc=0.758 val_dice=0.6736 nonempty=0.4681 empty_fp=0.188 pres_rec=0.674 (27.4s)
+  saved HEAD_BEST auroc=0.7577
+[presence] ep 40/60 loss=0.5085 acc=0.801 auroc=0.750 val_dice=0.6646 nonempty=0.4722 empty_fp=0.205 pres_rec=0.670 (27.4s)
+[presence] ep 41/60 loss=0.5247 acc=0.795 auroc=0.736 val_dice=0.6639 nonempty=0.4264 empty_fp=0.176 pres_rec=0.612 (27.4s)
+[presence] ep 42/60 loss=0.5135 acc=0.800 auroc=0.748 val_dice=0.6611 nonempty=0.4459 empty_fp=0.193 pres_rec=0.648 (27.4s)
+[presence] ep 43/60 loss=0.5163 acc=0.791 auroc=0.752 val_dice=0.6593 nonempty=0.4589 empty_fp=0.205 pres_rec=0.661 (27.4s)
+[presence] ep 44/60 loss=0.5137 acc=0.798 auroc=0.750 val_dice=0.6701 nonempty=0.4725 empty_fp=0.196 pres_rec=0.683 (27.4s)
+[presence] ep 45/60 loss=0.5118 acc=0.792 auroc=0.753 val_dice=0.6688 nonempty=0.4649 empty_fp=0.193 pres_rec=0.665 (27.4s)
+[presence] ep 46/60 loss=0.4984 acc=0.799 auroc=0.757 val_dice=0.6627 nonempty=0.4587 empty_fp=0.199 pres_rec=0.656 (27.4s)
+[presence] ep 47/60 loss=0.4915 acc=0.813 auroc=0.754 val_dice=0.6745 nonempty=0.4614 empty_fp=0.182 pres_rec=0.652 (27.4s)
+[presence] ep 48/60 loss=0.4890 acc=0.810 auroc=0.752 val_dice=0.6688 nonempty=0.4606 empty_fp=0.190 pres_rec=0.661 (27.4s)
+[presence] ep 49/60 loss=0.5064 acc=0.797 auroc=0.754 val_dice=0.6720 nonempty=0.4640 empty_fp=0.188 pres_rec=0.652 (27.4s)
+[presence] ep 50/60 loss=0.4882 acc=0.802 auroc=0.756 val_dice=0.6647 nonempty=0.4591 empty_fp=0.196 pres_rec=0.652 (27.4s)
+[presence] ep 51/60 loss=0.5030 acc=0.798 auroc=0.758 val_dice=0.6611 nonempty=0.4457 empty_fp=0.193 pres_rec=0.634 (27.4s)
+  saved HEAD_BEST auroc=0.7579
+[presence] ep 52/60 loss=0.5001 acc=0.809 auroc=0.757 val_dice=0.6718 nonempty=0.4723 empty_fp=0.193 pres_rec=0.670 (27.4s)
+[presence] ep 53/60 loss=0.4822 acc=0.805 auroc=0.756 val_dice=0.6661 nonempty=0.4449 empty_fp=0.185 pres_rec=0.626 (27.4s)
+[presence] ep 54/60 loss=0.4907 acc=0.800 auroc=0.756 val_dice=0.6662 nonempty=0.4586 empty_fp=0.193 pres_rec=0.643 (27.4s)
+[presence] ep 55/60 loss=0.4913 acc=0.798 auroc=0.753 val_dice=0.6652 nonempty=0.4561 empty_fp=0.193 pres_rec=0.656 (27.4s)
+[presence] ep 56/60 loss=0.4789 acc=0.811 auroc=0.754 val_dice=0.6712 nonempty=0.4532 empty_fp=0.182 pres_rec=0.639 (27.4s)
+[presence] ep 57/60 loss=0.4761 acc=0.807 auroc=0.756 val_dice=0.6716 nonempty=0.4587 empty_fp=0.185 pres_rec=0.643 (27.4s)
+[presence] ep 58/60 loss=0.4747 acc=0.815 auroc=0.754 val_dice=0.6657 nonempty=0.4527 empty_fp=0.190 pres_rec=0.639 (27.4s)
+[presence] ep 59/60 loss=0.4686 acc=0.811 auroc=0.753 val_dice=0.6731 nonempty=0.4711 empty_fp=0.190 pres_rec=0.665 (27.4s)
+[presence] ep 60/60 loss=0.4795 acc=0.817 auroc=0.756 val_dice=0.6749 nonempty=0.4711 empty_fp=0.188 pres_rec=0.670 (27.4s)
+tau sweep on VAL (keep nonempty >= none-0.02)
+  tau=0.20 dice=0.6745 nonempty=0.6069 empty_fp=0.280 pres_rec=0.907
+  tau=0.30 dice=0.6557 nonempty=0.5205 empty_fp=0.253 pres_rec=0.784
+  tau=0.40 dice=0.6692 nonempty=0.5011 empty_fp=0.217 pres_rec=0.731
+  tau=0.50 dice=0.6662 nonempty=0.4495 empty_fp=0.188 pres_rec=0.634
+  tau=0.60 dice=0.6601 nonempty=0.3906 empty_fp=0.158 pres_rec=0.546
+  tau=0.70 dice=0.6557 nonempty=0.3135 empty_fp=0.113 pres_rec=0.427
+  tau=0.80 dice=0.6586 nonempty=0.2457 empty_fp=0.062 pres_rec=0.322
+no tau kept nonempty floor; fallback to max overall dice
+chosen tau=0.20
+TEST ungated: {
+  "dice_mean": 0.6024431586265564,
+  "dice_median": 0.8102332353591919,
+  "mean_dice_nonempty": 0.5772954821586609,
+  "median_dice_nonempty": 0.7262182235717773,
+  "n": 564,
+  "n_nonempty": 230,
+  "n_empty": 334,
+  "empty_fp_rate": 0.38023952095808383
+}
+TEST gated: {
+  "dice_mean": 0.6490954756736755,
+  "dice_median": 0.8533297181129456,
+  "mean_dice_nonempty": 0.5308253169059753,
+  "median_dice_nonempty": 0.7114025354385376,
+  "n": 564,
+  "n_nonempty": 230,
+  "n_empty": 334,
+  "empty_fp_rate": 0.2694610778443114,
+  "presence_acc": 0.624113475177305,
+  "presence_recall": 0.8782608695652174,
+  "presence_auroc": 0.7385446498307733,
+  "tau": 0.2
+}

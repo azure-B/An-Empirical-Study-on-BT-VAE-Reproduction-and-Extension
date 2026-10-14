@@ -1,0 +1,49 @@
+{
+  "cutoff_note": "SEG early-stop patience=40; best ckpt used for TEST; max epochs=400",
+  "history": {
+    "best_val_dice": 0.8302620312441951,
+    "best_val_epoch": 55,
+    "last_epoch": 95,
+    "last_val_dice": 0.8009637490562771
+  },
+  "seg_best_ckpt": {
+    "epoch": 55,
+    "best_dice": 0.8302620312441951,
+    "gammas": {
+      "g4": 0.3932265341281891,
+      "g3": 0.48460373282432556,
+      "g2": 0.9967834949493408,
+      "g1": 0.9842025637626648,
+      "g0": 0.0
+    }
+  },
+  "test_batch_avg": {
+    "loss": 0.29755529668182135,
+    "main": 0.29694531997665763,
+    "kl": 0.6099790533383688,
+    "dice": 0.7663251695533594,
+    "iou": 0.7032680362462997
+  },
+  "test_per_image": {
+    "n": 94,
+    "empty_gt": 40,
+    "mean_dice_all": 0.7717933889599329,
+    "median_dice_all": 0.9094987213611603,
+    "mean_dice_nonempty": 0.7694181052262792,
+    "median_dice_nonempty": 0.8277557194232941,
+    "mean_iou_all": 0.7103295977962549
+  },
+  "original_ref": {
+    "mean": 0.76,
+    "median": 0.84
+  },
+  "additive_skip_ref": {
+    "mean_dice_nonempty": 0.7828528351253934,
+    "median_dice_nonempty": 0.8391492366790771
+  },
+  "attn_ref": {
+    "test_dice": 0.7729,
+    "mean_dice_nonempty": 0.7787,
+    "median_dice_nonempty": 0.8299
+  }
+}

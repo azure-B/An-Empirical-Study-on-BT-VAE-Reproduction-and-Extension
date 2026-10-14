@@ -1,0 +1,92 @@
+loaded skip_net from s5, plain_net from none
+==== mix_prob
+  メ=0.00 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.10 VAL ne=0.7011 fp=0.756  TEST ne=0.6631 fp=0.766 dice=0.4087
+  メ=0.20 VAL ne=0.7011 fp=0.744  TEST ne=0.6619 fp=0.763 dice=0.4100
+  メ=0.30 VAL ne=0.7006 fp=0.726  TEST ne=0.6595 fp=0.751 dice=0.4161
+  メ=0.40 VAL ne=0.6934 fp=0.640  TEST ne=0.6449 fp=0.638 dice=0.4775
+  メ=0.50 VAL ne=0.6518 fp=0.411  TEST ne=0.5892 fp=0.362 dice=0.6179
+  メ=0.60 VAL ne=0.6456 fp=0.408  TEST ne=0.5823 fp=0.374 dice=0.6080
+  メ=0.70 VAL ne=0.6430 fp=0.411  TEST ne=0.5788 fp=0.374 dice=0.6066
+  メ=0.80 VAL ne=0.6414 fp=0.408  TEST ne=0.5765 fp=0.392 dice=0.5950
+  メ=0.90 VAL ne=0.6402 fp=0.411  TEST ne=0.5748 fp=0.395 dice=0.5926
+  メ=1.00 VAL ne=0.6391 fp=0.411  TEST ne=0.5734 fp=0.395 dice=0.5920
+  PICK fp~0.30 メ=0.60 TEST ne=0.5823 fp=0.374
+  PICK fp~0.20 メ=0.60 TEST ne=0.5823 fp=0.374
+  PICK fp~0.10 メ=0.60 TEST ne=0.5823 fp=0.374
+==== prod_gate
+  メ=0.00 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.10 VAL ne=0.6618 fp=0.467  TEST ne=0.6056 fp=0.428 dice=0.5856
+  メ=0.20 VAL ne=0.6437 fp=0.396  TEST ne=0.5778 fp=0.362 dice=0.6133
+  メ=0.30 VAL ne=0.6366 fp=0.390  TEST ne=0.5678 fp=0.347 dice=0.6181
+  メ=0.40 VAL ne=0.6328 fp=0.387  TEST ne=0.5630 fp=0.344 dice=0.6179
+  メ=0.50 VAL ne=0.6300 fp=0.387  TEST ne=0.5595 fp=0.341 dice=0.6182
+  メ=0.60 VAL ne=0.6280 fp=0.384  TEST ne=0.5566 fp=0.338 dice=0.6188
+  メ=0.70 VAL ne=0.6262 fp=0.384  TEST ne=0.5543 fp=0.338 dice=0.6179
+  メ=0.80 VAL ne=0.6247 fp=0.384  TEST ne=0.5526 fp=0.338 dice=0.6172
+  メ=0.90 VAL ne=0.6233 fp=0.381  TEST ne=0.5510 fp=0.335 dice=0.6183
+  メ=1.00 VAL ne=0.6219 fp=0.381  TEST ne=0.5497 fp=0.332 dice=0.6195
+  PICK fp~0.30 メ=0.90 TEST ne=0.5510 fp=0.335
+  PICK fp~0.20 メ=0.90 TEST ne=0.5510 fp=0.335
+  PICK fp~0.10 メ=0.90 TEST ne=0.5510 fp=0.335
+==== pixel_veto
+  メ=0.00 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.10 VAL ne=0.6406 fp=0.396  TEST ne=0.5717 fp=0.365 dice=0.6090
+  メ=0.20 VAL ne=0.6354 fp=0.390  TEST ne=0.5646 fp=0.350 dice=0.6150
+  メ=0.30 VAL ne=0.6315 fp=0.387  TEST ne=0.5601 fp=0.350 dice=0.6131
+  メ=0.40 VAL ne=0.6284 fp=0.387  TEST ne=0.5559 fp=0.344 dice=0.6150
+  メ=0.50 VAL ne=0.6251 fp=0.381  TEST ne=0.5521 fp=0.341 dice=0.6152
+  メ=0.60 VAL ne=0.6214 fp=0.378  TEST ne=0.5479 fp=0.335 dice=0.6171
+  メ=0.70 VAL ne=0.6169 fp=0.372  TEST ne=0.5428 fp=0.329 dice=0.6185
+  メ=0.80 VAL ne=0.6103 fp=0.369  TEST ne=0.5358 fp=0.317 dice=0.6228
+  メ=0.90 VAL ne=0.5960 fp=0.342  TEST ne=0.5217 fp=0.296 dice=0.6294
+  メ=1.00 VAL ne=0.0151 fp=0.006  TEST ne=0.0211 fp=0.003 dice=0.5990
+  PICK fp~0.30 メ=0.90 TEST ne=0.5217 fp=0.296
+  PICK fp~0.20 メ=0.90 TEST ne=0.5217 fp=0.296
+  PICK fp~0.10 メ=1.00 TEST ne=0.0211 fp=0.003
+==== mass_cgm
+  メ=0.00 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.10 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.20 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.30 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.40 VAL ne=0.6598 fp=0.402  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.50 VAL ne=0.6150 fp=0.295  TEST ne=0.5781 fp=0.308 dice=0.6453
+  メ=0.60 VAL ne=0.5407 fp=0.205  TEST ne=0.5307 fp=0.201 dice=0.6898
+  メ=0.70 VAL ne=0.4214 fp=0.140  TEST ne=0.4322 fp=0.135 dice=0.6887
+  メ=0.80 VAL ne=0.3078 fp=0.071  TEST ne=0.2891 fp=0.090 dice=0.6569
+  メ=0.90 VAL ne=0.1680 fp=0.024  TEST ne=0.1526 fp=0.042 dice=0.6296
+  メ=1.00 VAL ne=0.0031 fp=0.000  TEST ne=0.0038 fp=0.000 dice=0.5938
+  PICK fp~0.30 メ=0.50 TEST ne=0.5781 fp=0.308
+  PICK fp~0.20 メ=0.60 TEST ne=0.5307 fp=0.201
+  PICK fp~0.10 メ=0.80 TEST ne=0.2891 fp=0.090
+==== adapt_thr
+  メ=0.00 VAL ne=0.7007 fp=0.771  TEST ne=0.6639 fp=0.772 dice=0.4055
+  メ=0.10 VAL ne=0.7001 fp=0.756  TEST ne=0.6628 fp=0.766 dice=0.4086
+  メ=0.20 VAL ne=0.6994 fp=0.753  TEST ne=0.6615 fp=0.763 dice=0.4098
+  メ=0.30 VAL ne=0.6986 fp=0.741  TEST ne=0.6602 fp=0.760 dice=0.4111
+  メ=0.40 VAL ne=0.6976 fp=0.735  TEST ne=0.6588 fp=0.751 dice=0.4158
+  メ=0.50 VAL ne=0.6964 fp=0.720  TEST ne=0.6569 fp=0.746 dice=0.4186
+  メ=0.60 VAL ne=0.6944 fp=0.705  TEST ne=0.6535 fp=0.740 dice=0.4208
+  メ=0.70 VAL ne=0.6909 fp=0.673  TEST ne=0.6480 fp=0.686 dice=0.4504
+  メ=0.80 VAL ne=0.6848 fp=0.634  TEST ne=0.6395 fp=0.614 dice=0.4895
+  メ=0.90 VAL ne=0.6781 fp=0.568  TEST ne=0.6305 fp=0.563 dice=0.5160
+  メ=1.00 VAL ne=0.6707 fp=0.500  TEST ne=0.6219 fp=0.506 dice=0.5461
+  PICK fp~0.30 メ=1.00 TEST ne=0.6219 fp=0.506
+  PICK fp~0.20 メ=1.00 TEST ne=0.6219 fp=0.506
+  PICK fp~0.10 メ=1.00 TEST ne=0.6219 fp=0.506
+==== dilate_and
+  メ=0.00 VAL ne=0.6502 fp=0.393  TEST ne=0.5847 fp=0.353 dice=0.6214
+  メ=0.10 VAL ne=0.6488 fp=0.390  TEST ne=0.5825 fp=0.353 dice=0.6205
+  メ=0.20 VAL ne=0.6488 fp=0.390  TEST ne=0.5825 fp=0.353 dice=0.6205
+  メ=0.30 VAL ne=0.6474 fp=0.387  TEST ne=0.5800 fp=0.350 dice=0.6213
+  メ=0.40 VAL ne=0.6459 fp=0.384  TEST ne=0.5772 fp=0.344 dice=0.6237
+  メ=0.50 VAL ne=0.6459 fp=0.384  TEST ne=0.5772 fp=0.344 dice=0.6237
+  メ=0.60 VAL ne=0.6439 fp=0.384  TEST ne=0.5737 fp=0.344 dice=0.6223
+  メ=0.70 VAL ne=0.6406 fp=0.384  TEST ne=0.5691 fp=0.344 dice=0.6204
+  メ=0.80 VAL ne=0.6351 fp=0.381  TEST ne=0.5626 fp=0.344 dice=0.6177
+  メ=0.90 VAL ne=0.6351 fp=0.381  TEST ne=0.5626 fp=0.344 dice=0.6177
+  メ=1.00 VAL ne=0.6251 fp=0.381  TEST ne=0.5521 fp=0.341 dice=0.6152
+  PICK fp~0.30 メ=0.80 TEST ne=0.5626 fp=0.344
+  PICK fp~0.20 メ=0.80 TEST ne=0.5626 fp=0.344
+  PICK fp~0.10 メ=0.80 TEST ne=0.5626 fp=0.344
+wrote D:\Desktop\BT_VAE\results\bp_original\s5_none_alpha\report.json

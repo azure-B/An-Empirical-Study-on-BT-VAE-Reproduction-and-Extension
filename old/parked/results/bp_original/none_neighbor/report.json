@@ -1,0 +1,148 @@
+{
+  "none_ckpt": "D:\\Desktop\\BT_VAE\\results\\bp_original\\none\\seg_best.pt",
+  "note": "gate uses anatomical \u00b11 neighbors from full bp_data dump; metrics on train_30 val/test only",
+  "val": {
+    "diag": {
+      "n_empty_fp": 139,
+      "empty_fp_isolated": 0.2158273381294964,
+      "n_nonempty_hit": 198,
+      "nonempty_hit_isolated": 0.13131313131313133,
+      "n_isolated": 56
+    },
+    "rules": {
+      "baseline": {
+        "dice_mean": 0.6104185581207275,
+        "dice_median": 0.8200913071632385,
+        "mean_dice_nonempty": 0.6461041569709778,
+        "median_dice_nonempty": 0.7715640068054199,
+        "n": 563,
+        "n_nonempty": 227,
+        "n_empty": 336,
+        "empty_fp_rate": 0.41369047619047616
+      },
+      "isolated_kill": {
+        "dice_mean": 0.6288886666297913,
+        "dice_median": 0.8529642224311829,
+        "mean_dice_nonempty": 0.5597547292709351,
+        "median_dice_nonempty": 0.7107093334197998,
+        "n": 563,
+        "n_nonempty": 227,
+        "n_empty": 336,
+        "empty_fp_rate": 0.3244047619047619
+      },
+      "isolated_or_single": {
+        "dice_mean": 0.6275842785835266,
+        "dice_median": 0.8529642224311829,
+        "mean_dice_nonempty": 0.556519627571106,
+        "median_dice_nonempty": 0.7037463784217834,
+        "n": 563,
+        "n_nonempty": 227,
+        "n_empty": 336,
+        "empty_fp_rate": 0.3244047619047619
+      },
+      "majority_2of3": {
+        "dice_mean": 0.6275842785835266,
+        "dice_median": 0.8529642224311829,
+        "mean_dice_nonempty": 0.556519627571106,
+        "median_dice_nonempty": 0.7037463784217834,
+        "n": 563,
+        "n_nonempty": 227,
+        "n_empty": 336,
+        "empty_fp_rate": 0.3244047619047619
+      },
+      "isolated_small_200": {
+        "dice_mean": 0.613970935344696,
+        "dice_median": 0.8234778642654419,
+        "mean_dice_nonempty": 0.6461041569709778,
+        "median_dice_nonempty": 0.7715640068054199,
+        "n": 563,
+        "n_nonempty": 227,
+        "n_empty": 336,
+        "empty_fp_rate": 0.40773809523809523
+      },
+      "isolated_small_800": {
+        "dice_mean": 0.6218929886817932,
+        "dice_median": 0.8318471312522888,
+        "mean_dice_nonempty": 0.6437258124351501,
+        "median_dice_nonempty": 0.7715640068054199,
+        "n": 563,
+        "n_nonempty": 227,
+        "n_empty": 336,
+        "empty_fp_rate": 0.39285714285714285
+      }
+    },
+    "n": 563
+  },
+  "test": {
+    "diag": {
+      "n_empty_fp": 133,
+      "empty_fp_isolated": 0.3233082706766917,
+      "n_nonempty_hit": 188,
+      "nonempty_hit_isolated": 0.1276595744680851,
+      "n_isolated": 67
+    },
+    "rules": {
+      "baseline": {
+        "dice_mean": 0.5897284150123596,
+        "dice_median": 0.79446941614151,
+        "mean_dice_nonempty": 0.5722035765647888,
+        "median_dice_nonempty": 0.7289900779724121,
+        "n": 564,
+        "n_nonempty": 230,
+        "n_empty": 334,
+        "empty_fp_rate": 0.39820359281437123
+      },
+      "isolated_kill": {
+        "dice_mean": 0.6418440937995911,
+        "dice_median": 0.8463602066040039,
+        "mean_dice_nonempty": 0.5130438208580017,
+        "median_dice_nonempty": 0.7107114195823669,
+        "n": 564,
+        "n_nonempty": 230,
+        "n_empty": 334,
+        "empty_fp_rate": 0.2694610778443114
+      },
+      "isolated_or_single": {
+        "dice_mean": 0.643765926361084,
+        "dice_median": 0.847517728805542,
+        "mean_dice_nonempty": 0.5090609192848206,
+        "median_dice_nonempty": 0.7091919183731079,
+        "n": 564,
+        "n_nonempty": 230,
+        "n_empty": 334,
+        "empty_fp_rate": 0.2634730538922156
+      },
+      "majority_2of3": {
+        "dice_mean": 0.643765926361084,
+        "dice_median": 0.847517728805542,
+        "mean_dice_nonempty": 0.5090609192848206,
+        "median_dice_nonempty": 0.7091919183731079,
+        "n": 564,
+        "n_nonempty": 230,
+        "n_empty": 334,
+        "empty_fp_rate": 0.2634730538922156
+      },
+      "isolated_small_200": {
+        "dice_mean": 0.601910412311554,
+        "dice_median": 0.8046563863754272,
+        "mean_dice_nonempty": 0.5716413259506226,
+        "median_dice_nonempty": 0.7289900779724121,
+        "n": 564,
+        "n_nonempty": 230,
+        "n_empty": 334,
+        "empty_fp_rate": 0.3772455089820359
+      },
+      "isolated_small_800": {
+        "dice_mean": 0.6253130435943604,
+        "dice_median": 0.829674243927002,
+        "mean_dice_nonempty": 0.5681589245796204,
+        "median_dice_nonempty": 0.7289900779724121,
+        "n": 564,
+        "n_nonempty": 230,
+        "n_empty": 334,
+        "empty_fp_rate": 0.33532934131736525
+      }
+    },
+    "n": 564
+  }
+}

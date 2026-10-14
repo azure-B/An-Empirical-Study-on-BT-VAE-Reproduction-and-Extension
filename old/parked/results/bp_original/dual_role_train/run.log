@@ -1,0 +1,47 @@
+init: skip¡çs5_concat, cls¡çnone, head=random
+phase1 warm head-only epochs=8 device=cuda
+[warm 1/8] loss=0.9052 bce=0.8841 auroc=0.7033 (83.8s)
+  * best auroc=0.7033
+[warm 2/8] loss=0.8182 bce=0.7971 auroc=0.7063 (84.5s)
+  * best auroc=0.7063
+[warm 3/8] loss=0.8103 bce=0.7892 auroc=0.6943 (84.8s)
+[warm 4/8] loss=0.8137 bce=0.7926 auroc=0.7109 (84.5s)
+  * best auroc=0.7109
+[warm 5/8] loss=0.8011 bce=0.7800 auroc=0.7207 (85.6s)
+  * best auroc=0.7207
+[warm 6/8] loss=0.7945 bce=0.7734 auroc=0.6431 (86.0s)
+[warm 7/8] loss=0.7806 bce=0.7595 auroc=0.7212 (99.9s)
+  * best auroc=0.7212
+[warm 8/8] loss=0.7666 bce=0.7455 auroc=0.6836 (170.5s)
+phase2 FT cls+head epochs=40 ¥ë_plain=0.25 lr_cls=3e-05
+[ft 1/40] loss=0.8200 bce=0.7167 auroc=0.8181 gate05 ne=0.4295 fp=0.116 (1244.3s)
+  * best auroc=0.8181
+[ft 2/40] loss=0.6546 bce=0.5507 auroc=0.8047 gate05 ne=0.5300 fp=0.217 (1757.9s)
+[ft 3/40] loss=0.5527 bce=0.4492 auroc=0.7944 gate05 ne=0.5229 fp=0.232 (1508.9s)
+[ft 4/40] loss=0.5347 bce=0.4310 auroc=0.7863 gate05 ne=0.5417 fp=0.235 (1487.7s)
+[ft 5/40] loss=0.4946 bce=0.3904 auroc=0.7821 gate05 ne=0.5340 fp=0.238 (1486.2s)
+[ft 6/40] loss=0.5309 bce=0.4269 auroc=0.7839 gate05 ne=0.5874 fp=0.292 (1479.5s)
+[ft 7/40] loss=0.4832 bce=0.3796 auroc=0.7804 gate05 ne=0.4636 fp=0.202 (1477.9s)
+[ft 8/40] loss=0.4807 bce=0.3777 auroc=0.7858 gate05 ne=0.4590 fp=0.185 (1474.8s)
+[ft 9/40] loss=0.4543 bce=0.3513 auroc=0.7879 gate05 ne=0.4862 fp=0.182 (1475.4s)
+[ft 10/40] loss=0.4452 bce=0.3428 auroc=0.7592 gate05 ne=0.4631 fp=0.188 (1476.7s)
+[ft 11/40] loss=0.4370 bce=0.3347 auroc=0.7775 gate05 ne=0.5322 fp=0.277 (1474.7s)
+[ft 12/40] loss=0.4474 bce=0.3450 auroc=0.7692 gate05 ne=0.4749 fp=0.202 (1477.9s)
+[ft 13/40] loss=0.4619 bce=0.3598 auroc=0.7484 gate05 ne=0.4640 fp=0.208 (1477.6s)
+early stop FT at ep 13
+Traceback (most recent call last):
+  File "d:\Desktop\BT_VAE\train_dual_role.py", line 472, in <module>
+    "phases": ["warm head-only", "FT cls encoder+decoder+head"],
+^^
+  File "d:\Desktop\BT_VAE\train_dual_role.py", line 365, in main
+    "sec": time.time() - t0,
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Desktop\BT_VAE\train_dual_role.py", line 195, in write_csv
+    if ok and (best is None or m["empty_fp_rate"] < best["empty_fp_rate"]):
+    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\kyc12\AppData\Local\Programs\Python\Python312\Lib\csv.py", line 167, in writerows
+    return self.writer.writerows(map(self._dict_to_list, rowdicts))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kyc12\AppData\Local\Programs\Python\Python312\Lib\csv.py", line 159, in _dict_to_list
+    raise ValueError("dict contains fields not in fieldnames: "
+ValueError: dict contains fields not in fieldnames: 'val_gate05_fp', 'val_gate05_ne'

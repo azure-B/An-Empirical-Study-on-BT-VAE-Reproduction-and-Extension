@@ -1,0 +1,91 @@
+{
+  "learned_tau": {
+    "tau_logit": 0.46670830249786377,
+    "tau_prob": 0.6146043539047241
+  },
+  "tf_primary": [
+    {
+      "name": "VAL_learned_tau",
+      "tp": 159,
+      "tn": 216,
+      "fp": 120,
+      "fn": 68,
+      "sensitivity": 0.7004405286343612,
+      "specificity": 0.6428571428571429,
+      "precision": 0.5698924731182796,
+      "f1": 0.6284584980237155,
+      "accuracy": 0.6660746003552398,
+      "presence_auroc": 0.730254877281309,
+      "nonempty_dice": 0.5044577717781067,
+      "empty_fp_rate": 0.33035714285714285,
+      "thr": 0.6146043539047241
+    },
+    {
+      "name": "TEST_learned_tau",
+      "tp": 155,
+      "tn": 228,
+      "fp": 106,
+      "fn": 75,
+      "sensitivity": 0.6739130434782609,
+      "specificity": 0.6826347305389222,
+      "precision": 0.5938697318007663,
+      "f1": 0.6313645621181263,
+      "accuracy": 0.6790780141843972,
+      "presence_auroc": 0.7526425410049467,
+      "nonempty_dice": 0.4972459077835083,
+      "empty_fp_rate": 0.3083832335329341,
+      "thr": 0.6146043539047241
+    }
+  ],
+  "rows": [
+    {
+      "name": "TEST_seg_raw",
+      "overall_dice": 0.3507976233959198,
+      "nonempty_dice": 0.6949993371963501,
+      "empty_fp_rate": 0.8862275449101796,
+      "sensitivity": 0.991304347826087,
+      "thr": null
+    },
+    {
+      "name": "VAL_learned_tau",
+      "overall_dice": 0.6030406951904297,
+      "nonempty_dice": 0.5044577717781067,
+      "empty_fp_rate": 0.33035714285714285,
+      "sensitivity": 0.7004405286343612,
+      "specificity": 0.6428571428571429,
+      "precision": 0.5698924731182796,
+      "f1": 0.6284584980237155,
+      "accuracy": 0.6660746003552398,
+      "tp": 159,
+      "tn": 216,
+      "fp": 120,
+      "fn": 68,
+      "thr": 0.6146043539047241,
+      "tau_logit": 0.46670830249786377,
+      "presence_auroc": 0.730254877281309
+    },
+    {
+      "name": "TEST_learned_tau",
+      "overall_dice": 0.6123520731925964,
+      "nonempty_dice": 0.4972459077835083,
+      "empty_fp_rate": 0.3083832335329341,
+      "sensitivity": 0.6739130434782609,
+      "specificity": 0.6826347305389222,
+      "precision": 0.5938697318007663,
+      "f1": 0.6313645621181263,
+      "accuracy": 0.6790780141843972,
+      "tp": 155,
+      "tn": 228,
+      "fp": 106,
+      "fn": 75,
+      "thr": 0.6146043539047241,
+      "tau_logit": 0.46670830249786377,
+      "presence_auroc": 0.7526425410049467
+    }
+  ],
+  "ref_presence_tau020": {
+    "nonempty_dice": 0.533,
+    "empty_fp_rate": 0.269
+  },
+  "note": "finished via eval_bt_cascade_final after history.csv crash"
+}

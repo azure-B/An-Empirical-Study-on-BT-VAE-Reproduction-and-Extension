@@ -1,0 +1,170 @@
+[
+  {
+    "ep": 1,
+    "val": {
+      "dice_mean": 0.47108355164527893,
+      "dice_median": 0.602226734161377,
+      "mean_dice_nonempty": 0.6353305578231812,
+      "median_dice_nonempty": 0.7399103045463562,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.6398809523809523,
+      "empty_fp_penalty": 0.11513803785459863
+    }
+  },
+  {
+    "ep": 2,
+    "val": {
+      "dice_mean": 0.5194555521011353,
+      "dice_median": 0.673536479473114,
+      "mean_dice_nonempty": 0.6407642960548401,
+      "median_dice_nonempty": 0.7361769080162048,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.5625,
+      "empty_fp_penalty": 0.102361384468774
+    }
+  },
+  {
+    "ep": 3,
+    "val": {
+      "dice_mean": 0.5125346779823303,
+      "dice_median": 0.6771606802940369,
+      "mean_dice_nonempty": 0.6235992908477783,
+      "median_dice_nonempty": 0.7375729084014893,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.5625,
+      "empty_fp_penalty": 0.10133438531516327
+    }
+  },
+  {
+    "ep": 4,
+    "val": {
+      "dice_mean": 0.5856577157974243,
+      "dice_median": 0.8015999794006348,
+      "mean_dice_nonempty": 0.5582612156867981,
+      "median_dice_nonempty": 0.6979072093963623,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.3958333333333333,
+      "empty_fp_penalty": 0.07134620586617126
+    }
+  },
+  {
+    "ep": 5,
+    "val": {
+      "dice_mean": 0.6376919746398926,
+      "dice_median": 0.8384862542152405,
+      "mean_dice_nonempty": 0.5727777481079102,
+      "median_dice_nonempty": 0.7124000787734985,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.31845238095238093,
+      "empty_fp_penalty": 0.05773605020820267
+    }
+  },
+  {
+    "ep": 6,
+    "val": {
+      "dice_mean": 0.6338297724723816,
+      "dice_median": 0.8362711071968079,
+      "mean_dice_nonempty": 0.5367671847343445,
+      "median_dice_nonempty": 0.6896915435791016,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.3005952380952381,
+      "empty_fp_penalty": 0.05464005656540394
+    }
+  },
+  {
+    "ep": 7,
+    "val": {
+      "dice_mean": 0.6379047632217407,
+      "dice_median": 0.8527093529701233,
+      "mean_dice_nonempty": 0.5468739867210388,
+      "median_dice_nonempty": 0.689061164855957,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.3005952380952381,
+      "empty_fp_penalty": 0.05409827679007625
+    }
+  },
+  {
+    "ep": 8,
+    "val": {
+      "dice_mean": 0.6200929284095764,
+      "dice_median": 0.837571382522583,
+      "mean_dice_nonempty": 0.5423450469970703,
+      "median_dice_nonempty": 0.681882381439209,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.3273809523809524,
+      "empty_fp_penalty": 0.05857009875277678
+    }
+  },
+  {
+    "ep": 9,
+    "val": {
+      "dice_mean": 0.6529591679573059,
+      "dice_median": 0.861425518989563,
+      "mean_dice_nonempty": 0.5225374102592468,
+      "median_dice_nonempty": 0.6542141437530518,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.25892857142857145,
+      "empty_fp_penalty": 0.04688229177352494
+    }
+  },
+  {
+    "ep": 10,
+    "val": {
+      "dice_mean": 0.6588630080223083,
+      "dice_median": 0.8612116575241089,
+      "mean_dice_nonempty": 0.5548012852668762,
+      "median_dice_nonempty": 0.7039105892181396,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.2708333333333333,
+      "empty_fp_penalty": 0.048731613611999416
+    }
+  },
+  {
+    "ep": 11,
+    "val": {
+      "dice_mean": 0.6235143542289734,
+      "dice_median": 0.8303784132003784,
+      "mean_dice_nonempty": 0.5067779421806335,
+      "median_dice_nonempty": 0.6385714411735535,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.2976190476190476,
+      "empty_fp_penalty": 0.053481570580819
+    }
+  },
+  {
+    "ep": 12,
+    "val": {
+      "dice_mean": 0.6159284114837646,
+      "dice_median": 0.8248366117477417,
+      "mean_dice_nonempty": 0.5584481358528137,
+      "median_dice_nonempty": 0.7162399291992188,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.34523809523809523,
+      "empty_fp_penalty": 0.061435158726655774
+    }
+  }
+]

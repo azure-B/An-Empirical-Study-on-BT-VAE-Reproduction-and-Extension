@@ -1,0 +1,44 @@
+OUT=D:\Desktop\BT_VAE\results\bp_original\dual_role_train_emptyfp cls_init=emptyfp
+DEVICE=cuda n_train=1352 n_val=563 batch=8 (original none=16, s5=8 ¡æ dual uses 8)
+init: skip¡çs5_concat, cls¡çemptyfp (seg_last.pt), head=random
+phase1 warm head-only epochs=8 device=cuda
+[warm 1/8] loss=0.8945 bce=0.8712 auroc=0.7112 (85.1s)
+  * best auroc=0.7112
+[warm 2/8] loss=0.7952 bce=0.7719 auroc=0.7233 (76.1s)
+[warm 3/8] loss=0.7555 [warm 3/8] loss=0.7596 bce=0.7363 auroc=0.7213 (77.7s)
+[warm 4/8] loss=0.7361 bce=0.7128 auroc=0.7232 (77.0s)
+[warm 5/8] loss=0.7072 bce=0.6840 auroc=0.7189 (78.2s)
+[warm 6/8] loss=0.6931 bce=0.6698 auroc=0.7331 (76.7s)
+  * best auroc=0.7331
+[warm 7/8] loss=0.6715 bce=0.6483 auroc=0.7330 (80.1s)
+[warm 8/8] loss=0.6531 bce=0.6298 auroc=0.7087 (96.8s)
+phase2 FT cls+head epochs=40 ¥ë_plain=0.25 lr_cls=3e-05 cls_init=emptyfp
+[ft 1/40] loss=0.7256 bce=0.6238 auroc=0.7737 (4156.3s)
+  * best auroc=0.7737
+[ft 2/40] loss=0.5553 bce=0.4536 auroc=0.7964 (4147.2s)
+  * best auroc=0.7964
+[ft 3/40] loss=0.4975 bce=0.3955 auroc=0.7888 (4143.9s)
+[ft 4/40] loss=0.4242 bce=0.3223 auroc=0.7920 (4136.7s)
+[ft 5/40] loss=0.3649 bce=0.2630 auroc=0.7914 (4152.0s)
+[ft 6/40] loss=0.3459 bce=0.2445 auroc=0.7667 (4193.1s)
+[ft 7/40] loss=0.2980 bce=0.1964 auroc=0.7917 (4204.4s)
+[ft 8/40] loss=0.3117 bce=0.2103 auroc=0.7966 (4195.9s)
+  * best auroc=0.7966
+[ft 9/40] loss=0.2952 bce=0.1935 auroc=0.7994 (3407.3s)
+  * best auroc=0.7994
+[ft 10/40] loss=0.3115 bce=0.2103 auroc=0.7771 (177.6s)
+[ft 11/40] loss=0.3156 bce=0.2141 auroc=0.7848 (177.6s)
+[ft 12/40] loss=0.2689 bce=0.1676 auroc=0.7661 (177.6s)
+[ft 13/40] loss=0.2713 bce=0.1701 auroc=0.7828 (177.6s)
+[ft 14/40] loss=0.2503 bce=0.1494 auroc=0.7739 (177.6s)
+[ft 15/40] loss=0.2392 bce=0.1381 auroc=0.7698 (177.6s)
+[ft 16/40] loss=0.2425 bce=0.1417 auroc=0.7729 (177.6s)
+[ft 17/40] loss=0.2106 bce=0.1101 auroc=0.7746 (177.6s)
+[ft 18/40] loss=0.2154 bce=0.1149 auroc=0.7870 (177.6s)
+[ft 19/40] loss=0.2271 bce=0.1266 auroc=0.7803 (177.7s)
+[ft 20/40] loss=0.2010 bce=0.1007 auroc=0.7808 (177.6s)
+[ft 21/40] loss=0.2524 bce=0.1520 auroc=0.7753 (177.6s)
+early stop FT at ep 21
+PICK vs plain thr=0.11 VAL ne=0.6147 fp=0.333 TEST ne=0.5498 fp=0.278 auroc=0.7882
+PICK bal thr=0.16 TEST ne=0.5271 fp=0.243
+wrote D:\Desktop\BT_VAE\results\bp_original\dual_role_train_emptyfp

@@ -1,0 +1,245 @@
+[
+  {
+    "ep": 1,
+    "train_bce": 0.8987747280187505,
+    "val_auroc": 0.8645833333333334,
+    "val_p_lesion_mean": 0.8430020809173584,
+    "val_p_lesion_median": 0.8663811683654785,
+    "val_p_empty_mean": 0.6990995407104492,
+    "val_p_empty_median": 0.7196454405784607
+  },
+  {
+    "ep": 2,
+    "train_bce": 0.7189017428505805,
+    "val_auroc": 0.890625,
+    "val_p_lesion_mean": 0.840317964553833,
+    "val_p_lesion_median": 0.8895523548126221,
+    "val_p_empty_mean": 0.5803689956665039,
+    "val_p_empty_median": 0.5900639891624451
+  },
+  {
+    "ep": 3,
+    "train_bce": 0.5650654798073154,
+    "val_auroc": 0.9038825757575758,
+    "val_p_lesion_mean": 0.7551660537719727,
+    "val_p_lesion_median": 0.8391263484954834,
+    "val_p_empty_mean": 0.35670018196105957,
+    "val_p_empty_median": 0.3076576590538025
+  },
+  {
+    "ep": 4,
+    "train_bce": 0.5148944461377718,
+    "val_auroc": 0.9256628787878788,
+    "val_p_lesion_mean": 0.9257225394248962,
+    "val_p_lesion_median": 0.9732285737991333,
+    "val_p_empty_mean": 0.5603058934211731,
+    "val_p_empty_median": 0.5522125363349915
+  },
+  {
+    "ep": 5,
+    "train_bce": 0.4393900351658944,
+    "val_auroc": 0.9322916666666666,
+    "val_p_lesion_mean": 0.9081003665924072,
+    "val_p_lesion_median": 0.9707047939300537,
+    "val_p_empty_mean": 0.4270220100879669,
+    "val_p_empty_median": 0.3540019989013672
+  },
+  {
+    "ep": 6,
+    "train_bce": 0.4322382528134572,
+    "val_auroc": 0.9455492424242424,
+    "val_p_lesion_mean": 0.9001306295394897,
+    "val_p_lesion_median": 0.9469901323318481,
+    "val_p_empty_mean": 0.4515322148799896,
+    "val_p_empty_median": 0.41877415776252747
+  },
+  {
+    "ep": 7,
+    "train_bce": 0.3911322313611225,
+    "val_auroc": 0.9403409090909091,
+    "val_p_lesion_mean": 0.8045235276222229,
+    "val_p_lesion_median": 0.9101065993309021,
+    "val_p_empty_mean": 0.21889734268188477,
+    "val_p_empty_median": 0.0956633985042572
+  },
+  {
+    "ep": 8,
+    "train_bce": 0.3510749065567569,
+    "val_auroc": 0.9554924242424242,
+    "val_p_lesion_mean": 0.9149420261383057,
+    "val_p_lesion_median": 0.9724628925323486,
+    "val_p_empty_mean": 0.3424009382724762,
+    "val_p_empty_median": 0.23468270897865295
+  },
+  {
+    "ep": 9,
+    "train_bce": 0.38654164080658265,
+    "val_auroc": 0.9569128787878788,
+    "val_p_lesion_mean": 0.9271371364593506,
+    "val_p_lesion_median": 0.9773238897323608,
+    "val_p_empty_mean": 0.3771953582763672,
+    "val_p_empty_median": 0.27867811918258667
+  },
+  {
+    "ep": 10,
+    "train_bce": 0.3617271435076511,
+    "val_auroc": 0.9554924242424242,
+    "val_p_lesion_mean": 0.9283680319786072,
+    "val_p_lesion_median": 0.9844750165939331,
+    "val_p_empty_mean": 0.34187421202659607,
+    "val_p_empty_median": 0.19344593584537506
+  },
+  {
+    "ep": 11,
+    "train_bce": 0.33291916757501583,
+    "val_auroc": 0.9597537878787878,
+    "val_p_lesion_mean": 0.939297616481781,
+    "val_p_lesion_median": 0.9817478060722351,
+    "val_p_empty_mean": 0.4044617712497711,
+    "val_p_empty_median": 0.33270448446273804
+  },
+  {
+    "ep": 12,
+    "train_bce": 0.35254677377080407,
+    "val_auroc": 0.959280303030303,
+    "val_p_lesion_mean": 0.873492956161499,
+    "val_p_lesion_median": 0.9415677785873413,
+    "val_p_empty_mean": 0.264352411031723,
+    "val_p_empty_median": 0.1185527890920639
+  },
+  {
+    "ep": 13,
+    "train_bce": 0.3051442893882913,
+    "val_auroc": 0.9630681818181818,
+    "val_p_lesion_mean": 0.9413726925849915,
+    "val_p_lesion_median": 0.9874203205108643,
+    "val_p_empty_mean": 0.34170231223106384,
+    "val_p_empty_median": 0.15821132063865662
+  },
+  {
+    "ep": 14,
+    "train_bce": 0.3371616894158945,
+    "val_auroc": 0.962594696969697,
+    "val_p_lesion_mean": 0.8044986724853516,
+    "val_p_lesion_median": 0.9246029257774353,
+    "val_p_empty_mean": 0.15765048563480377,
+    "val_p_empty_median": 0.030076144263148308
+  },
+  {
+    "ep": 15,
+    "train_bce": 0.3711483016990686,
+    "val_auroc": 0.9635416666666666,
+    "val_p_lesion_mean": 0.8315353989601135,
+    "val_p_lesion_median": 0.9225591421127319,
+    "val_p_empty_mean": 0.1873711496591568,
+    "val_p_empty_median": 0.05651937797665596
+  },
+  {
+    "ep": 16,
+    "train_bce": 0.29548011061244756,
+    "val_auroc": 0.9678030303030303,
+    "val_p_lesion_mean": 0.9443190097808838,
+    "val_p_lesion_median": 0.9939284920692444,
+    "val_p_empty_mean": 0.2919950485229492,
+    "val_p_empty_median": 0.09599064290523529
+  },
+  {
+    "ep": 17,
+    "train_bce": 0.3272899665459189,
+    "val_auroc": 0.9711174242424242,
+    "val_p_lesion_mean": 0.9272711277008057,
+    "val_p_lesion_median": 0.9707959890365601,
+    "val_p_empty_mean": 0.39568543434143066,
+    "val_p_empty_median": 0.29392731189727783
+  },
+  {
+    "ep": 18,
+    "train_bce": 0.3091303002269518,
+    "val_auroc": 0.96875,
+    "val_p_lesion_mean": 0.9273630380630493,
+    "val_p_lesion_median": 0.9827982187271118,
+    "val_p_empty_mean": 0.28064823150634766,
+    "val_p_empty_median": 0.10120275616645813
+  },
+  {
+    "ep": 19,
+    "train_bce": 0.33853409964070524,
+    "val_auroc": 0.9678030303030303,
+    "val_p_lesion_mean": 0.9246882796287537,
+    "val_p_lesion_median": 0.9756548404693604,
+    "val_p_empty_mean": 0.2813609540462494,
+    "val_p_empty_median": 0.11486910283565521
+  },
+  {
+    "ep": 20,
+    "train_bce": 0.29651593567142565,
+    "val_auroc": 0.9682765151515151,
+    "val_p_lesion_mean": 0.8816671371459961,
+    "val_p_lesion_median": 0.9550158977508545,
+    "val_p_empty_mean": 0.20010840892791748,
+    "val_p_empty_median": 0.05227310582995415
+  },
+  {
+    "ep": 21,
+    "train_bce": 0.27303397237894034,
+    "val_auroc": 0.9692234848484849,
+    "val_p_lesion_mean": 0.9623413681983948,
+    "val_p_lesion_median": 0.9947131872177124,
+    "val_p_empty_mean": 0.336086630821228,
+    "val_p_empty_median": 0.16274729371070862
+  },
+  {
+    "ep": 22,
+    "train_bce": 0.29743008072718335,
+    "val_auroc": 0.9659090909090909,
+    "val_p_lesion_mean": 0.9010800719261169,
+    "val_p_lesion_median": 0.9731401205062866,
+    "val_p_empty_mean": 0.2229054719209671,
+    "val_p_empty_median": 0.047308288514614105
+  },
+  {
+    "ep": 23,
+    "train_bce": 0.25970724526722666,
+    "val_auroc": 0.9696969696969697,
+    "val_p_lesion_mean": 0.8942928314208984,
+    "val_p_lesion_median": 0.9674210548400879,
+    "val_p_empty_mean": 0.30185744166374207,
+    "val_p_empty_median": 0.20747321844100952
+  },
+  {
+    "ep": 24,
+    "train_bce": 0.28501746531636,
+    "val_auroc": 0.96875,
+    "val_p_lesion_mean": 0.9275039434432983,
+    "val_p_lesion_median": 0.9913100004196167,
+    "val_p_empty_mean": 0.25964269042015076,
+    "val_p_empty_median": 0.09039480239152908
+  },
+  {
+    "ep": 25,
+    "train_bce": 0.3147268347161752,
+    "val_auroc": 0.96875,
+    "val_p_lesion_mean": 0.9222648739814758,
+    "val_p_lesion_median": 0.9896650314331055,
+    "val_p_empty_mean": 0.24884755909442902,
+    "val_p_empty_median": 0.07563728094100952
+  },
+  {
+    "ep": 26,
+    "train_bce": 0.31706089223234324,
+    "val_auroc": 0.9696969696969697,
+    "val_p_lesion_mean": 0.8645914196968079,
+    "val_p_lesion_median": 0.9491092562675476,
+    "val_p_empty_mean": 0.2485833317041397,
+    "val_p_empty_median": 0.13775643706321716
+  },
+  {
+    "ep": 27,
+    "train_bce": 0.2987967539392161,
+    "val_auroc": 0.9706439393939394,
+    "val_p_lesion_mean": 0.9273922443389893,
+    "val_p_lesion_median": 0.9924983978271484,
+    "val_p_empty_mean": 0.24279677867889404,
+    "val_p_empty_median": 0.07264961302280426
+  }
+]

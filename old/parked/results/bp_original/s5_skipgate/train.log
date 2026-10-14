@@ -1,0 +1,105 @@
+DEVICE cuda S5 skip-gate frozen S5, batch 8 pos_w 8.0
+ungated VAL dice=0.4206 nonempty=0.6996 empty_fp=0.768 floor=0.6796
+[s5-gate] ep 1/60 loss=1.8016 acc=0.496 tr_rec=0.946 auroc=0.592 val_dice=0.4358 nonempty=0.6668 empty_fp=0.720 pres_rec=0.943 (47.7s)
+  saved HEAD_BEST auroc=0.5921
+[s5-gate] ep 2/60 loss=1.5768 acc=0.473 tr_rec=0.984 auroc=0.612 val_dice=0.4486 nonempty=0.6632 empty_fp=0.696 pres_rec=0.947 (44.2s)
+  saved HEAD_BEST auroc=0.6118
+[s5-gate] ep 3/60 loss=1.5379 acc=0.470 tr_rec=0.985 auroc=0.635 val_dice=0.4872 nonempty=0.6665 empty_fp=0.634 pres_rec=0.938 (42.9s)
+  saved HEAD_BEST auroc=0.6346
+[s5-gate] ep 4/60 loss=1.4969 acc=0.492 tr_rec=0.984 auroc=0.644 val_dice=0.4253 nonempty=0.6980 empty_fp=0.759 pres_rec=0.996 (42.0s)
+  saved HEAD_BEST auroc=0.6441
+[s5-gate] ep 5/60 loss=1.4646 acc=0.487 tr_rec=0.987 auroc=0.646 val_dice=0.4518 nonempty=0.6799 empty_fp=0.702 pres_rec=0.969 (42.1s)
+  saved HEAD_BEST auroc=0.6463
+[s5-gate] ep 6/60 loss=1.4362 acc=0.510 tr_rec=0.979 auroc=0.695 val_dice=0.4532 nonempty=0.6967 empty_fp=0.711 pres_rec=0.996 (42.2s)
+  saved HEAD_BEST auroc=0.6952
+[s5-gate] ep 7/60 loss=1.4543 acc=0.496 tr_rec=0.983 auroc=0.655 val_dice=0.4968 nonempty=0.6639 empty_fp=0.616 pres_rec=0.934 (42.2s)
+[s5-gate] ep 8/60 loss=1.4455 acc=0.501 tr_rec=0.983 auroc=0.648 val_dice=0.4486 nonempty=0.6808 empty_fp=0.708 pres_rec=0.978 (42.2s)
+[s5-gate] ep 9/60 loss=1.4272 acc=0.516 tr_rec=0.986 auroc=0.666 val_dice=0.4844 nonempty=0.6683 empty_fp=0.640 pres_rec=0.952 (42.2s)
+[s5-gate] ep 10/60 loss=1.4175 acc=0.520 tr_rec=0.974 auroc=0.671 val_dice=0.4813 nonempty=0.6782 empty_fp=0.652 pres_rec=0.956 (42.2s)
+[s5-gate] ep 11/60 loss=1.3659 acc=0.528 tr_rec=0.985 auroc=0.666 val_dice=0.4624 nonempty=0.6798 empty_fp=0.685 pres_rec=0.969 (42.4s)
+[s5-gate] ep 12/60 loss=1.3446 acc=0.517 tr_rec=0.985 auroc=0.691 val_dice=0.4593 nonempty=0.6943 empty_fp=0.699 pres_rec=0.991 (42.3s)
+[s5-gate] ep 13/60 loss=1.3192 acc=0.527 tr_rec=0.982 auroc=0.702 val_dice=0.4914 nonempty=0.6636 empty_fp=0.625 pres_rec=0.934 (42.2s)
+  saved HEAD_BEST auroc=0.7015
+[s5-gate] ep 14/60 loss=1.3316 acc=0.533 tr_rec=0.974 auroc=0.689 val_dice=0.4797 nonempty=0.6656 empty_fp=0.646 pres_rec=0.943 (42.2s)
+[s5-gate] ep 15/60 loss=1.2883 acc=0.553 tr_rec=0.990 auroc=0.703 val_dice=0.4758 nonempty=0.6691 empty_fp=0.655 pres_rec=0.947 (42.2s)
+  saved HEAD_BEST auroc=0.7029
+[s5-gate] ep 16/60 loss=1.2953 acc=0.550 tr_rec=0.986 auroc=0.699 val_dice=0.5057 nonempty=0.6638 empty_fp=0.601 pres_rec=0.934 (42.2s)
+[s5-gate] ep 17/60 loss=1.2980 acc=0.555 tr_rec=0.980 auroc=0.697 val_dice=0.4958 nonempty=0.6437 empty_fp=0.604 pres_rec=0.907 (42.2s)
+[s5-gate] ep 18/60 loss=1.2546 acc=0.561 tr_rec=0.992 auroc=0.663 val_dice=0.5118 nonempty=0.6261 empty_fp=0.565 pres_rec=0.890 (42.2s)
+[s5-gate] ep 19/60 loss=1.3068 acc=0.548 tr_rec=0.968 auroc=0.690 val_dice=0.4811 nonempty=0.6735 empty_fp=0.649 pres_rec=0.956 (42.2s)
+[s5-gate] ep 20/60 loss=1.2699 acc=0.550 tr_rec=0.988 auroc=0.706 val_dice=0.5033 nonempty=0.6536 empty_fp=0.598 pres_rec=0.921 (42.2s)
+  saved HEAD_BEST auroc=0.7061
+[s5-gate] ep 21/60 loss=1.2730 acc=0.574 tr_rec=0.983 auroc=0.710 val_dice=0.4813 nonempty=0.6695 empty_fp=0.646 pres_rec=0.947 (42.2s)
+  saved HEAD_BEST auroc=0.7101
+[s5-gate] ep 22/60 loss=1.2596 acc=0.567 tr_rec=0.978 auroc=0.714 val_dice=0.4832 nonempty=0.6741 empty_fp=0.646 pres_rec=0.956 (42.2s)
+  saved HEAD_BEST auroc=0.7136
+[s5-gate] ep 23/60 loss=1.2531 acc=0.572 tr_rec=0.980 auroc=0.704 val_dice=0.4793 nonempty=0.6689 empty_fp=0.649 pres_rec=0.947 (42.2s)
+[s5-gate] ep 24/60 loss=1.2619 acc=0.568 tr_rec=0.977 auroc=0.712 val_dice=0.4784 nonempty=0.6800 empty_fp=0.658 pres_rec=0.965 (42.2s)
+[s5-gate] ep 25/60 loss=1.2457 acc=0.568 tr_rec=0.984 auroc=0.711 val_dice=0.5063 nonempty=0.6653 empty_fp=0.601 pres_rec=0.934 (42.2s)
+[s5-gate] ep 26/60 loss=1.2263 acc=0.572 tr_rec=0.983 auroc=0.714 val_dice=0.4846 nonempty=0.6734 empty_fp=0.643 pres_rec=0.947 (42.2s)
+  saved HEAD_BEST auroc=0.7138
+[s5-gate] ep 27/60 loss=1.2233 acc=0.565 tr_rec=0.989 auroc=0.705 val_dice=0.5344 nonempty=0.6557 empty_fp=0.548 pres_rec=0.925 (42.2s)
+[s5-gate] ep 28/60 loss=1.2036 acc=0.576 tr_rec=0.981 auroc=0.717 val_dice=0.5169 nonempty=0.6565 empty_fp=0.577 pres_rec=0.925 (42.2s)
+  saved HEAD_BEST auroc=0.7171
+[s5-gate] ep 29/60 loss=1.2396 acc=0.592 tr_rec=0.985 auroc=0.722 val_dice=0.5212 nonempty=0.6672 empty_fp=0.577 pres_rec=0.938 (42.2s)
+  saved HEAD_BEST auroc=0.7223
+[s5-gate] ep 30/60 loss=1.2363 acc=0.581 tr_rec=0.978 auroc=0.717 val_dice=0.4973 nonempty=0.6739 empty_fp=0.622 pres_rec=0.952 (42.2s)
+[s5-gate] ep 31/60 loss=1.2175 acc=0.587 tr_rec=0.982 auroc=0.713 val_dice=0.5104 nonempty=0.6711 empty_fp=0.598 pres_rec=0.947 (42.2s)
+[s5-gate] ep 32/60 loss=1.1999 acc=0.598 tr_rec=0.979 auroc=0.691 val_dice=0.5243 nonempty=0.6439 empty_fp=0.557 pres_rec=0.912 (42.2s)
+[s5-gate] ep 33/60 loss=1.2205 acc=0.576 tr_rec=0.984 auroc=0.714 val_dice=0.4950 nonempty=0.6549 empty_fp=0.613 pres_rec=0.921 (42.2s)
+[s5-gate] ep 34/60 loss=1.1885 acc=0.595 tr_rec=0.982 auroc=0.724 val_dice=0.5016 nonempty=0.6627 empty_fp=0.607 pres_rec=0.934 (42.2s)
+  saved HEAD_BEST auroc=0.7244
+[s5-gate] ep 35/60 loss=1.2020 acc=0.586 tr_rec=0.979 auroc=0.721 val_dice=0.5265 nonempty=0.6406 empty_fp=0.551 pres_rec=0.890 (42.2s)
+[s5-gate] ep 36/60 loss=1.2044 acc=0.590 tr_rec=0.977 auroc=0.729 val_dice=0.4920 nonempty=0.6564 empty_fp=0.619 pres_rec=0.916 (42.2s)
+  saved HEAD_BEST auroc=0.7294
+[s5-gate] ep 37/60 loss=1.1949 acc=0.604 tr_rec=0.987 auroc=0.732 val_dice=0.5019 nonempty=0.6634 empty_fp=0.607 pres_rec=0.938 (42.2s)
+  saved HEAD_BEST auroc=0.7325
+[s5-gate] ep 38/60 loss=1.1711 acc=0.596 tr_rec=0.984 auroc=0.715 val_dice=0.5259 nonempty=0.6481 empty_fp=0.557 pres_rec=0.903 (42.2s)
+[s5-gate] ep 39/60 loss=1.1719 acc=0.614 tr_rec=0.979 auroc=0.726 val_dice=0.5088 nonempty=0.6584 empty_fp=0.592 pres_rec=0.916 (42.2s)
+[s5-gate] ep 40/60 loss=1.1628 acc=0.607 tr_rec=0.975 auroc=0.709 val_dice=0.5030 nonempty=0.6573 empty_fp=0.601 pres_rec=0.930 (42.2s)
+[s5-gate] ep 41/60 loss=1.1743 acc=0.619 tr_rec=0.982 auroc=0.732 val_dice=0.5140 nonempty=0.6713 empty_fp=0.592 pres_rec=0.938 (42.2s)
+[s5-gate] ep 42/60 loss=1.1642 acc=0.607 tr_rec=0.982 auroc=0.733 val_dice=0.5005 nonempty=0.6597 empty_fp=0.607 pres_rec=0.925 (42.2s)
+  saved HEAD_BEST auroc=0.7332
+[s5-gate] ep 43/60 loss=1.1917 acc=0.601 tr_rec=0.979 auroc=0.715 val_dice=0.5322 nonempty=0.6548 empty_fp=0.551 pres_rec=0.916 (42.2s)
+[s5-gate] ep 44/60 loss=1.1615 acc=0.615 tr_rec=0.981 auroc=0.715 val_dice=0.5243 nonempty=0.6483 empty_fp=0.560 pres_rec=0.921 (42.2s)
+[s5-gate] ep 45/60 loss=1.1804 acc=0.616 tr_rec=0.976 auroc=0.679 val_dice=0.5089 nonempty=0.6234 empty_fp=0.568 pres_rec=0.881 (42.2s)
+[s5-gate] ep 46/60 loss=1.1545 acc=0.612 tr_rec=0.983 auroc=0.685 val_dice=0.5243 nonempty=0.6132 empty_fp=0.536 pres_rec=0.868 (42.2s)
+[s5-gate] ep 47/60 loss=1.1702 acc=0.618 tr_rec=0.988 auroc=0.726 val_dice=0.5111 nonempty=0.6641 empty_fp=0.592 pres_rec=0.930 (42.2s)
+[s5-gate] ep 48/60 loss=1.1331 acc=0.609 tr_rec=0.993 auroc=0.735 val_dice=0.5294 nonempty=0.6566 empty_fp=0.557 pres_rec=0.925 (42.2s)
+  saved HEAD_BEST auroc=0.7348
+[s5-gate] ep 49/60 loss=1.1136 acc=0.621 tr_rec=0.980 auroc=0.732 val_dice=0.5305 nonempty=0.6506 empty_fp=0.551 pres_rec=0.916 (42.2s)
+[s5-gate] ep 50/60 loss=1.0928 acc=0.625 tr_rec=0.989 auroc=0.724 val_dice=0.5328 nonempty=0.6518 empty_fp=0.548 pres_rec=0.916 (42.2s)
+[s5-gate] ep 51/60 loss=1.1240 acc=0.621 tr_rec=0.979 auroc=0.735 val_dice=0.5090 nonempty=0.6501 empty_fp=0.586 pres_rec=0.907 (42.2s)
+[s5-gate] ep 52/60 loss=1.1183 acc=0.617 tr_rec=0.984 auroc=0.735 val_dice=0.5294 nonempty=0.6567 empty_fp=0.557 pres_rec=0.921 (42.2s)
+  saved HEAD_BEST auroc=0.7352
+[s5-gate] ep 53/60 loss=1.0806 acc=0.635 tr_rec=0.986 auroc=0.734 val_dice=0.5266 nonempty=0.6452 empty_fp=0.554 pres_rec=0.899 (42.2s)
+[s5-gate] ep 54/60 loss=1.0922 acc=0.627 tr_rec=0.989 auroc=0.723 val_dice=0.5301 nonempty=0.6495 empty_fp=0.551 pres_rec=0.912 (42.2s)
+[s5-gate] ep 55/60 loss=1.0996 acc=0.629 tr_rec=0.984 auroc=0.733 val_dice=0.5181 nonempty=0.6594 empty_fp=0.577 pres_rec=0.925 (42.2s)
+[s5-gate] ep 56/60 loss=1.1230 acc=0.633 tr_rec=0.978 auroc=0.728 val_dice=0.5203 nonempty=0.6650 empty_fp=0.577 pres_rec=0.938 (42.2s)
+[s5-gate] ep 57/60 loss=1.1090 acc=0.623 tr_rec=0.985 auroc=0.737 val_dice=0.5219 nonempty=0.6601 empty_fp=0.571 pres_rec=0.925 (42.2s)
+  saved HEAD_BEST auroc=0.7371
+[s5-gate] ep 58/60 loss=1.1083 acc=0.629 tr_rec=0.984 auroc=0.734 val_dice=0.5379 nonempty=0.6601 empty_fp=0.545 pres_rec=0.925 (42.2s)
+[s5-gate] ep 59/60 loss=1.1107 acc=0.627 tr_rec=0.982 auroc=0.721 val_dice=0.5386 nonempty=0.6442 empty_fp=0.533 pres_rec=0.899 (42.2s)
+[s5-gate] ep 60/60 loss=1.0790 acc=0.649 tr_rec=0.978 auroc=0.726 val_dice=0.5285 nonempty=0.6543 empty_fp=0.557 pres_rec=0.916 (42.2s)
+tau sweep VAL, keep nonempty >= S5-0.02, then min empty_fp
+  tau=0.05 dice=0.4309 nonempty=0.6944 empty_fp=0.747 pres_rec=1.000 OK
+  tau=0.10 dice=0.4368 nonempty=0.7001 empty_fp=0.741 pres_rec=1.000 OK
+  tau=0.15 dice=0.4478 nonempty=0.7009 empty_fp=0.723 pres_rec=1.000 OK
+  tau=0.20 dice=0.4407 nonempty=0.6966 empty_fp=0.732 pres_rec=0.996 OK
+  tau=0.25 dice=0.4621 nonempty=0.6922 empty_fp=0.693 pres_rec=0.987 OK
+  tau=0.30 dice=0.4660 nonempty=0.6843 empty_fp=0.682 pres_rec=0.974 OK
+  tau=0.35 dice=0.4819 nonempty=0.6841 empty_fp=0.655 pres_rec=0.969 OK
+  tau=0.40 dice=0.4778 nonempty=0.6785 empty_fp=0.658 pres_rec=0.956 drop
+  tau=0.45 dice=0.4907 nonempty=0.6662 empty_fp=0.628 pres_rec=0.934 drop
+  tau=0.50 dice=0.5167 nonempty=0.6604 empty_fp=0.580 pres_rec=0.925 drop
+  tau=0.55 dice=0.5311 nonempty=0.6477 empty_fp=0.548 pres_rec=0.907 drop
+  tau=0.60 dice=0.5628 nonempty=0.6293 empty_fp=0.482 pres_rec=0.881 drop
+  tau=0.65 dice=0.5632 nonempty=0.6170 empty_fp=0.473 pres_rec=0.855 drop
+  tau=0.70 dice=0.5778 nonempty=0.5916 empty_fp=0.432 pres_rec=0.815 drop
+  tau=0.75 dice=0.5952 nonempty=0.5688 empty_fp=0.387 pres_rec=0.784 drop
+  tau=0.80 dice=0.6278 nonempty=0.5307 empty_fp=0.307 pres_rec=0.731 drop
+  tau=0.85 dice=0.6401 nonempty=0.4862 empty_fp=0.256 pres_rec=0.648 drop
+  tau=0.90 dice=0.6356 nonempty=0.3693 empty_fp=0.185 pres_rec=0.476 drop
+chosen tau=0.35
+TEST ungated {'dice_mean': 0.39984554052352905, 'mean_dice_nonempty': 0.6630995273590088, 'empty_fp_rate': 0.781437125748503}
+TEST gated   {'dice_mean': 0.4707091748714447, 'mean_dice_nonempty': 0.6455651521682739, 'empty_fp_rate': 0.6497005988023952}

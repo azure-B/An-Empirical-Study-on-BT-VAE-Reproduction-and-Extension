@@ -1,0 +1,13 @@
+{
+  "mode": "none",
+  "dataset": "bp_train_30",
+  "best_val_loss": 0.4134387705061171,
+  "best_ep": 48,
+  "test": {
+    "dice_mean": 0.594718873500824,
+    "dice_median": 0.799446702003479,
+    "mean_dice_nonempty": 0.580093264579773,
+    "median_dice_nonempty": 0.7311117053031921
+  },
+  "note": "from eval_now.json after early stop of none training"
+}

@@ -1,0 +1,37 @@
+OUT=D:\Desktop\BT_VAE\results\bp_original\bt_shared_dual DEVICE=cuda batch=8 BT=bt_encoder_best.pt n=1352/563/564
+design: BT encoder(freeze) ¡æ decoder_skip(S5) + decoder_cls+head
+encoder load missing=0 unexpected=0
+encoder¡çBT frozen; skip_dec¡çs5 init; cls_dec¡çnone init
+phase1 SEG decoder_skip ep¡Â60
+[seg 1/60] tr=0.4323 val=0.4319 ne=0.5539 fp=0.943 (1589.9s)
+  * best seg val_loss=0.4319 ne=0.5539
+[seg 2/60] tr=0.4132 val=0.4226 ne=0.5882 fp=0.955 (841.1s)
+  * best seg val_loss=0.4226 ne=0.5882
+[seg 3/60] tr=0.4055 val=0.4126 ne=0.5962 fp=0.869 (843.3s)
+  * best seg val_loss=0.4126 ne=0.5962
+[seg 4/60] tr=0.3989 val=0.4196 ne=0.6013 fp=0.917 (840.2s)
+[seg 5/60] tr=0.3931 val=0.4062 ne=0.6080 fp=0.842 (840.3s)
+  * best seg val_loss=0.4062 ne=0.6080
+[seg 6/60] tr=0.3886 val=0.4082 ne=0.6078 fp=0.866 (839.8s)
+[seg 7/60] tr=0.3871 val=0.4015 ne=0.6381 fp=0.827 (840.0s)
+  * best seg val_loss=0.4015 ne=0.6381
+[seg 8/60] tr=0.3824 val=0.4025 ne=0.6416 fp=0.815 (840.8s)
+[seg 9/60] tr=0.3795 val=0.4030 ne=0.6501 fp=0.884 (840.7s)
+[seg 10/60] tr=0.3768 val=0.3997 ne=0.6522 fp=0.884 (840.5s)
+  * best seg val_loss=0.3997 ne=0.6522
+[seg 11/60] tr=0.3734 val=0.3985 ne=0.6541 fp=0.857 (1545.2s)
+  * best seg val_loss=0.3985 ne=0.6541
+[seg 12/60] tr=0.3698 val=0.4010 ne=0.6503 fp=0.887 (4460.7s)
+[seg 13/60] tr=0.3691 val=0.4026 ne=0.6317 fp=0.723 (4492.2s)
+[seg 14/60] tr=0.3663 val=0.3981 ne=0.6575 fp=0.833 (4476.8s)
+  * best seg val_loss=0.3981 ne=0.6575
+[seg 15/60] tr=0.3647 val=0.3978 ne=0.6647 fp=0.872 (4575.8s)
+  * best seg val_loss=0.3978 ne=0.6647
+[seg 16/60] tr=0.3618 val=0.3987 ne=0.6456 fp=0.720 (4729.3s)
+[seg 17/60] tr=0.3603 val=0.4030 ne=0.6217 fp=0.759 (4556.5s)
+[seg 18/60] tr=0.3591 val=0.4031 ne=0.6116 fp=0.625 (4494.2s)
+[seg 19/60] tr=0.3544 val=0.4026 ne=0.6286 fp=0.705 (4511.1s)
+[seg 20/60] tr=0.3479 val=0.4012 ne=0.6270 fp=0.613 (4569.3s)
+[seg 21/60] tr=0.3438 val=0.4032 ne=0.6166 fp=0.637 (4566.9s)
+[seg 22/60] tr=0.3435 val=0.3991 ne=0.6369 fp=0.637 (4681.6s)
+[seg 23/60] tr=0.3420 val=0.4038 ne=0.6319 fp=0.705 (4656.9s)

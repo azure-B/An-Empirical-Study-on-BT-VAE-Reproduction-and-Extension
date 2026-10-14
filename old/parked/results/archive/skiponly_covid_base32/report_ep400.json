@@ -1,0 +1,25 @@
+{
+  "cutoff_note": "report based on training through ~epoch 400+; best ckpt used for TEST",
+  "history_le400": {
+    "best_val_dice": 0.8470593328061311,
+    "best_val_epoch": 346,
+    "epoch400_val_dice": 0.8359319723170736
+  },
+  "seg_best_ckpt": {
+    "epoch": 346,
+    "best_dice": 0.8470593328061311
+  },
+  "test_per_image": {
+    "n": 94,
+    "empty_gt": 40,
+    "mean_dice_all": 0.7582346348935979,
+    "median_dice_all": 0.895522803068161,
+    "mean_dice_nonempty": 0.7828528351253934,
+    "median_dice_nonempty": 0.8391492366790771,
+    "mean_iou_all": 0.6927432473919218
+  },
+  "original_ref": {
+    "mean": 0.76,
+    "median": 0.84
+  }
+}

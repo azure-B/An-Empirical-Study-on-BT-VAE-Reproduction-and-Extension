@@ -1,0 +1,35 @@
+load none D:\Desktop\BT_VAE\results\bp_original\dual_role_train\checkpoints\dual_role_best_auroc.pt
+none S5_raw TEST ne=0.6637 fp=0.790
+  ン=0.01 TEST ne=0.6637 fp=0.790 sens=0.974 TT/FT/TF=224/264/6
+  ン=0.02 TEST ne=0.6637 fp=0.790 sens=0.974 TT/FT/TF=224/264/6
+  ン=0.03 TEST ne=0.6637 fp=0.787 sens=0.974 TT/FT/TF=224/263/6
+  ン=0.04 TEST ne=0.6637 fp=0.778 sens=0.974 TT/FT/TF=224/260/6
+  ン=0.05 TEST ne=0.6612 fp=0.760 sens=0.970 TT/FT/TF=223/254/7
+  ン=0.06 TEST ne=0.6612 fp=0.746 sens=0.965 TT/FT/TF=222/249/8
+  ン=0.07 TEST ne=0.6553 fp=0.713 sens=0.957 TT/FT/TF=220/238/10
+  ン=0.08 TEST ne=0.6486 fp=0.668 sens=0.939 TT/FT/TF=216/223/14
+  ン=0.09 TEST ne=0.6482 fp=0.650 sens=0.930 TT/FT/TF=214/217/16
+  ン=0.10 TEST ne=0.6482 fp=0.626 sens=0.930 TT/FT/TF=214/209/16
+  ン=0.11 TEST ne=0.6482 fp=0.599 sens=0.926 TT/FT/TF=213/200/17
+  ン=0.12 TEST ne=0.6482 fp=0.575 sens=0.926 TT/FT/TF=213/192/17
+  ン=0.13 TEST ne=0.6414 fp=0.557 sens=0.917 TT/FT/TF=211/186/19
+  ン=0.14 TEST ne=0.6414 fp=0.542 sens=0.913 TT/FT/TF=210/181/20
+  ン=0.15 TEST ne=0.6386 fp=0.530 sens=0.904 TT/FT/TF=208/177/22
+load emptyfp D:\Desktop\BT_VAE\results\bp_original\dual_role_train_emptyfp\checkpoints\dual_role_best_auroc.pt
+emptyfp S5_raw TEST ne=0.6637 fp=0.790
+  ン=0.01 TEST ne=0.6415 fp=0.521 sens=0.900 TT/FT/TF=207/174/23
+  ン=0.02 TEST ne=0.6177 fp=0.437 sens=0.843 TT/FT/TF=194/146/36
+  ン=0.03 TEST ne=0.6015 fp=0.383 sens=0.813 TT/FT/TF=187/128/43
+  ン=0.04 TEST ne=0.5956 fp=0.353 sens=0.796 TT/FT/TF=183/118/47
+  ン=0.05 TEST ne=0.5794 fp=0.341 sens=0.774 TT/FT/TF=178/114/52
+  ン=0.06 TEST ne=0.5733 fp=0.332 sens=0.765 TT/FT/TF=176/111/54
+  ン=0.07 TEST ne=0.5732 fp=0.320 sens=0.757 TT/FT/TF=174/107/56
+  ン=0.08 TEST ne=0.5732 fp=0.314 sens=0.757 TT/FT/TF=174/105/56
+  ン=0.09 TEST ne=0.5663 fp=0.314 sens=0.748 TT/FT/TF=172/105/58
+  ン=0.10 TEST ne=0.5578 fp=0.293 sens=0.735 TT/FT/TF=169/98/61
+  ン=0.11 TEST ne=0.5498 fp=0.278 sens=0.722 TT/FT/TF=166/93/64
+  ン=0.12 TEST ne=0.5453 fp=0.275 sens=0.709 TT/FT/TF=163/92/67
+  ン=0.13 TEST ne=0.5381 fp=0.272 sens=0.700 TT/FT/TF=161/91/69
+  ン=0.14 TEST ne=0.5349 fp=0.266 sens=0.696 TT/FT/TF=160/89/70
+  ン=0.15 TEST ne=0.5349 fp=0.249 sens=0.696 TT/FT/TF=160/83/70
+wrote D:\Desktop\BT_VAE\results\bp_original\dual_role_tau_sweep_001_015

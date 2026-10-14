@@ -1,0 +1,211 @@
+{
+  "role": {
+    "skip": "S5 decoder = reconstruction / SEG mask",
+    "plain": "none encoder \u03bc \u2192 PresenceHead = lesion yes/no (A); plain decoder logits = soft/hard gate (B/C)"
+  },
+  "val_agreement_s5_empty_fp": {
+    "n_s5_empty_fp": 257,
+    "rejected_by_head": 104,
+    "rejected_by_plainMass": 125,
+    "rejected_by_both": 65,
+    "kept_by_both": 93,
+    "nonempty_killed_head": 21,
+    "nonempty_killed_plainMass": 27
+  },
+  "val": [
+    {
+      "name": "S5_raw",
+      "overall_dice": 0.42301711440086365,
+      "nonempty_dice": 0.7011393308639526,
+      "empty_fp_rate": 0.7648809523809523,
+      "sensitivity": 0.9647577092511013,
+      "specificity": 0.23511904761904762,
+      "TT": 219,
+      "FT": 257,
+      "TF": 8,
+      "FF": 79
+    },
+    {
+      "name": "plain_raw",
+      "overall_dice": 0.6193263530731201,
+      "nonempty_dice": 0.6461706161499023,
+      "empty_fp_rate": 0.39880952380952384,
+      "sensitivity": 0.8810572687224669,
+      "specificity": 0.6011904761904762,
+      "TT": 200,
+      "FT": 134,
+      "TF": 27,
+      "FF": 202
+    },
+    {
+      "name": "soft_merge",
+      "overall_dice": 0.6308531761169434,
+      "nonempty_dice": 0.6571381092071533,
+      "empty_fp_rate": 0.3869047619047619,
+      "sensitivity": 0.8766519823788547,
+      "specificity": 0.6130952380952381,
+      "TT": 199,
+      "FT": 130,
+      "TF": 28,
+      "FF": 206
+    },
+    {
+      "name": "A_hard_head@0.20",
+      "overall_dice": 0.5886769890785217,
+      "nonempty_dice": 0.6538553237915039,
+      "empty_fp_rate": 0.45535714285714285,
+      "sensitivity": 0.8766519823788547,
+      "specificity": 0.5446428571428571,
+      "TT": 199,
+      "FT": 153,
+      "TF": 28,
+      "FF": 183
+    },
+    {
+      "name": "A_hard_head_plainMask@0.20",
+      "overall_dice": 0.6742717027664185,
+      "nonempty_dice": 0.6062332987785339,
+      "empty_fp_rate": 0.27976190476190477,
+      "sensitivity": 0.8149779735682819,
+      "specificity": 0.7202380952380952,
+      "TT": 185,
+      "FT": 94,
+      "TF": 42,
+      "FF": 242
+    },
+    {
+      "name": "C_maxp_vsPlain@VAL0.86",
+      "overall_dice": 0.6351484656333923,
+      "nonempty_dice": 0.650170087814331,
+      "empty_fp_rate": 0.375,
+      "sensitivity": 0.8634361233480177,
+      "specificity": 0.625,
+      "TT": 196,
+      "FT": 126,
+      "TF": 31,
+      "FF": 210
+    },
+    {
+      "name": "A_head_vsPlain@VAL0.21",
+      "overall_dice": 0.5907658934593201,
+      "nonempty_dice": 0.6458203792572021,
+      "empty_fp_rate": 0.44642857142857145,
+      "sensitivity": 0.8678414096916299,
+      "specificity": 0.5535714285714286,
+      "TT": 197,
+      "FT": 150,
+      "TF": 30,
+      "FF": 186
+    },
+    {
+      "name": "C_hard_plainMass>0",
+      "overall_dice": 0.6280408501625061,
+      "nonempty_dice": 0.6589736342430115,
+      "empty_fp_rate": 0.39285714285714285,
+      "sensitivity": 0.8766519823788547,
+      "specificity": 0.6071428571428571,
+      "TT": 199,
+      "FT": 132,
+      "TF": 28,
+      "FF": 204
+    }
+  ],
+  "test": [
+    {
+      "name": "S5_raw",
+      "overall_dice": 0.39478200674057007,
+      "nonempty_dice": 0.663726270198822,
+      "empty_fp_rate": 0.7904191616766467,
+      "sensitivity": 0.9739130434782609,
+      "specificity": 0.20958083832335328,
+      "TT": 224,
+      "FT": 264,
+      "TF": 6,
+      "FF": 70
+    },
+    {
+      "name": "plain_raw",
+      "overall_dice": 0.6032049059867859,
+      "nonempty_dice": 0.5791633725166321,
+      "empty_fp_rate": 0.38023952095808383,
+      "sensitivity": 0.8260869565217391,
+      "specificity": 0.6197604790419161,
+      "TT": 190,
+      "FT": 127,
+      "TF": 40,
+      "FF": 207
+    },
+    {
+      "name": "soft_merge",
+      "overall_dice": 0.6264665126800537,
+      "nonempty_dice": 0.6014222502708435,
+      "empty_fp_rate": 0.3562874251497006,
+      "sensitivity": 0.8043478260869565,
+      "specificity": 0.6437125748502994,
+      "TT": 185,
+      "FT": 119,
+      "TF": 45,
+      "FF": 215
+    },
+    {
+      "name": "A_hard_head@0.20",
+      "overall_dice": 0.5636777281761169,
+      "nonempty_dice": 0.5909314155578613,
+      "empty_fp_rate": 0.4550898203592814,
+      "sensitivity": 0.8565217391304348,
+      "specificity": 0.5449101796407185,
+      "TT": 197,
+      "FT": 152,
+      "TF": 33,
+      "FF": 182
+    },
+    {
+      "name": "A_hard_head_plainMask@0.20",
+      "overall_dice": 0.6515651345252991,
+      "nonempty_dice": 0.532533586025238,
+      "empty_fp_rate": 0.26646706586826346,
+      "sensitivity": 0.7434782608695653,
+      "specificity": 0.7335329341317365,
+      "TT": 171,
+      "FT": 89,
+      "TF": 59,
+      "FF": 245
+    },
+    {
+      "name": "C_maxp_vsPlain@VAL0.86",
+      "overall_dice": 0.6375347971916199,
+      "nonempty_dice": 0.593781054019928,
+      "empty_fp_rate": 0.3323353293413174,
+      "sensitivity": 0.7782608695652173,
+      "specificity": 0.6676646706586826,
+      "TT": 179,
+      "FT": 111,
+      "TF": 51,
+      "FF": 223
+    },
+    {
+      "name": "A_head_vsPlain@VAL0.21",
+      "overall_dice": 0.5628801584243774,
+      "nonempty_dice": 0.580280065536499,
+      "empty_fp_rate": 0.4491017964071856,
+      "sensitivity": 0.8434782608695652,
+      "specificity": 0.5508982035928144,
+      "TT": 194,
+      "FT": 150,
+      "TF": 36,
+      "FF": 184
+    },
+    {
+      "name": "C_hard_plainMass>0",
+      "overall_dice": 0.6255292892456055,
+      "nonempty_dice": 0.6034718155860901,
+      "empty_fp_rate": 0.3592814371257485,
+      "sensitivity": 0.808695652173913,
+      "specificity": 0.6407185628742516,
+      "TT": 186,
+      "FT": 120,
+      "TF": 44,
+      "FF": 214
+    }
+  ]
+}

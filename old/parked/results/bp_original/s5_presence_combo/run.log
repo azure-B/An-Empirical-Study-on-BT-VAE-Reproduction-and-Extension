@@ -1,0 +1,93 @@
+new_tau=0.11 old_tau=0.2 default_topk=0.9493608448749934
+collecting VAL¡¦
+collecting TEST¡¦
+REF TEST none C0 ne=0.5792 fp=0.380 | s5 C0 ne=0.6637 fp=0.790
+
+######## MODE hybrid_noneGate_s5Seg: gate=none seg=s5 ########
+  PICK SOFT_mean thr=0.14 VAL fp=0.619 ne=0.6985 TEST fp=0.596 ne=0.6534
+
+=== hybrid_noneGate_s5Seg VAL ===
+C0                               dice=0.4230 ne=0.7011 fp=0.765 sens=0.965 TT=219 FT=257 TF=8 FF=79
+AND(C1_topk)                     dice=0.6536 ne=0.6343 fp=0.333 sens=0.828 TT=188 FT=112 TF=39 FF=224
+AND(C2_new)                      dice=0.4759 ne=0.7002 fp=0.676 sens=0.956 TT=217 FT=227 TF=10 FF=109
+AND(P_old)                       dice=0.5887 ne=0.6539 fp=0.455 sens=0.877 TT=199 FT=153 TF=28 FF=183
+AND(C1_topk+C2_new)              dice=0.6731 ne=0.6343 fp=0.301 sens=0.828 TT=188 FT=101 TF=39 FF=235
+AND(C1_topk+P_old)               dice=0.6920 ne=0.5974 fp=0.244 sens=0.775 TT=176 FT=82 TF=51 FF=254
+AND(C2_new+P_old)                dice=0.5993 ne=0.6539 fp=0.438 sens=0.877 TT=199 FT=147 TF=28 FF=189
+AND(C1_topk+C2_new+P_old)        dice=0.6991 ne=0.5974 fp=0.232 sens=0.775 TT=176 FT=78 TF=51 FF=258
+OR(C1_topk+C2_new+P_old)         dice=0.4528 ne=0.7002 fp=0.714 sens=0.956 TT=217 FT=240 TF=10 FF=96
+MAJ2of3                          dice=0.5662 ne=0.6907 fp=0.518 sens=0.930 TT=211 FT=174 TF=16 FF=162
+
+=== hybrid_noneGate_s5Seg TEST ===
+C0                               dice=0.3948 ne=0.6637 fp=0.790 sens=0.974 TT=224 FT=264 TF=6 FF=70
+AND(C1_topk)                     dice=0.6630 ne=0.5649 fp=0.269 sens=0.735 TT=169 FT=90 TF=61 FF=244
+AND(C2_new)                      dice=0.4424 ne=0.6545 fp=0.704 sens=0.952 TT=219 FT=235 TF=11 FF=99
+AND(P_old)                       dice=0.5637 ne=0.5909 fp=0.455 sens=0.857 TT=197 FT=152 TF=33 FF=182
+AND(C1_topk+C2_new)              dice=0.6690 ne=0.5624 fp=0.257 sens=0.730 TT=168 FT=86 TF=62 FF=248
+AND(C1_topk+P_old)               dice=0.6753 ne=0.5169 fp=0.216 sens=0.670 TT=154 FT=72 TF=76 FF=262
+AND(C2_new+P_old)                dice=0.5796 ne=0.5909 fp=0.428 sens=0.852 TT=196 FT=143 TF=34 FF=191
+AND(C1_topk+C2_new+P_old)        dice=0.6806 ne=0.5169 fp=0.207 sens=0.670 TT=154 FT=69 TF=76 FF=265
+OR(C1_topk+C2_new+P_old)         dice=0.4257 ne=0.6570 fp=0.734 sens=0.961 TT=221 FT=245 TF=9 FF=89
+MAJ2of3                          dice=0.5627 ne=0.6364 fp=0.488 sens=0.913 TT=210 FT=163 TF=20 FF=171
+hybrid_noneGate_s5Seg empty-FP reject {"C1_only": 69, "C2_only": 4, "P_only": 23, "C1_and_C2": 2, "C1_and_P": 57, "C2_and_P": 7, "all3": 17, "none_reject": 78}
+
+######## MODE native_s5Gate_s5Seg: gate=s5 seg=s5 ########
+  recalibrated topk thr=0.82 VAL fp=0.622 ne=0.6993
+  PICK SOFT_mean thr=0.34 VAL fp=0.708 ne=0.6992 TEST fp=0.722 ne=0.6637
+  PICK SOFT_min thr=0.01 VAL fp=0.735 ne=0.6981 TEST fp=0.719 ne=0.6623
+
+=== native_s5Gate_s5Seg VAL ===
+C0                               dice=0.4230 ne=0.7011 fp=0.765 sens=0.965 TT=219 FT=257 TF=8 FF=79
+AND(C1_topk)                     dice=0.5075 ne=0.6993 fp=0.622 sens=0.952 TT=216 FT=209 TF=11 FF=127
+AND(C2_new)                      dice=0.4620 ne=0.6613 fp=0.673 sens=0.903 TT=205 FT=226 TF=22 FF=110
+AND(P_old)                       dice=0.4823 ne=0.5135 fp=0.539 sens=0.700 TT=159 FT=181 TF=68 FF=155
+AND(C1_topk+C2_new)              dice=0.5270 ne=0.6594 fp=0.562 sens=0.890 TT=202 FT=189 TF=25 FF=147
+AND(C1_topk+P_old)               dice=0.5445 ne=0.5135 fp=0.435 sens=0.696 TT=158 FT=146 TF=69 FF=190
+AND(C2_new+P_old)                dice=0.4971 ne=0.4927 fp=0.500 sens=0.670 TT=152 FT=168 TF=75 FF=168
+AND(C1_topk+C2_new+P_old)        dice=0.5486 ne=0.4927 fp=0.414 sens=0.665 TT=151 FT=139 TF=76 FF=197
+OR(C1_topk+C2_new+P_old)         dice=0.4319 ne=0.7011 fp=0.750 sens=0.965 TT=219 FT=252 TF=8 FF=84
+MAJ2of3                          dice=0.4714 ne=0.6802 fp=0.670 sens=0.925 TT=210 FT=225 TF=17 FF=111
+
+=== native_s5Gate_s5Seg TEST ===
+C0                               dice=0.3948 ne=0.6637 fp=0.790 sens=0.974 TT=224 FT=264 TF=6 FF=70
+AND(C1_topk)                     dice=0.4833 ne=0.6591 fp=0.638 sens=0.917 TT=211 FT=213 TF=19 FF=121
+AND(C2_new)                      dice=0.4532 ne=0.6460 fp=0.680 sens=0.948 TT=218 FT=227 TF=12 FF=107
+AND(P_old)                       dice=0.4783 ne=0.5120 fp=0.545 sens=0.757 TT=174 FT=182 TF=56 FF=152
+AND(C1_topk+C2_new)              dice=0.5204 ne=0.6414 fp=0.563 sens=0.891 TT=205 FT=188 TF=25 FF=146
+AND(C1_topk+P_old)               dice=0.5328 ne=0.5109 fp=0.452 sens=0.713 TT=164 FT=151 TF=66 FF=183
+AND(C2_new+P_old)                dice=0.4980 ne=0.5037 fp=0.506 sens=0.743 TT=171 FT=169 TF=59 FF=165
+AND(C1_topk+C2_new+P_old)        dice=0.5471 ne=0.5025 fp=0.422 sens=0.700 TT=161 FT=141 TF=69 FF=193
+OR(C1_topk+C2_new+P_old)         dice=0.4107 ne=0.6637 fp=0.763 sens=0.974 TT=224 FT=255 TF=6 FF=79
+MAJ2of3                          dice=0.4569 ne=0.6509 fp=0.677 sens=0.948 TT=218 FT=226 TF=12 FF=108
+native_s5Gate_s5Seg empty-FP reject {"C1_only": 29, "C2_only": 7, "P_only": 50, "C1_and_C2": 6, "C1_and_P": 8, "C2_and_P": 13, "all3": 5, "none_reject": 139}
+
+######## MODE control_noneGate_noneSeg: gate=none seg=none ########
+  PICK SOFT_mean thr=0.40 VAL fp=0.360 ne=0.6447 TEST fp=0.344 ne=0.5708
+  PICK SOFT_min thr=0.05 VAL fp=0.375 ne=0.6408 TEST fp=0.350 ne=0.5714
+  PICK SOFT_prod thr=0.01 VAL fp=0.366 ne=0.6447 TEST fp=0.350 ne=0.5715
+
+=== control_noneGate_noneSeg VAL ===
+C0                               dice=0.6193 ne=0.6462 fp=0.399 sens=0.881 TT=200 FT=134 TF=27 FF=202
+AND(C1_topk)                     dice=0.6507 ne=0.6315 fp=0.336 sens=0.828 TT=188 FT=113 TF=39 FF=223
+AND(C2_new)                      dice=0.6383 ne=0.6447 fp=0.366 sens=0.872 TT=198 FT=123 TF=29 FF=213
+AND(P_old)                       dice=0.6743 ne=0.6062 fp=0.280 sens=0.815 TT=185 FT=94 TF=42 FF=242
+AND(C1_topk+C2_new)              dice=0.6703 ne=0.6315 fp=0.304 sens=0.828 TT=188 FT=102 TF=39 FF=234
+AND(C1_topk+P_old)               dice=0.6892 ne=0.5948 fp=0.247 sens=0.775 TT=176 FT=83 TF=51 FF=253
+AND(C2_new+P_old)                dice=0.6814 ne=0.6062 fp=0.268 sens=0.815 TT=185 FT=90 TF=42 FF=246
+AND(C1_topk+C2_new+P_old)        dice=0.6963 ne=0.5948 fp=0.235 sens=0.775 TT=176 FT=79 TF=51 FF=257
+OR(C1_topk+C2_new+P_old)         dice=0.6187 ne=0.6447 fp=0.399 sens=0.872 TT=198 FT=134 TF=29 FF=202
+MAJ2of3                          dice=0.6482 ne=0.6429 fp=0.348 sens=0.868 TT=197 FT=117 TF=30 FF=219
+
+=== control_noneGate_noneSeg TEST ===
+C0                               dice=0.6032 ne=0.5792 fp=0.380 sens=0.826 TT=190 FT=127 TF=40 FF=207
+AND(C1_topk)                     dice=0.6580 ne=0.5614 fp=0.275 sens=0.743 TT=171 FT=92 TF=59 FF=242
+AND(C2_new)                      dice=0.6180 ne=0.5763 fp=0.353 sens=0.817 TT=188 FT=118 TF=42 FF=216
+AND(P_old)                       dice=0.6516 ne=0.5325 fp=0.266 sens=0.743 TT=171 FT=89 TF=59 FF=245
+AND(C1_topk+C2_new)              dice=0.6640 ne=0.5588 fp=0.263 sens=0.739 TT=170 FT=88 TF=60 FF=246
+AND(C1_topk+P_old)               dice=0.6752 ne=0.5166 fp=0.216 sens=0.678 TT=156 FT=72 TF=74 FF=262
+AND(C2_new+P_old)                dice=0.6604 ne=0.5325 fp=0.251 sens=0.743 TT=171 FT=84 TF=59 FF=250
+AND(C1_topk+C2_new+P_old)        dice=0.6805 ne=0.5166 fp=0.207 sens=0.678 TT=156 FT=69 TF=74 FF=265
+OR(C1_topk+C2_new+P_old)         dice=0.6084 ne=0.5789 fp=0.371 sens=0.822 TT=189 FT=124 TF=41 FF=210
+MAJ2of3                          dice=0.6386 ne=0.5747 fp=0.317 sens=0.804 TT=185 FT=106 TF=45 FF=228
+control_noneGate_noneSeg empty-FP reject {"C1_only": 11, "C2_only": 4, "P_only": 23, "C1_and_C2": 0, "C1_and_P": 10, "C2_and_P": 7, "all3": 0, "none_reject": 79}
+wrote D:\Desktop\BT_VAE\results\bp_original\s5_presence_combo

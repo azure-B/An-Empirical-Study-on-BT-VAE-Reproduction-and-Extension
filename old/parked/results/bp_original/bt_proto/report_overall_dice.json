@@ -1,0 +1,55 @@
+{
+  "mode": "bt_spatial_proto",
+  "bt_ckpt": "D:\\Desktop\\BT_VAE\\checkpoints_bp_original\\bt_encoder_best.pt",
+  "best_ep": 3,
+  "raw_mu": {
+    "val": {
+      "dice_mean": 0.04303622990846634,
+      "dice_median": 6.509145306088371e-11,
+      "mean_dice_nonempty": 0.10673744231462479,
+      "median_dice_nonempty": 0.10436058044433594,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 1.0
+    },
+    "test": {
+      "dice_mean": 0.04415818303823471,
+      "dice_median": 6.352837700340785e-11,
+      "mean_dice_nonempty": 0.10828355699777603,
+      "median_dice_nonempty": 0.1095924898982048,
+      "n": 564,
+      "n_nonempty": 230,
+      "n_empty": 334,
+      "empty_fp_rate": 1.0
+    }
+  },
+  "learned": {
+    "val": {
+      "dice_mean": 0.5770016312599182,
+      "dice_median": 1.0,
+      "mean_dice_nonempty": 0.008158347569406033,
+      "median_dice_nonempty": 5.382131407216662e-10,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.03869047619047619
+    },
+    "test": {
+      "dice_mean": 0.5732970833778381,
+      "dice_median": 1.0,
+      "mean_dice_nonempty": 0.010171771980822086,
+      "median_dice_nonempty": 5.307857486869239e-10,
+      "n": 564,
+      "n_nonempty": 230,
+      "n_empty": 334,
+      "empty_fp_rate": 0.038922155688622756
+    }
+  },
+  "protocol": {
+    "encoder": "frozen BT",
+    "features": "spatial \u03bc 8x8 + encoder 16x16, no GAP",
+    "head": "1x1 projector + FG/BG prototype",
+    "labels": "bp_train_30 only"
+  }
+}

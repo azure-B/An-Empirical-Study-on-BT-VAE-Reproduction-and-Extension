@@ -1,0 +1,425 @@
+{
+  "note": "Independent curves. s5 = raw segmentation, s5_cls = S5 gated by P(lesion). Add another mode's report.json to extend the plot later.",
+  "series": {
+    "none": [
+      {
+        "dataset": "covid",
+        "ratio": 0.1,
+        "mode": "none",
+        "n_train": 74,
+        "n_train_full": 743,
+        "best_ep": 121,
+        "best_val_loss": 0.4313993233701457,
+        "test": {
+          "dice": 0.5045886635780334,
+          "dice_median": 0.5364733934402466,
+          "nonempty_dice": 0.48946914076805115,
+          "empty_fp_rate": 0.475,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.3,
+        "mode": "none",
+        "n_train": 223,
+        "n_train_full": 743,
+        "best_ep": 136,
+        "best_val_loss": 0.3809289485216141,
+        "test": {
+          "dice": 0.6398792266845703,
+          "dice_median": 0.7865581512451172,
+          "nonempty_dice": 0.5953453183174133,
+          "empty_fp_rate": 0.3,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.5,
+        "mode": "none",
+        "n_train": 372,
+        "n_train_full": 743,
+        "best_ep": 118,
+        "best_val_loss": 0.35541518453670584,
+        "test": {
+          "dice": 0.6863939166069031,
+          "dice_median": 0.842571496963501,
+          "nonempty_dice": 0.6207596063613892,
+          "empty_fp_rate": 0.225,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.7,
+        "mode": "none",
+        "n_train": 520,
+        "n_train_full": 743,
+        "best_ep": 240,
+        "best_val_loss": 0.0949141019752816,
+        "test": {
+          "dice": 0.7903401851654053,
+          "dice_median": 0.9170079231262207,
+          "nonempty_dice": 0.6535552740097046,
+          "empty_fp_rate": 0.025,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.9,
+        "mode": "none",
+        "n_train": 669,
+        "n_train_full": 743,
+        "best_ep": 202,
+        "best_val_loss": 0.08610579427129225,
+        "test": {
+          "dice": 0.8097187876701355,
+          "dice_median": 0.9224780797958374,
+          "nonempty_dice": 0.6687699556350708,
+          "empty_fp_rate": 0.0,
+          "n": 94
+        },
+        "seed": 0
+      }
+    ],
+    "none_cls": [
+      {
+        "dataset": "covid",
+        "ratio": 0.1,
+        "mode": "none_cls",
+        "n_train": 74,
+        "loss": "BCEWithLogits",
+        "probability": "p = sigmoid(Head(mu)) = P(lesion present | slice)",
+        "tau": 0.58,
+        "best_ep": 19,
+        "val_auroc": 0.9559659090909091,
+        "test": {
+          "dice": 0.6934021711349487,
+          "nonempty_dice": 0.4662927985191345,
+          "empty_fp_rate": 0.0
+        }
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.5,
+        "mode": "none_cls",
+        "n_train": 372,
+        "loss": "BCEWithLogits",
+        "probability": "p = sigmoid(Head(mu)) = P(lesion present | slice)",
+        "tau": 0.79,
+        "best_ep": 10,
+        "val_auroc": 0.9943181818181818,
+        "test": {
+          "dice": 0.769160807132721,
+          "nonempty_dice": 0.5981686115264893,
+          "empty_fp_rate": 0.0
+        }
+      }
+    ],
+    "s5": [
+      {
+        "dataset": "covid",
+        "ratio": 0.1,
+        "mode": "s5",
+        "n_train": 74,
+        "n_train_full": 743,
+        "best_ep": 79,
+        "best_val_loss": 0.3550516000908354,
+        "test": {
+          "dice": 0.6627249717712402,
+          "dice_median": 0.8212023377418518,
+          "nonempty_dice": 0.7091878056526184,
+          "empty_fp_rate": 0.4,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.3,
+        "mode": "s5",
+        "n_train": 223,
+        "n_train_full": 743,
+        "best_ep": 133,
+        "best_val_loss": 0.3390750480086907,
+        "test": {
+          "dice": 0.7448867559432983,
+          "dice_median": 0.8996814489364624,
+          "nonempty_dice": 0.7225804328918457,
+          "empty_fp_rate": 0.225,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.5,
+        "mode": "s5",
+        "n_train": 372,
+        "n_train_full": 743,
+        "best_ep": 108,
+        "best_val_loss": 0.32020070177057514,
+        "test": {
+          "dice": 0.7924970388412476,
+          "dice_median": 0.9120573401451111,
+          "nonempty_dice": 0.7684207558631897,
+          "empty_fp_rate": 0.175,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.7,
+        "mode": "s5",
+        "n_train": 520,
+        "n_train_full": 743,
+        "best_ep": 124,
+        "best_val_loss": 0.3089498420772345,
+        "test": {
+          "dice": 0.805840253829956,
+          "dice_median": 0.9219724535942078,
+          "nonempty_dice": 0.7546107172966003,
+          "empty_fp_rate": 0.125,
+          "n": 94
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.9,
+        "mode": "s5",
+        "n_train": 669,
+        "n_train_full": 743,
+        "best_ep": 118,
+        "best_val_loss": 0.3058705219756002,
+        "test": {
+          "dice": 0.818495512008667,
+          "dice_median": 0.9223896265029907,
+          "nonempty_dice": 0.7766402959823608,
+          "empty_fp_rate": 0.125,
+          "n": 94
+        },
+        "seed": 0
+      }
+    ],
+    "s5_cls": [
+      {
+        "dataset": "covid",
+        "ratio": 0.1,
+        "mode": "s5_cls",
+        "n_train": 74,
+        "loss": "BCEWithLogits",
+        "probability": "p = sigmoid(Head(\u03bc)) = P(lesion present | slice)",
+        "tau": 0.57,
+        "best_ep": 19,
+        "val_auroc": 0.8546401515151515,
+        "val_prob": {
+          "p_lesion": {
+            "n": 44,
+            "mean": 0.8498659729957581,
+            "median": 0.9363272190093994
+          },
+          "p_empty": {
+            "n": 48,
+            "mean": 0.5752292275428772,
+            "median": 0.5542804002761841
+          }
+        },
+        "test_prob": {
+          "p_lesion": {
+            "n": 54,
+            "mean": 0.8976818919181824,
+            "median": 0.9575868248939514
+          },
+          "p_empty": {
+            "n": 40,
+            "mean": 0.4838942587375641,
+            "median": 0.5116692781448364
+          }
+        },
+        "prob_trend": "prob_trend.json",
+        "test": {
+          "dice": 0.7684561014175415,
+          "nonempty_dice": 0.6895344257354736,
+          "empty_fp_rate": 0.125
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.3,
+        "mode": "s5_cls",
+        "n_train": 223,
+        "loss": "BCEWithLogits",
+        "probability": "p = sigmoid(Head(\u03bc)) = P(lesion present | slice)",
+        "tau": 0.58,
+        "best_ep": 36,
+        "val_auroc": 0.9564393939393939,
+        "val_prob": {
+          "p_lesion": {
+            "n": 44,
+            "mean": 0.9055429100990295,
+            "median": 0.9733034372329712
+          },
+          "p_empty": {
+            "n": 48,
+            "mean": 0.1871642917394638,
+            "median": 0.038089554756879807
+          }
+        },
+        "test_prob": {
+          "p_lesion": {
+            "n": 54,
+            "mean": 0.9303255677223206,
+            "median": 0.9853296279907227
+          },
+          "p_empty": {
+            "n": 40,
+            "mean": 0.15902261435985565,
+            "median": 0.024914100766181946
+          }
+        },
+        "prob_trend": "prob_trend.json",
+        "test": {
+          "dice": 0.8011102080345154,
+          "nonempty_dice": 0.6908213496208191,
+          "empty_fp_rate": 0.05
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.5,
+        "mode": "s5_cls",
+        "n_train": 372,
+        "loss": "BCEWithLogits",
+        "probability": "p = sigmoid(Head(\u03bc)) = P(lesion present | slice)",
+        "tau": 0.81,
+        "best_ep": 17,
+        "val_auroc": 0.9711174242424242,
+        "val_prob": {
+          "p_lesion": {
+            "n": 44,
+            "mean": 0.9272711277008057,
+            "median": 0.9707959890365601
+          },
+          "p_empty": {
+            "n": 48,
+            "mean": 0.39568543434143066,
+            "median": 0.29392731189727783
+          }
+        },
+        "test_prob": {
+          "p_lesion": {
+            "n": 54,
+            "mean": 0.911156415939331,
+            "median": 0.971394956111908
+          },
+          "p_empty": {
+            "n": 40,
+            "mean": 0.3886634111404419,
+            "median": 0.2558746635913849
+          }
+        },
+        "prob_trend": "prob_trend.json",
+        "test": {
+          "dice": 0.7658704519271851,
+          "nonempty_dice": 0.6294780969619751,
+          "empty_fp_rate": 0.05
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.7,
+        "mode": "s5_cls",
+        "n_train": 520,
+        "loss": "BCEWithLogits",
+        "probability": "p = sigmoid(Head(\u03bc)) = P(lesion present | slice)",
+        "tau": 0.74,
+        "best_ep": 37,
+        "val_auroc": 0.9876893939393939,
+        "val_prob": {
+          "p_lesion": {
+            "n": 44,
+            "mean": 0.9551753401756287,
+            "median": 0.9953627586364746
+          },
+          "p_empty": {
+            "n": 48,
+            "mean": 0.21924225986003876,
+            "median": 0.03983520716428757
+          }
+        },
+        "test_prob": {
+          "p_lesion": {
+            "n": 54,
+            "mean": 0.9572485685348511,
+            "median": 0.9910092353820801
+          },
+          "p_empty": {
+            "n": 40,
+            "mean": 0.20445533096790314,
+            "median": 0.045325495302677155
+          }
+        },
+        "prob_trend": "prob_trend.json",
+        "test": {
+          "dice": 0.8299205303192139,
+          "nonempty_dice": 0.7224540710449219,
+          "empty_fp_rate": 0.025
+        },
+        "seed": 0
+      },
+      {
+        "dataset": "covid",
+        "ratio": 0.9,
+        "mode": "s5_cls",
+        "n_train": 669,
+        "loss": "BCEWithLogits",
+        "probability": "p = sigmoid(Head(\u03bc)) = P(lesion present | slice)",
+        "tau": 0.45,
+        "best_ep": 28,
+        "val_auroc": 0.9791666666666666,
+        "val_prob": {
+          "p_lesion": {
+            "n": 44,
+            "mean": 0.9345399737358093,
+            "median": 0.9966897964477539
+          },
+          "p_empty": {
+            "n": 48,
+            "mean": 0.16431306302547455,
+            "median": 0.037372298538684845
+          }
+        },
+        "test_prob": {
+          "p_lesion": {
+            "n": 54,
+            "mean": 0.9504580497741699,
+            "median": 0.9975013732910156
+          },
+          "p_empty": {
+            "n": 40,
+            "mean": 0.1460231989622116,
+            "median": 0.03526686131954193
+          }
+        },
+        "prob_trend": "prob_trend.json",
+        "test": {
+          "dice": 0.8427910208702087,
+          "nonempty_dice": 0.7633770108222961,
+          "empty_fp_rate": 0.05
+        },
+        "seed": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+mu shape from first batch: (16, 1024, 8, 8) -> in_channels=1024
+SMOKE {
+  "all_core_ok": true,
+  "mu_shape": [
+    4,
+    1024,
+    8,
+    8
+  ],
+  "logit_shape": [
+    4
+  ],
+  "state_max_abs_diff": 0.0,
+  "patient_disjoint": false,
+  "patient_overlap_train_val": 47
+}
+building TRAIN empty-FP / empty-TN / nonempty groups ...
+TRAIN group counts {'nonempty': 565, 'empty_fp': 48, 'empty_tn': 739}
+balanced sampler weights: ne=565(w=0.000884956) fp=48(w=0.00520833) tn=739(w=0.000338295) expect batch share 0.50/0.25/0.25
+[presence] ep 1/100 loss=0.7226 val_loss=0.6676 auroc=0.650 auprc=0.553 ne_vs_fp_auc=0.597 bal_acc=0.613 (20.9s)
+  saved BEST_AUC auroc=0.6501 ne_vs_fp=0.5968
+[presence] ep 2/100 loss=0.6588 val_loss=0.6827 auroc=0.710 auprc=0.602 ne_vs_fp_auc=0.625 bal_acc=0.622 (20.9s)
+  saved BEST_AUC auroc=0.7101 ne_vs_fp=0.6251
+[presence] ep 3/100 loss=0.6029 val_loss=0.6309 auroc=0.694 auprc=0.609 ne_vs_fp_auc=0.618 bal_acc=0.645 (21.6s)
+[presence] ep 4/100 loss=0.5844 val_loss=0.6197 auroc=0.692 auprc=0.610 ne_vs_fp_auc=0.621 bal_acc=0.637 (21.5s)
+[presence] ep 5/100 loss=0.5642 val_loss=0.6237 auroc=0.704 auprc=0.624 ne_vs_fp_auc=0.637 bal_acc=0.656 (21.3s)
+[presence] ep 6/100 loss=0.5736 val_loss=0.6341 auroc=0.704 auprc=0.627 ne_vs_fp_auc=0.621 bal_acc=0.632 (21.3s)
+[presence] ep 7/100 loss=0.5762 val_loss=0.6021 auroc=0.723 auprc=0.643 ne_vs_fp_auc=0.639 bal_acc=0.660 (20.8s)
+  saved BEST_AUC auroc=0.7226 ne_vs_fp=0.6387
+[presence] ep 8/100 loss=0.5698 val_loss=0.6007 auroc=0.727 auprc=0.646 ne_vs_fp_auc=0.636 bal_acc=0.651 (20.8s)
+  saved BEST_AUC auroc=0.7274 ne_vs_fp=0.6360
+[presence] ep 9/100 loss=0.5670 val_loss=0.6049 auroc=0.733 auprc=0.652 ne_vs_fp_auc=0.645 bal_acc=0.675 (21.4s)
+  saved BEST_AUC auroc=0.7332 ne_vs_fp=0.6450
+[presence] ep 10/100 loss=0.5604 val_loss=0.6364 auroc=0.737 auprc=0.662 ne_vs_fp_auc=0.655 bal_acc=0.665 (21.5s)
+  saved BEST_AUC auroc=0.7370 ne_vs_fp=0.6547
+[presence] ep 11/100 loss=0.5774 val_loss=0.5927 auroc=0.736 auprc=0.653 ne_vs_fp_auc=0.644 bal_acc=0.641 (21.7s)
+[presence] ep 12/100 loss=0.5654 val_loss=0.5969 auroc=0.756 auprc=0.663 ne_vs_fp_auc=0.657 bal_acc=0.677 (21.7s)
+  saved BEST_AUC auroc=0.7560 ne_vs_fp=0.6571
+[presence] ep 13/100 loss=0.5751 val_loss=0.5719 auroc=0.759 auprc=0.672 ne_vs_fp_auc=0.658 bal_acc=0.670 (21.7s)
+  saved BEST_AUC auroc=0.7585 ne_vs_fp=0.6580
+[presence] ep 14/100 loss=0.5415 val_loss=0.5691 auroc=0.759 auprc=0.671 ne_vs_fp_auc=0.656 bal_acc=0.698 (21.7s)
+  saved BEST_AUC auroc=0.7594 ne_vs_fp=0.6561
+[presence] ep 15/100 loss=0.5423 val_loss=0.5725 auroc=0.761 auprc=0.673 ne_vs_fp_auc=0.657 bal_acc=0.659 (21.8s)
+  saved BEST_AUC auroc=0.7610 ne_vs_fp=0.6570
+[presence] ep 16/100 loss=0.5328 val_loss=0.5706 auroc=0.756 auprc=0.675 ne_vs_fp_auc=0.658 bal_acc=0.668 (21.8s)
+[presence] ep 17/100 loss=0.5431 val_loss=0.5823 auroc=0.761 auprc=0.674 ne_vs_fp_auc=0.656 bal_acc=0.627 (22.0s)
+[presence] ep 18/100 loss=0.5211 val_loss=0.5718 auroc=0.770 auprc=0.685 ne_vs_fp_auc=0.667 bal_acc=0.693 (23.1s)
+  saved BEST_AUC auroc=0.7699 ne_vs_fp=0.6671
+[presence] ep 19/100 loss=0.5485 val_loss=0.5819 auroc=0.766 auprc=0.677 ne_vs_fp_auc=0.656 bal_acc=0.622 (21.5s)
+[presence] ep 20/100 loss=0.5359 val_loss=0.5726 auroc=0.771 auprc=0.690 ne_vs_fp_auc=0.671 bal_acc=0.677 (21.4s)
+  saved BEST_AUC auroc=0.7706 ne_vs_fp=0.6707
+[presence] ep 21/100 loss=0.5316 val_loss=0.5884 auroc=0.755 auprc=0.670 ne_vs_fp_auc=0.654 bal_acc=0.690 (21.4s)
+[presence] ep 22/100 loss=0.5071 val_loss=0.6015 auroc=0.754 auprc=0.665 ne_vs_fp_auc=0.641 bal_acc=0.614 (22.7s)
+[presence] ep 23/100 loss=0.5280 val_loss=0.5872 auroc=0.762 auprc=0.685 ne_vs_fp_auc=0.657 bal_acc=0.693 (22.9s)
+[presence] ep 24/100 loss=0.5568 val_loss=0.5707 auroc=0.771 auprc=0.689 ne_vs_fp_auc=0.664 bal_acc=0.702 (23.1s)
+  saved BEST_AUC auroc=0.7709 ne_vs_fp=0.6642
+[presence] ep 25/100 loss=0.5297 val_loss=0.5976 auroc=0.755 auprc=0.670 ne_vs_fp_auc=0.650 bal_acc=0.694 (22.5s)
+[presence] ep 26/100 loss=0.4968 val_loss=0.5893 auroc=0.762 auprc=0.678 ne_vs_fp_auc=0.661 bal_acc=0.687 (23.4s)
+[presence] ep 27/100 loss=0.5069 val_loss=0.5752 auroc=0.772 auprc=0.687 ne_vs_fp_auc=0.672 bal_acc=0.697 (23.5s)
+  saved BEST_AUC auroc=0.7715 ne_vs_fp=0.6721
+[presence] ep 28/100 loss=0.5033 val_loss=0.6100 auroc=0.761 auprc=0.685 ne_vs_fp_auc=0.671 bal_acc=0.686 (23.3s)
+[presence] ep 29/100 loss=0.4972 val_loss=0.5638 auroc=0.771 auprc=0.689 ne_vs_fp_auc=0.672 bal_acc=0.656 (23.1s)
+[presence] ep 30/100 loss=0.5174 val_loss=0.5740 auroc=0.772 auprc=0.690 ne_vs_fp_auc=0.671 bal_acc=0.697 (23.4s)
+  saved BEST_AUC auroc=0.7721 ne_vs_fp=0.6706
+[presence] ep 31/100 loss=0.5016 val_loss=0.5589 auroc=0.777 auprc=0.694 ne_vs_fp_auc=0.673 bal_acc=0.698 (23.0s)
+  saved BEST_AUC auroc=0.7766 ne_vs_fp=0.6728
+[presence] ep 32/100 loss=0.5174 val_loss=0.5627 auroc=0.773 auprc=0.684 ne_vs_fp_auc=0.670 bal_acc=0.679 (22.6s)
+[presence] ep 33/100 loss=0.5040 val_loss=0.6255 auroc=0.764 auprc=0.684 ne_vs_fp_auc=0.664 bal_acc=0.666 (22.6s)
+[presence] ep 34/100 loss=0.5372 val_loss=0.5716 auroc=0.774 auprc=0.688 ne_vs_fp_auc=0.671 bal_acc=0.706 (23.1s)
+[presence] ep 35/100 loss=0.4836 val_loss=0.6340 auroc=0.762 auprc=0.680 ne_vs_fp_auc=0.663 bal_acc=0.697 (23.0s)
+[presence] ep 36/100 loss=0.5188 val_loss=0.6054 auroc=0.764 auprc=0.682 ne_vs_fp_auc=0.663 bal_acc=0.699 (21.5s)
+[presence] ep 37/100 loss=0.4822 val_loss=0.5847 auroc=0.768 auprc=0.690 ne_vs_fp_auc=0.668 bal_acc=0.695 (21.4s)
+[presence] ep 38/100 loss=0.4772 val_loss=0.5724 auroc=0.764 auprc=0.681 ne_vs_fp_auc=0.668 bal_acc=0.676 (21.4s)
+[presence] ep 39/100 loss=0.4833 val_loss=0.5671 auroc=0.773 auprc=0.694 ne_vs_fp_auc=0.669 bal_acc=0.695 (21.3s)
+[presence] ep 40/100 loss=0.4617 val_loss=0.5681 auroc=0.775 auprc=0.693 ne_vs_fp_auc=0.667 bal_acc=0.701 (21.3s)
+[presence] ep 41/100 loss=0.4774 val_loss=0.5713 auroc=0.774 auprc=0.687 ne_vs_fp_auc=0.666 bal_acc=0.701 (21.4s)
+[presence] ep 42/100 loss=0.4849 val_loss=0.5845 auroc=0.771 auprc=0.687 ne_vs_fp_auc=0.664 bal_acc=0.700 (21.4s)
+[presence] ep 43/100 loss=0.4683 val_loss=0.5598 auroc=0.770 auprc=0.686 ne_vs_fp_auc=0.664 bal_acc=0.685 (21.4s)
+[presence] ep 44/100 loss=0.4681 val_loss=0.5640 auroc=0.771 auprc=0.687 ne_vs_fp_auc=0.665 bal_acc=0.693 (21.3s)
+[presence] ep 45/100 loss=0.4683 val_loss=0.5963 auroc=0.770 auprc=0.687 ne_vs_fp_auc=0.664 bal_acc=0.701 (21.4s)
+[presence] ep 46/100 loss=0.4650 val_loss=0.5829 auroc=0.768 auprc=0.684 ne_vs_fp_auc=0.664 bal_acc=0.677 (21.4s)
+early stop @31
+
+=== VAL ===
+Raw segmentation | 0.6193 | 0.6462 | 0.399 | 0.881 | 0.601 | 200 | 134 | 27 | 202
+Top-k rejection | 0.6507 | 0.6315 | 0.336 | 0.828 | 0.664 | 188 | 113 | 39 | 223
+Presence head | 0.6383 | 0.6447 | 0.366 | 0.872 | 0.634 | 198 | 123 | 29 | 213
+
+=== TEST (thr fixed on VAL) ===
+Raw segmentation | 0.6032 | 0.5792 | 0.380 | 0.826 | 0.620 | 190 | 127 | 40 | 207
+Top-k rejection | 0.6580 | 0.5614 | 0.275 | 0.743 | 0.725 | 171 | 92 | 59 | 242
+Presence head | 0.6180 | 0.5763 | 0.353 | 0.817 | 0.647 | 188 | 118 | 42 | 216
+final seg state max_abs_diff=0.000e+00 (must <=1e-6)
+wrote D:\Desktop\BT_VAE\results\bp_original\lesion_presence

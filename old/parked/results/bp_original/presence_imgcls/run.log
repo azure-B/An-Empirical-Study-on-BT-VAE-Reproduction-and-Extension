@@ -1,0 +1,50 @@
+OUT=D:\Desktop\BT_VAE\results\bp_original\presence_imgcls DEVICE=cuda batch=16 n=1352/563/564
+design: ResNet18(FLAIR 1ch) ≧ presence logit ， no VAE レ
+[imgcls 1/60] bce=0.7930 auroc=0.7255 acc=0.554 sens=0.894 spec=0.324 F1=0.618 (9.7s)
+  * best auroc=0.7255 acc@0.5=0.554
+[imgcls 2/60] bce=0.5022 auroc=0.7467 acc=0.712 sens=0.467 spec=0.878 F1=0.567 (4.3s)
+  * best auroc=0.7467 acc@0.5=0.712
+[imgcls 3/60] bce=0.3158 auroc=0.7447 acc=0.668 sens=0.282 spec=0.929 F1=0.406 (4.2s)
+[imgcls 4/60] bce=0.1936 auroc=0.7574 acc=0.520 sens=0.943 spec=0.235 F1=0.613 (4.2s)
+  * best auroc=0.7574 acc@0.5=0.520
+[imgcls 5/60] bce=0.1736 auroc=0.7501 acc=0.705 sens=0.581 spec=0.789 F1=0.614 (4.2s)
+[imgcls 6/60] bce=0.1529 auroc=0.7368 acc=0.666 sens=0.793 spec=0.580 F1=0.657 (4.2s)
+[imgcls 7/60] bce=0.1281 auroc=0.7378 acc=0.632 sens=0.749 spec=0.554 F1=0.622 (4.2s)
+[imgcls 8/60] bce=0.1062 auroc=0.7672 acc=0.705 sens=0.767 spec=0.664 F1=0.677 (4.3s)
+  * best auroc=0.7672 acc@0.5=0.705
+[imgcls 9/60] bce=0.1071 auroc=0.7403 acc=0.687 sens=0.392 spec=0.887 F1=0.503 (4.2s)
+[imgcls 10/60] bce=0.0593 auroc=0.7502 acc=0.712 sens=0.537 spec=0.830 F1=0.601 (4.2s)
+[imgcls 11/60] bce=0.0802 auroc=0.7362 acc=0.691 sens=0.388 spec=0.896 F1=0.503 (4.3s)
+[imgcls 12/60] bce=0.0756 auroc=0.7370 acc=0.682 sens=0.326 spec=0.923 F1=0.453 (4.2s)
+[imgcls 13/60] bce=0.0710 auroc=0.7445 acc=0.643 sens=0.815 spec=0.527 F1=0.648 (4.2s)
+[imgcls 14/60] bce=0.0490 auroc=0.7566 acc=0.712 sens=0.599 spec=0.789 F1=0.627 (4.3s)
+[imgcls 15/60] bce=0.0350 auroc=0.7524 acc=0.714 sens=0.573 spec=0.810 F1=0.618 (4.1s)
+[imgcls 16/60] bce=0.0290 auroc=0.7651 acc=0.725 sens=0.674 spec=0.759 F1=0.664 (4.2s)
+[imgcls 17/60] bce=0.0261 auroc=0.7612 acc=0.710 sens=0.736 spec=0.693 F1=0.672 (4.4s)
+[imgcls 18/60] bce=0.0219 auroc=0.7628 acc=0.719 sens=0.648 spec=0.768 F1=0.650 (4.2s)
+[imgcls 19/60] bce=0.0170 auroc=0.7642 acc=0.725 sens=0.626 spec=0.792 F1=0.647 (4.2s)
+[imgcls 20/60] bce=0.0196 auroc=0.7609 acc=0.723 sens=0.617 spec=0.795 F1=0.642 (4.2s)
+early stop @ ep 20
+==== TEST pick=acc ン=0.88 ====
+  TP=127 TN=272 FP=62 FN=103
+  acc=0.707 sens=0.552 spec=0.814 F1=0.606 AUROC=0.757
+==== TEST pick=f1 ン=0.49 ====
+  TP=168 TN=219 FP=115 FN=62
+  acc=0.686 sens=0.730 spec=0.656 F1=0.655 AUROC=0.757
+==== TEST pick=bal ン=0.88 ====
+  TP=127 TN=272 FP=62 FN=103
+  acc=0.707 sens=0.552 spec=0.814 F1=0.606 AUROC=0.757
+==== TEST ン=0.50 ==== acc=0.688 sens=0.726 spec=0.662
+Traceback (most recent call last):
+  File "D:\Desktop\BT_VAE\train_presence_img.py", line 265, in <module>
+    main()
+  File "D:\Desktop\BT_VAE\train_presence_img.py", line 237, in main
+    write_csv(OUT / "final_metrics.csv", rows)
+  File "D:\Desktop\BT_VAE\train_presence_img.py", line 98, in write_csv
+    w.writerows(rows)
+  File "C:\Users\kyc12\AppData\Local\Programs\Python\Python312\Lib\csv.py", line 167, in writerows
+    return self.writer.writerows(map(self._dict_to_list, rowdicts))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kyc12\AppData\Local\Programs\Python\Python312\Lib\csv.py", line 159, in _dict_to_list
+    raise ValueError("dict contains fields not in fieldnames: "
+ValueError: dict contains fields not in fieldnames: 'val_accuracy'

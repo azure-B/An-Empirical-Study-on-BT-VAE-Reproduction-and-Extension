@@ -1,0 +1,79 @@
+==== none
+VAL none {
+  "mean_dice": 0.6078966856002808,
+  "mean_dice_nonempty": 0.6442548632621765,
+  "empty_fp_rate": 0.4166666666666667
+}
+TEST none {
+  "mean_dice": 0.5985384583473206,
+  "mean_dice_nonempty": 0.5720680952072144,
+  "empty_fp_rate": 0.38323353293413176
+}
+==== s5_concat
+VAL s5_concat {
+  "mean_dice": 0.4187028706073761,
+  "mean_dice_nonempty": 0.699249804019928,
+  "empty_fp_rate": 0.7708333333333334
+}
+TEST s5_concat {
+  "mean_dice": 0.3963688910007477,
+  "mean_dice_nonempty": 0.6632697582244873,
+  "empty_fp_rate": 0.7874251497005988
+}
+==== region_seed
+VAL region_seed {
+  "mean_dice": 0.5380975604057312,
+  "mean_dice_nonempty": 0.6605680584907532,
+  "empty_fp_rate": 0.5446428571428571
+}
+TEST region_seed {
+  "mean_dice": 0.536243200302124,
+  "mean_dice_nonempty": 0.6497442126274109,
+  "empty_fp_rate": 0.5419161676646707
+}
+==== none_freeze
+VAL none_freeze {
+  "mean_dice": 0.38099509477615356,
+  "mean_dice_nonempty": 0.6497808694839478,
+  "empty_fp_rate": 0.8005952380952381
+}
+TEST none_freeze {
+  "mean_dice": 0.39847081899642944,
+  "mean_dice_nonempty": 0.677119791507721,
+  "empty_fp_rate": 0.7934131736526946
+}
+==== none_emptyfp
+VAL none_emptyfp {
+  "mean_dice": 0.6712822318077087,
+  "mean_dice_nonempty": 0.471065491437912,
+  "empty_fp_rate": 0.19345238095238096
+}
+TEST none_emptyfp {
+  "mean_dice": 0.6748422384262085,
+  "mean_dice_nonempty": 0.4374391734600067,
+  "empty_fp_rate": 0.16167664670658682
+}
+==== none_presence
+VAL none_presence {
+  "mean_dice": 0.6652458906173706,
+  "mean_dice_nonempty": 0.6014688611030579,
+  "empty_fp_rate": 0.2916666666666667
+}
+TEST none_presence {
+  "mean_dice": 0.6499367952346802,
+  "mean_dice_nonempty": 0.5328885912895203,
+  "empty_fp_rate": 0.2694610778443114
+}
+encoder load missing=0 unexpected=0
+==== bt_proto
+VAL bt_proto {
+  "mean_dice": 0.24726784229278564,
+  "mean_dice_nonempty": 0.4899197220802307,
+  "empty_fp_rate": 0.9166666666666666
+}
+TEST bt_proto {
+  "mean_dice": 0.24264001846313477,
+  "mean_dice_nonempty": 0.4776041805744171,
+  "empty_fp_rate": 0.9191616766467066
+}
+wrote D:\Desktop\BT_VAE\results\bp_original\COMPARE.json

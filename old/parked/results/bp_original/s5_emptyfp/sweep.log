@@ -1,0 +1,10 @@
+RUN D:\Desktop\BT_VAE\.venv\Scripts\python.exe -u D:\Desktop\BT_VAE\train_s5_emptyfp.py --lambda-fp 0.02 --max-epoch 4 --skip-final-eval --no-ckpt --tag l0.02 -> D:\Desktop\BT_VAE\results\bp_original\s5_emptyfp\train_l0.02.log
+RUN D:\Desktop\BT_VAE\.venv\Scripts\python.exe -u D:\Desktop\BT_VAE\train_s5_emptyfp.py --lambda-fp 0.05 --max-epoch 4 --skip-final-eval --no-ckpt --tag l0.05 -> D:\Desktop\BT_VAE\results\bp_original\s5_emptyfp\train_l0.05.log
+WROTE D:\Desktop\BT_VAE\results\bp_original\s5_emptyfp\lambda_sweep.json
+  ル=0.02 score=0.3155 nonempty=0.6138 empty_fp=0.393
+  ル=0.1 score=0.3100 nonempty=0.6090 empty_fp=0.396
+  ル=0.05 score=0.3080 nonempty=0.5988 empty_fp=0.363
+  ル=0.5 score=0.2703 nonempty=0.5425 empty_fp=0.289
+  ル=6.0 score=0.1810 nonempty=0.4323 empty_fp=0.205
+BEST ル 0.02 -> 100 epochs
+RUN D:\Desktop\BT_VAE\.venv\Scripts\python.exe -u D:\Desktop\BT_VAE\train_s5_emptyfp.py --lambda-fp 0.02 --max-epoch 100 --es-patience 40 --tag l0.02_ep100 -> D:\Desktop\BT_VAE\results\bp_original\s5_emptyfp\train_l0.02_ep100.log

@@ -1,0 +1,49 @@
+{
+  "design": "1 shared encoder \u2192 Decoder_seg (S5) + cls branch",
+  "refs": {
+    "none": {
+      "ne": 0.572,
+      "fp": 0.383
+    },
+    "wprod_mass_messy": {
+      "ne": 0.601,
+      "fp": 0.305
+    }
+  },
+  "rows": [
+    {
+      "name": "1enc2dec_focal_DecCls",
+      "raw_ne": 0.715645968914032,
+      "raw_fp": 0.9131736526946108,
+      "gate_only_thr": 0.6,
+      "gate_only_ne": 0.5718795657157898,
+      "gate_only_fp": 0.3772455089820359,
+      "gate_only_sens": 0.7565217391304347,
+      "mass_thr": 0.6,
+      "min_mass": 640,
+      "mass_ne": 0.570952296257019,
+      "mass_fp": 0.3502994011976048,
+      "mass_sens": 0.7521739130434782,
+      "mass_fn": 57,
+      "pick": "ne_floor_min_fp",
+      "auroc": 0.7565087216870606
+    },
+    {
+      "name": "1enc2dec_cls_recall_heads",
+      "raw_ne": 0.715645968914032,
+      "raw_fp": 0.9131736526946108,
+      "gate_only_thr": 0.66,
+      "gate_only_ne": 0.5296257138252258,
+      "gate_only_fp": 0.437125748502994,
+      "gate_only_sens": 0.7217391304347827,
+      "mass_thr": 0.63,
+      "min_mass": 1280,
+      "mass_ne": 0.6349959373474121,
+      "mass_fp": 0.46107784431137727,
+      "mass_sens": 0.8478260869565217,
+      "mass_fn": 35,
+      "pick": "ne_floor_min_fp",
+      "auroc": 0.6533585003905233
+    }
+  ]
+}

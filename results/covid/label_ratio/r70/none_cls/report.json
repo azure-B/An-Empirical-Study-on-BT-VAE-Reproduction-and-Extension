@@ -1,0 +1,16 @@
+{
+  "dataset": "covid",
+  "ratio": 0.7,
+  "mode": "none_cls",
+  "n_train": 520,
+  "loss": "BCEWithLogits",
+  "probability": "p = sigmoid(Head(mu)) = P(lesion present | slice)",
+  "tau": 0.01,
+  "best_ep": 13,
+  "val_auroc": 0.9947916666666666,
+  "test": {
+    "dice": 0.7903401851654053,
+    "nonempty_dice": 0.6535552740097046,
+    "empty_fp_rate": 0.025
+  }
+}

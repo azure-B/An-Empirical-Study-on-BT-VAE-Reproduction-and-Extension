@@ -1,0 +1,23 @@
+{
+  "updated_at": "2026-09-21 11:52:57",
+  "phase": "seg",
+  "epoch": 462,
+  "best": 0.8470593328061311,
+  "bad_epochs": 116,
+  "val": {
+    "loss": 0.3133164543820464,
+    "main": 0.3127580307748007,
+    "kl": 0.5584254718345144,
+    "dice": 0.8243503959282584,
+    "iou": 0.7738252061864604
+  },
+  "best_dice": 0.8470593328061311,
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\Desktop\\BT_VAE\\train_skiponly.py\", line 677, in <module>\n    main()\n  File \"D:\\Desktop\\BT_VAE\\train_skiponly.py\", line 671, in main\n    train_seg(seg_data.train_loader, seg_data.val_loader, seg_data.test_loader, bt_ckpt)\n  File \"D:\\Desktop\\BT_VAE\\train_skiponly.py\", line 598, in train_seg\n    print(\nOSError: [Errno 22] Invalid argument\n",
+  "test": {
+    "loss": 0.30013565594951314,
+    "main": 0.2996000614948571,
+    "kl": 0.5355942646662394,
+    "dice": 0.7629217257102331,
+    "iou": 0.6957100530465444
+  }
+}

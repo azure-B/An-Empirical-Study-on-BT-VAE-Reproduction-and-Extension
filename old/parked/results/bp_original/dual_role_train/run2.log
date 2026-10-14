@@ -1,0 +1,37 @@
+OUT=D:\Desktop\BT_VAE\results\bp_original\dual_role_train cls_init=none
+DEVICE=cuda n_train=1352 n_val=563 batch=8 (original none=16, s5=8 ¡æ dual uses 8)
+init: skip¡çs5_concat, cls¡çnone (seg_best.pt), head=random
+phase1 warm head-only epochs=8 device=cuda
+[warm 1/8] loss=0.8634 bce=0.8423 auroc=0.7099 (71.5s)
+  * best auroc=0.7099
+[warm 2/8] loss=0.7944 bce=0.7733 auroc=0.7346 (71.0s)
+  * best auroc=0.7346
+[warm 3/8] loss=0.7814 bce=0.7603 auroc=0.7213 (62.4s)
+[warm 4/8] loss=0.7299 bce=0.7088 auroc=0.7275 (87.0s)
+[warm 5/8] loss=0.7107 bce=0.6896 auroc=0.7359 (84.0s)
+  * best auroc=0.7359
+[warm 6/8] loss=0.7568 bce=0.7357 auroc=0.7435 (84.3s)
+  * best auroc=0.7435
+[warm 7/8] loss=0.7084 bce=0.6872 auroc=0.7418 (86.2s)
+[warm 8/8] loss=0.6804 bce=0.6593 auroc=0.7418 (85.3s)
+phase2 FT cls+head epochs=40 ¥ë_plain=0.25 lr_cls=3e-05 cls_init=none
+[ft 1/40] loss=0.7883 bce=0.6866 auroc=0.7918 (2099.3s)
+  * best auroc=0.7918
+[ft 2/40] loss=0.6413 bce=0.5392 auroc=0.8098 (1701.1s)
+  * best auroc=0.8098
+[ft 3/40] loss=0.5763 bce=0.4741 auroc=0.7890 (1666.7s)
+[ft 4/40] loss=0.5232 bce=0.4209 auroc=0.7921 (1662.5s)
+[ft 5/40] loss=0.5121 bce=0.4097 auroc=0.7835 (1656.6s)
+[ft 6/40] loss=0.4822 bce=0.3800 auroc=0.7934 (1655.0s)
+[ft 7/40] loss=0.4921 bce=0.3902 auroc=0.7819 (1655.9s)
+[ft 8/40] loss=0.4766 bce=0.3745 auroc=0.7960 (1658.3s)
+[ft 9/40] loss=0.4528 bce=0.3512 auroc=0.7973 (1656.5s)
+[ft 10/40] loss=0.4497 bce=0.3484 auroc=0.7972 (1655.8s)
+[ft 11/40] loss=0.4455 bce=0.3444 auroc=0.7902 (1658.0s)
+[ft 12/40] loss=0.4507 bce=0.3496 auroc=0.7865 (232.2s)
+[ft 13/40] loss=0.4398 bce=0.3389 auroc=0.7841 (114.3s)
+[ft 14/40] loss=0.4238 bce=0.3231 auroc=0.7946 (114.3s)
+early stop FT at ep 14
+PICK vs plain thr=0.22 VAL ne=0.6476 fp=0.405 TEST ne=0.5995 fp=0.383 auroc=0.7820
+PICK bal thr=0.22 TEST ne=0.5995 fp=0.383
+wrote D:\Desktop\BT_VAE\results\bp_original\dual_role_train

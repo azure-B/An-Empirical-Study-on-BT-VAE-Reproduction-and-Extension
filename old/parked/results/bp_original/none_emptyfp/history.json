@@ -1,0 +1,391 @@
+[
+  {
+    "init_val": {
+      "dice_mean": 0.6128782033920288,
+      "dice_median": 0.8175046443939209,
+      "mean_dice_nonempty": 0.6477991938591003,
+      "median_dice_nonempty": 0.7786499261856079,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.4107142857142857,
+      "empty_fp_penalty": 0.07488418418344939
+    },
+    "none_ep": 48
+  },
+  {
+    "ep": 1,
+    "train_loss": 0.3759681559389546,
+    "val": {
+      "dice_mean": 0.6608445644378662,
+      "dice_median": 0.8833819031715393,
+      "mean_dice_nonempty": 0.5024470090866089,
+      "median_dice_nonempty": 0.6409769058227539,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.23214285714285715,
+      "empty_fp_penalty": 0.0411968321986933
+    }
+  },
+  {
+    "ep": 2,
+    "train_loss": 0.3728240306178729,
+    "val": {
+      "dice_mean": 0.6716011762619019,
+      "dice_median": 0.8754116296768188,
+      "mean_dice_nonempty": 0.5775836110115051,
+      "median_dice_nonempty": 0.7486666440963745,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.2648809523809524,
+      "empty_fp_penalty": 0.04743684487119834
+    }
+  },
+  {
+    "ep": 3,
+    "train_loss": 0.37907238872278304,
+    "val": {
+      "dice_mean": 0.6632979512214661,
+      "dice_median": 0.8819140791893005,
+      "mean_dice_nonempty": 0.4865054488182068,
+      "median_dice_nonempty": 0.6386871337890625,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.21726190476190477,
+      "empty_fp_penalty": 0.03980704359168562
+    }
+  },
+  {
+    "ep": 4,
+    "train_loss": 0.3714536169455165,
+    "val": {
+      "dice_mean": 0.666128396987915,
+      "dice_median": 0.8937185406684875,
+      "mean_dice_nonempty": 0.48030969500541687,
+      "median_dice_nonempty": 0.6244111061096191,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.20833333333333334,
+      "empty_fp_penalty": 0.03729783029146145
+    }
+  },
+  {
+    "ep": 5,
+    "train_loss": 0.36633830215959323,
+    "val": {
+      "dice_mean": 0.6760353446006775,
+      "dice_median": 0.9025206565856934,
+      "mean_dice_nonempty": 0.491664856672287,
+      "median_dice_nonempty": 0.6584415435791016,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.19940476190476192,
+      "empty_fp_penalty": 0.036762209049457956
+    }
+  },
+  {
+    "ep": 6,
+    "train_loss": 0.3628551009155455,
+    "val": {
+      "dice_mean": 0.6706026196479797,
+      "dice_median": 0.9121725559234619,
+      "mean_dice_nonempty": 0.44735366106033325,
+      "median_dice_nonempty": 0.5866928696632385,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.17857142857142858,
+      "empty_fp_penalty": 0.032330722967407785
+    }
+  },
+  {
+    "ep": 7,
+    "train_loss": 0.36574219947769526,
+    "val": {
+      "dice_mean": 0.6643350720405579,
+      "dice_median": 0.8847771286964417,
+      "mean_dice_nonempty": 0.5066989660263062,
+      "median_dice_nonempty": 0.6387487649917603,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.22916666666666666,
+      "empty_fp_penalty": 0.041542881241892045
+    }
+  },
+  {
+    "ep": 8,
+    "train_loss": 0.3644783775366488,
+    "val": {
+      "dice_mean": 0.6628733277320862,
+      "dice_median": 0.886956512928009,
+      "mean_dice_nonempty": 0.4898577332496643,
+      "median_dice_nonempty": 0.6447073817253113,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.22023809523809523,
+      "empty_fp_penalty": 0.03957375174477167
+    }
+  },
+  {
+    "ep": 9,
+    "train_loss": 0.35805845792804447,
+    "val": {
+      "dice_mean": 0.6758952140808105,
+      "dice_median": 0.9121847748756409,
+      "mean_dice_nonempty": 0.4604801535606384,
+      "median_dice_nonempty": 0.5969498753547668,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.17857142857142858,
+      "empty_fp_penalty": 0.03318744882725847
+    }
+  },
+  {
+    "ep": 10,
+    "train_loss": 0.3622366762941792,
+    "val": {
+      "dice_mean": 0.6677452325820923,
+      "dice_median": 0.8809577822685242,
+      "mean_dice_nonempty": 0.5063461661338806,
+      "median_dice_nonempty": 0.6790063381195068,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.22321428571428573,
+      "empty_fp_penalty": 0.041326204279206045
+    }
+  },
+  {
+    "ep": 11,
+    "train_loss": 0.35835230137620655,
+    "val": {
+      "dice_mean": 0.6680097579956055,
+      "dice_median": 0.8835051655769348,
+      "mean_dice_nonempty": 0.48057037591934204,
+      "median_dice_nonempty": 0.6566217541694641,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.20535714285714285,
+      "empty_fp_penalty": 0.037410833338223405
+    }
+  },
+  {
+    "ep": 12,
+    "train_loss": 0.35418632431399255,
+    "val": {
+      "dice_mean": 0.6733729839324951,
+      "dice_median": 0.8857438564300537,
+      "mean_dice_nonempty": 0.4982774257659912,
+      "median_dice_nonempty": 0.65869140625,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.20833333333333334,
+      "empty_fp_penalty": 0.039265032297395114
+    }
+  },
+  {
+    "ep": 13,
+    "train_loss": 0.35551772373063223,
+    "val": {
+      "dice_mean": 0.6624576449394226,
+      "dice_median": 0.878492534160614,
+      "mean_dice_nonempty": 0.510853111743927,
+      "median_dice_nonempty": 0.6764894127845764,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.23511904761904762,
+      "empty_fp_penalty": 0.042480988942442205
+    }
+  },
+  {
+    "ep": 14,
+    "train_loss": 0.35177206478658174,
+    "val": {
+      "dice_mean": 0.669783353805542,
+      "dice_median": 0.8821635246276855,
+      "mean_dice_nonempty": 0.5025904178619385,
+      "median_dice_nonempty": 0.6483312845230103,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.21726190476190477,
+      "empty_fp_penalty": 0.04064049263240577
+    }
+  },
+  {
+    "ep": 15,
+    "train_loss": 0.35361011787539437,
+    "val": {
+      "dice_mean": 0.6753701567649841,
+      "dice_median": 0.9008403420448303,
+      "mean_dice_nonempty": 0.4635832607746124,
+      "median_dice_nonempty": 0.6112211346626282,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.18154761904761904,
+      "empty_fp_penalty": 0.034161340271768696
+    }
+  },
+  {
+    "ep": 16,
+    "train_loss": 0.352272237518004,
+    "val": {
+      "dice_mean": 0.662971556186676,
+      "dice_median": 0.8792877793312073,
+      "mean_dice_nonempty": 0.5033170580863953,
+      "median_dice_nonempty": 0.6474630236625671,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.22916666666666666,
+      "empty_fp_penalty": 0.04216086884038203
+    }
+  },
+  {
+    "ep": 17,
+    "train_loss": 0.3527814197753157,
+    "val": {
+      "dice_mean": 0.6812593936920166,
+      "dice_median": 0.9334428906440735,
+      "mean_dice_nonempty": 0.4561631679534912,
+      "median_dice_nonempty": 0.6072452664375305,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.16666666666666666,
+      "empty_fp_penalty": 0.03075807286154486
+    }
+  },
+  {
+    "ep": 18,
+    "train_loss": 0.354392131169637,
+    "val": {
+      "dice_mean": 0.6810880899429321,
+      "dice_median": 1.0,
+      "mean_dice_nonempty": 0.43811720609664917,
+      "median_dice_nonempty": 0.5712836384773254,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.15476190476190477,
+      "empty_fp_penalty": 0.028434223453157555
+    }
+  },
+  {
+    "ep": 19,
+    "train_loss": 0.3495156293114026,
+    "val": {
+      "dice_mean": 0.6664392352104187,
+      "dice_median": 0.8908188343048096,
+      "mean_dice_nonempty": 0.4678646922111511,
+      "median_dice_nonempty": 0.6172389984130859,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.19940476190476192,
+      "empty_fp_penalty": 0.03576854666084728
+    }
+  },
+  {
+    "ep": 20,
+    "train_loss": 0.35036828759170713,
+    "val": {
+      "dice_mean": 0.670821487903595,
+      "dice_median": 0.8978139162063599,
+      "mean_dice_nonempty": 0.4699227809906006,
+      "median_dice_nonempty": 0.6136363744735718,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.19345238095238096,
+      "empty_fp_penalty": 0.03473531202818473
+    }
+  },
+  {
+    "ep": 21,
+    "train_loss": 0.34885844286708606,
+    "val": {
+      "dice_mean": 0.6701474785804749,
+      "dice_median": 0.8958197832107544,
+      "mean_dice_nonempty": 0.4770618975162506,
+      "median_dice_nonempty": 0.6487455368041992,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.19940476190476192,
+      "empty_fp_penalty": 0.035982731851599205
+    }
+  },
+  {
+    "ep": 22,
+    "train_loss": 0.3507569928963979,
+    "val": {
+      "dice_mean": 0.6650280952453613,
+      "dice_median": 0.8922255635261536,
+      "mean_dice_nonempty": 0.477580726146698,
+      "median_dice_nonempty": 0.6337299346923828,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.20833333333333334,
+      "empty_fp_penalty": 0.03764993255396752
+    }
+  },
+  {
+    "ep": 23,
+    "train_loss": 0.3482258106981005,
+    "val": {
+      "dice_mean": 0.6696690320968628,
+      "dice_median": 0.8979398608207703,
+      "mean_dice_nonempty": 0.471469908952713,
+      "median_dice_nonempty": 0.6229849457740784,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.19642857142857142,
+      "empty_fp_penalty": 0.035857220407567385
+    }
+  },
+  {
+    "ep": 24,
+    "train_loss": 0.3480180709489754,
+    "val": {
+      "dice_mean": 0.6772089600563049,
+      "dice_median": 0.8982332348823547,
+      "mean_dice_nonempty": 0.45933324098587036,
+      "median_dice_nonempty": 0.6169369220733643,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.17559523809523808,
+      "empty_fp_penalty": 0.032410588660847374
+    }
+  },
+  {
+    "ep": 25,
+    "train_loss": 0.3464364879542873,
+    "val": {
+      "dice_mean": 0.6822212934494019,
+      "dice_median": 0.9048030972480774,
+      "mean_dice_nonempty": 0.4761699438095093,
+      "median_dice_nonempty": 0.6301273107528687,
+      "n": 563,
+      "n_nonempty": 227,
+      "n_empty": 336,
+      "empty_fp_rate": 0.17857142857142858,
+      "empty_fp_penalty": 0.03249765080340694
+    }
+  }
+]

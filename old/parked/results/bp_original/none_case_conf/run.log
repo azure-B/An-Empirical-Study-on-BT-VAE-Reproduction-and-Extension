@@ -1,0 +1,59 @@
+DEVICE cuda none ep 48 VAL case-confidence diagnostic
+
+=== confidence distributions (VAL) ===
+topk1    AUROC(present)=0.814  mean ne=0.8793 empty=0.4136 gap=+0.4657  emptyFP=0.9649681629036828 emptyTN=0.024593806351643755
+topk5    AUROC(present)=0.815  mean ne=0.8789 empty=0.4128 gap=+0.4662  emptyFP=0.9644047549302629 emptyTN=0.023517693710858524
+topk10   AUROC(present)=0.815  mean ne=0.8785 empty=0.4121 gap=+0.4665  emptyFP=0.9638009397245997 emptyTN=0.022752017813952176
+topk50   AUROC(present)=0.815  mean ne=0.8762 empty=0.4084 gap=+0.4679  emptyFP=0.9591736043099877 emptyTN=0.019711267470936458
+topk100  AUROC(present)=0.815  mean ne=0.8740 empty=0.4042 gap=+0.4697  emptyFP=0.9527886271905556 emptyTN=0.017206013482329932
+topk500  AUROC(present)=0.815  mean ne=0.8584 empty=0.3756 gap=+0.4828  emptyFP=0.896564018276098 emptyTN=0.007932508771551825
+peak     AUROC(present)=0.814  mean ne=0.8793 empty=0.4136 gap=+0.4657  emptyFP=0.9649681629036828 emptyTN=0.024593806351643755
+mass     AUROC(present)=0.809  mean ne=0.0222 empty=0.0076 gap=+0.0146  emptyFP=0.018275716614644815 emptyTN=0.0001138806579861173
+
+BEST conf=topk50 AUROC=0.815 ne_med=0.9983 emptyFP_med=0.9939 SEPARATED=True
+RAW VAL {'dice': 0.6058486104011536, 'nonempty': 0.6435803771018982, 'empty_fp': 0.41964285714285715} floor 0.6236
+  thr=0.0004 dice=0.6074 ne=0.6343 fp=0.411 OK
+  thr=0.0004 dice=0.6076 ne=0.6434 fp=0.417 OK
+  thr=0.0005 dice=0.6126 ne=0.6427 fp=0.408 OK
+  thr=0.0005 dice=0.6086 ne=0.6416 fp=0.414 OK
+  thr=0.0006 dice=0.6129 ne=0.6435 fp=0.408 OK
+  thr=0.0007 dice=0.6077 ne=0.6438 fp=0.417 OK
+  thr=0.0009 dice=0.6052 ne=0.6463 fp=0.423 OK
+  thr=0.0011 dice=0.6106 ne=0.6465 fp=0.414 OK
+  thr=0.0014 dice=0.6196 ne=0.6424 fp=0.396 OK
+  thr=0.0018 dice=0.6166 ne=0.6439 fp=0.402 OK
+  thr=0.0025 dice=0.6164 ne=0.6388 fp=0.399 OK
+  thr=0.0036 dice=0.6127 ne=0.6430 fp=0.408 OK
+  thr=0.0063 dice=0.6014 ne=0.6413 fp=0.426 OK
+  thr=0.0118 dice=0.6113 ne=0.6483 fp=0.414 OK
+  thr=0.0226 dice=0.6172 ne=0.6453 fp=0.402 OK
+  thr=0.0719 dice=0.6145 ne=0.6431 fp=0.405 OK
+  thr=0.3820 dice=0.6169 ne=0.6446 fp=0.402 OK
+  thr=0.7882 dice=0.6326 ne=0.6439 fp=0.375 OK
+  thr=0.8933 dice=0.6308 ne=0.6351 fp=0.372 OK
+  thr=0.9494 dice=0.6530 ne=0.6329 fp=0.333 OK
+  thr=0.9662 dice=0.6613 ne=0.6225 fp=0.312 drop
+  thr=0.9813 dice=0.6776 ne=0.6101 fp=0.277 drop
+  thr=0.9868 dice=0.6824 ne=0.5910 fp=0.256 drop
+  thr=0.9905 dice=0.6814 ne=0.5842 fp=0.253 drop
+  thr=0.9931 dice=0.6965 ne=0.5644 fp=0.214 drop
+  thr=0.9947 dice=0.7021 ne=0.5430 fp=0.190 drop
+  thr=0.9956 dice=0.7056 ne=0.5253 fp=0.173 drop
+  thr=0.9965 dice=0.7132 ne=0.5090 fp=0.149 drop
+  thr=0.9973 dice=0.7158 ne=0.4757 fp=0.122 drop
+  thr=0.9977 dice=0.7018 ne=0.4411 fp=0.122 drop
+  thr=0.9982 dice=0.7027 ne=0.4167 fp=0.104 drop
+  thr=0.9985 dice=0.6975 ne=0.3864 fp=0.092 drop
+  thr=0.9988 dice=0.6922 ne=0.3555 fp=0.080 drop
+  thr=0.9989 dice=0.6890 ne=0.3301 fp=0.068 drop
+  thr=0.9991 dice=0.6811 ne=0.2795 fp=0.048 drop
+  thr=0.9992 dice=0.6706 ne=0.2535 fp=0.048 drop
+  thr=0.9994 dice=0.6701 ne=0.2126 fp=0.021 drop
+  thr=0.9995 dice=0.6616 ne=0.1828 fp=0.015 drop
+  thr=0.9995 dice=0.6472 ne=0.1513 fp=0.018 drop
+  thr=0.9996 dice=0.6306 ne=0.0971 fp=0.009 drop
+PICK thr 0.9493608448749934 VAL {'thr': 0.9493608448749934, 'ok': True, 'dice': 0.6530333161354065, 'nonempty': 0.6328535676002502, 'empty_fp': 0.3333333333333333}
+TEST raw  {'dice': 0.5975448489189148, 'nonempty': 0.5783272981643677, 'empty_fp': 0.38922155688622756}
+TEST rej  {'dice': 0.6540687084197998, 'nonempty': 0.5517163276672363, 'empty_fp': 0.2754491017964072}
+wrote D:\Desktop\BT_VAE\results\bp_original\none_case_conf\report.json
+NEXT: constrained_case_rejection

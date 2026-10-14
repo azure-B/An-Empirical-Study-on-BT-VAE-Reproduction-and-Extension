@@ -1,0 +1,7 @@
+DEVICE: cuda S5 + empty-FP FT from D:\Desktop\BT_VAE\results\bp_original\s5_concat\seg_best.pt batch=8 lr=3e-05 ¥ë=0.02 max_ep=4 es=8 tag=l0.02
+s5 VAL  dice=0.4314 nonempty=0.7000 empty_fp=0.750 floor=0.6800
+[s5-emptyfp] ep 1/4 loss=0.3638 extra=0.0681 val_dice=0.5728 nonempty=0.6410 empty_fp=0.473 (236.8s)
+[s5-emptyfp] ep 2/4 loss=0.3575 extra=0.0405 val_dice=0.5571 nonempty=0.6415 empty_fp=0.500 (234.3s)
+[s5-emptyfp] ep 3/4 loss=0.3548 extra=0.0347 val_dice=0.5975 nonempty=0.6053 empty_fp=0.408 (229.7s)
+[s5-emptyfp] ep 4/4 loss=0.3541 extra=0.0323 val_dice=0.6098 nonempty=0.6138 empty_fp=0.393 (223.9s)
+skip final eval; wrote D:\Desktop\BT_VAE\results\bp_original\s5_emptyfp\history_l0.02.json

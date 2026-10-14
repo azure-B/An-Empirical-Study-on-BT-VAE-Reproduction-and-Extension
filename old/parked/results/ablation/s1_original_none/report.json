@@ -1,0 +1,26 @@
+{
+  "stage": 1,
+  "skip_mode": "none",
+  "desc": "original no skip",
+  "seg_best_ckpt": {
+    "epoch": 25,
+    "best_dice": 0.7826381902978896,
+    "scales": null
+  },
+  "test_batch_avg": {
+    "loss": 0.371896722043554,
+    "main": 0.37118276456991833,
+    "kl": 0.7139563287297884,
+    "dice": 0.6543993839365957,
+    "iou": 0.5769307502848623
+  },
+  "test_per_image": {
+    "n": 94,
+    "empty_gt": 40,
+    "mean_dice_all": 0.6588830247397194,
+    "median_dice_all": 0.7355523407459259,
+    "mean_dice_nonempty": 0.535833408357572,
+    "median_dice_nonempty": 0.6097784638404846,
+    "mean_iou_all": 0.5828344586319821
+  }
+}

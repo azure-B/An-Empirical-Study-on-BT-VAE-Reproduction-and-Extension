@@ -1,0 +1,24 @@
+{
+  "updated_at": "2026-09-22 13:59:54",
+  "phase": "done",
+  "stage": 2,
+  "skip_mode": "full",
+  "reused_from": "D:/Desktop/BT_VAE/results/archive/skiponly_covid_base32",
+  "best_dice": 0.8470593328061311,
+  "test": {
+    "loss": 0.30013565594951314,
+    "main": 0.2996000614948571,
+    "kl": 0.5355942646662394,
+    "dice": 0.7629217257102331,
+    "iou": 0.6957100530465444
+  },
+  "test_per_image": {
+    "n": 94,
+    "empty_gt": 40,
+    "mean_dice_all": 0.7582346348935979,
+    "median_dice_all": 0.895522803068161,
+    "mean_dice_nonempty": 0.7828528351253934,
+    "median_dice_nonempty": 0.8391492366790771,
+    "mean_iou_all": 0.6927432473919218
+  }
+}

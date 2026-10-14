@@ -1,0 +1,42 @@
+{
+  "dataset": "covid",
+  "ratio": 0.1,
+  "mode": "s5_cls",
+  "n_train": 74,
+  "loss": "BCEWithLogits",
+  "probability": "p = sigmoid(Head(\u03bc)) = P(lesion present | slice)",
+  "tau": 0.57,
+  "best_ep": 19,
+  "val_auroc": 0.8546401515151515,
+  "val_prob": {
+    "p_lesion": {
+      "n": 44,
+      "mean": 0.8498659729957581,
+      "median": 0.9363272190093994
+    },
+    "p_empty": {
+      "n": 48,
+      "mean": 0.5752292275428772,
+      "median": 0.5542804002761841
+    }
+  },
+  "test_prob": {
+    "p_lesion": {
+      "n": 54,
+      "mean": 0.8976818919181824,
+      "median": 0.9575868248939514
+    },
+    "p_empty": {
+      "n": 40,
+      "mean": 0.4838942587375641,
+      "median": 0.5116692781448364
+    }
+  },
+  "prob_trend": "prob_trend.json",
+  "test": {
+    "dice": 0.7684561014175415,
+    "nonempty_dice": 0.6895344257354736,
+    "empty_fp_rate": 0.125
+  },
+  "seed": 0
+}

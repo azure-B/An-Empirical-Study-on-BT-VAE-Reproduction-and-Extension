@@ -1,0 +1,222 @@
+{
+  "segmentation_checkpoint": "D:\\Desktop\\BT_VAE\\results\\bp_original\\none\\seg_best.pt",
+  "segmentation_hash": "f4cd0cfbd94b93feef2b8bcf1a775b124014d7ed7f558c9573361bc77907f478",
+  "segmentation_best_ep": 48,
+  "head_best_ep": 31,
+  "in_channels": 1024,
+  "train_group_counts": {
+    "nonempty": 565,
+    "empty_fp": 48,
+    "empty_tn": 739
+  },
+  "smoke": {
+    "frozen_seg_ok": true,
+    "head_trainable_ok": true,
+    "seg_trainable": [],
+    "head_trainable_count": 4,
+    "mu_shape": [
+      4,
+      1024,
+      8,
+      8
+    ],
+    "logit_shape": [
+      4
+    ],
+    "logit_shape_ok": true,
+    "head_grad_finite": true,
+    "seg_grad_none": true,
+    "logits_max_diff": 0.0,
+    "mu_max_diff": 0.0,
+    "sampled_logits_max_diff": 3.6382009983062744,
+    "determinism_ok": true,
+    "state_max_abs_diff": 0.0,
+    "state_integrity_ok": true,
+    "target_empty_is_0": true,
+    "targets_01_only": true,
+    "rejected_all_zero": true,
+    "accepted_equal_raw": true,
+    "patient_overlap_train_val": 47,
+    "patient_overlap_train_test": 47,
+    "patient_overlap_val_test": 47,
+    "patient_disjoint": false,
+    "patient_note": "bp_train_30 is slice-level: same patients appear across splits (measured overlap). Split not changed (forbidden).",
+    "all_core_ok": true
+  },
+  "val_class_distributions": {
+    "nonempty": {
+      "mean": 0.5781451463699341,
+      "median": 0.609943151473999,
+      "q25": 0.34893515706062317,
+      "q75": 0.7964898347854614,
+      "n": 227
+    },
+    "empty_all": {
+      "mean": 0.32720497250556946,
+      "median": 0.26536816358566284,
+      "q25": 0.1649084985256195,
+      "q75": 0.44475772976875305,
+      "n": 336
+    },
+    "empty_fp": {
+      "mean": 0.4275566637516022,
+      "median": 0.386165589094162,
+      "q25": 0.23770450055599213,
+      "q75": 0.6199721097946167,
+      "n": 134
+    },
+    "empty_tn": {
+      "mean": 0.26063498854637146,
+      "median": 0.21195819973945618,
+      "q25": 0.12589000165462494,
+      "q75": 0.33074092864990234,
+      "n": 202
+    },
+    "auroc_nonempty_vs_all_empty": 0.776589049716803,
+    "auroc_nonempty_vs_emptyfp": 0.6727595502662898,
+    "empty_fp_rejection_rate": 0.08208955223880597,
+    "empty_tn_rejection_rate": 0.18316831683168316
+  },
+  "constrained_threshold": {
+    "status": "ok",
+    "threshold": 0.11,
+    "val_pick": {
+      "threshold": 0.11,
+      "constraint_pass": true,
+      "overall_dice": 0.6382890939712524,
+      "nonempty_dice": 0.6447433829307556,
+      "empty_fp_rate": 0.36607142857142855,
+      "TT": 198,
+      "FT": 123,
+      "TF": 29,
+      "FF": 213,
+      "TT_std": "TP",
+      "FT_std": "FP",
+      "TF_std": "FN",
+      "FF_std": "TN",
+      "sensitivity": 0.8722466960352423,
+      "specificity": 0.6339285714285714,
+      "precision": 0.616822429906542,
+      "npv": 0.8801652892561983,
+      "balanced_accuracy": 0.7530876337319068
+    }
+  },
+  "C0_raw": {
+    "val": {
+      "overall_dice": 0.6193443536758423,
+      "nonempty_dice": 0.6462153196334839,
+      "empty_fp_rate": 0.39880952380952384,
+      "TT": 200,
+      "FT": 134,
+      "TF": 27,
+      "FF": 202,
+      "TT_std": "TP",
+      "FT_std": "FP",
+      "TF_std": "FN",
+      "FF_std": "TN",
+      "sensitivity": 0.8810572687224669,
+      "specificity": 0.6011904761904762,
+      "precision": 0.5988023952095808,
+      "npv": 0.8820960698689956,
+      "balanced_accuracy": 0.7411238724564715
+    },
+    "test": {
+      "overall_dice": 0.6032089591026306,
+      "nonempty_dice": 0.57917320728302,
+      "empty_fp_rate": 0.38023952095808383,
+      "TT": 190,
+      "FT": 127,
+      "TF": 40,
+      "FF": 207,
+      "TT_std": "TP",
+      "FT_std": "FP",
+      "TF_std": "FN",
+      "FF_std": "TN",
+      "sensitivity": 0.8260869565217391,
+      "specificity": 0.6197604790419161,
+      "precision": 0.5993690851735016,
+      "npv": 0.8380566801619433,
+      "balanced_accuracy": 0.7229237177818276
+    }
+  },
+  "C1_topk50": {
+    "thr": 0.9493608448749934,
+    "k": 50,
+    "val": {
+      "overall_dice": 0.6507129073143005,
+      "nonempty_dice": 0.6315038800239563,
+      "empty_fp_rate": 0.33630952380952384,
+      "TT": 188,
+      "FT": 113,
+      "TF": 39,
+      "FF": 223,
+      "TT_std": "TP",
+      "FT_std": "FP",
+      "TF_std": "FN",
+      "FF_std": "TN",
+      "sensitivity": 0.8281938325991189,
+      "specificity": 0.6636904761904762,
+      "precision": 0.6245847176079734,
+      "npv": 0.851145038167939,
+      "balanced_accuracy": 0.7459421543947975
+    },
+    "test": {
+      "overall_dice": 0.6580190062522888,
+      "nonempty_dice": 0.5614030957221985,
+      "empty_fp_rate": 0.2754491017964072,
+      "TT": 171,
+      "FT": 92,
+      "TF": 59,
+      "FF": 242,
+      "TT_std": "TP",
+      "FT_std": "FP",
+      "TF_std": "FN",
+      "FF_std": "TN",
+      "sensitivity": 0.7434782608695653,
+      "specificity": 0.7245508982035929,
+      "precision": 0.6501901140684411,
+      "npv": 0.8039867109634552,
+      "balanced_accuracy": 0.7340145795365791
+    }
+  },
+  "C2_presence_head": {
+    "threshold": 0.11,
+    "val": {
+      "overall_dice": 0.6382890939712524,
+      "nonempty_dice": 0.6447433829307556,
+      "empty_fp_rate": 0.36607142857142855,
+      "TT": 198,
+      "FT": 123,
+      "TF": 29,
+      "FF": 213,
+      "TT_std": "TP",
+      "FT_std": "FP",
+      "TF_std": "FN",
+      "FF_std": "TN",
+      "sensitivity": 0.8722466960352423,
+      "specificity": 0.6339285714285714,
+      "precision": 0.616822429906542,
+      "npv": 0.8801652892561983,
+      "balanced_accuracy": 0.7530876337319068
+    },
+    "test": {
+      "overall_dice": 0.6179941296577454,
+      "nonempty_dice": 0.5762985944747925,
+      "empty_fp_rate": 0.3532934131736527,
+      "TT": 188,
+      "FT": 118,
+      "TF": 42,
+      "FF": 216,
+      "TT_std": "TP",
+      "FT_std": "FP",
+      "TF_std": "FN",
+      "FF_std": "TN",
+      "sensitivity": 0.8173913043478261,
+      "specificity": 0.6467065868263473,
+      "precision": 0.6143790849673203,
+      "npv": 0.8372093023255814,
+      "balanced_accuracy": 0.7320489455870867
+    }
+  },
+  "note": "C3 (head+topk) not run in this experiment"
+}

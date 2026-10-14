@@ -1,0 +1,306 @@
+{
+  "probes": [
+    {
+      "lambda": 0.02,
+      "init_nonempty": 0.6999873518943787,
+      "init_empty_fp": 0.75,
+      "last_nonempty": 0.6137590408325195,
+      "last_empty_fp": 0.39285714285714285,
+      "best_ep": 2,
+      "best_nonempty": 0.6414973735809326,
+      "best_empty_fp": 0.5,
+      "epochs": [
+        {
+          "ep": 1,
+          "dice_mean": 0.5728199481964111,
+          "dice_median": 0.7862212657928467,
+          "mean_dice_nonempty": 0.6409587264060974,
+          "median_dice_nonempty": 0.7728379964828491,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.4732142857142857,
+          "empty_fp_penalty": 0.08636611670585231
+        },
+        {
+          "ep": 2,
+          "dice_mean": 0.5570513606071472,
+          "dice_median": 0.7691670060157776,
+          "mean_dice_nonempty": 0.6414973735809326,
+          "median_dice_nonempty": 0.7691670060157776,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.5,
+          "empty_fp_penalty": 0.0910659818977698
+        },
+        {
+          "ep": 3,
+          "dice_mean": 0.5975379943847656,
+          "dice_median": 0.8203511834144592,
+          "mean_dice_nonempty": 0.6053475737571716,
+          "median_dice_nonempty": 0.7576751112937927,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.40773809523809523,
+          "empty_fp_penalty": 0.07533722530975019
+        },
+        {
+          "ep": 4,
+          "dice_mean": 0.609810471534729,
+          "dice_median": 0.8177570104598999,
+          "mean_dice_nonempty": 0.6137590408325195,
+          "median_dice_nonempty": 0.7615442872047424,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.39285714285714285,
+          "empty_fp_penalty": 0.07365925136328885
+        }
+      ]
+    },
+    {
+      "lambda": 0.05,
+      "init_nonempty": 0.6972266435623169,
+      "init_empty_fp": 0.7559523809523809,
+      "last_nonempty": 0.5987597107887268,
+      "last_empty_fp": 0.3630952380952381,
+      "best_ep": 3,
+      "best_nonempty": 0.6177248954772949,
+      "best_empty_fp": 0.38392857142857145,
+      "epochs": [
+        {
+          "ep": 1,
+          "dice_mean": 0.6291365027427673,
+          "dice_median": 0.8369192481040955,
+          "mean_dice_nonempty": 0.6088274717330933,
+          "median_dice_nonempty": 0.7530500888824463,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.35714285714285715,
+          "empty_fp_penalty": 0.06701985260137212
+        },
+        {
+          "ep": 2,
+          "dice_mean": 0.6043416857719421,
+          "dice_median": 0.8262088298797607,
+          "mean_dice_nonempty": 0.6134113669395447,
+          "median_dice_nonempty": 0.7606208920478821,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.4017857142857143,
+          "empty_fp_penalty": 0.074702456223157
+        },
+        {
+          "ep": 3,
+          "dice_mean": 0.6167381405830383,
+          "dice_median": 0.835550844669342,
+          "mean_dice_nonempty": 0.6177248954772949,
+          "median_dice_nonempty": 0.7547547817230225,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.38392857142857145,
+          "empty_fp_penalty": 0.07213830987944983
+        },
+        {
+          "ep": 4,
+          "dice_mean": 0.6215248107910156,
+          "dice_median": 0.8451957106590271,
+          "mean_dice_nonempty": 0.5987597107887268,
+          "median_dice_nonempty": 0.7589263916015625,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.3630952380952381,
+          "empty_fp_penalty": 0.06653617812598511
+        }
+      ]
+    },
+    {
+      "lambda": 0.1,
+      "init_nonempty": 0.6974278688430786,
+      "init_empty_fp": 0.7559523809523809,
+      "last_nonempty": 0.6089929938316345,
+      "last_empty_fp": 0.3958333333333333,
+      "best_ep": 1,
+      "best_nonempty": 0.611587643623352,
+      "best_empty_fp": 0.3869047619047619,
+      "epochs": [
+        {
+          "ep": 1,
+          "dice_mean": 0.6124873757362366,
+          "dice_median": 0.8264356851577759,
+          "mean_dice_nonempty": 0.611587643623352,
+          "median_dice_nonempty": 0.7584187388420105,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.3869047619047619,
+          "empty_fp_penalty": 0.07106278345077364
+        },
+        {
+          "ep": 2,
+          "dice_mean": 0.6380927562713623,
+          "dice_median": 0.8616337180137634,
+          "mean_dice_nonempty": 0.5473400950431824,
+          "median_dice_nonempty": 0.7001434564590454,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.3005952380952381,
+          "empty_fp_penalty": 0.05525633833935963
+        },
+        {
+          "ep": 3,
+          "dice_mean": 0.6411207318305969,
+          "dice_median": 0.8677685856819153,
+          "mean_dice_nonempty": 0.5856872200965881,
+          "median_dice_nonempty": 0.7385573983192444,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.32142857142857145,
+          "empty_fp_penalty": 0.05970027560919923
+        },
+        {
+          "ep": 4,
+          "dice_mean": 0.6061125993728638,
+          "dice_median": 0.8236246109008789,
+          "mean_dice_nonempty": 0.6089929938316345,
+          "median_dice_nonempty": 0.7436641454696655,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.3958333333333333,
+          "empty_fp_penalty": 0.07452074180703125
+        }
+      ]
+    },
+    {
+      "lambda": 0.5,
+      "init_nonempty": 0.6985109448432922,
+      "init_empty_fp": 0.7708333333333334,
+      "last_nonempty": 0.5425218343734741,
+      "last_empty_fp": 0.28869047619047616,
+      "best_ep": 2,
+      "best_nonempty": 0.5684249997138977,
+      "best_empty_fp": 0.33035714285714285,
+      "epochs": [
+        {
+          "ep": 1,
+          "dice_mean": 0.6495686173439026,
+          "dice_median": 0.8619232177734375,
+          "mean_dice_nonempty": 0.531749427318573,
+          "median_dice_nonempty": 0.6943365335464478,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.2708333333333333,
+          "empty_fp_penalty": 0.05102623788997347
+        },
+        {
+          "ep": 2,
+          "dice_mean": 0.6288321018218994,
+          "dice_median": 0.854016900062561,
+          "mean_dice_nonempty": 0.5684249997138977,
+          "median_dice_nonempty": 0.7260726094245911,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.33035714285714285,
+          "empty_fp_penalty": 0.061040363052854166
+        },
+        {
+          "ep": 3,
+          "dice_mean": 0.6528168320655823,
+          "dice_median": 0.8786309361457825,
+          "mean_dice_nonempty": 0.5398057699203491,
+          "median_dice_nonempty": 0.718112587928772,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.2708333333333333,
+          "empty_fp_penalty": 0.050018844643052715
+        },
+        {
+          "ep": 4,
+          "dice_mean": 0.643254816532135,
+          "dice_median": 0.8738872408866882,
+          "mean_dice_nonempty": 0.5425218343734741,
+          "median_dice_nonempty": 0.7159258127212524,
+          "n": 563,
+          "n_nonempty": 227,
+          "n_empty": 336,
+          "empty_fp_rate": 0.28869047619047616,
+          "empty_fp_penalty": 0.053239865598275364
+        }
+      ]
+    },
+    {
+      "lambda": 6.0,
+      "note": "from train_lambda6.log (ep4 used for ranking)",
+      "init_nonempty": 0.6992,
+      "init_empty_fp": 0.756,
+      "last_nonempty": 0.4323,
+      "last_empty_fp": 0.205,
+      "epochs": [
+        {
+          "ep": 1,
+          "mean_dice_nonempty": 0.399,
+          "empty_fp_rate": 0.19
+        },
+        {
+          "ep": 2,
+          "mean_dice_nonempty": 0.4144,
+          "empty_fp_rate": 0.176
+        },
+        {
+          "ep": 3,
+          "mean_dice_nonempty": 0.4178,
+          "empty_fp_rate": 0.223
+        },
+        {
+          "ep": 4,
+          "mean_dice_nonempty": 0.4323,
+          "empty_fp_rate": 0.205
+        }
+      ]
+    }
+  ],
+  "ranking": [
+    {
+      "score": 0.3155447551182338,
+      "lambda": 0.02,
+      "nonempty": 0.6137590408325195,
+      "empty_fp": 0.39285714285714285
+    },
+    {
+      "score": 0.31003466049830114,
+      "lambda": 0.1,
+      "nonempty": 0.6089929938316345,
+      "empty_fp": 0.3958333333333333
+    },
+    {
+      "score": 0.30798590126491726,
+      "lambda": 0.05,
+      "nonempty": 0.5987597107887268,
+      "empty_fp": 0.3630952380952381
+    },
+    {
+      "score": 0.27034921532585504,
+      "lambda": 0.5,
+      "nonempty": 0.5425218343734741,
+      "empty_fp": 0.28869047619047616
+    },
+    {
+      "score": 0.18105,
+      "lambda": 6.0,
+      "nonempty": 0.4323,
+      "empty_fp": 0.205
+    }
+  ]
+}

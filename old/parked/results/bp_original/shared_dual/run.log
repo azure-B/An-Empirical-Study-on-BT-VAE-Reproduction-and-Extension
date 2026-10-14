@@ -1,0 +1,41 @@
+OUT=D:\Desktop\BT_VAE\results\bp_original\shared_dual DEVICE=cuda batch=8 n=1352/563/564
+design: shared S5 encoder | decoder_skip(frozen) | decoder_cls+head(train)
+loaded encoder+skip¡çs5, decoder_cls¡çnone; recon frozen
+phase1 warm head-only ep=8
+[warm 1/8] loss=0.9002 auroc=0.6720 (79.1s)
+  * best auroc=0.6720
+[warm 2/8] loss=0.8082 auroc=0.6751 (73.2s)
+  * best auroc=0.6751
+[warm 3/8] loss=0.8228 auroc=0.6312 (73.3s)
+[warm 4/8] loss=0.8230 auroc=0.6449 (73.3s)
+[warm 5/8] loss=0.8193 auroc=0.6767 (73.3s)
+  * best auroc=0.6767
+[warm 6/8] loss=0.7985 auroc=0.6678 (73.3s)
+[warm 7/8] loss=0.7970 auroc=0.6733 (73.3s)
+[warm 8/8] loss=0.7812 auroc=0.6821 (73.3s)
+  * best auroc=0.6821
+phase2 FT decoder_cls+head ep=40 ¥ë=0.25
+[ft 1/40] loss=0.8640 bce=0.7800 auroc=0.6844 (116.5s)
+  * best auroc=0.6844
+[ft 2/40] loss=0.8563 bce=0.7733 auroc=0.6836 (116.4s)
+[ft 3/40] loss=0.8534 bce=0.7707 auroc=0.6974 (120.0s)
+  * best auroc=0.6974
+[ft 4/40] loss=0.8536 bce=0.7714 auroc=0.6910 (154.7s)
+Traceback (most recent call last):
+  File "d:\Desktop\BT_VAE\train_shared_dual.py", line 411, in <module>
+    main()
+  File "d:\Desktop\BT_VAE\train_shared_dual.py", line 308, in main
+    auroc = val_auroc_only(model, val_loader)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Desktop\BT_VAE\.venv\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Desktop\BT_VAE\train_shared_dual.py", line 90, in val_auroc_only
+    ys.append(torch.sigmoid(logit).cpu().numpy())
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: an illegal memory access was encountered
+Search for `cudaErrorIllegalAddress' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

@@ -1,0 +1,13 @@
+DEVICE: cuda S5 + empty-FP FT from D:\Desktop\BT_VAE\results\bp_original\s5_concat\seg_best.pt batch=8 lr=3e-05 ¥ë=6.0
+s5 VAL  dice=0.4275 nonempty=0.6992 empty_fp=0.756 floor=0.6792
+[s5-emptyfp] ep 1/25 loss=0.5430 extra=0.0232 val_dice=0.6440 nonempty=0.3990 empty_fp=0.190 (248.7s)
+[s5-emptyfp] ep 2/25 loss=0.4913 extra=0.0149 val_dice=0.6591 nonempty=0.4144 empty_fp=0.176 (242.0s)
+[s5-emptyfp] ep 3/25 loss=0.4791 extra=0.0110 val_dice=0.6320 nonempty=0.4178 empty_fp=0.223 (242.0s)
+[s5-emptyfp] ep 4/25 loss=0.4591 extra=0.0101 val_dice=0.6486 nonempty=0.4323 empty_fp=0.205 (241.9s)
+[s5-emptyfp] ep 5/25 loss=0.4665 extra=0.0100 val_dice=0.6325 nonempty=0.4939 empty_fp=0.274 (242.0s)
+[s5-emptyfp] ep 6/25 loss=0.4464 extra=0.0085 val_dice=0.6550 nonempty=0.4880 empty_fp=0.232 (242.0s)
+[s5-emptyfp] ep 7/25 loss=0.4292 extra=0.0069 val_dice=0.6522 nonempty=0.4546 empty_fp=0.214 (242.0s)
+[s5-emptyfp] ep 8/25 loss=0.4294 extra=0.0072 val_dice=0.6634 nonempty=0.4382 empty_fp=0.185 (242.0s)
+[s5-emptyfp] ep 9/25 loss=0.4368 extra=0.0057 val_dice=0.6535 nonempty=0.4094 empty_fp=0.182 (242.0s)
+[s5-emptyfp] ep 10/25 loss=0.4193 extra=0.0057 val_dice=0.6551 nonempty=0.4045 empty_fp=0.176 (241.9s)
+[s5-emptyfp] ep 11/25 loss=0.4091 extra=0.0046 val_dice=0.6524 nonempty=0.3536 empty_fp=0.146 (245.1s)

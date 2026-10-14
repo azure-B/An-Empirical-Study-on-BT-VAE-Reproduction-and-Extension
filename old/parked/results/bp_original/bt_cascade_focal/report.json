@@ -1,0 +1,106 @@
+{
+  "design": {
+    "encoder": "BT frozen \u2192 one shared \u03bc (+ skips)",
+    "cls": "Decoder_cls(\u03bc) \u2192 presence; focal BCE on decision",
+    "tau": "learnable tau_logit; keep iff decision\u22650",
+    "seg": "Dice + Sigmoid Focal + small-lesion size weight; nonempty-only",
+    "infer": "cls then SEG gated by learned \u03c4",
+    "focal": {
+      "gamma": 2.0,
+      "alpha_seg": 0.75,
+      "alpha_cls": 0.6,
+      "size_power": 0.5
+    }
+  },
+  "learned_tau": {
+    "tau_logit": 0.6350942254066467,
+    "tau_prob": 0.6536436676979065
+  },
+  "best_cls_auroc": 0.7439951751625761,
+  "best_seg_val_ne": 0.6928198933601379,
+  "best_tau_score": 0.36208128929138184,
+  "tf_primary": [
+    {
+      "name": "VAL_learned_tau",
+      "tp": 156,
+      "tn": 230,
+      "fp": 106,
+      "fn": 71,
+      "sensitivity": 0.6872246696035242,
+      "specificity": 0.6845238095238095,
+      "precision": 0.5954198473282443,
+      "f1": 0.638036809815951,
+      "accuracy": 0.6856127886323268,
+      "presence_auroc": 0.7439951751625761,
+      "nonempty_dice": 0.5183312892913818,
+      "empty_fp_rate": 0.3125,
+      "thr": 0.6536436676979065
+    },
+    {
+      "name": "TEST_learned_tau",
+      "tp": 157,
+      "tn": 235,
+      "fp": 99,
+      "fn": 73,
+      "sensitivity": 0.6826086956521739,
+      "specificity": 0.7035928143712575,
+      "precision": 0.61328125,
+      "f1": 0.6460905349794239,
+      "accuracy": 0.6950354609929078,
+      "presence_auroc": 0.7565087216870606,
+      "nonempty_dice": 0.5214381814002991,
+      "empty_fp_rate": 0.281437125748503,
+      "thr": 0.6536436676979065
+    }
+  ],
+  "rows": [
+    {
+      "name": "TEST_seg_raw",
+      "overall_dice": 0.34325987100601196,
+      "nonempty_dice": 0.715645968914032,
+      "empty_fp_rate": 0.9131736526946108,
+      "sensitivity": 0.9956521739130435,
+      "thr": null
+    },
+    {
+      "name": "VAL_learned_tau",
+      "overall_dice": 0.6192916631698608,
+      "nonempty_dice": 0.5183312892913818,
+      "empty_fp_rate": 0.3125,
+      "sensitivity": 0.6872246696035242,
+      "specificity": 0.6845238095238095,
+      "precision": 0.5954198473282443,
+      "f1": 0.638036809815951,
+      "accuracy": 0.6856127886323268,
+      "tp": 156,
+      "tn": 230,
+      "fp": 106,
+      "fn": 71,
+      "thr": 0.6536436676979065,
+      "tau_logit": 0.6350942254066467,
+      "presence_auroc": 0.7439951751625761
+    },
+    {
+      "name": "TEST_learned_tau",
+      "overall_dice": 0.6381751298904419,
+      "nonempty_dice": 0.5214381814002991,
+      "empty_fp_rate": 0.281437125748503,
+      "sensitivity": 0.6826086956521739,
+      "specificity": 0.7035928143712575,
+      "precision": 0.61328125,
+      "f1": 0.6460905349794239,
+      "accuracy": 0.6950354609929078,
+      "tp": 157,
+      "tn": 235,
+      "fp": 99,
+      "fn": 73,
+      "thr": 0.6536436676979065,
+      "tau_logit": 0.6350942254066467,
+      "presence_auroc": 0.7565087216870606
+    }
+  ],
+  "ref_presence_tau020": {
+    "nonempty_dice": 0.533,
+    "empty_fp_rate": 0.269
+  }
+}

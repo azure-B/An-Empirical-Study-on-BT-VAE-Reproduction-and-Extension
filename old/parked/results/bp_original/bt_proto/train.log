@@ -1,0 +1,128 @@
+DEVICE: cuda BT proto D:\Desktop\BT_VAE\checkpoints_bp_original\bt_encoder_best.pt batch 16
+encoder load missing=0 unexpected=0
+building raw spatial-レ prototypes on train
+raw レ VAL  dice=0.0430 nonempty=0.1066 empty_fp=1.000
+raw レ TEST dice=0.0441 nonempty=0.1082 empty_fp=1.000
+[proto] ep 1/80 loss=0.6735 val_dice=0.0419 nonempty=0.0158 empty_fp=0.940 (4.2s)
+  saved HEAD_BEST nonempty=0.0158
+[proto] ep 2/80 loss=0.5697 val_dice=0.5040 nonempty=0.0165 empty_fp=0.167 (4.2s)
+  saved HEAD_BEST nonempty=0.0165
+[proto] ep 3/80 loss=0.5334 val_dice=0.4447 nonempty=0.0677 empty_fp=0.301 (4.2s)
+  saved HEAD_BEST nonempty=0.0677
+[proto] ep 4/80 loss=0.5111 val_dice=0.4153 nonempty=0.0830 empty_fp=0.360 (4.2s)
+  saved HEAD_BEST nonempty=0.0830
+[proto] ep 5/80 loss=0.4972 val_dice=0.3258 nonempty=0.1561 empty_fp=0.560 (4.2s)
+  saved HEAD_BEST nonempty=0.1561
+[proto] ep 6/80 loss=0.4865 val_dice=0.1923 nonempty=0.3447 empty_fp=0.911 (4.2s)
+  saved HEAD_BEST nonempty=0.3447
+[proto] ep 7/80 loss=0.4771 val_dice=0.2954 nonempty=0.2746 empty_fp=0.690 (4.2s)
+[proto] ep 8/80 loss=0.4727 val_dice=0.2169 nonempty=0.3222 empty_fp=0.854 (4.2s)
+[proto] ep 9/80 loss=0.4677 val_dice=0.2044 nonempty=0.2955 empty_fp=0.857 (4.2s)
+[proto] ep 10/80 loss=0.4698 val_dice=0.2117 nonempty=0.3710 empty_fp=0.896 (4.2s)
+  saved HEAD_BEST nonempty=0.3710
+[proto] ep 11/80 loss=0.4611 val_dice=0.1970 nonempty=0.3740 empty_fp=0.923 (4.2s)
+  saved HEAD_BEST nonempty=0.3740
+[proto] ep 12/80 loss=0.4588 val_dice=0.2786 nonempty=0.2989 empty_fp=0.735 (4.2s)
+[proto] ep 13/80 loss=0.4563 val_dice=0.2785 nonempty=0.2941 empty_fp=0.732 (4.2s)
+[proto] ep 14/80 loss=0.4573 val_dice=0.2195 nonempty=0.4033 empty_fp=0.905 (4.2s)
+  saved HEAD_BEST nonempty=0.4033
+[proto] ep 15/80 loss=0.4558 val_dice=0.2343 nonempty=0.3475 empty_fp=0.842 (4.2s)
+[proto] ep 16/80 loss=0.4547 val_dice=0.2168 nonempty=0.3879 empty_fp=0.899 (4.2s)
+[proto] ep 17/80 loss=0.4555 val_dice=0.2144 nonempty=0.3953 empty_fp=0.908 (4.2s)
+[proto] ep 18/80 loss=0.4539 val_dice=0.2100 nonempty=0.3844 empty_fp=0.908 (4.2s)
+[proto] ep 19/80 loss=0.4506 val_dice=0.2535 nonempty=0.3689 empty_fp=0.824 (4.2s)
+[proto] ep 20/80 loss=0.4481 val_dice=0.2304 nonempty=0.4305 empty_fp=0.905 (4.1s)
+  saved HEAD_BEST nonempty=0.4305
+[proto] ep 21/80 loss=0.4466 val_dice=0.2654 nonempty=0.3586 empty_fp=0.798 (4.3s)
+[proto] ep 22/80 loss=0.4445 val_dice=0.2247 nonempty=0.4427 empty_fp=0.923 (4.2s)
+  saved HEAD_BEST nonempty=0.4427
+[proto] ep 23/80 loss=0.4427 val_dice=0.2491 nonempty=0.3976 empty_fp=0.851 (4.2s)
+[proto] ep 24/80 loss=0.4448 val_dice=0.2201 nonempty=0.4445 empty_fp=0.932 (4.3s)
+  saved HEAD_BEST nonempty=0.4445
+[proto] ep 25/80 loss=0.4459 val_dice=0.2352 nonempty=0.4424 empty_fp=0.905 (4.2s)
+[proto] ep 26/80 loss=0.4457 val_dice=0.2343 nonempty=0.4181 empty_fp=0.890 (4.1s)
+[proto] ep 27/80 loss=0.4440 val_dice=0.2333 nonempty=0.4111 empty_fp=0.887 (4.3s)
+[proto] ep 28/80 loss=0.4406 val_dice=0.2481 nonempty=0.3817 empty_fp=0.842 (4.2s)
+[proto] ep 29/80 loss=0.4414 val_dice=0.2235 nonempty=0.4178 empty_fp=0.908 (4.1s)
+[proto] ep 30/80 loss=0.4389 val_dice=0.2196 nonempty=0.4564 empty_fp=0.940 (4.2s)
+  saved HEAD_BEST nonempty=0.4564
+[proto] ep 31/80 loss=0.4368 val_dice=0.2440 nonempty=0.4509 empty_fp=0.896 (4.2s)
+[proto] ep 32/80 loss=0.4387 val_dice=0.2495 nonempty=0.3942 empty_fp=0.848 (4.2s)
+[proto] ep 33/80 loss=0.4366 val_dice=0.2308 nonempty=0.4139 empty_fp=0.893 (4.3s)
+[proto] ep 34/80 loss=0.4375 val_dice=0.2462 nonempty=0.4653 empty_fp=0.902 (4.1s)
+  saved HEAD_BEST nonempty=0.4653
+[proto] ep 35/80 loss=0.4362 val_dice=0.2398 nonempty=0.4625 empty_fp=0.911 (4.1s)
+[proto] ep 36/80 loss=0.4369 val_dice=0.2269 nonempty=0.4438 empty_fp=0.920 (4.2s)
+[proto] ep 37/80 loss=0.4370 val_dice=0.2594 nonempty=0.4231 empty_fp=0.851 (4.2s)
+[proto] ep 38/80 loss=0.4340 val_dice=0.2559 nonempty=0.4454 empty_fp=0.872 (4.2s)
+[proto] ep 39/80 loss=0.4335 val_dice=0.2538 nonempty=0.4005 empty_fp=0.845 (4.3s)
+[proto] ep 40/80 loss=0.4329 val_dice=0.2497 nonempty=0.4607 empty_fp=0.893 (4.2s)
+[proto] ep 41/80 loss=0.4310 val_dice=0.2437 nonempty=0.4591 empty_fp=0.902 (4.1s)
+[proto] ep 42/80 loss=0.4320 val_dice=0.2522 nonempty=0.4360 empty_fp=0.872 (4.2s)
+[proto] ep 43/80 loss=0.4315 val_dice=0.2350 nonempty=0.4639 empty_fp=0.920 (4.2s)
+[proto] ep 44/80 loss=0.4313 val_dice=0.2355 nonempty=0.4695 empty_fp=0.923 (4.2s)
+  saved HEAD_BEST nonempty=0.4695
+[proto] ep 45/80 loss=0.4312 val_dice=0.2349 nonempty=0.4592 empty_fp=0.917 (4.3s)
+[proto] ep 46/80 loss=0.4311 val_dice=0.2385 nonempty=0.4682 empty_fp=0.917 (4.2s)
+[proto] ep 47/80 loss=0.4310 val_dice=0.2475 nonempty=0.4684 empty_fp=0.902 (4.1s)
+[proto] ep 48/80 loss=0.4315 val_dice=0.2585 nonempty=0.4605 empty_fp=0.878 (4.3s)
+[proto] ep 49/80 loss=0.4292 val_dice=0.2583 nonempty=0.4468 empty_fp=0.869 (4.1s)
+[proto] ep 50/80 loss=0.4289 val_dice=0.2534 nonempty=0.4742 empty_fp=0.896 (4.2s)
+  saved HEAD_BEST nonempty=0.4742
+[proto] ep 51/80 loss=0.4276 val_dice=0.2497 nonempty=0.4784 empty_fp=0.905 (4.2s)
+  saved HEAD_BEST nonempty=0.4784
+[proto] ep 52/80 loss=0.4283 val_dice=0.2497 nonempty=0.4739 empty_fp=0.902 (4.2s)
+[proto] ep 53/80 loss=0.4277 val_dice=0.2442 nonempty=0.4779 empty_fp=0.914 (4.2s)
+[proto] ep 54/80 loss=0.4275 val_dice=0.2508 nonempty=0.4722 empty_fp=0.899 (4.2s)
+[proto] ep 55/80 loss=0.4280 val_dice=0.2467 nonempty=0.4709 empty_fp=0.905 (4.1s)
+[proto] ep 56/80 loss=0.4272 val_dice=0.2459 nonempty=0.4776 empty_fp=0.911 (4.2s)
+[proto] ep 57/80 loss=0.4277 val_dice=0.2473 nonempty=0.4768 empty_fp=0.908 (4.2s)
+[proto] ep 58/80 loss=0.4260 val_dice=0.2448 nonempty=0.4794 empty_fp=0.914 (4.1s)
+  saved HEAD_BEST nonempty=0.4794
+[proto] ep 59/80 loss=0.4275 val_dice=0.2457 nonempty=0.4816 empty_fp=0.914 (4.2s)
+  saved HEAD_BEST nonempty=0.4816
+[proto] ep 60/80 loss=0.4262 val_dice=0.2496 nonempty=0.4736 empty_fp=0.902 (4.2s)
+[proto] ep 61/80 loss=0.4264 val_dice=0.2517 nonempty=0.4788 empty_fp=0.902 (4.1s)
+[proto] ep 62/80 loss=0.4265 val_dice=0.2530 nonempty=0.4733 empty_fp=0.896 (4.2s)
+[proto] ep 63/80 loss=0.4264 val_dice=0.2516 nonempty=0.4698 empty_fp=0.896 (4.2s)
+[proto] ep 64/80 loss=0.4262 val_dice=0.2458 nonempty=0.4819 empty_fp=0.914 (4.2s)
+  saved HEAD_BEST nonempty=0.4819
+[proto] ep 65/80 loss=0.4259 val_dice=0.2509 nonempty=0.4724 empty_fp=0.899 (4.2s)
+[proto] ep 66/80 loss=0.4258 val_dice=0.2463 nonempty=0.4875 empty_fp=0.917 (4.2s)
+  saved HEAD_BEST nonempty=0.4875
+[proto] ep 67/80 loss=0.4250 val_dice=0.2492 nonempty=0.4772 empty_fp=0.905 (4.2s)
+[proto] ep 68/80 loss=0.4266 val_dice=0.2491 nonempty=0.4767 empty_fp=0.905 (4.2s)
+[proto] ep 69/80 loss=0.4256 val_dice=0.2435 nonempty=0.4894 empty_fp=0.923 (4.2s)
+  saved HEAD_BEST nonempty=0.4894
+[proto] ep 70/80 loss=0.4256 val_dice=0.2524 nonempty=0.4673 empty_fp=0.893 (4.1s)
+[proto] ep 71/80 loss=0.4252 val_dice=0.2494 nonempty=0.4863 empty_fp=0.911 (4.2s)
+[proto] ep 72/80 loss=0.4256 val_dice=0.2526 nonempty=0.4811 empty_fp=0.902 (4.2s)
+[proto] ep 73/80 loss=0.4260 val_dice=0.2555 nonempty=0.4662 empty_fp=0.887 (4.1s)
+[proto] ep 74/80 loss=0.4250 val_dice=0.2538 nonempty=0.4796 empty_fp=0.899 (4.2s)
+[proto] ep 75/80 loss=0.4243 val_dice=0.2473 nonempty=0.4899 empty_fp=0.917 (4.2s)
+  saved HEAD_BEST nonempty=0.4899
+[proto] ep 76/80 loss=0.4251 val_dice=0.2446 nonempty=0.4877 empty_fp=0.920 (4.1s)
+[proto] ep 77/80 loss=0.4253 val_dice=0.2492 nonempty=0.4859 empty_fp=0.911 (4.2s)
+[proto] ep 78/80 loss=0.4243 val_dice=0.2496 nonempty=0.4782 empty_fp=0.905 (4.2s)
+[proto] ep 79/80 loss=0.4252 val_dice=0.2473 nonempty=0.4767 empty_fp=0.908 (4.2s)
+[proto] ep 80/80 loss=0.4232 val_dice=0.2462 nonempty=0.4784 empty_fp=0.911 (4.2s)
+TEST raw レ: {
+  "dice_mean": 0.044109854847192764,
+  "dice_median": 6.338787827964154e-11,
+  "mean_dice_nonempty": 0.10816502571105957,
+  "median_dice_nonempty": 0.10958132147789001,
+  "n": 564,
+  "n_nonempty": 230,
+  "n_empty": 334,
+  "empty_fp_rate": 1.0
+}
+TEST learned proto: {
+  "dice_mean": 0.24441345036029816,
+  "dice_median": 4.273816855970836e-09,
+  "mean_dice_nonempty": 0.47760507464408875,
+  "median_dice_nonempty": 0.5373852252960205,
+  "n": 564,
+  "n_nonempty": 230,
+  "n_empty": 334,
+  "empty_fp_rate": 0.9161676646706587
+}

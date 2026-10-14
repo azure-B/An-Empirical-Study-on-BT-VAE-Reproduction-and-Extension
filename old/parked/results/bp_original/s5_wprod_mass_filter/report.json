@@ -1,0 +1,55 @@
+{
+  "val": {
+    "tp": 179,
+    "fp": 113,
+    "fn": 48,
+    "tn": 223,
+    "sensitivity": 0.788546255506608,
+    "specificity": 0.6636904761904762,
+    "nonempty_dice": 0.6023977398872375,
+    "empty_fp_rate": 0.33630952380952384,
+    "auroc": 0.8010410111181037,
+    "thr": 0.01,
+    "min_mass": 320,
+    "split": "val"
+  },
+  "test": {
+    "tp": 183,
+    "fp": 102,
+    "fn": 47,
+    "tn": 232,
+    "sensitivity": 0.7956521739130434,
+    "specificity": 0.6946107784431138,
+    "nonempty_dice": 0.6011470556259155,
+    "empty_fp_rate": 0.30538922155688625,
+    "auroc": 0.7969148659203332,
+    "thr": 0.01,
+    "min_mass": 320,
+    "split": "test"
+  },
+  "oracle": {
+    "tp": 183,
+    "fp": 102,
+    "fn": 47,
+    "tn": 232,
+    "sensitivity": 0.7956521739130434,
+    "specificity": 0.6946107784431138,
+    "nonempty_dice": 0.6011470556259155,
+    "empty_fp_rate": 0.30538922155688625,
+    "auroc": 0.7969148659203332,
+    "thr": 0.01,
+    "min_mass": 320
+  },
+  "base": {
+    "tp": 187,
+    "fp": 127,
+    "fn": 43,
+    "tn": 207,
+    "sensitivity": 0.8130434782608695,
+    "specificity": 0.6197604790419161,
+    "nonempty_dice": 0.6013045310974121,
+    "empty_fp_rate": 0.33532934131736525,
+    "auroc": 0.7969148659203332
+  },
+  "beats_prev": true
+}

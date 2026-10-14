@@ -1,0 +1,42 @@
+{
+  "none_ep": 48,
+  "best_ep": 2,
+  "init_val": {
+    "dice_mean": 0.6172196865081787,
+    "dice_median": 0.8167939186096191,
+    "mean_dice_nonempty": 0.6453510522842407,
+    "median_dice_nonempty": 0.7731736302375793,
+    "n": 563,
+    "n_nonempty": 227,
+    "n_empty": 336,
+    "empty_fp_rate": 0.4017857142857143
+  },
+  "floor": 0.6253510522842407,
+  "val": {
+    "dice_mean": 0.525381326675415,
+    "dice_median": 0.6867671608924866,
+    "mean_dice_nonempty": 0.6422452330589294,
+    "median_dice_nonempty": 0.7351778745651245,
+    "n": 563,
+    "n_nonempty": 227,
+    "n_empty": 336,
+    "empty_fp_rate": 0.5535714285714286,
+    "empty_fp_penalty": 0.10086931702163485
+  },
+  "test": {
+    "dice_mean": 0.5039647817611694,
+    "dice_median": 0.6874731779098511,
+    "mean_dice_nonempty": 0.570591926574707,
+    "median_dice_nonempty": 0.722266674041748,
+    "n": 564,
+    "n_nonempty": 230,
+    "n_empty": 334,
+    "empty_fp_rate": 0.5419161676646707,
+    "empty_fp_penalty": 0.09648605684439342
+  },
+  "paste": true,
+  "tversky": [
+    0.3,
+    0.7
+  ]
+}

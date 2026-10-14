@@ -1,0 +1,11 @@
+
+======== none ======== D:\Desktop\BT_VAE\results\bp_original\dual_role_train\checkpoints\dual_role_best_auroc.pt
+  cls-f1 ン=0.34 | TEST cls f1=0.667 rec=0.678 | infer ne=0.5235 fp=0.219 sens=0.678
+  cls-youden ン=0.56 | TEST cls f1=0.593 rec=0.500 | infer ne=0.3954 fp=0.126 sens=0.500
+  cls-acc ン=0.56 | TEST cls f1=0.593 rec=0.500 | infer ne=0.3954 fp=0.126 sens=0.500
+
+======== emptyfp ======== D:\Desktop\BT_VAE\results\bp_original\dual_role_train_emptyfp\checkpoints\dual_role_best_auroc.pt
+  cls-f1 ン=0.16 | TEST cls f1=0.668 rec=0.687 | infer ne=0.5271 fp=0.243 sens=0.683
+  cls-youden ン=0.16 | TEST cls f1=0.668 rec=0.687 | infer ne=0.5271 fp=0.243 sens=0.683
+  cls-acc ン=0.33 | TEST cls f1=0.659 rec=0.626 | infer ne=0.4887 fp=0.186 sens=0.622
+wrote D:\Desktop\BT_VAE\results\bp_original\dual_role_tau_aligned

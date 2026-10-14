@@ -1,0 +1,23 @@
+{
+  "figure": "paper Fig. 5 style",
+  "split": "bp_train_30 test",
+  "cases": [
+    {
+      "name": "Case1",
+      "file": "16_23.png"
+    },
+    {
+      "name": "Case2",
+      "file": "2_12.png"
+    },
+    {
+      "name": "Case3",
+      "file": "38_2.png"
+    },
+    {
+      "name": "Case4",
+      "file": "34_21.png"
+    }
+  ],
+  "colors": "green=TP, red=FP, white=FN"
+}

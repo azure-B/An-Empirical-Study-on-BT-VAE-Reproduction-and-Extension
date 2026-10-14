@@ -1,0 +1,142 @@
+디지털콘텐츠학회논문지(J. DCS) Vol. 27, No. 5, pp. 1391-1399, May. 2026
+http://dx.doi.org/10.9728/dcs.2026.27.5.1391
+1398
+성능 한계를 가질 수 있음을 시사한다. 둘째, 실험은 두 개의 
+데이터셋(COVID CT, BP Ultrasound)에 한정되어 수행되
+었기 때문에, 다양한 의료영상 모달리티(예: MRI, X-ray) 및 
+복잡한 다중 클래스 분할 환경에 대한 일반화 성능은 충분히 
+검증되지 않았다. 셋째, VAE 기반 구조의 특성상 생성되는 
+분할 결과가 상대적으로 부드러운 경계를 가지는 경향이 있
+어, 정밀한 경계 정보가 중요한 과제에서는 추가적인 보완이 
+필요할 수 있다. 향후 연구에서는 이러한 한계점을 보완하기 
+위해, 다양한 의료영상 데이터셋과 모달리티에 대한 확장 실
+험을 수행하고, 데이터 규모 변화에 따른 성능 안정성을 보다 
+체계적으로 분석할 필요가 있다. 또한 사전학습 단계에서의 
+증강 방식 다양화 및 잠재 공간 구조 개선을 통해, 보다 일반
+화된 표현 학습이 가능하도록 확장할 계획이다. 이러한 연구
+는 실제 임상 환경에서 레이블 데이터 확보의 어려움을 완화
+하고, 의료영상 분석 시스템의 실용성을 향상시키는 데 기여
+할 수 있을 것으로 기대된다.
+감사의 글
+이 논문은 정부(과학기술정보통신부)의 재원으로 정보통신
+기획평가원-지역지능화 혁신인재양성사업의 지원(IITP-202
+6-RS-2022-00156287, 33%), 정부(교육부)의 재원으로 
+한국연구재단의 지원을 받아 수행된 기초연구사업의 지원(R
+S-2025-25398164, 33%), 그리고 정부(과학기술정보통신
+부)의 재원으로 한국연구재단의 지원을 받아 수행된 연구임
+(RS-2024-00357917, 34%). 
+참고문헌
+[1] G. Litjens, T. Kooi, B. E. Bejnordi, A. A. A. Setio, F. 
+Ciompi, M. Ghafoorian, ... and C. I. Sánchez, “A Survey on 
+Deep Learning in Medical Image Analysis,” Medical Image 
+Analysis, 
+Vol. 
+42, 
+pp. 
+60-88, 
+December 
+2017. 
+https://doi.org/10.1016/j.media.2017.07.005
+[2] N. Tajbakhsh, L. Jeyaseelan, Q. Li, J. N. Chiang, Z. Wu, and 
+X. Ding, “Embracing Imperfect Datasets: A Review of Deep 
+Learning Solutions for Medical Image Segmentation,” 
+Medical Image Analysis, Vol. 63, 101693, July 2020. 
+https://doi.org/10.1016/j.media.2020.101693
+[3] X. Luo, J. Chen, T. Song, and G. Wang, “Semi-Supervised 
+Medical 
+Image 
+Segmentation 
+Through 
+Dual-Task 
+Consistency,” in Porceedings of the AAAI Conference on 
+Artificial Intelligence, Vol. 35, No. 10, pp. 8801-8809, 2021.
+[4] X. Liu, F. Zhang, Z. Hou, L. Mian, Z. Wang, J. Zhang, and J. 
+Tang, 
+“Self-Supervised 
+Learning: 
+Generative 
+or 
+Contrastive,” IEEE Transactions on Knowledge and Data 
+Engineering, Vol. 35, No. 1, pp. 857-876, January 2023. 
+https://doi.org/10.1109/TKDE.2021.3090866
+[5] J. Zbontar, L. Jing, I. Misra, Y. LeCun, and S. Deny, 
+“Barlow Twins: Self-Supervised Learning via Redundancy 
+Reduction,” in Proceedings of the 38th International 
+Conference on Machine Learning (ICML), Vol. 139, pp. 
+12310-12320, 2021.
+[6] Y. Lecun, L. Bottou, Y. Bengio, and P. Haffner, 
+“Gradient-Based 
+Learning 
+Applied 
+to 
+Document 
+Recognition,” in Proceedings of the IEEE, Vol. 86, No. 11, 
+pp. 2278-2324, November 1998. https://doi.org/10.1109/5.7 
+26791
+[7] O. Ronneberger, P. Fischer, and T. Brox, “U-Net: 
+Convolutional 
+Networks 
+for 
+Biomedical 
+Image 
+Segmentation,” in Proceedings of the 18th International 
+Conference 
+on 
+Medical 
+Image 
+Computing 
+and 
+Computer-Assisted 
+Intervention 
+(MICCAI), 
+Munich, 
+Germany, pp. 234-241, 2015. https://doi.org/10.1007/978-3- 
+319-24574-4_28
+[8] G. E. Hinton and R. R. Salakhutdinov, “Reducing the 
+Dimensionality of Data with Neural Networks,” Science, 
+Vol. 
+313, 
+No. 
+5786, 
+pp. 
+504-507, 
+July 
+2006. 
+https://doi.org/10.1126/science.1127647
+[9] D. P. Kingma and M. Welling, “Auto-Encoding Variational 
+Bayes,” in Proceedings of the International Conference on 
+Learning 
+Representations 
+(ICLR), 
+April 
+2014. 
+https://doi.org/10.48550/arXiv.1312.6114
+[10] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, 
+A. N. Gomez, ... and I. Polosukhin, “Attention Is All You 
+Need,” in Proceedings of the 31st Conference on Neural 
+Information Processing Systems (NeurIPS), Long Beach: 
+CA, pp. 6000-6010, 2017
+[11] M. M. Rahman, S. Shokouhmand, S. Bhatt, and M. 
+Faezipour, 
+“MIST: 
+Medical 
+Image 
+Segmentation 
+Transformer with Convolutional Attention Mixing (CAM) 
+Decoder,” in Proceedings of the IEEE/CVF Winter 
+Conference on Applications of Computer Vision (WACV), 
+pp. 403-412, 2024.
+[12] J. Ma, Y. He, F. Li, L. Han, C. You, and B. Wang, 
+“Segment 
+Anything 
+in 
+Medical 
+Images,” 
+Nature 
+Communications, Vol. 15, 654, 2024.
+[13] Y. Huang, X. Yang, L. Liu, H. Zhou, A. Chang, X. Zhou, ... 
+and D. Ni, “Segment Anything Model for Medical 
+Images?,” Medical Image Analysis, Vol. 92, 103061, 2024.
+[14] R. Jiao, Y. Zhang, L. Ding, B. Xue, J. Zhang, R. Cai, and 
+C. Jin, “Learning with Limited Annotations: A Survey on 
+Deep Semi-Supervised Learning for Medical Image 

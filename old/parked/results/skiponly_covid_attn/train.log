@@ -1,0 +1,602 @@
+device: cuda:0
+GPU: NVIDIA GeForce RTX 5060
+VRAM total=8.55G budget=7.35G - probing ladder...
+  [OK] latent=1024 BT_bs=8 SEG_bs=4 peak=3.50G
+selected latent=1024 BT=8x4 SEG=4x4 peak~3.50G params=100.6M
+Loading datasets (COVID only)...
+BT(covid): 743 92 94
+SEG(covid): 743 92 94
+smoke out: (1, 1, 256, 256) mu: (1, 1024, 8, 8)
+params: 100.62M  base=32 latent=1024
+[warn] RNG restore skipped: RNG state must be a torch.ByteTensor
+BT resume epoch=16 best=0.00483
+[BT 016] train=0.00496 val=0.00484 bt=0.00483 dist=0.00020 bad=4
+[BT 017] train=0.00489 val=0.00486 bt=0.00485 dist=0.00024 bad=5
+[BT 018] train=0.00468 val=0.00463 bt=0.00462 dist=0.00020 bad=0
+[BT 019] train=0.00464 val=0.00485 bt=0.00484 dist=0.00022 bad=1
+[BT 020] train=0.00453 val=0.01037 bt=0.01036 dist=0.00029 bad=2
+[BT 021] train=0.00415 val=0.00481 bt=0.00480 dist=0.00019 bad=3
+[BT 022] train=0.00405 val=0.00524 bt=0.00523 dist=0.00015 bad=4
+[BT 023] train=0.00417 val=0.00506 bt=0.00505 dist=0.00015 bad=5
+[BT 024] train=0.00463 val=0.00648 bt=0.00647 dist=0.00016 bad=6
+[BT 025] train=0.00471 val=0.00550 bt=0.00549 dist=0.00014 bad=7
+[BT 026] train=0.00406 val=0.00488 bt=0.00488 dist=0.00013 bad=8
+[BT 027] train=0.00426 val=0.00455 bt=0.00455 dist=0.00019 bad=0
+[BT 028] train=0.00401 val=0.00616 bt=0.00615 dist=0.00020 bad=1
+[BT 029] train=0.00374 val=0.00494 bt=0.00493 dist=0.00013 bad=2
+[BT 030] train=0.00382 val=0.00465 bt=0.00465 dist=0.00009 bad=3
+[BT 031] train=0.00329 val=0.00452 bt=0.00452 dist=0.00011 bad=0
+[BT 032] train=0.00352 val=0.00444 bt=0.00444 dist=0.00012 bad=0
+[BT 033] train=0.00328 val=0.00435 bt=0.00434 dist=0.00009 bad=0
+[BT 034] train=0.00335 val=0.00418 bt=0.00418 dist=0.00010 bad=0
+[BT 035] train=0.00328 val=0.00516 bt=0.00516 dist=0.00009 bad=1
+[BT 036] train=0.00318 val=0.00534 bt=0.00533 dist=0.00010 bad=2
+[BT 037] train=0.00308 val=0.00492 bt=0.00491 dist=0.00011 bad=3
+[BT 038] train=0.00321 val=0.00426 bt=0.00426 dist=0.00011 bad=4
+[BT 039] train=0.00310 val=0.00411 bt=0.00410 dist=0.00010 bad=0
+[BT 040] train=0.00317 val=0.00436 bt=0.00435 dist=0.00014 bad=1
+[BT 041] train=0.00307 val=0.00427 bt=0.00426 dist=0.00012 bad=2
+[BT 042] train=0.00311 val=0.00454 bt=0.00454 dist=0.00009 bad=3
+[BT 043] train=0.00323 val=0.00777 bt=0.00776 dist=0.00010 bad=4
+[BT 044] train=0.00318 val=0.00515 bt=0.00514 dist=0.00009 bad=5
+[BT 045] train=0.00307 val=0.00428 bt=0.00428 dist=0.00008 bad=6
+[BT 046] train=0.00366 val=0.00955 bt=0.00955 dist=0.00018 bad=7
+[BT 047] train=0.00400 val=0.00628 bt=0.00628 dist=0.00015 bad=8
+[BT 048] train=0.00347 val=0.00646 bt=0.00645 dist=0.00017 bad=9
+[BT 049] train=0.00400 val=0.00955 bt=0.00954 dist=0.00017 bad=10
+[BT 050] train=0.00423 val=0.00819 bt=0.00818 dist=0.00017 bad=11
+[BT 051] train=0.00337 val=0.00613 bt=0.00612 dist=0.00012 bad=12
+[BT 052] train=0.00311 val=0.00555 bt=0.00555 dist=0.00012 bad=13
+[BT 053] train=0.00309 val=0.00461 bt=0.00460 dist=0.00011 bad=14
+[BT 054] train=0.00306 val=0.00432 bt=0.00432 dist=0.00010 bad=15
+[BT 055] train=0.00302 val=0.00447 bt=0.00446 dist=0.00011 bad=16
+[BT 056] train=0.00302 val=0.00433 bt=0.00432 dist=0.00013 bad=17
+[BT 057] train=0.00308 val=0.00438 bt=0.00438 dist=0.00011 bad=18
+[BT 058] train=0.00307 val=0.00420 bt=0.00419 dist=0.00012 bad=19
+[BT 059] train=0.00293 val=0.00410 bt=0.00409 dist=0.00012 bad=0
+[BT 060] train=0.00343 val=0.00564 bt=0.00563 dist=0.00014 bad=1
+[BT 061] train=0.00317 val=0.00738 bt=0.00737 dist=0.00013 bad=2
+[BT 062] train=0.00299 val=0.00495 bt=0.00494 dist=0.00015 bad=3
+[BT 063] train=0.00334 val=0.00517 bt=0.00516 dist=0.00019 bad=4
+[BT 064] train=0.00307 val=0.00440 bt=0.00439 dist=0.00023 bad=5
+[BT 065] train=0.00292 val=0.00412 bt=0.00411 dist=0.00023 bad=6
+[BT 066] train=0.00301 val=0.00424 bt=0.00423 dist=0.00021 bad=7
+[BT 067] train=0.00319 val=0.00433 bt=0.00432 dist=0.00018 bad=8
+[BT 068] train=0.00305 val=0.00417 bt=0.00416 dist=0.00015 bad=9
+[BT 069] train=0.00286 val=0.00414 bt=0.00414 dist=0.00016 bad=10
+[BT 070] train=0.00287 val=0.00409 bt=0.00409 dist=0.00017 bad=0
+[BT 071] train=0.00299 val=0.00403 bt=0.00402 dist=0.00015 bad=0
+[BT 072] train=0.00292 val=0.00400 bt=0.00399 dist=0.00016 bad=0
+[BT 073] train=0.00294 val=0.00399 bt=0.00398 dist=0.00015 bad=0
+[BT 074] train=0.00308 val=0.00399 bt=0.00398 dist=0.00016 bad=1
+[BT 075] train=0.00293 val=0.00400 bt=0.00399 dist=0.00015 bad=2
+[BT 076] train=0.00295 val=0.00400 bt=0.00399 dist=0.00014 bad=3
+[BT 077] train=0.00295 val=0.00406 bt=0.00406 dist=0.00014 bad=4
+[BT 078] train=0.00283 val=0.00400 bt=0.00400 dist=0.00014 bad=5
+[BT 079] train=0.00296 val=0.00395 bt=0.00394 dist=0.00014 bad=0
+[BT 080] train=0.00286 val=0.00393 bt=0.00392 dist=0.00015 bad=0
+[BT 081] train=0.00287 val=0.00395 bt=0.00395 dist=0.00014 bad=1
+[BT 082] train=0.00279 val=0.00396 bt=0.00395 dist=0.00015 bad=2
+[BT 083] train=0.00289 val=0.00394 bt=0.00394 dist=0.00014 bad=3
+[BT 084] train=0.00285 val=0.00396 bt=0.00395 dist=0.00014 bad=4
+[BT 085] train=0.00284 val=0.00396 bt=0.00395 dist=0.00014 bad=5
+[BT 086] train=0.00296 val=0.00405 bt=0.00404 dist=0.00015 bad=6
+[BT 087] train=0.00284 val=0.00406 bt=0.00405 dist=0.00015 bad=7
+[BT 088] train=0.00287 val=0.00411 bt=0.00410 dist=0.00015 bad=8
+[BT 089] train=0.00280 val=0.00398 bt=0.00397 dist=0.00014 bad=9
+[BT 090] train=0.00290 val=0.00406 bt=0.00405 dist=0.00015 bad=10
+[BT 091] train=0.00289 val=0.00404 bt=0.00403 dist=0.00015 bad=11
+[BT 092] train=0.00281 val=0.00412 bt=0.00411 dist=0.00015 bad=12
+[BT 093] train=0.00285 val=0.00410 bt=0.00409 dist=0.00016 bad=13
+[BT 094] train=0.00287 val=0.00407 bt=0.00406 dist=0.00015 bad=14
+[BT 095] train=0.00284 val=0.00419 bt=0.00418 dist=0.00015 bad=15
+[BT 096] train=0.00294 val=0.00410 bt=0.00409 dist=0.00015 bad=16
+[BT 097] train=0.00285 val=0.00416 bt=0.00415 dist=0.00014 bad=17
+[BT 098] train=0.00305 val=0.00396 bt=0.00395 dist=0.00015 bad=18
+[BT 099] train=0.00284 val=0.00398 bt=0.00398 dist=0.00014 bad=19
+[BT 100] train=0.00282 val=0.00398 bt=0.00397 dist=0.00015 bad=20
+[BT 101] train=0.00285 val=0.00403 bt=0.00402 dist=0.00015 bad=21
+[BT 102] train=0.00302 val=0.00401 bt=0.00401 dist=0.00015 bad=22
+[BT 103] train=0.00281 val=0.00405 bt=0.00404 dist=0.00015 bad=23
+[BT 104] train=0.00285 val=0.00393 bt=0.00393 dist=0.00014 bad=24
+[BT 105] train=0.00288 val=0.00398 bt=0.00397 dist=0.00016 bad=25
+[BT 106] train=0.00293 val=0.00418 bt=0.00417 dist=0.00016 bad=26
+[BT 107] train=0.00286 val=0.00397 bt=0.00396 dist=0.00015 bad=27
+[BT 108] train=0.00287 val=0.00403 bt=0.00403 dist=0.00015 bad=28
+[BT 109] train=0.00282 val=0.00397 bt=0.00396 dist=0.00015 bad=29
+[BT 110] train=0.00284 val=0.00395 bt=0.00394 dist=0.00016 bad=30
+[BT 111] train=0.00284 val=0.00397 bt=0.00396 dist=0.00015 bad=31
+[BT 112] train=0.00283 val=0.00405 bt=0.00404 dist=0.00015 bad=32
+[BT 113] train=0.00290 val=0.00396 bt=0.00395 dist=0.00015 bad=33
+[BT 114] train=0.00286 val=0.00402 bt=0.00401 dist=0.00015 bad=34
+[BT 115] train=0.00296 val=0.00398 bt=0.00397 dist=0.00014 bad=35
+[BT 116] train=0.00285 val=0.00397 bt=0.00396 dist=0.00015 bad=36
+[BT 117] train=0.00288 val=0.00395 bt=0.00395 dist=0.00014 bad=37
+[BT 118] train=0.00279 val=0.00402 bt=0.00402 dist=0.00014 bad=38
+[BT 119] train=0.00290 val=0.00399 bt=0.00398 dist=0.00014 bad=39
+[BT 120] train=0.00282 val=0.00397 bt=0.00396 dist=0.00014 bad=40
+[BT 121] train=0.00275 val=0.00396 bt=0.00395 dist=0.00015 bad=41
+[BT 122] train=0.00291 val=0.00398 bt=0.00398 dist=0.00014 bad=42
+[BT 123] train=0.00284 val=0.00413 bt=0.00412 dist=0.00015 bad=43
+[BT 124] train=0.00292 val=0.00394 bt=0.00393 dist=0.00015 bad=44
+[BT 125] train=0.00302 val=0.00395 bt=0.00394 dist=0.00013 bad=45
+[BT 126] train=0.00282 val=0.00396 bt=0.00395 dist=0.00015 bad=46
+[BT 127] train=0.00287 val=0.00398 bt=0.00397 dist=0.00014 bad=47
+[BT 128] train=0.00284 val=0.00393 bt=0.00393 dist=0.00015 bad=48
+[BT 129] train=0.00276 val=0.00404 bt=0.00403 dist=0.00014 bad=49
+[BT 130] train=0.00281 val=0.00394 bt=0.00393 dist=0.00014 bad=50
+[BT 131] train=0.00276 val=0.00396 bt=0.00395 dist=0.00015 bad=51
+[BT 132] train=0.00280 val=0.00400 bt=0.00399 dist=0.00015 bad=52
+[BT 133] train=0.00317 val=0.00394 bt=0.00393 dist=0.00015 bad=53
+[BT 134] train=0.00286 val=0.00400 bt=0.00399 dist=0.00014 bad=54
+[BT 135] train=0.00285 val=0.00403 bt=0.00402 dist=0.00014 bad=55
+[BT 136] train=0.00294 val=0.00399 bt=0.00398 dist=0.00015 bad=56
+[BT 137] train=0.00291 val=0.00407 bt=0.00406 dist=0.00014 bad=57
+[BT 138] train=0.00284 val=0.00399 bt=0.00398 dist=0.00015 bad=58
+[BT 139] train=0.00283 val=0.00421 bt=0.00420 dist=0.00015 bad=59
+[BT 140] train=0.00284 val=0.00392 bt=0.00391 dist=0.00015 bad=0
+[BT 141] train=0.00283 val=0.00399 bt=0.00398 dist=0.00014 bad=1
+[BT 142] train=0.00288 val=0.00407 bt=0.00406 dist=0.00016 bad=2
+[BT 143] train=0.00281 val=0.00401 bt=0.00401 dist=0.00015 bad=3
+[BT 144] train=0.00280 val=0.00402 bt=0.00401 dist=0.00014 bad=4
+[BT 145] train=0.00279 val=0.00397 bt=0.00396 dist=0.00015 bad=5
+[BT 146] train=0.00290 val=0.00406 bt=0.00406 dist=0.00015 bad=6
+[BT 147] train=0.00280 val=0.00395 bt=0.00394 dist=0.00014 bad=7
+[BT 148] train=0.00281 val=0.00416 bt=0.00415 dist=0.00015 bad=8
+[BT 149] train=0.00281 val=0.00398 bt=0.00397 dist=0.00014 bad=9
+[BT 150] train=0.00339 val=0.00415 bt=0.00414 dist=0.00014 bad=10
+[BT 151] train=0.00275 val=0.00431 bt=0.00430 dist=0.00014 bad=11
+[BT 152] train=0.00275 val=0.00405 bt=0.00404 dist=0.00014 bad=12
+[BT 153] train=0.00278 val=0.00401 bt=0.00400 dist=0.00015 bad=13
+[BT 154] train=0.00282 val=0.00403 bt=0.00403 dist=0.00014 bad=14
+[BT 155] train=0.00282 val=0.00414 bt=0.00413 dist=0.00015 bad=15
+[BT 156] train=0.00279 val=0.00416 bt=0.00415 dist=0.00014 bad=16
+[BT 157] train=0.00286 val=0.00420 bt=0.00420 dist=0.00014 bad=17
+[BT 158] train=0.00287 val=0.00418 bt=0.00418 dist=0.00014 bad=18
+[BT 159] train=0.00281 val=0.00414 bt=0.00413 dist=0.00015 bad=19
+[BT 160] train=0.00287 val=0.00433 bt=0.00432 dist=0.00013 bad=20
+[BT 161] train=0.00289 val=0.00408 bt=0.00407 dist=0.00013 bad=21
+[BT 162] train=0.00284 val=0.00414 bt=0.00413 dist=0.00014 bad=22
+[BT 163] train=0.00281 val=0.00411 bt=0.00411 dist=0.00013 bad=23
+[BT 164] train=0.00281 val=0.00420 bt=0.00420 dist=0.00014 bad=24
+[BT 165] train=0.00284 val=0.00419 bt=0.00418 dist=0.00014 bad=25
+[BT 166] train=0.00277 val=0.00428 bt=0.00428 dist=0.00013 bad=26
+[BT 167] train=0.00287 val=0.00426 bt=0.00425 dist=0.00014 bad=27
+[BT 168] train=0.00278 val=0.00399 bt=0.00399 dist=0.00014 bad=28
+[BT 169] train=0.00286 val=0.00402 bt=0.00401 dist=0.00014 bad=29
+[BT 170] train=0.00280 val=0.00408 bt=0.00407 dist=0.00014 bad=30
+[BT 171] train=0.00287 val=0.00427 bt=0.00426 dist=0.00014 bad=31
+[BT 172] train=0.00277 val=0.00411 bt=0.00410 dist=0.00014 bad=32
+[BT 173] train=0.00284 val=0.00405 bt=0.00404 dist=0.00014 bad=33
+[BT 174] train=0.00282 val=0.00410 bt=0.00409 dist=0.00013 bad=34
+[BT 175] train=0.00281 val=0.00400 bt=0.00399 dist=0.00014 bad=35
+[BT 176] train=0.00292 val=0.00406 bt=0.00405 dist=0.00014 bad=36
+[BT 177] train=0.00299 val=0.00402 bt=0.00401 dist=0.00013 bad=37
+[BT 178] train=0.00289 val=0.00401 bt=0.00400 dist=0.00013 bad=38
+[BT 179] train=0.00335 val=0.00410 bt=0.00410 dist=0.00013 bad=39
+[BT 180] train=0.00287 val=0.00412 bt=0.00411 dist=0.00013 bad=40
+[BT 181] train=0.00282 val=0.00396 bt=0.00395 dist=0.00014 bad=41
+[BT 182] train=0.00283 val=0.00412 bt=0.00412 dist=0.00013 bad=42
+[BT 183] train=0.00285 val=0.00403 bt=0.00402 dist=0.00014 bad=43
+[BT 184] train=0.00281 val=0.00427 bt=0.00427 dist=0.00013 bad=44
+[BT 185] train=0.00281 val=0.00404 bt=0.00403 dist=0.00014 bad=45
+[BT 186] train=0.00278 val=0.00414 bt=0.00413 dist=0.00014 bad=46
+[BT 187] train=0.00282 val=0.00411 bt=0.00410 dist=0.00013 bad=47
+[BT 188] train=0.00281 val=0.00397 bt=0.00396 dist=0.00014 bad=48
+[BT 189] train=0.00278 val=0.00406 bt=0.00405 dist=0.00014 bad=49
+[BT 190] train=0.00280 val=0.00404 bt=0.00403 dist=0.00014 bad=50
+[BT 191] train=0.00288 val=0.00402 bt=0.00402 dist=0.00014 bad=51
+[BT 192] train=0.00285 val=0.00428 bt=0.00427 dist=0.00014 bad=52
+[BT 193] train=0.00286 val=0.00404 bt=0.00403 dist=0.00014 bad=53
+[BT 194] train=0.00283 val=0.00430 bt=0.00430 dist=0.00015 bad=54
+[BT 195] train=0.00288 val=0.00418 bt=0.00418 dist=0.00014 bad=55
+[BT 196] train=0.00281 val=0.00410 bt=0.00409 dist=0.00014 bad=56
+[BT 197] train=0.00281 val=0.00416 bt=0.00416 dist=0.00015 bad=57
+[BT 198] train=0.00278 val=0.00428 bt=0.00427 dist=0.00015 bad=58
+[BT 199] train=0.00294 val=0.00444 bt=0.00443 dist=0.00015 bad=59
+[BT 200] train=0.00287 val=0.00408 bt=0.00407 dist=0.00014 bad=60
+encoder loaded; missing: [] unexpected: []
+[SEG 001] train loss=0.68828 D=0.0849 IoU=0.0565 | val loss=0.58574 D=0.2405 IoU=0.1854 bad=0 bestD=0.2405 beta=2.5e-05
+[SEG 002] train loss=0.54148 D=0.3066 IoU=0.2494 | val loss=0.49097 D=0.4695 IoU=0.4034 bad=0 bestD=0.4695 beta=5e-05
+[SEG 003] train loss=0.47631 D=0.4751 IoU=0.4103 | val loss=0.46411 D=0.2445 IoU=0.1802 bad=1 bestD=0.4695 beta=7.5e-05
+[SEG 004] train loss=0.43439 D=0.5142 IoU=0.4469 | val loss=0.40308 D=0.6046 IoU=0.5407 bad=0 bestD=0.6046 beta=0.0001
+[SEG 005] train loss=0.40473 D=0.5547 IoU=0.4868 | val loss=0.38564 D=0.6450 IoU=0.5846 bad=0 bestD=0.6450 beta=0.000125
+[SEG 006] train loss=0.38231 D=0.5589 IoU=0.4917 | val loss=0.36533 D=0.7166 IoU=0.6558 bad=0 bestD=0.7166 beta=0.00015
+[SEG 007] train loss=0.36843 D=0.6044 IoU=0.5384 | val loss=0.35390 D=0.6820 IoU=0.6222 bad=1 bestD=0.7166 beta=0.000175
+[SEG 008] train loss=0.35614 D=0.6278 IoU=0.5638 | val loss=0.34792 D=0.6321 IoU=0.5722 bad=2 bestD=0.7166 beta=0.0002
+[SEG 009] train loss=0.34975 D=0.5993 IoU=0.5352 | val loss=0.34473 D=0.6275 IoU=0.5638 bad=3 bestD=0.7166 beta=0.000225
+[SEG 010] train loss=0.33901 D=0.6554 IoU=0.5926 | val loss=0.34000 D=0.7156 IoU=0.6574 bad=4 bestD=0.7166 beta=0.00025
+[SEG 011] train loss=0.33931 D=0.6292 IoU=0.5662 | val loss=0.33572 D=0.5533 IoU=0.4945 bad=5 bestD=0.7166 beta=0.000275
+[SEG 012] train loss=0.33431 D=0.6333 IoU=0.5713 | val loss=0.33137 D=0.7383 IoU=0.6797 bad=0 bestD=0.7383 beta=0.0003
+[SEG 013] train loss=0.33484 D=0.6784 IoU=0.6156 | val loss=0.33139 D=0.7460 IoU=0.6881 bad=0 bestD=0.7460 beta=0.000325
+[SEG 014] train loss=0.32630 D=0.6720 IoU=0.6116 | val loss=0.32676 D=0.6237 IoU=0.5643 bad=1 bestD=0.7460 beta=0.00035
+[SEG 015] train loss=0.32395 D=0.6628 IoU=0.6024 | val loss=0.32601 D=0.7128 IoU=0.6549 bad=2 bestD=0.7460 beta=0.000375
+[SEG 016] train loss=0.32081 D=0.6747 IoU=0.6162 | val loss=0.32481 D=0.7662 IoU=0.7091 bad=0 bestD=0.7662 beta=0.0004
+[SEG 017] train loss=0.32386 D=0.6775 IoU=0.6183 | val loss=0.32494 D=0.7443 IoU=0.6870 bad=1 bestD=0.7662 beta=0.000425
+[SEG 018] train loss=0.31833 D=0.6831 IoU=0.6254 | val loss=0.32493 D=0.7038 IoU=0.6461 bad=2 bestD=0.7662 beta=0.00045
+[SEG 019] train loss=0.31790 D=0.6775 IoU=0.6192 | val loss=0.32111 D=0.7743 IoU=0.7179 bad=0 bestD=0.7743 beta=0.000475
+[SEG 020] train loss=0.31611 D=0.6594 IoU=0.6013 | val loss=0.32116 D=0.6976 IoU=0.6416 bad=1 bestD=0.7743 beta=0.0005
+[SEG 021] train loss=0.31422 D=0.7220 IoU=0.6649 | val loss=0.32517 D=0.7758 IoU=0.7223 bad=0 bestD=0.7758 beta=0.000525
+[SEG 022] train loss=0.31330 D=0.7131 IoU=0.6562 | val loss=0.32181 D=0.6838 IoU=0.6285 bad=1 bestD=0.7758 beta=0.00055
+[SEG 023] train loss=0.31041 D=0.7247 IoU=0.6684 | val loss=0.32311 D=0.6932 IoU=0.6332 bad=2 bestD=0.7758 beta=0.000575
+[SEG 024] train loss=0.31150 D=0.7216 IoU=0.6667 | val loss=0.31960 D=0.7096 IoU=0.6537 bad=3 bestD=0.7758 beta=0.0006
+[SEG 025] train loss=0.30856 D=0.7448 IoU=0.6888 | val loss=0.31980 D=0.7198 IoU=0.6658 bad=4 bestD=0.7758 beta=0.000625
+[SEG 026] train loss=0.30941 D=0.7369 IoU=0.6820 | val loss=0.32024 D=0.7519 IoU=0.6971 bad=5 bestD=0.7758 beta=0.00065
+[SEG 027] train loss=0.30732 D=0.6892 IoU=0.6349 | val loss=0.31884 D=0.8001 IoU=0.7441 bad=0 bestD=0.8001 beta=0.000675
+[SEG 028] train loss=0.30473 D=0.7384 IoU=0.6841 | val loss=0.32201 D=0.7270 IoU=0.6732 bad=1 bestD=0.8001 beta=0.0007
+[SEG 029] train loss=0.30723 D=0.7407 IoU=0.6855 | val loss=0.31952 D=0.8204 IoU=0.7641 bad=0 bestD=0.8204 beta=0.000725
+[SEG 030] train loss=0.30770 D=0.7119 IoU=0.6572 | val loss=0.31660 D=0.7485 IoU=0.6942 bad=1 bestD=0.8204 beta=0.00075
+[SEG 031] train loss=0.30571 D=0.7227 IoU=0.6693 | val loss=0.31665 D=0.6622 IoU=0.6082 bad=2 bestD=0.8204 beta=0.000775
+[SEG 032] train loss=0.30573 D=0.7401 IoU=0.6857 | val loss=0.31943 D=0.7539 IoU=0.6996 bad=3 bestD=0.8204 beta=0.0008
+[SEG 033] train loss=0.30506 D=0.7118 IoU=0.6583 | val loss=0.31563 D=0.7495 IoU=0.6953 bad=4 bestD=0.8204 beta=0.000825
+[SEG 034] train loss=0.30284 D=0.7453 IoU=0.6929 | val loss=0.31501 D=0.8154 IoU=0.7609 bad=5 bestD=0.8204 beta=0.00085
+[SEG 035] train loss=0.30178 D=0.7588 IoU=0.7065 | val loss=0.32143 D=0.7080 IoU=0.6522 bad=6 bestD=0.8204 beta=0.000875
+[SEG 036] train loss=0.30190 D=0.7221 IoU=0.6702 | val loss=0.31716 D=0.7370 IoU=0.6832 bad=7 bestD=0.8204 beta=0.0009
+[SEG 037] train loss=0.29998 D=0.7386 IoU=0.6874 | val loss=0.31341 D=0.7760 IoU=0.7230 bad=8 bestD=0.8204 beta=0.000925
+[SEG 038] train loss=0.29908 D=0.7272 IoU=0.6758 | val loss=0.31202 D=0.7683 IoU=0.7162 bad=9 bestD=0.8204 beta=0.00095
+[SEG 039] train loss=0.29945 D=0.7795 IoU=0.7287 | val loss=0.31498 D=0.7732 IoU=0.7190 bad=10 bestD=0.8204 beta=0.000975
+[SEG 040] train loss=0.29724 D=0.7710 IoU=0.7213 | val loss=0.31146 D=0.8226 IoU=0.7703 bad=0 bestD=0.8226 beta=0.001
+[SEG 041] train loss=0.29517 D=0.7652 IoU=0.7170 | val loss=0.31421 D=0.7534 IoU=0.6998 bad=1 bestD=0.8226 beta=0.001
+[SEG 042] train loss=0.29549 D=0.7847 IoU=0.7358 | val loss=0.31250 D=0.8221 IoU=0.7700 bad=2 bestD=0.8226 beta=0.001
+[SEG 043] train loss=0.29554 D=0.7714 IoU=0.7226 | val loss=0.31467 D=0.7972 IoU=0.7435 bad=3 bestD=0.8226 beta=0.001
+[SEG 044] train loss=0.29557 D=0.7887 IoU=0.7401 | val loss=0.31180 D=0.7672 IoU=0.7161 bad=4 bestD=0.8226 beta=0.001
+[SEG 045] train loss=0.29649 D=0.7884 IoU=0.7402 | val loss=0.31303 D=0.7870 IoU=0.7335 bad=5 bestD=0.8226 beta=0.001
+[SEG 046] train loss=0.29535 D=0.7910 IoU=0.7434 | val loss=0.31371 D=0.7761 IoU=0.7240 bad=6 bestD=0.8226 beta=0.001
+[SEG 047] train loss=0.29673 D=0.7668 IoU=0.7183 | val loss=0.31474 D=0.7636 IoU=0.7105 bad=7 bestD=0.8226 beta=0.001
+[SEG 048] train loss=0.29513 D=0.7805 IoU=0.7321 | val loss=0.31146 D=0.7783 IoU=0.7258 bad=8 bestD=0.8226 beta=0.001
+[SEG 049] train loss=0.29498 D=0.7693 IoU=0.7208 | val loss=0.31608 D=0.8058 IoU=0.7518 bad=9 bestD=0.8226 beta=0.001
+[SEG 050] train loss=0.29628 D=0.7940 IoU=0.7449 | val loss=0.31172 D=0.8007 IoU=0.7481 bad=10 bestD=0.8226 beta=0.001
+[SEG 051] train loss=0.29194 D=0.7940 IoU=0.7475 | val loss=0.31244 D=0.7985 IoU=0.7462 bad=11 bestD=0.8226 beta=0.001
+[SEG 052] train loss=0.29361 D=0.7936 IoU=0.7459 | val loss=0.31260 D=0.7658 IoU=0.7123 bad=12 bestD=0.8226 beta=0.001
+[SEG 053] train loss=0.29237 D=0.7943 IoU=0.7480 | val loss=0.31005 D=0.8042 IoU=0.7540 bad=13 bestD=0.8226 beta=0.001
+[SEG 054] train loss=0.28967 D=0.8071 IoU=0.7621 | val loss=0.31128 D=0.7574 IoU=0.7063 bad=14 bestD=0.8226 beta=0.001
+[SEG 055] train loss=0.29243 D=0.7926 IoU=0.7471 | val loss=0.31296 D=0.8091 IoU=0.7570 bad=15 bestD=0.8226 beta=0.001
+[SEG 056] train loss=0.29165 D=0.7976 IoU=0.7529 | val loss=0.31265 D=0.7671 IoU=0.7147 bad=16 bestD=0.8226 beta=0.001
+[SEG 057] train loss=0.28955 D=0.7918 IoU=0.7478 | val loss=0.31042 D=0.8030 IoU=0.7520 bad=17 bestD=0.8226 beta=0.001
+[SEG 058] train loss=0.28793 D=0.7882 IoU=0.7442 | val loss=0.30979 D=0.8145 IoU=0.7636 bad=18 bestD=0.8226 beta=0.001
+[SEG 059] train loss=0.28899 D=0.7947 IoU=0.7515 | val loss=0.30978 D=0.7923 IoU=0.7431 bad=19 bestD=0.8226 beta=0.001
+[SEG 060] train loss=0.29138 D=0.7661 IoU=0.7212 | val loss=0.31332 D=0.7880 IoU=0.7363 bad=20 bestD=0.8226 beta=0.001
+[SEG 061] train loss=0.28823 D=0.8133 IoU=0.7690 | val loss=0.31421 D=0.7214 IoU=0.6690 bad=21 bestD=0.8226 beta=0.001
+[SEG 062] train loss=0.28700 D=0.8170 IoU=0.7731 | val loss=0.31223 D=0.7784 IoU=0.7261 bad=22 bestD=0.8226 beta=0.001
+[SEG 063] train loss=0.28764 D=0.8161 IoU=0.7735 | val loss=0.31195 D=0.7775 IoU=0.7259 bad=23 bestD=0.8226 beta=0.001
+[SEG 064] train loss=0.28609 D=0.8328 IoU=0.7902 | val loss=0.31426 D=0.7855 IoU=0.7332 bad=24 bestD=0.8226 beta=0.001
+[SEG 065] train loss=0.28564 D=0.8219 IoU=0.7806 | val loss=0.31273 D=0.8004 IoU=0.7495 bad=25 bestD=0.8226 beta=0.001
+[SEG 066] train loss=0.28693 D=0.8298 IoU=0.7879 | val loss=0.31296 D=0.7656 IoU=0.7135 bad=26 bestD=0.8226 beta=0.001
+[SEG 067] train loss=0.28599 D=0.7915 IoU=0.7486 | val loss=0.31356 D=0.7219 IoU=0.6693 bad=27 bestD=0.8226 beta=0.001
+[SEG 068] train loss=0.28455 D=0.8144 IoU=0.7730 | val loss=0.30877 D=0.7613 IoU=0.7113 bad=28 bestD=0.8226 beta=0.001
+[SEG 069] train loss=0.28400 D=0.8346 IoU=0.7934 | val loss=0.31166 D=0.7360 IoU=0.6846 bad=29 bestD=0.8226 beta=0.001
+[SEG 070] train loss=0.28413 D=0.7877 IoU=0.7466 | val loss=0.31347 D=0.7995 IoU=0.7480 bad=30 bestD=0.8226 beta=0.001
+[SEG 071] train loss=0.28238 D=0.8342 IoU=0.7943 | val loss=0.31140 D=0.7909 IoU=0.7400 bad=31 bestD=0.8226 beta=0.001
+[SEG 072] train loss=0.28398 D=0.8306 IoU=0.7905 | val loss=0.31328 D=0.7246 IoU=0.6732 bad=32 bestD=0.8226 beta=0.001
+[SEG 073] train loss=0.28604 D=0.7936 IoU=0.7524 | val loss=0.31120 D=0.8123 IoU=0.7605 bad=33 bestD=0.8226 beta=0.001
+[SEG 074] train loss=0.28327 D=0.8271 IoU=0.7874 | val loss=0.31338 D=0.8102 IoU=0.7583 bad=34 bestD=0.8226 beta=0.001
+[SEG 075] train loss=0.28620 D=0.8128 IoU=0.7719 | val loss=0.31153 D=0.8022 IoU=0.7507 bad=35 bestD=0.8226 beta=0.001
+[SEG 076] train loss=0.28610 D=0.7719 IoU=0.7295 | val loss=0.31025 D=0.7697 IoU=0.7184 bad=36 bestD=0.8226 beta=0.001
+[SEG 077] train loss=0.28736 D=0.8147 IoU=0.7721 | val loss=0.31152 D=0.8248 IoU=0.7739 bad=0 bestD=0.8248 beta=0.001
+[SEG 078] train loss=0.28527 D=0.8190 IoU=0.7778 | val loss=0.30983 D=0.8038 IoU=0.7528 bad=1 bestD=0.8248 beta=0.001
+[SEG 079] train loss=0.28680 D=0.7941 IoU=0.7521 | val loss=0.31219 D=0.7887 IoU=0.7370 bad=2 bestD=0.8248 beta=0.001
+[SEG 080] train loss=0.28346 D=0.8160 IoU=0.7762 | val loss=0.31179 D=0.8450 IoU=0.7933 bad=0 bestD=0.8450 beta=0.001
+[SEG 081] train loss=0.28210 D=0.8437 IoU=0.8048 | val loss=0.31016 D=0.7819 IoU=0.7315 bad=1 bestD=0.8450 beta=0.001
+[SEG 082] train loss=0.28002 D=0.8455 IoU=0.8092 | val loss=0.30897 D=0.7837 IoU=0.7346 bad=2 bestD=0.8450 beta=0.001
+[SEG 083] train loss=0.27888 D=0.8562 IoU=0.8214 | val loss=0.31014 D=0.7925 IoU=0.7423 bad=3 bestD=0.8450 beta=0.001
+[SEG 084] train loss=0.27822 D=0.8451 IoU=0.8103 | val loss=0.30957 D=0.7826 IoU=0.7328 bad=4 bestD=0.8450 beta=0.001
+[SEG 085] train loss=0.27755 D=0.8615 IoU=0.8275 | val loss=0.30884 D=0.8054 IoU=0.7562 bad=5 bestD=0.8450 beta=0.001
+[SEG 086] train loss=0.27736 D=0.8634 IoU=0.8296 | val loss=0.30868 D=0.7736 IoU=0.7242 bad=6 bestD=0.8450 beta=0.001
+[SEG 087] train loss=0.27691 D=0.8599 IoU=0.8266 | val loss=0.30844 D=0.8391 IoU=0.7898 bad=7 bestD=0.8450 beta=0.001
+[SEG 088] train loss=0.27550 D=0.8694 IoU=0.8362 | val loss=0.30904 D=0.8388 IoU=0.7895 bad=8 bestD=0.8450 beta=0.001
+[SEG 089] train loss=0.27584 D=0.8508 IoU=0.8177 | val loss=0.30917 D=0.8377 IoU=0.7879 bad=9 bestD=0.8450 beta=0.001
+[SEG 090] train loss=0.27482 D=0.8598 IoU=0.8271 | val loss=0.30996 D=0.7710 IoU=0.7205 bad=10 bestD=0.8450 beta=0.001
+[SEG 091] train loss=0.27587 D=0.8520 IoU=0.8199 | val loss=0.31004 D=0.7823 IoU=0.7325 bad=11 bestD=0.8450 beta=0.001
+[SEG 092] train loss=0.27483 D=0.8458 IoU=0.8130 | val loss=0.30909 D=0.8279 IoU=0.7788 bad=12 bestD=0.8450 beta=0.001
+[SEG 093] train loss=0.27683 D=0.8417 IoU=0.8084 | val loss=0.30988 D=0.7820 IoU=0.7316 bad=13 bestD=0.8450 beta=0.001
+[SEG 094] train loss=0.27674 D=0.8586 IoU=0.8258 | val loss=0.30957 D=0.8160 IoU=0.7664 bad=14 bestD=0.8450 beta=0.001
+[SEG 095] train loss=0.27469 D=0.8876 IoU=0.8558 | val loss=0.31036 D=0.7928 IoU=0.7429 bad=15 bestD=0.8450 beta=0.001
+[SEG 096] train loss=0.27540 D=0.8687 IoU=0.8373 | val loss=0.30949 D=0.7832 IoU=0.7337 bad=16 bestD=0.8450 beta=0.001
+[SEG 097] train loss=0.27388 D=0.8661 IoU=0.8343 | val loss=0.31072 D=0.7160 IoU=0.6655 bad=17 bestD=0.8450 beta=0.001
+[SEG 098] train loss=0.27528 D=0.8503 IoU=0.8178 | val loss=0.31009 D=0.8046 IoU=0.7548 bad=18 bestD=0.8450 beta=0.001
+[SEG 099] train loss=0.27455 D=0.8621 IoU=0.8304 | val loss=0.31021 D=0.8039 IoU=0.7541 bad=19 bestD=0.8450 beta=0.001
+[SEG 100] train loss=0.27365 D=0.8702 IoU=0.8402 | val loss=0.30987 D=0.8049 IoU=0.7554 bad=20 bestD=0.8450 beta=0.001
+[SEG 101] train loss=0.27329 D=0.8751 IoU=0.8456 | val loss=0.30937 D=0.8055 IoU=0.7560 bad=21 bestD=0.8450 beta=0.001
+[SEG 102] train loss=0.27346 D=0.8879 IoU=0.8591 | val loss=0.30949 D=0.8272 IoU=0.7775 bad=22 bestD=0.8450 beta=0.001
+[SEG 103] train loss=0.27213 D=0.8920 IoU=0.8631 | val loss=0.30915 D=0.8061 IoU=0.7569 bad=23 bestD=0.8450 beta=0.001
+[SEG 104] train loss=0.27324 D=0.8814 IoU=0.8526 | val loss=0.30993 D=0.8270 IoU=0.7776 bad=24 bestD=0.8450 beta=0.001
+[SEG 105] train loss=0.27246 D=0.8695 IoU=0.8409 | val loss=0.31053 D=0.8486 IoU=0.7990 bad=0 bestD=0.8486 beta=0.001
+[SEG 106] train loss=0.27308 D=0.8833 IoU=0.8549 | val loss=0.30937 D=0.8274 IoU=0.7780 bad=1 bestD=0.8486 beta=0.001
+[SEG 107] train loss=0.27266 D=0.8744 IoU=0.8463 | val loss=0.30986 D=0.8053 IoU=0.7560 bad=2 bestD=0.8486 beta=0.001
+[SEG 108] train loss=0.27087 D=0.8847 IoU=0.8563 | val loss=0.31018 D=0.8043 IoU=0.7546 bad=3 bestD=0.8486 beta=0.001
+[SEG 109] train loss=0.27140 D=0.8569 IoU=0.8290 | val loss=0.31112 D=0.7925 IoU=0.7424 bad=4 bestD=0.8486 beta=0.001
+[SEG 110] train loss=0.27249 D=0.8800 IoU=0.8522 | val loss=0.30953 D=0.8172 IoU=0.7681 bad=5 bestD=0.8486 beta=0.001
+[SEG 111] train loss=0.27124 D=0.8893 IoU=0.8614 | val loss=0.31065 D=0.8263 IoU=0.7766 bad=6 bestD=0.8486 beta=0.001
+[SEG 112] train loss=0.27125 D=0.8786 IoU=0.8507 | val loss=0.31179 D=0.8129 IoU=0.7627 bad=7 bestD=0.8486 beta=0.001
+[SEG 113] train loss=0.27110 D=0.8882 IoU=0.8603 | val loss=0.31090 D=0.8037 IoU=0.7538 bad=8 bestD=0.8486 beta=0.001
+[SEG 114] train loss=0.27151 D=0.8789 IoU=0.8513 | val loss=0.31121 D=0.8361 IoU=0.7861 bad=9 bestD=0.8486 beta=0.001
+[SEG 115] train loss=0.27084 D=0.8909 IoU=0.8641 | val loss=0.31049 D=0.8042 IoU=0.7544 bad=10 bestD=0.8486 beta=0.001
+[SEG 116] train loss=0.27034 D=0.8838 IoU=0.8568 | val loss=0.31112 D=0.7935 IoU=0.7442 bad=11 bestD=0.8486 beta=0.001
+[SEG 117] train loss=0.27037 D=0.9014 IoU=0.8753 | val loss=0.31060 D=0.8370 IoU=0.7872 bad=12 bestD=0.8486 beta=0.001
+[SEG 118] train loss=0.26998 D=0.8819 IoU=0.8555 | val loss=0.31095 D=0.8034 IoU=0.7534 bad=13 bestD=0.8486 beta=0.001
+[SEG 119] train loss=0.26970 D=0.8944 IoU=0.8681 | val loss=0.31078 D=0.7929 IoU=0.7432 bad=14 bestD=0.8486 beta=0.001
+[SEG 120] train loss=0.27022 D=0.8840 IoU=0.8579 | val loss=0.31048 D=0.8261 IoU=0.7766 bad=15 bestD=0.8486 beta=0.001
+[SEG 121] train loss=0.27029 D=0.8878 IoU=0.8617 | val loss=0.31048 D=0.8374 IoU=0.7879 bad=16 bestD=0.8486 beta=0.001
+[SEG 122] train loss=0.27084 D=0.8950 IoU=0.8691 | val loss=0.31131 D=0.8045 IoU=0.7550 bad=17 bestD=0.8486 beta=0.001
+[SEG 123] train loss=0.27022 D=0.8921 IoU=0.8660 | val loss=0.31143 D=0.8250 IoU=0.7749 bad=18 bestD=0.8486 beta=0.001
+[SEG 124] train loss=0.26949 D=0.8841 IoU=0.8580 | val loss=0.31112 D=0.8256 IoU=0.7757 bad=19 bestD=0.8486 beta=0.001
+[SEG 125] train loss=0.26873 D=0.8829 IoU=0.8569 | val loss=0.31078 D=0.8045 IoU=0.7550 bad=20 bestD=0.8486 beta=0.001
+[SEG 126] train loss=0.26939 D=0.8815 IoU=0.8556 | val loss=0.31085 D=0.8038 IoU=0.7539 bad=21 bestD=0.8486 beta=0.001
+[SEG 127] train loss=0.26924 D=0.8938 IoU=0.8679 | val loss=0.31061 D=0.8047 IoU=0.7551 bad=22 bestD=0.8486 beta=0.001
+[SEG 128] train loss=0.26980 D=0.8820 IoU=0.8563 | val loss=0.31121 D=0.8036 IoU=0.7538 bad=23 bestD=0.8486 beta=0.001
+[SEG 129] train loss=0.26966 D=0.8849 IoU=0.8594 | val loss=0.31150 D=0.8147 IoU=0.7652 bad=24 bestD=0.8486 beta=0.001
+[SEG 130] train loss=0.26885 D=0.8838 IoU=0.8583 | val loss=0.31119 D=0.8041 IoU=0.7545 bad=25 bestD=0.8486 beta=0.001
+[SEG 131] train loss=0.26945 D=0.8988 IoU=0.8735 | val loss=0.31068 D=0.7939 IoU=0.7444 bad=26 bestD=0.8486 beta=0.001
+[SEG 132] train loss=0.26934 D=0.8800 IoU=0.8549 | val loss=0.31106 D=0.8147 IoU=0.7652 bad=27 bestD=0.8486 beta=0.001
+[SEG 133] train loss=0.26858 D=0.8815 IoU=0.8565 | val loss=0.31078 D=0.8052 IoU=0.7560 bad=28 bestD=0.8486 beta=0.001
+[SEG 134] train loss=0.27003 D=0.9044 IoU=0.8794 | val loss=0.31141 D=0.8145 IoU=0.7647 bad=29 bestD=0.8486 beta=0.001
+[SEG 135] train loss=0.26802 D=0.9031 IoU=0.8780 | val loss=0.31118 D=0.8152 IoU=0.7657 bad=30 bestD=0.8486 beta=0.001
+[SEG 136] train loss=0.26816 D=0.8893 IoU=0.8640 | val loss=0.31140 D=0.8143 IoU=0.7645 bad=31 bestD=0.8486 beta=0.001
+[SEG 137] train loss=0.26816 D=0.8839 IoU=0.8588 | val loss=0.31106 D=0.8046 IoU=0.7552 bad=32 bestD=0.8486 beta=0.001
+[SEG 138] train loss=0.26915 D=0.8912 IoU=0.8663 | val loss=0.31118 D=0.7929 IoU=0.7431 bad=33 bestD=0.8486 beta=0.001
+[SEG 139] train loss=0.26917 D=0.8885 IoU=0.8636 | val loss=0.31082 D=0.8153 IoU=0.7657 bad=34 bestD=0.8486 beta=0.001
+[SEG 140] train loss=0.26900 D=0.8913 IoU=0.8666 | val loss=0.31054 D=0.8157 IoU=0.7662 bad=35 bestD=0.8486 beta=0.001
+[SEG 141] train loss=0.26979 D=0.8993 IoU=0.8745 | val loss=0.31104 D=0.7929 IoU=0.7434 bad=36 bestD=0.8486 beta=0.001
+[SEG 142] train loss=0.26930 D=0.9042 IoU=0.8798 | val loss=0.31091 D=0.8153 IoU=0.7658 bad=37 bestD=0.8486 beta=0.001
+[SEG 143] train loss=0.26899 D=0.9104 IoU=0.8857 | val loss=0.31125 D=0.8149 IoU=0.7653 bad=38 bestD=0.8486 beta=0.001
+[SEG 144] train loss=0.26860 D=0.8964 IoU=0.8714 | val loss=0.31152 D=0.8253 IoU=0.7755 bad=39 bestD=0.8486 beta=0.001
+[SEG 145] train loss=0.26887 D=0.9051 IoU=0.8804 | val loss=0.31116 D=0.8262 IoU=0.7766 bad=40 bestD=0.8486 beta=0.001
+[SEG 146] train loss=0.26987 D=0.8979 IoU=0.8729 | val loss=0.31081 D=0.8262 IoU=0.7765 bad=41 bestD=0.8486 beta=0.001
+[SEG 147] train loss=0.26758 D=0.8915 IoU=0.8668 | val loss=0.31127 D=0.8147 IoU=0.7649 bad=42 bestD=0.8486 beta=0.001
+[SEG 148] train loss=0.26903 D=0.8967 IoU=0.8718 | val loss=0.31152 D=0.8146 IoU=0.7649 bad=43 bestD=0.8486 beta=0.001
+[SEG 149] train loss=0.26814 D=0.8865 IoU=0.8619 | val loss=0.31133 D=0.8260 IoU=0.7764 bad=44 bestD=0.8486 beta=0.001
+[SEG 150] train loss=0.26874 D=0.9000 IoU=0.8755 | val loss=0.31095 D=0.8154 IoU=0.7658 bad=45 bestD=0.8486 beta=0.001
+[SEG 151] train loss=0.26832 D=0.8928 IoU=0.8684 | val loss=0.31103 D=0.8153 IoU=0.7657 bad=46 bestD=0.8486 beta=0.001
+[SEG 152] train loss=0.26916 D=0.9071 IoU=0.8830 | val loss=0.31119 D=0.8255 IoU=0.7755 bad=47 bestD=0.8486 beta=0.001
+[SEG 153] train loss=0.26852 D=0.9030 IoU=0.8787 | val loss=0.31155 D=0.8045 IoU=0.7550 bad=48 bestD=0.8486 beta=0.001
+[SEG 154] train loss=0.26799 D=0.9028 IoU=0.8786 | val loss=0.31183 D=0.8146 IoU=0.7650 bad=49 bestD=0.8486 beta=0.001
+[SEG 155] train loss=0.26867 D=0.8919 IoU=0.8676 | val loss=0.31116 D=0.8155 IoU=0.7660 bad=50 bestD=0.8486 beta=0.001
+[SEG 156] train loss=0.26927 D=0.8962 IoU=0.8719 | val loss=0.31136 D=0.8149 IoU=0.7652 bad=51 bestD=0.8486 beta=0.001
+[SEG 157] train loss=0.26954 D=0.8796 IoU=0.8551 | val loss=0.31129 D=0.8046 IoU=0.7553 bad=52 bestD=0.8486 beta=0.001
+[SEG 158] train loss=0.26811 D=0.9079 IoU=0.8833 | val loss=0.31134 D=0.8042 IoU=0.7548 bad=53 bestD=0.8486 beta=0.001
+[SEG 159] train loss=0.26723 D=0.9083 IoU=0.8840 | val loss=0.31108 D=0.8157 IoU=0.7665 bad=54 bestD=0.8486 beta=0.001
+[SEG 160] train loss=0.26867 D=0.8961 IoU=0.8718 | val loss=0.31135 D=0.8151 IoU=0.7655 bad=55 bestD=0.8486 beta=0.001
+[SEG 161] train loss=0.26857 D=0.8991 IoU=0.8750 | val loss=0.31111 D=0.8265 IoU=0.7771 bad=56 bestD=0.8486 beta=0.001
+[SEG 162] train loss=0.26875 D=0.9013 IoU=0.8769 | val loss=0.31099 D=0.8371 IoU=0.7875 bad=57 bestD=0.8486 beta=0.001
+[SEG 163] train loss=0.26855 D=0.8988 IoU=0.8747 | val loss=0.31132 D=0.8037 IoU=0.7538 bad=58 bestD=0.8486 beta=0.001
+[SEG 164] train loss=0.26918 D=0.8868 IoU=0.8626 | val loss=0.31155 D=0.8152 IoU=0.7657 bad=59 bestD=0.8486 beta=0.001
+[SEG 165] train loss=0.26780 D=0.8938 IoU=0.8697 | val loss=0.31110 D=0.8044 IoU=0.7548 bad=60 bestD=0.8486 beta=0.001
+[SEG 166] train loss=0.26835 D=0.8924 IoU=0.8683 | val loss=0.31134 D=0.8045 IoU=0.7549 bad=61 bestD=0.8486 beta=0.001
+[SEG 167] train loss=0.26919 D=0.8975 IoU=0.8733 | val loss=0.31178 D=0.8041 IoU=0.7545 bad=62 bestD=0.8486 beta=0.001
+[SEG 168] train loss=0.26914 D=0.8964 IoU=0.8724 | val loss=0.31195 D=0.8034 IoU=0.7537 bad=63 bestD=0.8486 beta=0.001
+[SEG 169] train loss=0.26911 D=0.9060 IoU=0.8821 | val loss=0.31116 D=0.8151 IoU=0.7654 bad=64 bestD=0.8486 beta=0.001
+[SEG 170] train loss=0.26785 D=0.8921 IoU=0.8679 | val loss=0.31084 D=0.8154 IoU=0.7658 bad=65 bestD=0.8486 beta=0.001
+[SEG 171] train loss=0.26790 D=0.9056 IoU=0.8814 | val loss=0.31169 D=0.8146 IoU=0.7649 bad=66 bestD=0.8486 beta=0.001
+[SEG 172] train loss=0.26770 D=0.8930 IoU=0.8685 | val loss=0.31149 D=0.8039 IoU=0.7543 bad=67 bestD=0.8486 beta=0.001
+[SEG 173] train loss=0.26839 D=0.8966 IoU=0.8726 | val loss=0.31126 D=0.8149 IoU=0.7652 bad=68 bestD=0.8486 beta=0.001
+[SEG 174] train loss=0.26779 D=0.8962 IoU=0.8720 | val loss=0.31131 D=0.8152 IoU=0.7656 bad=69 bestD=0.8486 beta=0.001
+[SEG 175] train loss=0.26861 D=0.9043 IoU=0.8799 | val loss=0.31147 D=0.8256 IoU=0.7758 bad=70 bestD=0.8486 beta=0.001
+[SEG 176] train loss=0.26845 D=0.9031 IoU=0.8790 | val loss=0.31134 D=0.8259 IoU=0.7764 bad=71 bestD=0.8486 beta=0.001
+[SEG 177] train loss=0.26856 D=0.8935 IoU=0.8692 | val loss=0.31142 D=0.8149 IoU=0.7654 bad=72 bestD=0.8486 beta=0.001
+[SEG 178] train loss=0.26857 D=0.8840 IoU=0.8598 | val loss=0.31138 D=0.8045 IoU=0.7550 bad=73 bestD=0.8486 beta=0.001
+[SEG 179] train loss=0.26789 D=0.8950 IoU=0.8709 | val loss=0.31137 D=0.8043 IoU=0.7548 bad=74 bestD=0.8486 beta=0.001
+[SEG 180] train loss=0.26847 D=0.8910 IoU=0.8669 | val loss=0.31117 D=0.8151 IoU=0.7655 bad=75 bestD=0.8486 beta=0.001
+[SEG 181] train loss=0.26883 D=0.9009 IoU=0.8772 | val loss=0.31124 D=0.8147 IoU=0.7651 bad=76 bestD=0.8486 beta=0.001
+[SEG 182] train loss=0.26839 D=0.9060 IoU=0.8820 | val loss=0.31126 D=0.8261 IoU=0.7765 bad=77 bestD=0.8486 beta=0.001
+[SEG 183] train loss=0.26753 D=0.8954 IoU=0.8717 | val loss=0.31141 D=0.8151 IoU=0.7656 bad=78 bestD=0.8486 beta=0.001
+[SEG 184] train loss=0.26793 D=0.8895 IoU=0.8652 | val loss=0.31141 D=0.8150 IoU=0.7652 bad=79 bestD=0.8486 beta=0.001
+[SEG 185] train loss=0.26775 D=0.9032 IoU=0.8793 | val loss=0.31158 D=0.8150 IoU=0.7655 bad=80 bestD=0.8486 beta=0.001
+[SEG 186] train loss=0.26862 D=0.8934 IoU=0.8691 | val loss=0.31106 D=0.8367 IoU=0.7870 bad=81 bestD=0.8486 beta=0.001
+[SEG 187] train loss=0.26783 D=0.8990 IoU=0.8748 | val loss=0.31099 D=0.8155 IoU=0.7658 bad=82 bestD=0.8486 beta=0.001
+[SEG 188] train loss=0.26776 D=0.8963 IoU=0.8721 | val loss=0.31121 D=0.8152 IoU=0.7655 bad=83 bestD=0.8486 beta=0.001
+[SEG 189] train loss=0.26815 D=0.8956 IoU=0.8720 | val loss=0.31072 D=0.8265 IoU=0.7768 bad=84 bestD=0.8486 beta=0.001
+[SEG 190] train loss=0.26897 D=0.8831 IoU=0.8591 | val loss=0.31152 D=0.8148 IoU=0.7652 bad=85 bestD=0.8486 beta=0.001
+[SEG 191] train loss=0.26753 D=0.8980 IoU=0.8742 | val loss=0.31125 D=0.8153 IoU=0.7656 bad=86 bestD=0.8486 beta=0.001
+[SEG 192] train loss=0.26705 D=0.9113 IoU=0.8872 | val loss=0.31156 D=0.8364 IoU=0.7865 bad=87 bestD=0.8486 beta=0.001
+[SEG 193] train loss=0.26908 D=0.9006 IoU=0.8766 | val loss=0.31185 D=0.8038 IoU=0.7541 bad=88 bestD=0.8486 beta=0.001
+[SEG 194] train loss=0.26776 D=0.9004 IoU=0.8764 | val loss=0.31145 D=0.8260 IoU=0.7765 bad=89 bestD=0.8486 beta=0.001
+[SEG 195] train loss=0.26828 D=0.8994 IoU=0.8755 | val loss=0.31134 D=0.8153 IoU=0.7658 bad=90 bestD=0.8486 beta=0.001
+[SEG 196] train loss=0.26779 D=0.9017 IoU=0.8776 | val loss=0.31165 D=0.8036 IoU=0.7538 bad=91 bestD=0.8486 beta=0.001
+[SEG 197] train loss=0.26764 D=0.8938 IoU=0.8698 | val loss=0.31140 D=0.8150 IoU=0.7653 bad=92 bestD=0.8486 beta=0.001
+[SEG 198] train loss=0.26697 D=0.9100 IoU=0.8861 | val loss=0.31110 D=0.8368 IoU=0.7871 bad=93 bestD=0.8486 beta=0.001
+[SEG 199] train loss=0.26713 D=0.8882 IoU=0.8641 | val loss=0.31159 D=0.8148 IoU=0.7652 bad=94 bestD=0.8486 beta=0.001
+[SEG 200] train loss=0.26836 D=0.9059 IoU=0.8818 | val loss=0.31127 D=0.8153 IoU=0.7658 bad=95 bestD=0.8486 beta=0.001
+[SEG 201] train loss=0.26841 D=0.8896 IoU=0.8655 | val loss=0.31145 D=0.8150 IoU=0.7653 bad=96 bestD=0.8486 beta=0.001
+[SEG 202] train loss=0.26840 D=0.8992 IoU=0.8753 | val loss=0.31145 D=0.8150 IoU=0.7654 bad=97 bestD=0.8486 beta=0.001
+[SEG 203] train loss=0.26873 D=0.8916 IoU=0.8681 | val loss=0.31130 D=0.8152 IoU=0.7657 bad=98 bestD=0.8486 beta=0.001
+[SEG 204] train loss=0.26693 D=0.9034 IoU=0.8795 | val loss=0.31140 D=0.8262 IoU=0.7767 bad=99 bestD=0.8486 beta=0.001
+[SEG 205] train loss=0.26822 D=0.8967 IoU=0.8730 | val loss=0.31146 D=0.8258 IoU=0.7761 bad=100 bestD=0.8486 beta=0.001
+[SEG 206] train loss=0.26853 D=0.9136 IoU=0.8897 | val loss=0.31144 D=0.8145 IoU=0.7647 bad=101 bestD=0.8486 beta=0.001
+[SEG 207] train loss=0.26770 D=0.9033 IoU=0.8793 | val loss=0.31127 D=0.8148 IoU=0.7652 bad=102 bestD=0.8486 beta=0.001
+[SEG 208] train loss=0.26833 D=0.9019 IoU=0.8779 | val loss=0.31138 D=0.8370 IoU=0.7876 bad=103 bestD=0.8486 beta=0.001
+[SEG 209] train loss=0.26788 D=0.8950 IoU=0.8709 | val loss=0.31137 D=0.8154 IoU=0.7660 bad=104 bestD=0.8486 beta=0.001
+[SEG 210] train loss=0.26766 D=0.9100 IoU=0.8860 | val loss=0.31111 D=0.8044 IoU=0.7548 bad=105 bestD=0.8486 beta=0.001
+[SEG 211] train loss=0.26838 D=0.8983 IoU=0.8740 | val loss=0.31157 D=0.8150 IoU=0.7654 bad=106 bestD=0.8486 beta=0.001
+[SEG 212] train loss=0.26834 D=0.8952 IoU=0.8712 | val loss=0.31135 D=0.8370 IoU=0.7875 bad=107 bestD=0.8486 beta=0.001
+[SEG 213] train loss=0.26777 D=0.9073 IoU=0.8832 | val loss=0.31100 D=0.8369 IoU=0.7872 bad=108 bestD=0.8486 beta=0.001
+[SEG 214] train loss=0.26717 D=0.8922 IoU=0.8681 | val loss=0.31152 D=0.8372 IoU=0.7879 bad=109 bestD=0.8486 beta=0.001
+[SEG 215] train loss=0.26766 D=0.8992 IoU=0.8755 | val loss=0.31120 D=0.8151 IoU=0.7654 bad=110 bestD=0.8486 beta=0.001
+[SEG 216] train loss=0.26770 D=0.8926 IoU=0.8690 | val loss=0.31145 D=0.8255 IoU=0.7758 bad=111 bestD=0.8486 beta=0.001
+[SEG 217] train loss=0.26705 D=0.8963 IoU=0.8721 | val loss=0.31159 D=0.8148 IoU=0.7652 bad=112 bestD=0.8486 beta=0.001
+[SEG 218] train loss=0.26768 D=0.8978 IoU=0.8738 | val loss=0.31148 D=0.8258 IoU=0.7762 bad=113 bestD=0.8486 beta=0.001
+[SEG 219] train loss=0.26763 D=0.9061 IoU=0.8821 | val loss=0.31123 D=0.8151 IoU=0.7656 bad=114 bestD=0.8486 beta=0.001
+[SEG 220] train loss=0.26761 D=0.9088 IoU=0.8848 | val loss=0.31172 D=0.8252 IoU=0.7754 bad=115 bestD=0.8486 beta=0.001
+[SEG 221] train loss=0.26836 D=0.9032 IoU=0.8793 | val loss=0.31135 D=0.8044 IoU=0.7549 bad=116 bestD=0.8486 beta=0.001
+[SEG 222] train loss=0.26877 D=0.9064 IoU=0.8828 | val loss=0.31130 D=0.8258 IoU=0.7761 bad=117 bestD=0.8486 beta=0.001
+[SEG 223] train loss=0.26723 D=0.8990 IoU=0.8748 | val loss=0.31122 D=0.8260 IoU=0.7764 bad=118 bestD=0.8486 beta=0.001
+[SEG 224] train loss=0.26824 D=0.8913 IoU=0.8675 | val loss=0.31151 D=0.8257 IoU=0.7759 bad=119 bestD=0.8486 beta=0.001
+[SEG 225] train loss=0.26714 D=0.9058 IoU=0.8817 | val loss=0.31151 D=0.8041 IoU=0.7546 bad=120 bestD=0.8486 beta=0.001
+[SEG 226] train loss=0.26784 D=0.8881 IoU=0.8641 | val loss=0.31176 D=0.8148 IoU=0.7651 bad=121 bestD=0.8486 beta=0.001
+[SEG 227] train loss=0.26778 D=0.9004 IoU=0.8762 | val loss=0.31116 D=0.8149 IoU=0.7651 bad=122 bestD=0.8486 beta=0.001
+[SEG 228] train loss=0.26771 D=0.9059 IoU=0.8820 | val loss=0.31145 D=0.8148 IoU=0.7651 bad=123 bestD=0.8486 beta=0.001
+[SEG 229] train loss=0.26694 D=0.8979 IoU=0.8740 | val loss=0.31140 D=0.8148 IoU=0.7652 bad=124 bestD=0.8486 beta=0.001
+[SEG 230] train loss=0.26865 D=0.8988 IoU=0.8746 | val loss=0.31156 D=0.8147 IoU=0.7649 bad=125 bestD=0.8486 beta=0.001
+[SEG 231] train loss=0.26895 D=0.8966 IoU=0.8726 | val loss=0.31142 D=0.8150 IoU=0.7655 bad=126 bestD=0.8486 beta=0.001
+[SEG 232] train loss=0.26837 D=0.9032 IoU=0.8793 | val loss=0.31149 D=0.8150 IoU=0.7654 bad=127 bestD=0.8486 beta=0.001
+[SEG 233] train loss=0.26758 D=0.8912 IoU=0.8673 | val loss=0.31144 D=0.8154 IoU=0.7659 bad=128 bestD=0.8486 beta=0.001
+[SEG 234] train loss=0.26751 D=0.8981 IoU=0.8742 | val loss=0.31155 D=0.8146 IoU=0.7648 bad=129 bestD=0.8486 beta=0.001
+[SEG 235] train loss=0.26763 D=0.8952 IoU=0.8714 | val loss=0.31163 D=0.8148 IoU=0.7653 bad=130 bestD=0.8486 beta=0.001
+[SEG 236] train loss=0.26756 D=0.8873 IoU=0.8635 | val loss=0.31145 D=0.8147 IoU=0.7651 bad=131 bestD=0.8486 beta=0.001
+[SEG 237] train loss=0.26890 D=0.8969 IoU=0.8732 | val loss=0.31105 D=0.8150 IoU=0.7653 bad=132 bestD=0.8486 beta=0.001
+[SEG 238] train loss=0.26897 D=0.8969 IoU=0.8732 | val loss=0.31119 D=0.8367 IoU=0.7871 bad=133 bestD=0.8486 beta=0.001
+[SEG 239] train loss=0.26811 D=0.9091 IoU=0.8854 | val loss=0.31157 D=0.8255 IoU=0.7758 bad=134 bestD=0.8486 beta=0.001
+[SEG 240] train loss=0.26791 D=0.9040 IoU=0.8799 | val loss=0.31160 D=0.8150 IoU=0.7654 bad=135 bestD=0.8486 beta=0.001
+[SEG 241] train loss=0.26774 D=0.8949 IoU=0.8707 | val loss=0.31153 D=0.8042 IoU=0.7548 bad=136 bestD=0.8486 beta=0.001
+[SEG 242] train loss=0.26759 D=0.9168 IoU=0.8927 | val loss=0.31115 D=0.8151 IoU=0.7655 bad=137 bestD=0.8486 beta=0.001
+[SEG 243] train loss=0.26850 D=0.9098 IoU=0.8855 | val loss=0.31141 D=0.8371 IoU=0.7876 bad=138 bestD=0.8486 beta=0.001
+[SEG 244] train loss=0.26707 D=0.8910 IoU=0.8669 | val loss=0.31146 D=0.8149 IoU=0.7653 bad=139 bestD=0.8486 beta=0.001
+[SEG 245] train loss=0.26778 D=0.9017 IoU=0.8776 | val loss=0.31139 D=0.8256 IoU=0.7759 bad=140 bestD=0.8486 beta=0.001
+[SEG 246] train loss=0.26881 D=0.8983 IoU=0.8745 | val loss=0.31168 D=0.8146 IoU=0.7649 bad=141 bestD=0.8486 beta=0.001
+[SEG 247] train loss=0.26768 D=0.8923 IoU=0.8683 | val loss=0.31144 D=0.8143 IoU=0.7646 bad=142 bestD=0.8486 beta=0.001
+[SEG 248] train loss=0.26830 D=0.9020 IoU=0.8784 | val loss=0.31126 D=0.8367 IoU=0.7870 bad=143 bestD=0.8486 beta=0.001
+[SEG 249] train loss=0.26755 D=0.9049 IoU=0.8811 | val loss=0.31141 D=0.8368 IoU=0.7873 bad=144 bestD=0.8486 beta=0.001
+[SEG 250] train loss=0.26819 D=0.9074 IoU=0.8836 | val loss=0.31120 D=0.8149 IoU=0.7652 bad=145 bestD=0.8486 beta=0.001
+[SEG 251] train loss=0.26835 D=0.8963 IoU=0.8725 | val loss=0.31085 D=0.8370 IoU=0.7874 bad=146 bestD=0.8486 beta=0.001
+[SEG 252] train loss=0.26774 D=0.9018 IoU=0.8777 | val loss=0.31117 D=0.8368 IoU=0.7871 bad=147 bestD=0.8486 beta=0.001
+[SEG 253] train loss=0.26767 D=0.8979 IoU=0.8738 | val loss=0.31141 D=0.8151 IoU=0.7656 bad=148 bestD=0.8486 beta=0.001
+[SEG 254] train loss=0.26816 D=0.8982 IoU=0.8745 | val loss=0.31151 D=0.8260 IoU=0.7765 bad=149 bestD=0.8486 beta=0.001
+[SEG 255] train loss=0.26761 D=0.9049 IoU=0.8810 | val loss=0.31145 D=0.8151 IoU=0.7656 bad=150 bestD=0.8486 beta=0.001
+[SEG 256] train loss=0.26821 D=0.8981 IoU=0.8743 | val loss=0.31127 D=0.8148 IoU=0.7651 bad=151 bestD=0.8486 beta=0.001
+[SEG 257] train loss=0.26756 D=0.9060 IoU=0.8821 | val loss=0.31164 D=0.8145 IoU=0.7649 bad=152 bestD=0.8486 beta=0.001
+[SEG 258] train loss=0.26813 D=0.8929 IoU=0.8691 | val loss=0.31142 D=0.8258 IoU=0.7761 bad=153 bestD=0.8486 beta=0.001
+[SEG 259] train loss=0.26764 D=0.9033 IoU=0.8795 | val loss=0.31131 D=0.8148 IoU=0.7651 bad=154 bestD=0.8486 beta=0.001
+[SEG 260] train loss=0.26877 D=0.9037 IoU=0.8801 | val loss=0.31152 D=0.8150 IoU=0.7654 bad=155 bestD=0.8486 beta=0.001
+[SEG 261] train loss=0.26881 D=0.8943 IoU=0.8707 | val loss=0.31146 D=0.7932 IoU=0.7437 bad=156 bestD=0.8486 beta=0.001
+[SEG 262] train loss=0.26887 D=0.8927 IoU=0.8690 | val loss=0.31152 D=0.8041 IoU=0.7544 bad=157 bestD=0.8486 beta=0.001
+[SEG 263] train loss=0.26825 D=0.9046 IoU=0.8808 | val loss=0.31175 D=0.8149 IoU=0.7653 bad=158 bestD=0.8486 beta=0.001
+[SEG 264] train loss=0.26758 D=0.8969 IoU=0.8732 | val loss=0.31123 D=0.8149 IoU=0.7652 bad=159 bestD=0.8486 beta=0.001
+[SEG 265] train loss=0.26776 D=0.9043 IoU=0.8804 | val loss=0.31131 D=0.8150 IoU=0.7654 bad=160 bestD=0.8486 beta=0.001
+[SEG 266] train loss=0.26760 D=0.9007 IoU=0.8767 | val loss=0.31159 D=0.8150 IoU=0.7653 bad=161 bestD=0.8486 beta=0.001
+[SEG 267] train loss=0.26749 D=0.9063 IoU=0.8825 | val loss=0.31133 D=0.8154 IoU=0.7659 bad=162 bestD=0.8486 beta=0.001
+[SEG 268] train loss=0.26776 D=0.9045 IoU=0.8804 | val loss=0.31159 D=0.8149 IoU=0.7652 bad=163 bestD=0.8486 beta=0.001
+[SEG 269] train loss=0.26821 D=0.8900 IoU=0.8662 | val loss=0.31148 D=0.8148 IoU=0.7652 bad=164 bestD=0.8486 beta=0.001
+[SEG 270] train loss=0.26834 D=0.8978 IoU=0.8738 | val loss=0.31166 D=0.8141 IoU=0.7642 bad=165 bestD=0.8486 beta=0.001
+[SEG 271] train loss=0.26825 D=0.8913 IoU=0.8673 | val loss=0.31155 D=0.8042 IoU=0.7547 bad=166 bestD=0.8486 beta=0.001
+[SEG 272] train loss=0.26698 D=0.9061 IoU=0.8821 | val loss=0.31105 D=0.8150 IoU=0.7652 bad=167 bestD=0.8486 beta=0.001
+[SEG 273] train loss=0.26725 D=0.8935 IoU=0.8693 | val loss=0.31176 D=0.8145 IoU=0.7647 bad=168 bestD=0.8486 beta=0.001
+[SEG 274] train loss=0.26777 D=0.8977 IoU=0.8738 | val loss=0.31120 D=0.8261 IoU=0.7765 bad=169 bestD=0.8486 beta=0.001
+[SEG 275] train loss=0.26830 D=0.8966 IoU=0.8727 | val loss=0.31117 D=0.8040 IoU=0.7544 bad=170 bestD=0.8486 beta=0.001
+[SEG 276] train loss=0.26838 D=0.8952 IoU=0.8712 | val loss=0.31165 D=0.8143 IoU=0.7645 bad=171 bestD=0.8486 beta=0.001
+[SEG 277] train loss=0.26873 D=0.8970 IoU=0.8734 | val loss=0.31130 D=0.8042 IoU=0.7546 bad=172 bestD=0.8486 beta=0.001
+[SEG 278] train loss=0.26808 D=0.8969 IoU=0.8732 | val loss=0.31141 D=0.8149 IoU=0.7654 bad=173 bestD=0.8486 beta=0.001
+[SEG 279] train loss=0.26824 D=0.8980 IoU=0.8741 | val loss=0.31155 D=0.8149 IoU=0.7653 bad=174 bestD=0.8486 beta=0.001
+[SEG 280] train loss=0.26763 D=0.9034 IoU=0.8795 | val loss=0.31146 D=0.8038 IoU=0.7541 bad=175 bestD=0.8486 beta=0.001
+[SEG 281] train loss=0.26772 D=0.8992 IoU=0.8752 | val loss=0.31147 D=0.8151 IoU=0.7657 bad=176 bestD=0.8486 beta=0.001
+[SEG 282] train loss=0.26753 D=0.8956 IoU=0.8719 | val loss=0.31125 D=0.8146 IoU=0.7649 bad=177 bestD=0.8486 beta=0.001
+[SEG 283] train loss=0.26812 D=0.8888 IoU=0.8652 | val loss=0.31196 D=0.8143 IoU=0.7645 bad=178 bestD=0.8486 beta=0.001
+[SEG 284] train loss=0.26833 D=0.9006 IoU=0.8767 | val loss=0.31185 D=0.8250 IoU=0.7752 bad=179 bestD=0.8486 beta=0.001
+[SEG 285] train loss=0.26892 D=0.8966 IoU=0.8727 | val loss=0.31170 D=0.8150 IoU=0.7654 bad=180 bestD=0.8486 beta=0.001
+[SEG 286] train loss=0.26840 D=0.8924 IoU=0.8685 | val loss=0.31133 D=0.8260 IoU=0.7764 bad=181 bestD=0.8486 beta=0.001
+[SEG 287] train loss=0.26829 D=0.9075 IoU=0.8836 | val loss=0.31132 D=0.8260 IoU=0.7764 bad=182 bestD=0.8486 beta=0.001
+[SEG 288] train loss=0.26823 D=0.8914 IoU=0.8675 | val loss=0.31158 D=0.8258 IoU=0.7763 bad=183 bestD=0.8486 beta=0.001
+[SEG 289] train loss=0.26820 D=0.8955 IoU=0.8717 | val loss=0.31138 D=0.8259 IoU=0.7763 bad=184 bestD=0.8486 beta=0.001
+[SEG 290] train loss=0.26808 D=0.9011 IoU=0.8775 | val loss=0.31148 D=0.8257 IoU=0.7761 bad=185 bestD=0.8486 beta=0.001
+[SEG 291] train loss=0.26847 D=0.8871 IoU=0.8632 | val loss=0.31139 D=0.8149 IoU=0.7652 bad=186 bestD=0.8486 beta=0.001
+[SEG 292] train loss=0.26866 D=0.9027 IoU=0.8793 | val loss=0.31135 D=0.8151 IoU=0.7655 bad=187 bestD=0.8486 beta=0.001
+[SEG 293] train loss=0.26773 D=0.8830 IoU=0.8591 | val loss=0.31148 D=0.8146 IoU=0.7649 bad=188 bestD=0.8486 beta=0.001
+[SEG 294] train loss=0.26830 D=0.8994 IoU=0.8756 | val loss=0.31121 D=0.8040 IoU=0.7542 bad=189 bestD=0.8486 beta=0.001
+[SEG 295] train loss=0.26821 D=0.8872 IoU=0.8634 | val loss=0.31163 D=0.8147 IoU=0.7651 bad=190 bestD=0.8486 beta=0.001
+[SEG 296] train loss=0.26812 D=0.8954 IoU=0.8716 | val loss=0.31103 D=0.8149 IoU=0.7651 bad=191 bestD=0.8486 beta=0.001
+[SEG 297] train loss=0.26839 D=0.8911 IoU=0.8672 | val loss=0.31167 D=0.8148 IoU=0.7650 bad=192 bestD=0.8486 beta=0.001
+[SEG 298] train loss=0.26911 D=0.9006 IoU=0.8766 | val loss=0.31124 D=0.8149 IoU=0.7654 bad=193 bestD=0.8486 beta=0.001
+[SEG 299] train loss=0.26769 D=0.9033 IoU=0.8793 | val loss=0.31150 D=0.8153 IoU=0.7657 bad=194 bestD=0.8486 beta=0.001
+[SEG 300] train loss=0.26899 D=0.8951 IoU=0.8711 | val loss=0.31139 D=0.8150 IoU=0.7654 bad=195 bestD=0.8486 beta=0.001
+[SEG 301] train loss=0.26696 D=0.8886 IoU=0.8647 | val loss=0.31148 D=0.8261 IoU=0.7766 bad=196 bestD=0.8486 beta=0.001
+[SEG 302] train loss=0.26896 D=0.8911 IoU=0.8672 | val loss=0.31132 D=0.8044 IoU=0.7549 bad=197 bestD=0.8486 beta=0.001
+[SEG 303] train loss=0.26813 D=0.8956 IoU=0.8719 | val loss=0.31137 D=0.8263 IoU=0.7768 bad=198 bestD=0.8486 beta=0.001
+[SEG 304] train loss=0.26776 D=0.8830 IoU=0.8590 | val loss=0.31163 D=0.8035 IoU=0.7538 bad=199 bestD=0.8486 beta=0.001
+[SEG 305] train loss=0.26876 D=0.9078 IoU=0.8841 | val loss=0.31132 D=0.8151 IoU=0.7656 bad=200 bestD=0.8486 beta=0.001
+[SEG 306] train loss=0.26745 D=0.8982 IoU=0.8744 | val loss=0.31142 D=0.8148 IoU=0.7651 bad=201 bestD=0.8486 beta=0.001
+[SEG 307] train loss=0.26809 D=0.8930 IoU=0.8695 | val loss=0.31146 D=0.8042 IoU=0.7547 bad=202 bestD=0.8486 beta=0.001
+[SEG 308] train loss=0.26754 D=0.8927 IoU=0.8687 | val loss=0.31150 D=0.8037 IoU=0.7540 bad=203 bestD=0.8486 beta=0.001
+[SEG 309] train loss=0.26811 D=0.9050 IoU=0.8814 | val loss=0.31124 D=0.8255 IoU=0.7758 bad=204 bestD=0.8486 beta=0.001
+[SEG 310] train loss=0.26807 D=0.9008 IoU=0.8771 | val loss=0.31154 D=0.8144 IoU=0.7647 bad=205 bestD=0.8486 beta=0.001
+[SEG 311] train loss=0.26888 D=0.8859 IoU=0.8621 | val loss=0.31146 D=0.8150 IoU=0.7654 bad=206 bestD=0.8486 beta=0.001
+[SEG 312] train loss=0.26757 D=0.8926 IoU=0.8688 | val loss=0.31142 D=0.8259 IoU=0.7763 bad=207 bestD=0.8486 beta=0.001
+[SEG 313] train loss=0.26731 D=0.9038 IoU=0.8802 | val loss=0.31118 D=0.8156 IoU=0.7661 bad=208 bestD=0.8486 beta=0.001
+[SEG 314] train loss=0.26797 D=0.9040 IoU=0.8804 | val loss=0.31158 D=0.8143 IoU=0.7645 bad=209 bestD=0.8486 beta=0.001
+[SEG 315] train loss=0.26838 D=0.9032 IoU=0.8793 | val loss=0.31124 D=0.8368 IoU=0.7872 bad=210 bestD=0.8486 beta=0.001
+[SEG 316] train loss=0.26823 D=0.9022 IoU=0.8783 | val loss=0.31124 D=0.8259 IoU=0.7762 bad=211 bestD=0.8486 beta=0.001
+[SEG 317] train loss=0.26826 D=0.9008 IoU=0.8770 | val loss=0.31133 D=0.8146 IoU=0.7648 bad=212 bestD=0.8486 beta=0.001
+[SEG 318] train loss=0.26811 D=0.9038 IoU=0.8801 | val loss=0.31140 D=0.8154 IoU=0.7660 bad=213 bestD=0.8486 beta=0.001
+[SEG 319] train loss=0.26880 D=0.8901 IoU=0.8663 | val loss=0.31147 D=0.8149 IoU=0.7654 bad=214 bestD=0.8486 beta=0.001
+[SEG 320] train loss=0.26817 D=0.8900 IoU=0.8663 | val loss=0.31156 D=0.7930 IoU=0.7433 bad=215 bestD=0.8486 beta=0.001
+[SEG 321] train loss=0.26805 D=0.9090 IoU=0.8852 | val loss=0.31187 D=0.8033 IoU=0.7535 bad=216 bestD=0.8486 beta=0.001
+[SEG 322] train loss=0.26818 D=0.9008 IoU=0.8769 | val loss=0.31143 D=0.8147 IoU=0.7650 bad=217 bestD=0.8486 beta=0.001
+[SEG 323] train loss=0.26811 D=0.9036 IoU=0.8799 | val loss=0.31129 D=0.8368 IoU=0.7872 bad=218 bestD=0.8486 beta=0.001
+[SEG 324] train loss=0.26697 D=0.8913 IoU=0.8674 | val loss=0.31158 D=0.8041 IoU=0.7545 bad=219 bestD=0.8486 beta=0.001
+[SEG 325] train loss=0.26827 D=0.8925 IoU=0.8684 | val loss=0.31145 D=0.8040 IoU=0.7544 bad=220 bestD=0.8486 beta=0.001
+[SEG 326] train loss=0.26887 D=0.8981 IoU=0.8742 | val loss=0.31140 D=0.8038 IoU=0.7541 bad=221 bestD=0.8486 beta=0.001
+[SEG 327] train loss=0.26768 D=0.9018 IoU=0.8778 | val loss=0.31135 D=0.8156 IoU=0.7663 bad=222 bestD=0.8486 beta=0.001
+[SEG 328] train loss=0.26878 D=0.8928 IoU=0.8691 | val loss=0.31149 D=0.8041 IoU=0.7544 bad=223 bestD=0.8486 beta=0.001
+[SEG 329] train loss=0.26692 D=0.9074 IoU=0.8834 | val loss=0.31125 D=0.8149 IoU=0.7653 bad=224 bestD=0.8486 beta=0.001
+[SEG 330] train loss=0.26687 D=0.8981 IoU=0.8743 | val loss=0.31162 D=0.8151 IoU=0.7655 bad=225 bestD=0.8486 beta=0.001
+[SEG 331] train loss=0.26872 D=0.8970 IoU=0.8736 | val loss=0.31161 D=0.8145 IoU=0.7648 bad=226 bestD=0.8486 beta=0.001
+[SEG 332] train loss=0.26819 D=0.8941 IoU=0.8705 | val loss=0.31177 D=0.8144 IoU=0.7647 bad=227 bestD=0.8486 beta=0.001
+[SEG 333] train loss=0.26704 D=0.8937 IoU=0.8696 | val loss=0.31121 D=0.8042 IoU=0.7545 bad=228 bestD=0.8486 beta=0.001
+[SEG 334] train loss=0.26764 D=0.8992 IoU=0.8752 | val loss=0.31145 D=0.8370 IoU=0.7873 bad=229 bestD=0.8486 beta=0.001
+[SEG 335] train loss=0.26750 D=0.8940 IoU=0.8702 | val loss=0.31157 D=0.8147 IoU=0.7649 bad=230 bestD=0.8486 beta=0.001
+[SEG 336] train loss=0.26828 D=0.8846 IoU=0.8607 | val loss=0.31141 D=0.8260 IoU=0.7764 bad=231 bestD=0.8486 beta=0.001
+[SEG 337] train loss=0.26821 D=0.8967 IoU=0.8728 | val loss=0.31127 D=0.8041 IoU=0.7544 bad=232 bestD=0.8486 beta=0.001
+[SEG 338] train loss=0.26805 D=0.8969 IoU=0.8732 | val loss=0.31160 D=0.8144 IoU=0.7647 bad=233 bestD=0.8486 beta=0.001
+[SEG 339] train loss=0.26756 D=0.8967 IoU=0.8729 | val loss=0.31151 D=0.8148 IoU=0.7652 bad=234 bestD=0.8486 beta=0.001
+[SEG 340] train loss=0.26827 D=0.9021 IoU=0.8782 | val loss=0.31113 D=0.8260 IoU=0.7763 bad=235 bestD=0.8486 beta=0.001
+[SEG 341] train loss=0.26813 D=0.9090 IoU=0.8851 | val loss=0.31129 D=0.8257 IoU=0.7760 bad=236 bestD=0.8486 beta=0.001
+[SEG 342] train loss=0.26684 D=0.8913 IoU=0.8674 | val loss=0.31164 D=0.8038 IoU=0.7541 bad=237 bestD=0.8486 beta=0.001
+[SEG 343] train loss=0.26811 D=0.9077 IoU=0.8839 | val loss=0.31171 D=0.8145 IoU=0.7648 bad=238 bestD=0.8486 beta=0.001
+[SEG 344] train loss=0.26677 D=0.8915 IoU=0.8678 | val loss=0.31114 D=0.8146 IoU=0.7647 bad=239 bestD=0.8486 beta=0.001
+[SEG 345] train loss=0.26757 D=0.9007 IoU=0.8769 | val loss=0.31181 D=0.8034 IoU=0.7536 bad=240 bestD=0.8486 beta=0.001
+[SEG 346] train loss=0.26733 D=0.8983 IoU=0.8746 | val loss=0.31149 D=0.8258 IoU=0.7762 bad=241 bestD=0.8486 beta=0.001
+[SEG 347] train loss=0.26766 D=0.8953 IoU=0.8715 | val loss=0.31101 D=0.8260 IoU=0.7764 bad=242 bestD=0.8486 beta=0.001
+[SEG 348] train loss=0.26813 D=0.9024 IoU=0.8788 | val loss=0.31143 D=0.8257 IoU=0.7760 bad=243 bestD=0.8486 beta=0.001
+[SEG 349] train loss=0.26763 D=0.9009 IoU=0.8771 | val loss=0.31156 D=0.8041 IoU=0.7546 bad=244 bestD=0.8486 beta=0.001
+[SEG 350] train loss=0.26813 D=0.9008 IoU=0.8769 | val loss=0.31122 D=0.8154 IoU=0.7660 bad=245 bestD=0.8486 beta=0.001
+[SEG 351] train loss=0.26711 D=0.9005 IoU=0.8764 | val loss=0.31119 D=0.8266 IoU=0.7772 bad=246 bestD=0.8486 beta=0.001
+[SEG 352] train loss=0.26694 D=0.9008 IoU=0.8768 | val loss=0.31174 D=0.8037 IoU=0.7539 bad=247 bestD=0.8486 beta=0.001
+[SEG 353] train loss=0.26748 D=0.8968 IoU=0.8731 | val loss=0.31118 D=0.8369 IoU=0.7872 bad=248 bestD=0.8486 beta=0.001
+[SEG 354] train loss=0.26817 D=0.9008 IoU=0.8772 | val loss=0.31136 D=0.8042 IoU=0.7546 bad=249 bestD=0.8486 beta=0.001
+[SEG 355] train loss=0.26747 D=0.9006 IoU=0.8771 | val loss=0.31174 D=0.8256 IoU=0.7759 bad=250 bestD=0.8486 beta=0.001
+[SEG 356] train loss=0.26748 D=0.9022 IoU=0.8785 | val loss=0.31140 D=0.8258 IoU=0.7762 bad=251 bestD=0.8486 beta=0.001
+[SEG 357] train loss=0.26838 D=0.9005 IoU=0.8768 | val loss=0.31150 D=0.8257 IoU=0.7760 bad=252 bestD=0.8486 beta=0.001
+[SEG 358] train loss=0.26812 D=0.8969 IoU=0.8733 | val loss=0.31165 D=0.8153 IoU=0.7657 bad=253 bestD=0.8486 beta=0.001
+[SEG 359] train loss=0.26819 D=0.8901 IoU=0.8663 | val loss=0.31150 D=0.8146 IoU=0.7649 bad=254 bestD=0.8486 beta=0.001
+[SEG 360] train loss=0.26825 D=0.9033 IoU=0.8793 | val loss=0.31152 D=0.8150 IoU=0.7655 bad=255 bestD=0.8486 beta=0.001
+[SEG 361] train loss=0.26876 D=0.9118 IoU=0.8881 | val loss=0.31157 D=0.8150 IoU=0.7653 bad=256 bestD=0.8486 beta=0.001
+[SEG 362] train loss=0.26816 D=0.8914 IoU=0.8677 | val loss=0.31141 D=0.8255 IoU=0.7757 bad=257 bestD=0.8486 beta=0.001
+[SEG 363] train loss=0.26815 D=0.8915 IoU=0.8678 | val loss=0.31126 D=0.8145 IoU=0.7648 bad=258 bestD=0.8486 beta=0.001
+[SEG 364] train loss=0.26810 D=0.8903 IoU=0.8666 | val loss=0.31135 D=0.8040 IoU=0.7544 bad=259 bestD=0.8486 beta=0.001
+[SEG 365] train loss=0.26775 D=0.8993 IoU=0.8752 | val loss=0.31177 D=0.8143 IoU=0.7646 bad=260 bestD=0.8486 beta=0.001
+[SEG 366] train loss=0.26693 D=0.9062 IoU=0.8823 | val loss=0.31146 D=0.8260 IoU=0.7764 bad=261 bestD=0.8486 beta=0.001
+[SEG 367] train loss=0.26761 D=0.8992 IoU=0.8752 | val loss=0.31150 D=0.8149 IoU=0.7651 bad=262 bestD=0.8486 beta=0.001
+[SEG 368] train loss=0.26820 D=0.8967 IoU=0.8729 | val loss=0.31157 D=0.8041 IoU=0.7545 bad=263 bestD=0.8486 beta=0.001
+[SEG 369] train loss=0.26752 D=0.9021 IoU=0.8782 | val loss=0.31174 D=0.8039 IoU=0.7541 bad=264 bestD=0.8486 beta=0.001
+[SEG 370] train loss=0.26828 D=0.8859 IoU=0.8619 | val loss=0.31173 D=0.8039 IoU=0.7542 bad=265 bestD=0.8486 beta=0.001
+[SEG 371] train loss=0.26818 D=0.8927 IoU=0.8688 | val loss=0.31197 D=0.8034 IoU=0.7537 bad=266 bestD=0.8486 beta=0.001
+[SEG 372] train loss=0.26744 D=0.8997 IoU=0.8761 | val loss=0.31151 D=0.8148 IoU=0.7651 bad=267 bestD=0.8486 beta=0.001
+[SEG 373] train loss=0.26823 D=0.9034 IoU=0.8794 | val loss=0.31117 D=0.8260 IoU=0.7764 bad=268 bestD=0.8486 beta=0.001
+[SEG 374] train loss=0.26749 D=0.8994 IoU=0.8754 | val loss=0.31123 D=0.8258 IoU=0.7760 bad=269 bestD=0.8486 beta=0.001
+[SEG 375] train loss=0.26829 D=0.8939 IoU=0.8701 | val loss=0.31126 D=0.8263 IoU=0.7768 bad=270 bestD=0.8486 beta=0.001
+[SEG 376] train loss=0.26799 D=0.8943 IoU=0.8708 | val loss=0.31160 D=0.8145 IoU=0.7648 bad=271 bestD=0.8486 beta=0.001
+[SEG 377] train loss=0.26869 D=0.8942 IoU=0.8706 | val loss=0.31152 D=0.8039 IoU=0.7542 bad=272 bestD=0.8486 beta=0.001
+[SEG 378] train loss=0.26840 D=0.8976 IoU=0.8736 | val loss=0.31171 D=0.8148 IoU=0.7653 bad=273 bestD=0.8486 beta=0.001
+[SEG 379] train loss=0.26697 D=0.9060 IoU=0.8821 | val loss=0.31130 D=0.8256 IoU=0.7757 bad=274 bestD=0.8486 beta=0.001
+[SEG 380] train loss=0.26894 D=0.8925 IoU=0.8685 | val loss=0.31178 D=0.8038 IoU=0.7542 bad=275 bestD=0.8486 beta=0.001
+[SEG 381] train loss=0.26833 D=0.9042 IoU=0.8802 | val loss=0.31120 D=0.8152 IoU=0.7657 bad=276 bestD=0.8486 beta=0.001
+[SEG 382] train loss=0.26740 D=0.8969 IoU=0.8732 | val loss=0.31158 D=0.8255 IoU=0.7758 bad=277 bestD=0.8486 beta=0.001
+[SEG 383] train loss=0.26798 D=0.9053 IoU=0.8816 | val loss=0.31126 D=0.8262 IoU=0.7767 bad=278 bestD=0.8486 beta=0.001
+[SEG 384] train loss=0.26849 D=0.9005 IoU=0.8764 | val loss=0.31146 D=0.8150 IoU=0.7654 bad=279 bestD=0.8486 beta=0.001
+[SEG 385] train loss=0.26756 D=0.8926 IoU=0.8687 | val loss=0.31154 D=0.8147 IoU=0.7651 bad=280 bestD=0.8486 beta=0.001
+[SEG 386] train loss=0.26825 D=0.8965 IoU=0.8730 | val loss=0.31145 D=0.8151 IoU=0.7655 bad=281 bestD=0.8486 beta=0.001
+[SEG 387] train loss=0.26738 D=0.9038 IoU=0.8801 | val loss=0.31138 D=0.8148 IoU=0.7651 bad=282 bestD=0.8486 beta=0.001
+[SEG 388] train loss=0.26781 D=0.9002 IoU=0.8760 | val loss=0.31162 D=0.8152 IoU=0.7658 bad=283 bestD=0.8486 beta=0.001
+[SEG 389] train loss=0.26867 D=0.8944 IoU=0.8710 | val loss=0.31171 D=0.8038 IoU=0.7541 bad=284 bestD=0.8486 beta=0.001
+[SEG 390] train loss=0.26821 D=0.9049 IoU=0.8812 | val loss=0.31144 D=0.8040 IoU=0.7545 bad=285 bestD=0.8486 beta=0.001
+[SEG 391] train loss=0.26763 D=0.9005 IoU=0.8765 | val loss=0.31197 D=0.8143 IoU=0.7644 bad=286 bestD=0.8486 beta=0.001
+[SEG 392] train loss=0.26867 D=0.9022 IoU=0.8789 | val loss=0.31149 D=0.8038 IoU=0.7543 bad=287 bestD=0.8486 beta=0.001
+[SEG 393] train loss=0.26708 D=0.9032 IoU=0.8792 | val loss=0.31171 D=0.8146 IoU=0.7649 bad=288 bestD=0.8486 beta=0.001
+[SEG 394] train loss=0.26812 D=0.8981 IoU=0.8743 | val loss=0.31145 D=0.8365 IoU=0.7867 bad=289 bestD=0.8486 beta=0.001
+[SEG 395] train loss=0.26763 D=0.9035 IoU=0.8795 | val loss=0.31143 D=0.8152 IoU=0.7656 bad=290 bestD=0.8486 beta=0.001
+[SEG 396] train loss=0.26816 D=0.9022 IoU=0.8786 | val loss=0.31121 D=0.8149 IoU=0.7652 bad=291 bestD=0.8486 beta=0.001
+[SEG 397] train loss=0.26819 D=0.9076 IoU=0.8839 | val loss=0.31176 D=0.8141 IoU=0.7644 bad=292 bestD=0.8486 beta=0.001
+[SEG 398] train loss=0.26876 D=0.8784 IoU=0.8541 | val loss=0.31118 D=0.8152 IoU=0.7655 bad=293 bestD=0.8486 beta=0.001
+[SEG 399] train loss=0.26809 D=0.9092 IoU=0.8855 | val loss=0.31124 D=0.8258 IoU=0.7760 bad=294 bestD=0.8486 beta=0.001
+[SEG 400] train loss=0.26824 D=0.9034 IoU=0.8794 | val loss=0.31147 D=0.8145 IoU=0.7647 bad=295 bestD=0.8486 beta=0.001
+loaded SEG_BEST dice=0.8485811495262644 epoch=105
+TEST: {'loss': 0.29702221664289635, 'main': 0.2963667257378499, 'kl': 0.6554911943773428, 'dice': 0.7729014133413633, 'iou': 0.7059595957398415}
+TEST per-image: {'n': 94, 'empty_gt': 40, 'mean_dice_all': 0.77710029753822, 'median_dice_all': 0.9042973816394806, 'mean_dice_nonempty': 0.7786560632564403, 'median_dice_nonempty': 0.829863429069519, 'mean_iou_all': 0.7120148666510685}
+DONE

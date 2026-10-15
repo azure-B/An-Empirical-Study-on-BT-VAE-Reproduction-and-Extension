@@ -1,0 +1,72 @@
+[
+  {
+    "ratio": 0.1,
+    "n_train": 74,
+    "model": "PurePresenceCNN",
+    "note": "ResBlockDown stack matching the decoder channels, then the S5 presence head. No VAE encoder.",
+    "loss": "BCEWithLogits",
+    "tau_rule": "validation Youden (lesion recall + empty reject)",
+    "tau": 0.63,
+    "best_ep": 18,
+    "val_auroc": 0.9621212121212122,
+    "test_auroc": 0.9574074074074074,
+    "test_lesion_recall": 0.9259259259259259,
+    "test_empty_reject": 0.95
+  },
+  {
+    "ratio": 0.3,
+    "n_train": 223,
+    "model": "PurePresenceCNN",
+    "note": "ResBlockDown stack matching the decoder channels, then the S5 presence head. No VAE encoder.",
+    "loss": "BCEWithLogits",
+    "tau_rule": "validation Youden (lesion recall + empty reject)",
+    "tau": 0.11,
+    "best_ep": 24,
+    "val_auroc": 0.9820075757575758,
+    "test_auroc": 0.9726851851851852,
+    "test_lesion_recall": 0.9444444444444444,
+    "test_empty_reject": 0.925
+  },
+  {
+    "ratio": 0.5,
+    "n_train": 372,
+    "model": "PurePresenceCNN",
+    "note": "ResBlockDown stack matching the decoder channels, then the S5 presence head. No VAE encoder.",
+    "loss": "BCEWithLogits",
+    "tau_rule": "validation Youden (lesion recall + empty reject)",
+    "tau": 0.09,
+    "best_ep": 21,
+    "val_auroc": 0.9876893939393939,
+    "test_auroc": 0.9930555555555556,
+    "test_lesion_recall": 0.9629629629629629,
+    "test_empty_reject": 0.95
+  },
+  {
+    "ratio": 0.7,
+    "n_train": 520,
+    "model": "PurePresenceCNN",
+    "note": "ResBlockDown stack matching the decoder channels, then the S5 presence head. No VAE encoder.",
+    "loss": "BCEWithLogits",
+    "tau_rule": "validation Youden (lesion recall + empty reject)",
+    "tau": 0.04,
+    "best_ep": 18,
+    "val_auroc": 0.9881628787878788,
+    "test_auroc": 0.9958333333333333,
+    "test_lesion_recall": 0.9814814814814815,
+    "test_empty_reject": 0.9
+  },
+  {
+    "ratio": 0.9,
+    "n_train": 669,
+    "model": "PurePresenceCNN",
+    "note": "ResBlockDown stack matching the decoder channels, then the S5 presence head. No VAE encoder.",
+    "loss": "BCEWithLogits",
+    "tau_rule": "validation Youden (lesion recall + empty reject)",
+    "tau": 0.09,
+    "best_ep": 11,
+    "val_auroc": 0.9971590909090909,
+    "test_auroc": 0.9953703703703703,
+    "test_lesion_recall": 0.9814814814814815,
+    "test_empty_reject": 0.9
+  }
+]

@@ -1,19 +1,33 @@
+Scroll down for the English version.
+
+이 문서는 Cursor로 작성했으며, 이후 수정할 예정입니다.
+
+This document was drafted in Cursor and will be revised later.
+
 # S5와 병변 존재 분류
 
-제한된 라벨로 COVID CT 병변을 나누는 실험이다. 비교하는 모델은 네 개다.
+제한된 라벨로 COVID CT 병변을 나누는 실험이다. 인코더, S5 디코더, 병변 존재 헤드가 어떻게 이어지는지는 [Main.ipynb](Main.ipynb)에 있다. 인코더는 Barlow Twins로 미리 학습한 뒤, 분할 단계에서 디코더와 함께 미세조정한다. 비교하는 모델은 네 개다.
 
 | 모델 | 분할 | 병변 존재 헤드 |
 |---|---|---|
-| none | 원본 VAE. 디코더는 μ만 받는다. | 없음 |
-| S5 | 같은 인코더에 B0–B3 concat skip. B4는 끈다. | 없음 |
-| none+classification | none 마스크 | μ에서 P(병변 존재) |
-| S5+classification | S5 마스크 | μ에서 P(병변 존재) |
+| none | 디코더는 잠재 평균 μ만 받는다. | 없음 |
+| S5 | 같은 인코더에 해상도 B0–B3의 concat skip을 붙인다. B4는 끈다. | 없음 |
+| none+classification | none이 그린 마스크 | μ에서 P(병변 존재) |
+| S5+classification | S5가 그린 마스크 | μ에서 P(병변 존재) |
 
-`original/`의 BT-VAE 코드는 수정하지 않는다. 논문용 실행 코드는 `pipeline/`에만 있다. 디렉터리 설명은 [folder.md](folder.md)에 있다.
+Skip은 병변의 위치와 경계를 μ라는 병목을 거치지 않고 디코더로 넘긴다. 그래서 S5는 none보다 병변 모양을 더 많이 덮는다. 밖으로 번진 픽셀이 있어도, 실제 병변과의 겹침이 커서 병변 슬라이스의 Dice가 높다.
+
+분류는 그리기 다음에 온다. 분할기를 고정하고 μ 위에 헤드만 학습한다. 헤드는 로짓 하나를 내고, 확률은 그 로짓의 시그모이드이다.
+
+```
+p = sigmoid(Head(μ)) = P(병변 존재 | 슬라이스)
+```
+
+검증에서 전체 Dice가 최대인 임계값 τ를 고른다. 테스트에서 p가 τ보다 낮으면 그 슬라이스의 마스크를 통째로 비운다. 헤드는 경계를 다시 그리지 않는다. 병변이 없는 슬라이스의 오검출을 지울 뿐이다. 병변이 있는 슬라이스 안에서 밖으로 번진 픽셀은 그대로 남는다.
 
 ## 데이터
 
-COVID는 `datasets/covid_8_1_1`이다. 학습 743장, 검증 92장, 테스트 94장이다. 테스트 94장 중 40장은 병변이 없는 슬라이스다.
+COVID CT는 학습 743장, 검증 92장, 테스트 94장이다. 테스트 94장 중 40장은 병변이 없는 슬라이스다.
 
 라벨 비율 0.1, 0.3, 0.5, 0.7, 0.9는 학습 집합만 환자 단위로 줄인 비율이다. 검증과 테스트는 모든 비율에서 같다.
 
@@ -25,37 +39,15 @@ COVID는 `datasets/covid_8_1_1`이다. 학습 743장, 검증 92장, 테스트 94
 | 0.7 | 520 |
 | 0.9 | 669 |
 
-BP 정성 패널은 `datasets/bp_data/train_30_split`의 테스트 슬라이스를 쓴다.
+정성 비교는 다른 뇌 영상 집합의 30% 분할에서 고른 테스트 슬라이스로 본다.
 
 ## 학습
 
-분할 손실은 원본 노트북과 같다. Dice와 BCE를 0.5씩 섞고 0.99를 곱한 뒤 KL 0.01을 더한다. 최적화는 AdamW, 학습률 1e-4, 배치 4이다. 검증 손실이 40 에폭 동안 줄지 않으면 멈추고, 검증 손실이 가장 낮은 가중치를 쓴다. 디코드는 μ로 고정한다.
+분할 손실은 Dice와 BCE를 같은 비율로 섞고 0.99를 곱한 뒤, KL 0.01을 더한다. 최적화는 AdamW, 학습률 1e-4, 배치 4이다. 검증 손실이 40 에폭 동안 줄지 않으면 멈추고, 검증 손실이 가장 낮은 가중치를 쓴다. 디코더의 입력은 샘플 z가 아니라 μ로 고정한다.
 
-분류 헤드는 로짓을 낸다. 손실은 `BCEWithLogits`이고 양성 가중치는 2이다. 손실 안에서 시그모이드가 적용된다. 보고하는 확률은 같은 로짓의 시그모이드이다.
+분류 손실은 `BCEWithLogits`이고 양성 가중치는 2이다. 시그모이드는 손실 안에서 적용된다.
 
-```
-p = sigmoid(Head(μ)) = P(병변 존재 | 슬라이스)
-```
-
-검증에서 Dice가 최대인 임계값 τ를 고른다. 테스트에서 p가 τ보다 낮으면 그 슬라이스 마스크를 비운다.
-
-## 실행
-
-저장소 루트에서 실행한다. Barlow Twins 인코더는 `checkpoints/covid/bt_encoder_best.pt`에 있어야 한다.
-
-```
-python -m pipeline segment --modes none,s5
-python -m pipeline classify --ratios 0.1,0.3,0.5,0.7,0.9
-python -m pipeline panel
-python -m pipeline figures
-```
-
-1. `segment`는 none과 S5를 학습한다. 끝난 비율은 다시 돌리지 않는다.
-2. `classify`는 각 분할기 위에 병변 확률 헤드를 학습한다.
-3. `panel`은 BP 30% 패널을 `results/bp/panel.png`에 다시 그린다.
-4. `figures`는 Dice 곡선과 표를 `results/covid/label_ratio/figures/`에 저장한다.
-
-## 학습 결과
+## 결과
 
 COVID 테스트 94장의 평균 Dice이다. 가로축은 학습에 쓴 라벨 비율이다.
 
@@ -63,16 +55,101 @@ COVID 테스트 94장의 평균 Dice이다. 가로축은 학습에 쓴 라벨 �
 
 ![Dice table](results/covid/label_ratio/figures/dice_vs_ratio_table.png)
 
-BP 30% 테스트 네 장이다. 초록은 맞은 병변, 빨강은 오검출, 흰색은 놓친 병변이다.
+라벨 30%가 데이터가 부족한 의료 영상의 기준점이다. 이 비율에서 S5는 none보다 병변을 더 잘 덮고, 빈 슬라이스 오검출도 더 적다.
 
-![BP panel](results/bp/panel.png)
+| | 전체 Dice | 병변 슬라이스 Dice | 빈 슬라이스 오검출 |
+|---|---:|---:|---:|
+| none | 0.640 | 0.595 | 0.30 |
+| S5 | 0.745 | 0.723 | 0.23 |
+| S5+classification | 0.801 | 0.691 | 0.05 |
 
-## 결과 위치
+분류를 붙이면 빈 슬라이스 오검출이 0.23에서 0.05로 줄고, 전체 Dice는 0.745에서 0.801로 오른다. 병변 슬라이스 Dice가 0.723에서 0.691로 조금 내리는 것은, 존재 확률이 τ보다 낮은 병변 슬라이스 일부를 헤드가 통째로 지우기 때문이다.
 
-- 분할 보고서: `results/covid/label_ratio/rXX/{none,s5}/report.json`
-- 분류 보고서: `results/covid/label_ratio/rXX/{none_cls,s5_cls}/report.json`
-- Dice 그림: `results/covid/label_ratio/figures/dice_vs_ratio.png`
-- Dice 표: `results/covid/label_ratio/figures/dice_vs_ratio_table.png`
-- BP 패널: `results/bp/panel.png`
+다른 뇌 영상 30% 테스트의 네 장이다. 초록은 맞은 병변, 빨강은 오검출, 흰색은 놓친 병변이다.
 
-가중치(`*.pt`), `checkpoints/`, `datasets/`, `original/`, `old/wheels/`는 git에 포함하지 않는다. `old/`의 나머지 실험 코드는 포함한다.
+![Qualitative panel](results/bp/panel.png)
+
+## CNN으로 분류하는 편이 더 낫지 않은가?
+
+병변 유무만 본다면, 같은 풀링 헤드를 단 CNN이 인코더 없이 더 단순해 보인다. 아래는 같은 COVID 테스트에서 병변 존재 AUROC이다. 파랑과 초록은 인코더의 μ에 올린 헤드이고, 주황은 인코더가 없는 CNN이다.
+
+![Presence classification: head on mu vs pure CNN](results/covid/label_ratio/figures/cls_auroc_cnn.png)
+
+학습 데이터를 30%만 썼을 때, 인코더를 달아 둔 쪽이 CNN보다 높았다. 테스트 AUROC는 none 헤드 0.990, S5 헤드 0.987, CNN 0.973이다. 나머지 비율에서도 세 곡선의 차이는 크지 않다.
+
+---
+
+# S5 and lesion-presence classification
+
+This document was drafted in Cursor and will be revised later.
+
+This experiment segments COVID CT lesions with limited labels. How the encoder, the S5 decoder, and the lesion-presence head connect is in [Main.ipynb](Main.ipynb). The encoder is first trained with Barlow Twins, then fine-tuned together with the decoder during segmentation. Four models are compared.
+
+| Model | Segmentation | Lesion-presence head |
+|---|---|---|
+| none | The decoder receives only the latent mean μ. | None |
+| S5 | The same encoder, with concat skips at resolutions B0–B3. B4 is off. | None |
+| none+classification | The mask drawn by none | P(lesion present) from μ |
+| S5+classification | The mask drawn by S5 | P(lesion present) from μ |
+
+Skips carry lesion location and boundaries to the decoder without passing them through the μ bottleneck. S5 therefore covers the lesion shape more completely than none. Extra pixels outside the lesion still leave a higher Dice on lesion slices, because the overlap with the true lesion is larger.
+
+Classification comes after drawing. The segmenter is frozen and only a head on μ is trained. The head emits one logit, and the probability is the sigmoid of that logit.
+
+```
+p = sigmoid(Head(μ)) = P(lesion present | slice)
+```
+
+τ is the threshold that maximizes overall Dice on the validation set. On the test set, the mask of a slice is cleared entirely when p is below τ. The head does not redraw boundaries. It only removes false positives on slices that contain no lesion. Pixels that spill outside a lesion, on a slice that does contain one, stay in the mask.
+
+## Data
+
+The COVID CT set has 743 training slices, 92 validation slices, and 94 test slices. Forty of the 94 test slices contain no lesion.
+
+Label ratios 0.1, 0.3, 0.5, 0.7, and 0.9 thin only the training set, at the patient level. Validation and test stay the same at every ratio.
+
+| Ratio | Training slices |
+|---:|---:|
+| 0.1 | 74 |
+| 0.3 | 223 |
+| 0.5 | 372 |
+| 0.7 | 520 |
+| 0.9 | 669 |
+
+Qualitative comparison uses test slices from a 30% split of a separate brain-image set.
+
+## Training
+
+The segmentation loss mixes Dice and BCE in equal parts, multiplies that mix by 0.99, and adds KL with weight 0.01. The optimizer is AdamW with learning rate 1e-4 and batch size 4. Training stops when the validation loss does not fall for 40 epochs, and the weights with the lowest validation loss are kept. The decoder is conditioned on μ, not on a sampled z.
+
+The classification loss is `BCEWithLogits` with a positive weight of 2. The sigmoid is applied inside the loss.
+
+## Results
+
+Mean Dice on the 94 COVID test slices. The horizontal axis is the labeled-data ratio used for training.
+
+![Dice score with labeled data ratio](results/covid/label_ratio/figures/dice_vs_ratio.png)
+
+![Dice table](results/covid/label_ratio/figures/dice_vs_ratio_table.png)
+
+The 30% label ratio is the operating point for scarce medical labels. At this ratio, S5 covers lesions better than none and also produces fewer false positives on empty slices.
+
+| | Overall Dice | Lesion-slice Dice | Empty-slice false positives |
+|---|---:|---:|---:|
+| none | 0.640 | 0.595 | 0.30 |
+| S5 | 0.745 | 0.723 | 0.23 |
+| S5+classification | 0.801 | 0.691 | 0.05 |
+
+Adding classification lowers the empty-slice false-positive rate from 0.23 to 0.05 and raises overall Dice from 0.745 to 0.801. Lesion-slice Dice falls slightly, from 0.723 to 0.691, because the head clears a few lesion slices whose presence probability is below τ.
+
+Four test slices from the 30% brain-image split. Green is a hit, red is a false positive, and white is a missed lesion.
+
+![Qualitative panel](results/bp/panel.png)
+
+## Would a CNN classifier not be better?
+
+If the only task is lesion presence, a CNN with the same pooling head and no encoder looks simpler. The figure below is lesion-presence AUROC on the same COVID test set. Blue and green are heads on the encoder’s μ. Orange is a CNN with no encoder.
+
+![Presence classification: head on mu vs pure CNN](results/covid/label_ratio/figures/cls_auroc_cnn.png)
+
+With only 30% of the training data, the models that keep the encoder score higher than the CNN. Test AUROC is 0.990 for the none head, 0.987 for the S5 head, and 0.973 for the CNN. At the other ratios the three curves do not separate by a large margin.

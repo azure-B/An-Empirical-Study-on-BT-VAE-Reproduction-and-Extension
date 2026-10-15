@@ -1,0 +1,14 @@
+{
+  "ratio": 0.5,
+  "n_train": 372,
+  "model": "PurePresenceCNN",
+  "note": "ResBlockDown stack matching the decoder channels, then the S5 presence head. No VAE encoder.",
+  "loss": "BCEWithLogits",
+  "tau_rule": "validation Youden (lesion recall + empty reject)",
+  "tau": 0.09,
+  "best_ep": 21,
+  "val_auroc": 0.9876893939393939,
+  "test_auroc": 0.9930555555555556,
+  "test_lesion_recall": 0.9629629629629629,
+  "test_empty_reject": 0.95
+}

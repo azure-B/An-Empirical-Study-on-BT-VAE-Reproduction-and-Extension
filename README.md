@@ -65,6 +65,15 @@ COVID 테스트 94장의 평균 Dice이다. 가로축은 학습에 쓴 라벨 �
 
 분류를 붙이면 빈 슬라이스 오검출이 0.23에서 0.05로 줄고, 전체 Dice는 0.745에서 0.801로 오른다. 병변 슬라이스 Dice가 0.723에서 0.691로 조금 내리는 것은, 존재 확률이 τ보다 낮은 병변 슬라이스 일부를 헤드가 통째로 지우기 때문이다.
 
+라벨 30% 테스트 94장을 슬라이스 단위로 센 혼동 행렬이다. 행은 정답, 열은 S5+classification이 τ=0.58에서 남긴 예측이다.
+
+|  | 병변으로 예측 | 빈 슬라이스로 예측 |
+|---|---:|---:|
+| 병변 슬라이스 54장 | TP 48 | FN 6 |
+| 빈 슬라이스 40장 | FP 2 | TN 38 |
+
+게이트 전에는 TP 50, FN 4, FP 9, TN 31이었다. 게이트가 FP를 9에서 2로 줄이는 대신 FN은 4에서 6으로 늘었다. 이후에는 이 FP와 FN의 간극을 조절해 FN을 최대한 줄일 계획이다.
+
 다른 뇌 영상 30% 테스트의 네 장이다. 초록은 맞은 병변, 빨강은 오검출, 흰색은 놓친 병변이다.
 
 ![Qualitative panel](results/bp/panel.png)
@@ -141,6 +150,15 @@ The 30% label ratio is the operating point for scarce medical labels. At this ra
 | S5+classification | 0.801 | 0.691 | 0.05 |
 
 Adding classification lowers the empty-slice false-positive rate from 0.23 to 0.05 and raises overall Dice from 0.745 to 0.801. Lesion-slice Dice falls slightly, from 0.723 to 0.691, because the head clears a few lesion slices whose presence probability is below τ.
+
+Slice-level confusion matrix on the 94 test slices at the 30% label ratio. Rows are the ground truth. Columns are what S5+classification keeps at τ=0.58.
+
+|  | Predicted lesion | Predicted empty |
+|---|---:|---:|
+| Lesion slices, 54 | TP 48 | FN 6 |
+| Empty slices, 40 | FP 2 | TN 38 |
+
+Before the gate the counts were TP 50, FN 4, FP 9, and TN 31. The gate cuts FP from 9 to 2 and raises FN from 4 to 6. The next step is to adjust this gap between FP and FN so that FN is as small as possible.
 
 Four test slices from the 30% brain-image split. Green is a hit, red is a false positive, and white is a missed lesion.
 

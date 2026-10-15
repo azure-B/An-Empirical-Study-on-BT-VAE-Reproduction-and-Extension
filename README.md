@@ -1,3 +1,5 @@
+![Barlow Twins pre-training and S5 + classification](method.png)
+
 Scroll down for the English version.
 
 이 문서는 Cursor로 작성했으며, 이후 수정할 예정입니다.

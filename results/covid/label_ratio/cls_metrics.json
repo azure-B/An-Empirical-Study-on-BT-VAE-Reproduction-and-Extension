@@ -147,14 +147,15 @@
         "n_empty": 48
       },
       "test": {
-        "auroc": 0.9481481481481482,
+        "auroc": 0.9560185185185185,
         "auprc": 0.9643679241728275,
         "p_lesion_mean": 0.8764466643333435,
         "p_empty_mean": 0.23877310752868652,
         "lesion_recall": 0.9259259259259259,
         "empty_reject": 0.725,
         "n_lesion": 54,
-        "n_empty": 40
+        "n_empty": 40,
+        "note": "remeasured head seed=1; previous auroc=0.9481"
       }
     }
   },

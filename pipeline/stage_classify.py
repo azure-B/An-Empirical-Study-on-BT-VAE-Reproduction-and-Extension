@@ -31,10 +31,12 @@ from pipeline.engine import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+COVID_OUT = ROOT / "results" / "covid" / "label_ratio"
 EPOCHS = 40
 ES = 10
 POS_WEIGHT = 2.0
 COVID_RATIOS = (0.1, 0.5)
+COVID_PANEL_RATIO = 0.3
 
 
 def none_mu_logits(model, x):
@@ -382,12 +384,257 @@ def draw(cases, s5_tau, none_tau):
     return BP_OUT / "panel.png"
 
 
+def _load_covid_pair(ratio: float = COVID_PANEL_RATIO):
+    pct = int(round(ratio * 100))
+    root = COVID_OUT / f"r{pct:02d}"
+    from pipeline.engine import OrigVAE
+    from pipeline.models_skip import VAE as SkipVAE
+
+    none = OrigVAE(base=32).to(DEVICE)
+    none.load_state_dict(safe_load(root / "none" / "seg_best.pt", map_location="cpu")["model"])
+    none.eval()
+    for p in none.parameters():
+        p.requires_grad = False
+
+    s5 = SkipVAE(base=32).to(DEVICE)
+    s5.load_state_dict(safe_load(root / "s5" / "seg_best.pt", map_location="cpu")["model"])
+    s5.eval()
+    for p in s5.parameters():
+        p.requires_grad = False
+
+    s5_meta = json.loads((root / "s5_cls" / "report.json").read_text(encoding="utf-8"))
+    none_meta = json.loads((root / "none_cls" / "report.json").read_text(encoding="utf-8"))
+    s5_head = LesionPresenceHead(32 * 32, hidden_dim=128, dropout=0.5).to(DEVICE)
+    s5_head.load_state_dict(safe_load(root / "s5_cls" / "head_best.pt", map_location="cpu")["head"])
+    s5_head.eval()
+    none_head = LesionPresenceHead(32 * 32, hidden_dim=128, dropout=0.5).to(DEVICE)
+    none_head.load_state_dict(safe_load(root / "none_cls" / "head_best.pt", map_location="cpu")["head"])
+    none_head.eval()
+    return none, none_head, float(none_meta["tau"]), s5, s5_head, float(s5_meta["tau"])
+
+
+@torch.inference_mode()
+def collect_covid_rows(ratio: float = COVID_PANEL_RATIO):
+    none, none_head, none_tau, s5, s5_head, s5_tau = _load_covid_pair(ratio)
+    full, _tr, _va, test_loader, _n = make_bundle(ratio, 8)
+    names = list(full.test.filenames)
+    rows = []
+    seen = 0
+    for batch in test_loader:
+        x, y = xy(batch)
+        mu_s, logits_s = s5_mu_logits(s5, x)
+        mu_n, logits_n = none_mu_logits(none, x)
+        ps = torch.sigmoid(s5_head(mu_s))
+        pn = torch.sigmoid(none_head(mu_n))
+        pred_s = (torch.sigmoid(logits_s) > 0.5).float()
+        pred_n = (torch.sigmoid(logits_n) > 0.5).float()
+        for i in range(x.shape[0]):
+            gt = y[i, 0].detach().cpu().numpy() > 0.5
+            sm = pred_s[i, 0].detach().cpu().numpy() > 0.5
+            nm = pred_n[i, 0].detach().cpu().numpy() > 0.5
+            p_s = float(ps[i])
+            p_n = float(pn[i])
+            sg = sm if p_s >= s5_tau else np.zeros_like(sm)
+            ng = nm if p_n >= none_tau else np.zeros_like(nm)
+
+            def dsc(mask):
+                inter = np.logical_and(mask, gt).sum()
+                return float((2 * inter + 1e-6) / (mask.sum() + gt.sum() + 1e-6))
+
+            name = names[seen] if seen < len(names) else f"idx_{seen}"
+            rows.append({
+                "name": name,
+                "gray": (x[i, 0].detach().cpu().numpy() * 255).astype(np.uint8),
+                "gt_mask": gt,
+                "none_mask": nm,
+                "s5_mask": sm,
+                "none_g": ng,
+                "s5_g": sg,
+                "gt": int(gt.sum()),
+                "d_s5": dsc(sg),
+                "d_s5_raw": dsc(sm),
+                "d_n": dsc(ng),
+                "d_none_raw": dsc(nm),
+                "s5_pix": int(sg.sum()),
+                "n_pix": int(ng.sum()),
+                "s5_raw_pix": int(sm.sum()),
+                "none_raw_pix": int(nm.sum()),
+                "p_s": p_s,
+                "p_n": p_n,
+            })
+            seen += 1
+    del none, none_head, s5, s5_head
+    if DEVICE == "cuda":
+        torch.cuda.empty_cache()
+    return rows, s5_tau, none_tau
+
+
+def _gt_components(mask: np.ndarray) -> int:
+    from scipy import ndimage
+    _lab, n = ndimage.label(mask.astype(bool))
+    return int(n)
+
+
+def pick_covid_cases(rows):
+    """Hard COVID stories matching the BP panel roles.
+
+    Case1  clear lesion: S5+cls keeps, none+cls blanks
+    Case2  empty: raw none paints FP, S5+cls blanks
+    Case3  fragmented multi-lesion where S5+cls wins
+    Case4  small / easy-to-miss lesion kept only by S5+cls
+    """
+    for r in rows:
+        r["n_comp"] = _gt_components(r["gt_mask"]) if r["gt"] > 0 else 0
+
+    used = set()
+
+    def take(pool, key):
+        pool = [r for r in pool if r["name"] not in used]
+        if not pool:
+            return None
+        pool.sort(key=key, reverse=True)
+        used.add(pool[0]["name"])
+        return pool[0]
+
+    case1 = take(
+        [
+            r for r in rows
+            if r["gt"] > 400
+            and r["d_s5"] >= 0.55
+            and r["d_n"] < 0.15
+            and (r["d_s5"] - r["d_n"]) >= 0.35
+        ],
+        lambda r: (r["d_s5"] - r["d_n"], r["d_s5"]),
+    )
+    case2 = take(
+        [
+            r for r in rows
+            if r["gt"] == 0
+            and r["s5_pix"] < 40
+            and r["none_raw_pix"] > 150
+        ],
+        lambda r: (r["none_raw_pix"], r["s5_raw_pix"], -r["s5_pix"]),
+    )
+    case3 = take(
+        [
+            r for r in rows
+            if r["n_comp"] >= 4
+            and r["gt"] > 500
+            and r["d_s5"] >= 0.45
+            and (r["d_s5"] - r["d_n"]) >= 0.10
+        ],
+        lambda r: (r["n_comp"], r["d_s5"] - r["d_n"]),
+    )
+    case4 = take(
+        [
+            r for r in rows
+            if 80 < r["gt"] < 350
+            and r["d_s5"] >= 0.50
+            and r["d_n"] < 0.20
+        ],
+        lambda r: (r["d_s5"] - r["d_n"], -abs(r["gt"] - 150)),
+    )
+    rest = [r for r in rows if r["name"] not in used]
+    rest.sort(key=lambda r: r["d_s5"] - r["d_n"], reverse=True)
+    chosen = []
+    for title, row in (("Case1", case1), ("Case2", case2), ("Case3", case3), ("Case4", case4)):
+        if row is None:
+            if not rest:
+                break
+            row = rest.pop(0)
+            used.add(row["name"])
+        chosen.append((title, row))
+    return chosen
+
+
+def draw_covid(cases, s5_tau, none_tau, ratio: float = COVID_PANEL_RATIO):
+    out = COVID_OUT
+    out.mkdir(parents=True, exist_ok=True)
+    cell, pad = 150, 4
+    label_w, label_h = 64, 36
+    cols = ("input", "gt", "none", "s5", "none_cls", "s5_cls")
+    headers = ("Input", "GT", "none", "S5", "none+cls", "S5+cls")
+    image = Image.new(
+        "RGB",
+        (label_w + len(cols) * (cell + pad), label_h + len(cases) * (cell + pad)),
+        (0, 0, 0),
+    )
+    draw = ImageDraw.Draw(image)
+    for i, text in enumerate(headers):
+        draw.text((label_w + i * (cell + pad) + 4, 4), text, fill=(255, 220, 0))
+    draw.text(
+        (label_w + 4, 18),
+        f"COVID {int(round(ratio * 100))}%  green TP  red FP  white FN",
+        fill=(180, 180, 180),
+    )
+    meta = []
+    for r, (title, row) in enumerate(cases):
+        y = label_h + r * (cell + pad)
+        draw.text((4, y + 8), title, fill=(255, 220, 0))
+        gray = np.stack([row["gray"]] * 3, axis=-1)
+        gt = np.zeros((row["gray"].shape[0], row["gray"].shape[1], 3), np.uint8)
+        gt[row["gt_mask"]] = (255, 255, 255)
+        tiles = {
+            "input": gray,
+            "gt": gt,
+            "none": overlay_rgb(row["none_mask"], row["gt_mask"]),
+            "s5": overlay_rgb(row["s5_mask"], row["gt_mask"]),
+            "none_cls": overlay_rgb(row["none_g"], row["gt_mask"]),
+            "s5_cls": overlay_rgb(row["s5_g"], row["gt_mask"]),
+        }
+        for c, key in enumerate(cols):
+            im = Image.fromarray(tiles[key]).resize((cell, cell), Image.NEAREST)
+            image.paste(im, (label_w + c * (cell + pad), y))
+            Image.fromarray(tiles[key]).save(out / f"{title}_{key}.png")
+        meta.append({
+            "case": title,
+            "file": row["name"],
+            "gt_pix": row["gt"],
+            "s5_dice": row["d_s5_raw"],
+            "s5_cls_dice": row["d_s5"],
+            "none_cls_dice": row["d_n"],
+            "p_s5": row["p_s"],
+            "p_none": row["p_n"],
+        })
+    panel_path = out / "panel.png"
+    image.save(panel_path)
+    root_copy = ROOT / "covid_panel.png"
+    image.save(root_copy)
+    (out / "cases_panel.json").write_text(json.dumps({
+        "dataset": "covid",
+        "ratio": ratio,
+        "s5_tau": s5_tau,
+        "none_tau": none_tau,
+        "cases": meta,
+        "colors": "green=TP, red=FP, white=FN",
+    }, indent=2), encoding="utf-8")
+    return panel_path
+
+
+def render_covid_panel(ratio: float = COVID_PANEL_RATIO):
+    rows, s5_tau, none_tau = collect_covid_rows(ratio)
+    cases = pick_covid_cases(rows)
+    path = draw_covid(cases, s5_tau, none_tau, ratio)
+    for title, row in cases:
+        safe_print(
+            f"{title} {row['name']} s5cls={row['d_s5']:.3f} nonecls={row['d_n']:.3f} "
+            f"gt={row['gt']} p_s={row['p_s']:.2f} p_n={row['p_n']:.2f}"
+        )
+    safe_print("covid panel", path)
+    return path
+
+
 def main():
     import argparse
     p = argparse.ArgumentParser()
     p.add_argument("--ratios", default="", help="COVID ratios, e.g. 0.3,0.7,0.9. Skips BP.")
     p.add_argument("--panel", action="store_true", help="Redraw BP panel only.")
+    p.add_argument("--covid-panel", action="store_true", help="Redraw COVID case panel (BP layout).")
+    p.add_argument("--covid-ratio", type=float, default=COVID_PANEL_RATIO)
     args = p.parse_args()
+    if args.covid_panel:
+        render_covid_panel(args.covid_ratio)
+        return
     if args.panel:
         none, head, tau = train_bp_none()
         render_bp(none, head, tau)

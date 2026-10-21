@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "ratio": 0.1,
+      "none": 0.9902777777777778,
+      "skip": 0.9435185185185185
+    },
+    {
+      "ratio": 0.3,
+      "none": 0.9902777777777778,
+      "skip": 0.986574074074074
+    },
+    {
+      "ratio": 0.5,
+      "none": 0.9875,
+      "skip": 0.9560185185185185,
+      "skip_old": 0.9481481481481482,
+      "skip_remeasure": {
+        "ratio": 0.5,
+        "seed": 1,
+        "best_ep": 35,
+        "val_auroc": 0.9767992424242424,
+        "test_auroc": 0.9560185185185185,
+        "head": "D:\\Desktop\\BT_VAE\\results\\covid\\label_ratio\\r50\\s5_cls\\head_best_remeasure.pt"
+      }
+    },
+    {
+      "ratio": 0.7,
+      "none": 0.9949074074074075,
+      "skip": 0.9921296296296296
+    },
+    {
+      "ratio": 0.9,
+      "none": 0.975925925925926,
+      "skip": 0.9888888888888889
+    }
+  ],
+  "r50_remeasure": {
+    "ratio": 0.5,
+    "seed": 1,
+    "best_ep": 35,
+    "val_auroc": 0.9767992424242424,
+    "test_auroc": 0.9560185185185185,
+    "head": "D:\\Desktop\\BT_VAE\\results\\covid\\label_ratio\\r50\\s5_cls\\head_best_remeasure.pt"
+  }
+}

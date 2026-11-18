@@ -1,10 +1,10 @@
 """
 BP original none → S5 concat skip comparison.
 
-- Does NOT modify original/
-- Imports original.models1 for none
+- Does NOT modify BT-VAE_CODE/
+- Imports BT-VAE_CODE.models1 (fallback: original/models1.py)
 - Uses root lazy data_load_BT (batch / on-disk)
-- Protocol from original/BT-VAE.ipynb (not paper table)
+- Protocol from BT-VAE_CODE/BT-VAE.ipynb (not paper table)
 """
 from __future__ import annotations
 
@@ -29,12 +29,18 @@ if str(ROOT) not in sys.path:
 from pipeline.data import datasets  # noqa: E402
 from pipeline.models_skip import VAE as SkipVAE  # noqa: E402
 
-# Import original models1 by path without mutating sys.path / without editing original/
+# Import paper models1 by path (BT-VAE_CODE first)
 import importlib.util
 
-_spec = importlib.util.spec_from_file_location(
-    "original_models1", ROOT / "original" / "models1.py"
-)
+_models1_candidates = [
+    ROOT / "BT-VAE_CODE" / "models1.py",
+    ROOT / "original" / "models1.py",
+    ROOT / "models1.py",
+]
+_models1_path = next((p for p in _models1_candidates if p.exists()), None)
+if _models1_path is None:
+    raise FileNotFoundError("models1.py not found under BT-VAE_CODE/ or original/")
+_spec = importlib.util.spec_from_file_location("btvae_models1", _models1_path)
 _orig = importlib.util.module_from_spec(_spec)
 assert _spec.loader is not None
 _spec.loader.exec_module(_orig)

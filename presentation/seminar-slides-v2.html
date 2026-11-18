@@ -1,0 +1,883 @@
+﻿<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>병변 존재 확률과 스킵 연결을 결합한 BT VAE 기반 의료영상 분할</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet"/>
+<style>
+:root{
+  --main:#002FA7;--t1:#4D6DC1;--t2:#99ACDB;--t3:#D9E0F2;--panel:#EAEEF8;--deep:#001C64;
+  --acc:#FF7A00;--gray:#B7BDC5;--g0:#EEF0F2;--rule:#D0D6DE;--ink:#222;--note:#6B7C85;
+  --ez:cubic-bezier(.22,.68,.18,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:#161C20;overflow:hidden;font-family:Pretendard,sans-serif;color:var(--ink);word-break:keep-all}
+button{font-family:inherit}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;background:#fff;transform-origin:0 0;overflow:hidden}
+.page{
+  position:absolute;inset:0;background:#fff;opacity:0;visibility:hidden;
+  transform:translateX(36px) scale(.985);
+  transition:opacity .45s,transform .55s var(--ez),visibility 0s .55s;
+}
+.page.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s,transform .55s var(--ez)}
+.page.title{
+  background:linear-gradient(135deg,#001C64 0%,#002FA7 46%,#4D6DC1 78%,#FF7A00 145%);
+  color:#fff;
+}
+.page.title::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(700px 420px at 85% 18%,rgba(255,122,0,.22),transparent 60%),
+             radial-gradient(900px 500px at 10% 90%,rgba(255,255,255,.08),transparent 55%);
+  opacity:0;transition:opacity .8s var(--ez);
+}
+.page.title.built::after{opacity:1}
+
+.progress{
+  position:absolute;left:0;top:0;height:6px;width:0;background:linear-gradient(90deg,var(--main),var(--acc));
+  z-index:5;transition:width .55s var(--ez);
+}
+.brand-logo{
+  position:absolute;right:86px;top:42px;height:48px;width:auto;max-width:420px;z-index:4;
+  pointer-events:none;object-fit:contain;object-position:right center;
+  background:transparent;
+}
+#stage:has(.page.title.on) .brand-logo{
+  /* transparent PNG → white mark on blue title; no white box */
+  filter:brightness(0) invert(1) opacity(.95);
+  mix-blend-mode:normal;
+}
+.sec{position:absolute;left:86px;top:52px;right:320px;font-size:32px;font-weight:700;color:var(--main);z-index:2;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.page.title .sec{color:rgba(255,255,255,.78)}
+.head{position:absolute;left:86px;top:100px;margin:0;font-size:48px;font-weight:700;letter-spacing:-.02em;max-width:1740px;line-height:1.22;z-index:2;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.page.title .head{top:270px;font-size:56px;max-width:1500px;color:#fff;-webkit-line-clamp:3}
+.ctitle{position:absolute;left:86px;top:200px;font-size:28px;font-weight:700;color:var(--ink);max-width:1700px;line-height:1.45;z-index:2;overflow:hidden}
+.page.title .ctitle{top:540px;color:rgba(255,255,255,.92);font-weight:500;font-size:28px;max-width:1400px}
+.env{position:absolute;left:86px;right:86px;top:168px;font-size:20px;font-weight:500;color:var(--note);z-index:2;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+/* data-i=10 body-fill top overridden in poster-large-type */
+.note{position:absolute;left:86px;right:86px;bottom:66px;font-size:20px;color:var(--note);z-index:2;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.page.title .note{color:rgba(255,255,255,.72)}
+.foot{position:absolute;left:86px;right:86px;bottom:24px;font-size:18px;color:var(--note);display:flex;justify-content:space-between;z-index:2;overflow:hidden}
+.page.title .foot{color:rgba(255,255,255,.55)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .55s var(--ez),transform .75s var(--ez)}
+.rv.left{transform:translateX(-28px)}
+.rv.right{transform:translateX(28px)}
+.rv.zoom{transform:scale(.94)}
+.built .rv{opacity:1;transform:none}
+
+.meta{position:absolute;left:86px;top:690px;display:grid;gap:10px;font-size:22px;color:rgba(255,255,255,.92);z-index:2}
+.meta b{font-weight:700}
+.repo{
+  position:absolute;left:86px;top:860px;z-index:2;font-size:18px;color:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.35);padding:10px 16px;display:inline-block;
+}
+
+.body-fill{
+  position:absolute;left:86px;right:86px;top:230px;bottom:90px;z-index:2;
+  display:grid;grid-template-rows:1fr auto;gap:18px;min-height:0;
+}
+.body-fill.single{grid-template-rows:1fr}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;min-height:0;height:100%}
+.grid2b{display:grid;grid-template-columns:1fr 1fr;gap:22px;min-height:0;height:100%}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;min-height:0;height:100%}
+.stack{display:flex;flex-direction:column;gap:14px;min-height:0;height:100%}
+.stack > .fig,.stack > .fig.tall,.stack > .fig.arch,.stack > .fig.method{flex:1;min-height:0}
+.stack > .steps-inline{flex:0 0 auto}
+.stack > .cap{flex:0 0 auto}
+.col{display:flex;flex-direction:column;gap:14px;min-height:0;height:100%;overflow:hidden}
+.col > .panel,.col > .box,.col > .fig{flex:1;min-height:0}
+.col > .cell{flex:0 0 auto}
+.aside-stack{display:flex;flex-direction:column;gap:14px;min-height:0;height:100%;overflow:hidden}
+.aside-stack > .cell{flex:0 0 auto}
+.aside-stack > .bars{flex:0 0 auto}
+.aside-stack > .callout{flex:1;min-height:0;display:flex;align-items:center}
+.band{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.band-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini{
+  background:var(--panel);border:1px solid var(--rule);padding:20px 22px;min-height:118px;
+  display:flex;flex-direction:column;justify-content:center;overflow:hidden;
+}
+.mini .k{font-size:18px;font-weight:700;color:var(--main);margin-bottom:8px}
+.mini .t{font-size:26px;font-weight:700;line-height:1.35;color:var(--ink);overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.mini .d{font-size:19px;color:var(--note);margin-top:8px;line-height:1.35;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
+.panel,.box{
+  background:var(--panel);padding:32px 34px;position:relative;overflow:hidden;
+  height:100%;display:flex;flex-direction:column;min-height:0;
+}
+.box{background:#fff;border:1px solid var(--rule)}
+.panel::before{
+  content:"";position:absolute;left:0;top:0;width:0;height:5px;background:var(--main);
+  transition:width .7s var(--ez);
+}
+.built .panel::before{width:100%}
+.box::after{
+  content:"";position:absolute;inset:0;border:2px solid transparent;pointer-events:none;
+  transition:border-color .4s;
+}
+.built .box:hover::after{border-color:var(--main)}
+.h3{margin:0 0 18px;font-size:30px;font-weight:700;color:var(--deep);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.p{margin:0;font-size:26px;line-height:1.5;color:var(--ink)}
+.list{margin:0;padding:0;list-style:none;display:grid;gap:16px;flex:1;align-content:space-evenly;min-height:0;overflow:auto}
+.list li{
+  display:grid;grid-template-columns:14px minmax(0,1fr);column-gap:16px;align-items:center;
+  font-size:25px;line-height:1.5;color:var(--ink);
+}
+.list li::before{
+  content:"";width:14px;height:14px;align-self:start;margin-top:calc((1.5em - 14px) / 2);
+  background:var(--main);transform:scale(0);transform-origin:center;transition:transform .35s var(--ez);
+}
+.built .list li::before{transform:scale(1)}
+.list.tight li{font-size:24px;line-height:1.5}
+.list.dense{gap:22px}
+.cell .list{width:100%;margin-top:12px;flex:1;align-content:space-evenly;gap:16px}
+.cell .list li{font-size:23px;line-height:1.45}
+.callout{margin-top:0;padding:22px 26px;background:var(--panel);border-left:4px solid var(--main);font-size:24px;line-height:1.5;color:var(--ink);overflow:hidden;min-height:0}
+.callout.block{flex:1;min-height:0;height:auto;display:flex;align-items:center}
+.callout b{color:var(--main);font-variant-numeric:tabular-nums}
+.formula{margin-top:auto;padding:16px 20px;background:var(--g0);border:1px solid var(--rule);font-size:24px;font-weight:700;color:var(--deep);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:10px 48px;height:100%;align-content:center}
+.toc-item{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;padding:20px 12px;border-bottom:1px solid var(--rule);cursor:pointer;transition:background .25s;overflow:hidden}
+.toc-item:hover{background:var(--panel)}
+.toc-item:hover .toc-title{color:var(--main)}
+.toc-num{font-size:22px;font-weight:700;color:var(--main)}
+.toc-title{font-size:26px;font-weight:700;transition:color .25s;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;height:100%}
+.flow.vert{grid-template-columns:1fr;grid-template-rows:repeat(3,1fr)}
+.step{position:relative;background:var(--panel);padding:22px 24px;min-height:0;height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.step .n{display:inline-block;background:var(--main);color:#fff;font-size:17px;font-weight:700;padding:4px 12px;margin-bottom:14px}
+.step h3{margin:0 0 10px;font-size:26px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.step p{margin:0;font-size:20px;line-height:1.5;color:var(--ink);overflow:hidden}
+.step .pulse{
+  position:absolute;right:-30px;bottom:-30px;width:120px;height:120px;border-radius:50%;
+  background:rgba(0,47,167,.08);transform:scale(0);transition:transform .8s var(--ez);
+}
+.built .step .pulse{transform:scale(1)}
+
+.cell{background:var(--panel);padding:30px 32px;min-height:0;height:100%;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.cell i{position:absolute;right:24px;top:22px;font-style:normal;font-size:20px;font-weight:700;color:var(--main)}
+.cell .v{font-size:44px;font-weight:700;color:var(--main);line-height:1.2;letter-spacing:-.02em;font-variant-numeric:tabular-nums;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;max-width:92%}
+.cell .u{font-size:20px;color:var(--note);margin-top:10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cell b{display:block;font-size:24px;margin-top:auto;padding-top:16px;overflow:hidden;line-height:1.35}
+.cell span{display:block;font-size:21px;color:var(--note);margin-top:8px;line-height:1.4;overflow:hidden}
+
+.fig{
+  background:#fff;border:1px solid var(--rule);padding:14px;overflow:hidden;position:relative;
+  display:flex;align-items:center;justify-content:center;min-height:0;height:100%;
+}
+.fig img{
+  max-width:100%;max-height:100%;object-fit:contain;display:block;
+  transform:scale(1.06);opacity:0;filter:saturate(.85);
+  transition:transform 1s var(--ez),opacity .7s var(--ez),filter .7s;
+}
+.built .fig img{transform:scale(1);opacity:1;filter:none}
+.fig.tall{min-height:0;height:100%}
+.fig.tall img{max-height:100%}
+.fig.fit{
+  min-height:0;height:620px;padding:10px;background:var(--g0);
+}
+.fig.fit img,.fig.fit object,.fig.fit svg{
+  width:100%;height:100%;max-height:none;object-fit:contain;object-position:center;
+}
+.fig.arch{
+  min-height:0;height:100%;padding:4px;background:#F7F9FC;border:1px solid var(--rule);
+}
+.fig.arch img{
+  width:100%;height:100%;max-height:none;object-fit:contain;object-position:center top;
+  transform:none!important;filter:none!important;opacity:1!important;
+  image-rendering:auto;-ms-interpolation-mode:bicubic;
+}
+[data-i="7"] .body-fill{top:200px;bottom:78px;gap:10px}
+[data-i="7"] .stack{gap:8px}
+[data-i="7"] .head{font-size:42px;line-height:1.2;margin-bottom:0}
+[data-i="7"] .cap{margin-top:2px;font-size:17px;-webkit-line-clamp:1}
+.fig.code{
+  background:#0f172a;border:1px solid #1e293b;padding:0;min-height:0;height:100%;
+}
+.fig.code img{
+  width:100%;height:100%;max-height:none;object-fit:contain;object-position:center;
+  transform:none!important;filter:none!important;opacity:1!important;
+}
+.fig.method{
+  min-height:0;height:100%;padding:12px;background:#F7F9FC;border:1px solid var(--rule);
+}
+.fig.method img{
+  width:100%;height:100%;max-height:none;object-fit:contain;
+  transform:none!important;filter:none!important;opacity:1!important;
+}
+.code-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;min-height:0;height:100%}
+.code-grid .col{min-height:0}
+.steps-inline{display:flex;gap:14px;margin-bottom:12px}
+.steps-inline .chip{
+  flex:1;background:var(--panel);border-left:4px solid var(--main);padding:16px 18px;
+  font-size:22px;font-weight:700;color:var(--deep);overflow:hidden;
+}
+.steps-inline .chip span{display:block;margin-top:6px;font-size:18px;font-weight:500;color:var(--note);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cap{margin-top:8px;font-size:19px;color:var(--note);line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.cap a{color:var(--main);font-weight:700;text-decoration:none}
+.cap a:hover{text-decoration:underline}
+
+.bars{display:grid;gap:18px}
+.bar-row{display:grid;grid-template-columns:210px 1fr 90px;gap:16px;align-items:center}
+.bar-row span{font-size:21px;font-weight:700}
+.bar-track{height:26px;background:var(--g0);border:1px solid var(--rule);overflow:hidden}
+.bar-fill{height:100%;width:0;background:var(--main);transition:width .95s var(--ez)}
+.bar-fill.alt{background:var(--t1)}
+.bar-row b{font-size:23px;font-weight:700;color:var(--main);text-align:right;font-variant-numeric:tabular-nums}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:23px}
+table.cmp th,table.cmp td{padding:18px 14px;border-bottom:1px solid var(--rule);text-align:center}
+table.cmp th{font-size:18px;font-weight:700;color:var(--note);background:var(--g0)}
+table.cmp td:first-child,table.cmp th:first-child{text-align:left;font-weight:700;font-size:21px;max-width:480px}
+table.cmp .mono{font-variant-numeric:tabular-nums;font-weight:700}
+table.cmp tr.best td{background:var(--t3)}
+table.cmp tr{opacity:0;transform:translateY(10px);transition:opacity .45s var(--ez),transform .55s var(--ez)}
+.built table.cmp tr{opacity:1;transform:none}
+.built table.cmp tr:nth-child(1){transition-delay:.05s}
+.built table.cmp tr:nth-child(2){transition-delay:.12s}
+.built table.cmp tr:nth-child(3){transition-delay:.19s}
+.built table.cmp tr:nth-child(4){transition-delay:.26s}
+
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:18px}
+.kpi .cell{min-height:140px}
+.kpi .v{font-size:44px}
+
+.hint{position:fixed;left:18px;bottom:16px;z-index:50;color:rgba(255,255,255,.55);font:500 13px Pretendard,sans-serif;pointer-events:none}
+.nv{position:fixed;right:18px;bottom:16px;z-index:50;display:flex;gap:8px}
+.pv{background:#fff;border:1px solid var(--rule);color:var(--main);font-size:16px;font-weight:700;padding:8px 14px;cursor:pointer}
+.pv:hover{border-color:var(--main);background:var(--panel)}
+
+.ring-dot{
+  position:absolute;right:24px;bottom:22px;left:auto;width:14px;height:14px;border-radius:50%;
+  background:var(--acc);pointer-events:none;z-index:1;
+  box-shadow:0 0 0 0 rgba(255,122,0,.45);animation:none;
+}
+.built .ring-dot{animation:ring 1.4s ease-out 1}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,122,0,.55)}100%{box-shadow:0 0 0 18px rgba(255,122,0,0)}}
+
+:root{--note:#3f4b56;}
+.list li>.list-text{grid-column:2;min-width:0;line-height:inherit;}
+.list li>.list-text b,.list li>.list-text strong{display:inline;font-size:inherit;line-height:inherit;margin:0;padding:0;overflow:visible;}
+.list li,.list.tight li{font-size:28px;}.cell .list li{font-size:28px;line-height:1.45;}.p{font-size:28px;}
+.meaning-line{display:block;white-space:nowrap;font-size:inherit;line-height:inherit;color:inherit;}
+/* Shared feature cards (연구 목표 / 결론) — same list markup as panels */
+.feat-cards{display:grid;gap:24px;height:100%;min-height:0}
+.feat-cards.cols-2{grid-template-columns:1fr 1fr}
+.feat-cards.cols-3{grid-template-columns:1fr 1fr 1fr}
+.feat-card{
+  background:var(--panel);border-top:5px solid var(--main);padding:32px 30px;
+  height:100%;min-height:0;display:flex;flex-direction:column;overflow:hidden;
+  position:relative;
+}
+.feat-cards.cols-2 .feat-card:nth-child(2),
+.feat-cards.cols-3 .feat-card:nth-child(2){background:#F0F3FA;border-top-color:var(--main)}
+.feat-cards.cols-3 .feat-card:nth-child(3){background:#F6F7FA;border-top-color:var(--main)}
+.feat-card .num{font-size:22px;font-weight:700;color:var(--t1);margin-bottom:4px}
+.feat-card .h3{color:var(--main);white-space:normal;overflow:visible;margin-bottom:10px}
+.feat-card .u{
+  margin:0 0 22px;font-size:28px;font-weight:700;color:var(--ink);line-height:1.35;
+  white-space:normal;overflow:visible;
+}
+.feat-card .list{
+  align-content:start;gap:22px;overflow:visible;flex:1;
+}
+.feat-card .list li,
+.feat-card .list .list-text,
+.feat-card .list .meaning-line{
+  color:var(--ink);font-weight:700;
+}
+.feat-card > b{
+  display:block;margin-top:auto;padding-top:18px;font-size:30px;font-weight:700;
+  color:var(--ink);line-height:1.35;
+}
+.feat-card > span{
+  display:block;margin-top:8px;font-size:28px;font-weight:600;
+  color:var(--ink);line-height:1.4;
+}
+[data-i="5"] .body-fill{top:230px;bottom:90px;grid-template-rows:1fr}
+[data-i="10"] .list li{font-size:26px;}
+.cell>span,.cell .u,.mini .d,.cap,.step p,.chip span{color:#34404b;}
+.panel .list li,.box .list li,.panel .list .list-text,.box .list .list-text,
+.panel .list .meaning-line,.box .list .meaning-line{
+  color:var(--ink);
+  font-weight:600;
+}
+[data-i="4"] .body-fill{grid-template-rows:auto minmax(0,1fr);gap:14px}
+[data-i="4"] .grid2b{height:auto;min-height:0}
+[data-i="4"] .panel,[data-i="4"] .box{height:auto;overflow:visible}
+[data-i="4"] .panel .list,[data-i="4"] .box .list{overflow:visible;flex:0 0 auto}
+[data-i="4"] .old-fig{
+  min-height:0;height:100%;padding:0;background:transparent;border:none;
+  display:flex;align-items:center;justify-content:center;
+}
+[data-i="4"] .old-fig img{width:100%;height:100%;max-height:100%;object-fit:contain}
+[data-i="15"] .head{line-height:1.18}
+[data-i="15"] .body-fill{top:270px;bottom:80px;grid-template-rows:minmax(0,1fr) auto;gap:24px}
+[data-i="15"] .feat-cards{min-height:0}
+[data-i="15"] .concl-kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;width:100%;flex:0 0 auto}
+[data-i="15"] .concl-kpis .mini{min-height:110px;border:none;background:var(--panel);width:100%}
+[data-i="15"] .concl-kpis .mini .k{font-size:22px;margin-bottom:10px}
+[data-i="15"] .concl-kpis .mini .t{font-size:36px;-webkit-line-clamp:1;overflow:visible}
+@media print{
+ @page{size:480mm 270mm;margin:0;}
+ html,body{margin:0;width:1920px;overflow:visible;background:white;print-color-adjust:exact;-webkit-print-color-adjust:exact;}
+ #stage{position:static;height:auto;transform:none!important;overflow:visible;}
+ .page,.page.on{position:relative;inset:auto;width:1920px;height:1080px;opacity:1!important;visibility:visible!important;transform:none!important;break-after:page;overflow:hidden;}
+ .page:last-child{break-after:auto;}.rv{opacity:1!important;transform:none!important;transition:none!important;}
+ .panel::before{width:100%!important;}.list li::before{transform:scale(1)!important;}
+ .nv,.hint,.progress{display:none!important;}.bar-fill{width:var(--print-bar,0%)!important;}
+}
+
+[data-i="11"] .callout{
+  min-height:116px;flex-shrink:0;
+  display:flex;flex-direction:column;justify-content:center;
+  align-items:flex-start;text-align:left;
+}
+</style>
+<style id="poster-large-type">
+/* Poster typography revision: preserve v2 content and navigation. */
+.sec{font-size:40px;top:40px}
+.head{font-size:54px;top:102px;line-height:1.18;max-width:1748px;overflow:visible;display:block}
+.page.title .head{font-size:68.4px;top:250px;max-width:1720px}
+.page.title .ctitle{font-size:38px;top:560px}
+.meta{font-size:32px;top:710px}.repo{font-size:26px;top:900px}
+.ctitle{font-size:36px}.env{font-size:20px;top:168px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.body-fill{top:270px;bottom:80px;gap:16px}
+.panel,.box{padding:24px 26px}.h3{font-size:40px;white-space:normal;line-height:1.2;margin-bottom:18px;flex-shrink:0}
+.p,.list li,.list.tight li,.cell .list li{font-size:36px;line-height:1.4;font-weight:600}
+.list{gap:15px;align-content:space-evenly;flex-shrink:1}.list.dense{gap:16px}
+.list li{grid-template-columns:11px minmax(0,1fr);column-gap:14px}
+.list li::before{width:11px;height:11px;margin-top:.5em}
+.meaning-line{white-space:normal;overflow:visible}
+.callout{font-size:32px;line-height:1.35;padding:18px 22px;overflow:visible}
+.formula{font-size:32px;white-space:normal;flex-shrink:0}
+.mini{padding:16px 20px;min-height:125px}.mini .k{font-size:28px}.mini .t{font-size:34px;display:block;overflow:visible}.mini .d{font-size:27px;white-space:normal;overflow:visible}
+.cell{padding:24px 26px}.cell .v,.kpi .v{font-size:58px}.cell .u{font-size:30px;white-space:normal;overflow:visible}
+.cell b{font-size:34px}.cell>span{font-size:30px}.cell i{font-size:28px}
+.toc-num{font-size:34px}.toc-title{font-size:38px}.toc-item{padding:24px 12px}
+.step h3{font-size:36px;white-space:normal}.step p{font-size:30px}.step .n{font-size:26px}
+.steps-inline .chip{font-size:40px;padding:16px 18px;line-height:1.25}
+.steps-inline .chip span{font-size:32.4px;font-weight:600;color:var(--ink);margin-top:10px;white-space:normal;line-height:1.35}
+.cap{font-size:19px;line-height:1.4;display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;flex-shrink:0}
+.bar-row{grid-template-columns:270px 1fr 110px}.bar-row span,.bar-row b{font-size:30px}.bar-track{height:34px}
+table.cmp{font-size:42.75px;table-layout:fixed;width:100%;border:1px solid var(--rule)}
+table.cmp th{font-size:35.15px}
+table.cmp th,table.cmp td{
+  padding:19px 12px;width:17%;
+  border-right:1px solid var(--rule);
+}
+table.cmp th:last-child,table.cmp td:last-child{border-right:none}
+table.cmp td:first-child,table.cmp th:first-child{
+  font-size:37.7px;max-width:none;width:32%;white-space:nowrap;
+}
+.note{font-size:26px}.foot{font-size:24px;bottom:22px}
+.feat-card{padding:28px 26px}
+.feat-card .h3{font-size:42px;margin-bottom:12px}
+.feat-card .u{font-size:36px;margin-bottom:28px;color:var(--ink)}
+.feat-card .num{font-size:28px}
+.feat-card .list{gap:24px}
+.feat-card .list li{font-size:34px;line-height:1.4}
+.feat-card > b{font-size:38px}
+.feat-card > span{font-size:36px}
+[data-i="7"] .head{font-size:50.4px}[data-i="7"] .body-fill{top:250px}[data-i="7"] .cap{font-size:17px;margin-top:2px;-webkit-line-clamp:1}
+[data-i="10"] .body-fill{top:300px;grid-template-rows:auto minmax(0,1fr);align-content:stretch}
+[data-i="10"] .list li{font-size:31px}
+[data-i="10"] .box .list{gap:calc(16px)}
+[data-i="10"] .grid2b{height:auto;min-height:0;align-self:start;z-index:2;position:relative}
+[data-i="10"] .grid2b .panel,[data-i="10"] .grid2b .box{overflow:visible;height:auto}
+[data-i="10"] .grid2b .panel .list,[data-i="10"] .grid2b .box .list{overflow:visible;flex:0 0 auto}
+[data-i="10"] .ds-split{display:grid;grid-template-columns:1fr;gap:10px;min-height:0;flex:0 0 auto}
+[data-i="10"] .ds-col{min-width:0;display:flex;flex-direction:column}
+[data-i="10"] .ds-col .h3{margin-bottom:6px;font-size:34px}
+[data-i="10"] .ds-col .list{flex:0 0 auto;align-content:start;overflow:visible;gap:6px}
+[data-i="10"] .ds-samples{
+  display:flex;align-items:center;justify-content:center;
+  min-height:0;height:100%!important;max-height:100%;z-index:1;align-self:stretch;
+  overflow:hidden;
+}
+[data-i="10"] .ds-samples img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+[data-i="11"] .callout{min-height:140px;font-size:30px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left}
+[data-i="15"] .head{font-size:48.6px;top:102px;max-width:1748px}
+[data-i="15"] .body-fill{top:270px;bottom:80px;grid-template-rows:minmax(0,1fr) auto;gap:24px}
+[data-i="15"] .concl-kpis .mini .k{font-size:28px}
+[data-i="15"] .concl-kpis .mini .t{font-size:42px}
+
+.list-text{overflow-wrap:anywhere}
+</style></head>
+<body>
+<div id="stage">
+<div class="progress" id="progress"></div>
+<img alt="Image Processing and Computer Graphics Lab." class="brand-logo" src="assets/IPCGLAB2.png?v=4"/>
+<!-- 1 -->
+<section class="page title on" data-i="1">
+<h1 class="head rv" data-d="90">병변 존재 확률과 스킵 연결을 결합한<br/>BT VAE 기반의 의료영상 분할</h1>
+<div class="meta rv" data-d="260">
+<div><b>이승빈</b> · 곽노윤</div>
+<div>백석대학교 컴퓨터공학부</div>
+<div>지도교수: 곽노윤</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>1 / 15</span></div>
+</section>
+<!-- 2 -->
+<section class="page" data-i="2">
+<div class="sec rv" data-d="0">병변 존재 확률과 스킵 연결을 결합한 BT VAE 기반의 의료영상 분할</div>
+<h1 class="head rv" data-d="60">목차</h1>
+<div class="body-fill single rv" data-d="140"><div class="toc" id="toc"></div></div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>2 / 15</span></div>
+</section>
+<!-- 3 -->
+<section class="page" data-i="3">
+<div class="sec rv" data-d="0">01 · 연구 배경 및 기존의 연구</div>
+<h1 class="head rv" data-d="60">의료영상 분할의 난제 및 핵심 제약</h1>
+<div class="body-fill">
+<div class="grid2">
+<div class="col rv left" data-d="140">
+<div class="panel">
+<div class="h3">의료영상 분할의 난제</div>
+<ul class="list dense">
+<li><div class="list-text">병변 범위·형태를 픽셀 단위로 추정하여 정량 진단에 활용</div></li>
+<li><div class="list-text">전문가의 픽셀 레이블 작성에 많은 시간·비용 소요</div></li>
+<li><div class="list-text">장비·프로토콜·환자에 따라 영상 품질·해부 편차가 큼</div></li>
+<li><div class="list-text">작은 병변·불명확한 경계로 인해 분할 정확도 하락</div></li>
+</ul>
+</div>
+</div>
+<div class="col rv right" data-d="220">
+<div class="panel">
+<div class="h3">핵심 제약</div>
+<ul class="list tight dense">
+<li><div class="list-text">픽셀 레이블 비용이 커, 레이블 데이터가 적음</div></li>
+<li><div class="list-text">작은 병변·불명확한 경계가 분할 정확도를 떨어뜨림</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="band rv" data-d="300">
+<div class="mini"><div class="k">문제</div><div class="t">레이블 제작 비용</div><div class="d">전문가의 픽셀 단위 정답 표시</div></div>
+<div class="mini"><div class="k">현실</div><div class="t">제한된 레이블 환경</div><div class="d">일부 데이터에만 정답 표시</div></div>
+<div class="mini"><div class="k">목표</div><div class="t">일반화 가능한 특징</div><div class="d">소수 레이블에서도 분할</div></div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>3 / 15</span></div>
+</section>
+<!-- 4 -->
+<section class="page" data-i="4">
+<div class="sec rv" data-d="0">01 · 연구 배경 및 기존의 연구</div>
+<h1 class="head rv" data-d="60">스킵 연결과 이진 병변 분류를 결합한 확장 설계</h1>
+<div class="body-fill">
+<div class="grid2b">
+<div class="panel rv left" data-d="140">
+<div class="h3">기존의 연구: BT VAE [1]</div>
+<p class="p" style="flex:0 0 auto"><span class="meaning-line">Barlow Twins 자기지도 사전학습으로</span><span class="meaning-line">VAE 인코더를 초기화</span><span class="meaning-line">→ Barlow Twins 학습으로 일관된 표현을 학습 [1][2]</span><span class="meaning-line"><br/></span><span class="meaning-line">VAE의 확률적 잠재 표현으로 불확실성 반영</span><span class="meaning-line">→ 오검출(FP) 완화에 기여</span></p>
+</div>
+<div class="box rv right" data-d="220">
+<div class="h3">기존의 모델의 보완점 → 확장 설계</div>
+<ul class="list tight dense">
+<li><div class="list-text"><span class="meaning-line">세밀한 위치·경계 정보의 전달을 보완</span><span class="meaning-line">→ 인코더의 정보를 디코더에 전달하는 스킵 연결 추가</span></div></li>
+<li><div class="list-text"><span class="meaning-line">병변이 없는 영상의 오검출을 함께 제어할 필요가 있음</span><span class="meaning-line">→ 이진 병변 분류기 결합</span></div></li>
+</ul>
+</div>
+</div>
+<div class="fig old-fig rv" data-d="300">
+<img alt="기존의 BT VAE 구조" src="assets/old_.png?v=5"/>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>4 / 15</span></div>
+</section>
+<!-- 5 -->
+<section class="page" data-i="5">
+<div class="sec rv" data-d="0">02 · 연구 목표</div>
+<h1 class="head rv" data-d="60">제안 방법: BT VAE+S&amp;C</h1>
+<div class="body-fill single">
+<div class="feat-cards cols-2">
+<div class="feat-card rv left" data-d="140">
+<div class="h3">스킵 연결</div>
+<div class="u">BT VAE+S</div>
+<ul class="list dense">
+<li><div class="list-text"><span class="meaning-line">인코더가 서로 다른 크기의 중간 특징을 추출</span><span class="meaning-line">→ 세부 경계와 전체 형태 정보를 함께 활용</span></div></li>
+<li><div class="list-text"><span class="meaning-line">중간 특징을 디코더 대응 단계에 전달</span><span class="meaning-line">→ 채널 방향으로 결합한 뒤 합성곱으로 융합 [3]</span></div></li>
+<li><div class="list-text"><span class="meaning-line">위치·경계 정보를 분할 예측부에 직접 전달</span><span class="meaning-line">→ 병변 영역의 복원을 보완</span></div></li>
+</ul>
+<b>테스트 Dice</b>
+<span>BT VAE 0.654 → BT VAE+S 0.811</span>
+<div aria-hidden="true" class="ring-dot"></div>
+</div>
+<div class="feat-card rv right" data-d="220">
+<div class="h3">이진 병변 분류</div>
+<div class="u">BT VAE+C</div>
+<ul class="list dense">
+<li><div class="list-text"><span class="meaning-line">분할 모델을 고정하고 작은 분류기만 학습</span><span class="meaning-line">→ 기존의 잠재 표현으로 병변 존재 확률을 예측</span></div></li>
+<li><div class="list-text"><span class="meaning-line">검증 데이터셋에서 판단 기준값을 선택</span><span class="meaning-line">→ 존재 확률이 기준보다 낮으면 병변 없음으로 처리</span></div></li>
+<li><div class="list-text"><span class="meaning-line">병변 경계를 다시 그리는 대신</span><span class="meaning-line">→ 예측 결과를 남길지 제거할지 결정 [4][5]</span></div></li>
+</ul>
+<b>μ → 존재 확률 p → 임계값 τ</b>
+<span>p &lt; τ이면 해당 영상을 병변 없음으로 판단</span>
+<div aria-hidden="true" class="ring-dot"></div>
+</div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>5 / 15</span></div>
+</section>
+<!-- 6 method figure -->
+<section class="page" data-i="6">
+<div class="sec rv" data-d="0">03 · 제안된 방법</div>
+<h1 class="head rv" data-d="60">학습은 세 단계로 진행</h1>
+<div class="body-fill single">
+<div class="stack rv" data-d="120">
+<div class="steps-inline">
+<div class="chip">STEP 01 · 사전학습<span>좌·우 90° 뷰 · KL 정렬 + Barlow Twins</span></div>
+<div class="chip">STEP 02 · 분할 미세조정<span>스킵 연결 · Encoder·Decoder 학습</span></div>
+<div class="chip">STEP 03 · 이진 병변 분류<span>μ 헤드 · Encoder·Decoder 미학습</span></div>
+</div>
+<div class="fig method"><img alt="방법 개요 그림" src="assets/method.png?v=34"/></div>
+<div class="cap">그림 1. Barlow Twins 사전학습 · 스킵 연결 · μ 기반 이진 병변 분류</div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>6 / 15</span></div>
+</section>
+<!-- 7 architecture U-Net -->
+<section class="page" data-i="7">
+<div class="sec rv" data-d="0">03 · 제안된 방법</div>
+<h1 class="head rv" data-d="60">스킵 연결을 추가한 BT VAE+S&C 구조</h1>
+<div class="body-fill single">
+<div class="stack rv" data-d="140">
+<div class="fig arch">
+<img alt="BT VAE+S&amp;C architecture" src="assets/unet-architecture.png?v=44"/>
+</div>
+<div class="cap">X → Encoder B1–B5 → z → Decoder D5→D1 (+ skips B1–B4) → M · μ → Binary Lesion Classification → gate → x′</div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>7 / 15</span></div>
+</section>
+<!-- 8 skip ablation -->
+<section class="page" data-i="8">
+<div class="sec rv" data-d="0">03 · 제안된 방법</div>
+<h1 class="head rv" data-d="60">4단계 스킵 연결의 성능이 가장 우수함</h1>
+<div class="body-fill">
+<div class="grid2">
+<div class="col rv left" data-d="120">
+<div class="panel">
+<div class="h3">스킵 연결의 역할과 구현 방식</div>
+<ul class="list dense">
+<li><div class="list-text"><span class="meaning-line">원 논문 [1]: 학습한 잠재분포에서 값을 뽑아 사용</span><span class="meaning-line">본 재현 구현: 값을 뽑지 않고 평균 μ를 사용</span></div></li>
+<li><div class="list-text">인코더 다중 해상도 특징을 디코더에 직접 전달</div></li>
+<li><div class="list-text">경계는 살지만, 병변이 없는 영상에서 거짓 양성이 늘어남</div></li>
+</ul>
+</div>
+</div>
+<div class="col rv right zoom" data-d="220">
+<div class="fig"><img alt="스킵 연결 설정별 Dice" src="assets/test_dice_by_skip_setting.jpg?v=2"/></div>
+<div class="cap">그림 3. 스킵 연결 범위·결합 방식별 테스트 Dice</div>
+</div>
+</div>
+<div class="callout rv" data-d="280">BT VAE <b>0.654</b> → <b>중간 특징 채널 결합 0.811</b> (다섯 설정 중 최고). 이후 이 구성을 <b>BT VAE+S</b>로 사용</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>8 / 15</span></div>
+</section>
+<!-- 8 gating + auroc -->
+<section class="page" data-i="9">
+<div class="sec rv" data-d="0">03 · 제안된 방법</div>
+<h1 class="head rv" data-d="60">이진 병변 분류 기반의 병변 유무 판단</h1>
+<div class="body-fill">
+<div class="grid2">
+<div class="col rv left" data-d="120">
+<div class="panel">
+<div class="h3">동작</div>
+<ul class="list tight dense">
+<li><div class="list-text"><span class="meaning-line">분할 모델을 고정하고 잠재 평균 μ를 입력</span><span class="meaning-line">→ 작은 분류기가 병변 존재 확률 p를 예측</span></div></li>
+<li><div class="list-text"><span class="meaning-line">검증 집합에서 Youden 지수가 최대인 임계값 τ를 사용</span><span class="meaning-line">→ Youden = 민감도 + 특이도 − 1</span><span class="meaning-line">→ TP/(TP+FN) + TN/(TN+FP) − 1</span></div></li>
+</ul>
+<div class="formula">p &lt; τ이면 해당 영상을 병변 없음으로 처리</div>
+</div>
+</div>
+<div class="col rv right zoom" data-d="220">
+<div class="fig"><img alt="존재 헤드 AUROC" src="assets/cls_auroc_cnn.png?v=2"/></div>
+<div class="cap">그림 4. μ 기반 병변 존재 헤드 vs 독립 CNN · 테스트 AUROC</div>
+</div>
+</div>
+<div class="band-2 rv" data-d="280">
+<div class="mini"><div class="k">테스트 AUROC</div><div class="t">0.987 @ 레이블 30%</div><div class="d">BT VAE+S의 경량 분류 헤드</div></div>
+<div class="mini"><div class="k">설계 의도</div><div class="t">별도 특징망 없이 μ 재사용</div><div class="d">이진 병변 분류를 분할 인코더에 연결</div></div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>9 / 15</span></div>
+</section>
+<!-- 10 key source code -->
+
+<!-- 11 setup -->
+<section class="page" data-i="10">
+<div class="sec rv" data-d="0">04 · 실험 환경</div>
+<h1 class="head rv" data-d="60">COVID Dataset · BP Dataset · 실험설정</h1>
+<div class="env rv" data-d="90">실험 환경 · HP OMEN 15 · AMD Ryzen 5 240 (6C/12T) · RAM 24GB · NVIDIA GeForce RTX 5060 Laptop 8GB · Windows 11</div>
+<div class="body-fill">
+<div class="grid2b" style="height:auto;min-height:0;align-self:start">
+<div class="panel rv left" data-d="140" style="height:auto;min-height:0;overflow:visible">
+<div class="ds-split">
+<div class="ds-col">
+<div class="h3">COVID</div>
+<ul class="list tight dense">
+<li><div class="list-text">학습 743장 · 검증 92장 · 테스트 94장</div></li>
+<li><div class="list-text">테스트: 병변이 있는 영상 54장 / 없는 영상 40장</div></li>
+<li><div class="list-text">학습 데이터셋의 비율 10%·30%·50%·70%·90%</div></li>
+</ul>
+</div>
+<div class="ds-col">
+<div class="h3">BP</div>
+<ul class="list tight dense">
+<li><div class="list-text">학습 4,508장 · 검증 563장 · 테스트 564장</div></li>
+<li><div class="list-text">학습 데이터 30% 조건에서 정성 평가</div></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="box rv right" data-d="220" style="height:auto;min-height:0;overflow:visible">
+<div class="h3">두 확장 방법의 개별·결합 효과 비교</div>
+<ul class="list tight dense"><li><div class="list-text">BT VAE</div></li><li><div class="list-text">BT VAE+S: 스킵 연결 추가</div></li><li><div class="list-text">BT VAE+C: 이진 병변 분류 추가</div></li><li><div class="list-text">BT VAE+S&amp;C(Ours): 두 방법을 함께 적용 (제안)</div></li></ul>
+</div>
+</div>
+<div class="fig fit rv ds-samples" data-d="280" style="width:100%;justify-content:center;background:var(--g0);padding:0;border-color:var(--rule)">
+<img alt="COVID · BP 데이터셋 샘플" src="assets/dataset_samples.png?v=6"/>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>10 / 15</span></div>
+</section>
+<!-- 10 dice chart -->
+<section class="page" data-i="11">
+<div class="sec rv" data-d="0">05 · 실험 결과 및 고찰</div>
+<h1 class="head rv" data-d="60">레이블이 적을수록 BT VAE+S&amp;C(Ours) 이득이 큼</h1>
+<div class="body-fill single">
+<div class="grid2">
+<div class="col rv left zoom" data-d="120">
+<div class="fig"><img alt="레이블 비율별 Dice" src="assets/dice_vs_ratio.png?v=2"/></div>
+<div class="cap">그림 2. 레이블 비율별 전체 Dice</div>
+</div>
+<div class="aside-stack rv right" data-d="220">
+<div class="cell" style="min-height:0;height:auto;padding:22px 24px">
+<i>30%</i>
+<div class="v" style="font-size:60px">0.640 → 0.801</div>
+<div class="u">BT VAE → BT VAE+S&amp;C(Ours) · 전체 Dice</div>
+</div>
+<div class="bars">
+<div class="bar-row"><span>30% 격차</span><div class="bar-track"><div class="bar-fill" data-w="100" style=";--print-bar:100%"></div></div><b>+0.161</b></div>
+<div class="bar-row"><span>90% 격차</span><div class="bar-track"><div class="bar-fill alt" data-w="20.5" style=";--print-bar:20.5%"></div></div><b>+0.033</b></div>
+</div>
+<div class="band-2" style="flex:0 0 auto">
+<div class="mini" style="min-height:0;padding:14px 16px"><div class="k">스킵 연결 추가 이득 @30%</div><div class="t">+0.105</div></div>
+<div class="mini" style="min-height:0;padding:14px 16px"><div class="k">스킵 연결 추가 이득 @90%</div><div class="t">+0.008</div></div>
+<div class="mini" style="min-height:0;padding:14px 16px"><div class="k">이진 병변 분류 추가 이득 @30%</div><div class="t">+0.056</div></div>
+<div class="mini" style="min-height:0;padding:14px 16px"><div class="k">이진 병변 분류 추가 이득 @90%</div><div class="t">+0.025</div></div>
+</div>
+<div class="callout" style="flex:0 0 auto"><span class="meaning-line">다섯 레이블 비율 모두에서 BT VAE+S&amp;C(Ours)이 최고</span><span class="meaning-line">레이블이 적을수록 BT VAE 대비 전체 Dice 개선 폭이 큼</span></div>
+</div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>11 / 15</span></div>
+</section>
+<!-- 11 table -->
+<section class="page" data-i="12">
+<div class="sec rv" data-d="0">05 · 실험 결과 및 고찰</div>
+<h1 class="head rv" data-d="60">스킵 연결은 복원, 이진 병변 분류는 병변 유무 판단</h1>
+<div class="body-fill">
+<div class="stack rv" data-d="120">
+<table class="cmp">
+<thead>
+<tr>
+<th>모델</th><th>전체 Dice</th><th>병변 Dice</th><th>거짓 양성률 (FPR)</th><th>거짓 음성률 (FNR)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>BT VAE</td><td class="mono">0.640</td><td class="mono">0.595</td><td class="mono">0.300</td><td class="mono">0.019</td></tr>
+<tr><td>BT VAE+S</td><td class="mono">0.745</td><td class="mono">0.723</td><td class="mono">0.225</td><td class="mono">0.074</td></tr>
+<tr><td>BT VAE+C</td><td class="mono">0.740</td><td class="mono">0.547</td><td class="mono">0.000</td><td class="mono">0.185</td></tr>
+<tr class="best"><td>BT VAE+S&amp;C(Ours)</td><td class="mono">0.801</td><td class="mono">0.691</td><td class="mono">0.050</td><td class="mono">0.111</td></tr>
+</tbody>
+</table>
+</div>
+<div class="band-2 rv" data-d="220">
+<div class="mini"><div class="k">스킵 연결</div><div class="t">병변 Dice 0.595→0.723</div><div class="d">위치·경계 복원</div></div>
+<div class="mini"><div class="k">이진 병변 분류</div><div class="t">거짓 양성 0.225→0.050</div><div class="d">전체 Dice 0.745→0.801</div></div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>12 / 15</span></div>
+</section>
+<!-- 12 qualitative covid -->
+<section class="page" data-i="13">
+<div class="sec rv" data-d="0">05 · 실험 결과 및 고찰</div>
+<h1 class="head rv" data-d="60">BP Dataset에서 병변 영역 복원과 거짓 양성 억제 확인</h1>
+<div class="body-fill single">
+<div class="grid2">
+<div class="col rv left zoom" data-d="120">
+<div class="fig"><img alt="BP Dataset 정성 비교 패널" src="assets/bp_panel.png"/></div>
+<div class="cap">그림 6. BP Dataset 정성 비교 · <a href="https://github.com/azure-B/An-Empirical-Study-on-BT VAE-Reproduction-and-Extension" rel="noopener" target="_blank">results/bp_panel.png</a></div>
+</div>
+<div class="col rv right" data-d="220">
+<div class="panel">
+<div class="h3">고찰</div>
+<ul class="list tight dense">
+<li><div class="list-text"><span class="meaning-line">병변이 있는 예시: BT VAE+S이</span><span class="meaning-line">BT VAE보다 더 넓은 병변 영역을 복원</span></div></li>
+<li><div class="list-text"><span class="meaning-line">병변 없는 두 번째 예시의 거짓 양성 비교</span><span class="meaning-line">BT VAE·BT VAE+S·BT VAE+C 거짓 양성 발생</span><span class="meaning-line">BT VAE+S&amp;C(Ours) 거짓 양성 억제</span></div></li>
+</ul>
+<div class="callout" style="margin-top:auto">병변이 있는 영상과 없는 영상의 분할 결과 비교</div>
+</div>
+</div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>13 / 15</span></div>
+</section>
+<!-- 13 BP qualitative -->
+<section class="page" data-i="14">
+<div class="sec rv" data-d="0">05 · 실험 결과 및 고찰</div>
+<h1 class="head rv" data-d="60">COVID Dataset (레이블 30%)의 영상 분할 결과</h1>
+<div class="body-fill single">
+<div class="stack rv zoom" data-d="120">
+<div class="fig tall"><img alt="COVID Dataset 정성 비교 패널" src="assets/covid_panel.png"/></div>
+<div class="cap">그림 5. 입력 / Ground Truth / BT VAE / BT VAE+S / BT VAE+C / <b>BT VAE+S&amp;C(Ours)</b> · <a href="https://github.com/azure-B/An-Empirical-Study-on-BT VAE-Reproduction-and-Extension" rel="noopener" target="_blank">results/covid_panel.png</a> · Case2 거짓 양성 제거, Case4 작은 병변은 BT VAE+S&amp;C(Ours)이 유지</div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>14 / 15</span></div>
+</section>
+<!-- 15 conclusion (merged) -->
+<section class="page" data-i="15">
+<div class="sec rv" data-d="0">06 · 결론 및 활용 가능성·향후 과제</div>
+<h1 class="head rv" data-d="60">분할 성능 향상·FP 억제 및 소수 레이블 CT 활용 가능</h1>
+<div class="body-fill single">
+<div class="feat-cards cols-3">
+<div class="feat-card rv" data-d="140">
+<div class="h3">결론</div>
+<ul class="list dense">
+<li><div class="list-text"><span class="meaning-line">스킵 연결로 병변의</span><span class="meaning-line">위치·경계 복원 개선</span></div></li>
+<li><div class="list-text"><span class="meaning-line">병변 이진 분류로</span><span class="meaning-line">정상 영상의 오검출 억제</span></div></li>
+<li><div class="list-text"><span class="meaning-line">제한된 레이블 환경에서도</span><span class="meaning-line">분할 성능 개선 확인</span></div></li>
+</ul>
+</div>
+<div class="feat-card rv" data-d="220">
+<div class="h3">활용 가능성</div>
+<ul class="list dense">
+<li><div class="list-text"><span class="meaning-line">정답 레이블이 부족한</span><span class="meaning-line">데이터셋 구축 초기 단계</span></div></li>
+<li><div class="list-text"><span class="meaning-line">병변이 없는 영상이 많은</span><span class="meaning-line">CT 데이터셋</span></div></li>
+<li><div class="list-text"><span class="meaning-line">분할 인코더의 잠재 표현으로</span><span class="meaning-line">병변 존재 여부 판단</span></div></li>
+</ul>
+</div>
+<div class="feat-card rv" data-d="300">
+<div class="h3">향후 과제</div>
+<ul class="list dense">
+<li><div class="list-text">반복 실험으로 안정성 확인</div></li>
+<li><div class="list-text">환자 단위 데이터 분할 검증</div></li>
+<li><div class="list-text">다른 데이터셋 정량 평가</div></li>
+<li><div class="list-text">병변 분류 임계값 고도화</div></li>
+</ul>
+</div>
+</div>
+<div class="concl-kpis rv" data-d="360">
+<div class="mini"><div class="k">10% Dice</div><div class="t">0.505 → 0.768</div></div>
+<div class="mini"><div class="k">30% Dice</div><div class="t">0.801</div></div>
+<div class="mini"><div class="k">30% FPR</div><div class="t">0.050</div></div>
+</div>
+</div>
+<div class="foot"><span>BT VAE+S&amp;C</span><span>15 / 15</span></div>
+</section>
+
+</div>
+
+<div class="hint">← → · Space · O 목차 · Home/End · 그림은 assets/ (저장소 results/)</div>
+<div class="nv">
+  <button class="pv" type="button" id="prevBtn">‹ 이전</button>
+  <button class="pv" type="button" id="nextBtn">다음 ›</button>
+</div>
+
+<script>
+(() => {
+  const stage = document.getElementById('stage');
+  const pages = [...document.querySelectorAll('.page')];
+  const toc = document.getElementById('toc');
+  const progress = document.getElementById('progress');
+  let i = 0;
+
+  const titles = [
+    '표지','목차','연구 배경','기존의 BT VAE 한계','연구 목표','방법 개요(그림)',
+    'BT VAE+S 구조','스킵 연결 비교','이진 병변 분류','실험 환경','레이블 비율별 Dice','표 1 분석',
+    'BP Dataset 정성','COVID Dataset 정성','결론 및 향후 과제'
+  ];
+  const tocSections = [
+    {title:'연구 배경 및 기존 연구', page:3},
+    {title:'연구 목표', page:5},
+    {title:'제안된 방법', page:6},
+    {title:'실험 환경', page:10},
+    {title:'실험 결과 및 고찰', page:11},
+    {title:'결론 및 향후 과제', page:15}
+  ];
+  toc.innerHTML = tocSections.map((item, i) => {
+    return `<div class="toc-item" data-go="${item.page - 1}"><div class="toc-num">${String(i + 1).padStart(2,'0')}</div><div class="toc-title">${item.title}</div></div>`;
+  }).join('');
+
+  const fit = () => {
+    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    stage.style.transform = `translate(${(innerWidth - 1920 * s) / 2}px,${(innerHeight - 1080 * s) / 2}px) scale(${s})`;
+  };
+  addEventListener('resize', fit);
+  fit();
+
+  function build(page) {
+    page.classList.remove('built');
+    page.querySelectorAll('.rv').forEach((el) => { el.style.transitionDelay = '0ms'; });
+    page.querySelectorAll('.bar-fill').forEach((el) => { el.style.width = '0'; });
+    // force reflow
+    void page.offsetWidth;
+    requestAnimationFrame(() => {
+      page.classList.add('built');
+      page.querySelectorAll('.rv').forEach((el) => {
+        el.style.transitionDelay = (+el.dataset.d || 0) + 'ms';
+      });
+      page.querySelectorAll('.bar-fill').forEach((el, idx) => {
+        el.style.transitionDelay = (180 + idx * 90) + 'ms';
+        el.style.width = (el.dataset.w || 0) + '%';
+      });
+    });
+  }
+
+  function show(n) {
+    i = Math.max(0, Math.min(pages.length - 1, n));
+    pages.forEach((p, idx) => {
+      const on = idx === i;
+      p.classList.toggle('on', on);
+      if (on) build(p);
+      else p.classList.remove('built');
+    });
+    progress.style.width = ((i + 1) / pages.length * 100) + '%';
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  const next = () => show(i + 1);
+  const prev = () => show(i - 1);
+  document.getElementById('nextBtn').onclick = next;
+  document.getElementById('prevBtn').onclick = prev;
+  toc.addEventListener('click', (e) => {
+    const item = e.target.closest('.toc-item');
+    if (item) show(+item.dataset.go);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight','PageDown',' ','Enter'].includes(e.key)) { e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp','Backspace'].includes(e.key)) { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); show(0); }
+    else if (e.key === 'End') { e.preventDefault(); show(pages.length - 1); }
+    else if (e.key === 'o' || e.key === 'O') { e.preventDefault(); show(1); }
+  });
+  stage.addEventListener('click', (e) => {
+    if (e.target.closest('.toc-item') || e.target.closest('a')) return;
+    const rect = stage.getBoundingClientRect();
+    if ((e.clientX - rect.left) / rect.width > 0.55) next();
+    else prev();
+  });
+
+  const hash = +location.hash.replace('#','');
+  show(Number.isFinite(hash) && hash >= 1 && hash <= pages.length ? hash - 1 : 0);
+})();
+</script>
+<script>
+// Keep enlarged titles and body content separated after fonts load.
+(async()=>{await document.fonts.ready;document.querySelectorAll('.page:not(.title)').forEach(p=>{const b=p.querySelector('.body-fill');if(!b)return;let edge=0;p.querySelectorAll(':scope > .head,:scope > .env,:scope > .concl-lead,:scope > .ctitle').forEach(e=>{edge=Math.max(edge,e.offsetTop+e.offsetHeight)});const top=Math.max(parseFloat(getComputedStyle(b).top),edge+24);b.style.top=top+'px';});})();
+</script></body>
+</html>

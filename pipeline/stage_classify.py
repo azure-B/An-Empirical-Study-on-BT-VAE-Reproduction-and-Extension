@@ -181,12 +181,21 @@ def train_covid(ratios=COVID_RATIOS):
     for ratio in ratios:
         pct = int(round(ratio * 100))
         _full, train_loader, val_loader, test_loader, n_train = make_bundle(ratio, 4)
-        ckpt = ROOT / "results" / "covid" / "label_ratio" / f"r{pct:02d}" / "none" / "seg_best.pt"
-        out = ROOT / "results" / "covid" / "label_ratio" / f"r{pct:02d}" / "none_cls"
+        from pipeline.model_names import DIR, LEGACY_DIRS
+        rdir = ROOT / "results" / "covid" / "label_ratio" / f"r{pct:02d}"
+        ckpt = None
+        for dname in LEGACY_DIRS["BT-VAE"]:
+            cand = rdir / dname / "seg_best.pt"
+            if cand.exists():
+                ckpt = cand
+                break
+        if ckpt is None:
+            safe_print(f"skip covid r{pct} BT-VAE+C — missing BT-VAE seg_best.pt")
+            continue
+        out = rdir / DIR["BT-VAE+C"]
         out.mkdir(parents=True, exist_ok=True)
-        from pipeline.stage_panel import load_none as _ln
-        model = _ln()
-        # load_none points at the BP checkpoint. Load the COVID one instead.
+        from pipeline.engine import OrigVAE
+        model = OrigVAE(base=32).to(DEVICE)
         state = safe_load(ckpt, map_location="cpu")
         model.load_state_dict(state["model"])
         model.eval()
@@ -194,6 +203,7 @@ def train_covid(ratios=COVID_RATIOS):
             p.requires_grad = False
         head_path = out / "head_best.pt"
         report_path = out / "report.json"
+        name = "BT-VAE+C"
         head, best_ep, meta = train_head(
             model, none_mu_logits, train_loader, val_loader, head_path, report_path,
         )
@@ -216,7 +226,7 @@ def train_covid(ratios=COVID_RATIOS):
             meta = {
                 "dataset": "covid",
                 "ratio": ratio,
-                "mode": "none_cls",
+                "mode": name,
                 "n_train": n_train,
                 "loss": "BCEWithLogits",
                 "probability": "p = sigmoid(Head(mu)) = P(lesion present | slice)",
@@ -231,7 +241,7 @@ def train_covid(ratios=COVID_RATIOS):
             }
             report_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
         points.append(meta)
-        safe_print(f"covid r{pct} none+cls dice={meta['test']['dice']:.4f} tau={meta['tau']:.2f}")
+        safe_print(f"covid r{pct} {name} dice={meta['test']['dice']:.4f} tau={meta['tau']:.2f}")
         del model, head
         if DEVICE == "cuda":
             torch.cuda.empty_cache()

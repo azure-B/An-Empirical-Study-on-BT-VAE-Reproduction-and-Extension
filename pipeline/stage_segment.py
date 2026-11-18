@@ -1,13 +1,11 @@
-"""COVID labeled-ratio sweep for a Fig. 2 style Dice curve.
+"""COVID labeled-ratio sweep.
 
-Val/test stay the full covid_8_1_1 split. Only the train set is subsampled
-to {0.1, 0.3, 0.5, 0.7, 0.9}. BT encoder is the existing COVID checkpoint.
+Canonical model names (pipeline.model_names):
+  VAE | BT-VAE | BT-VAE+C | BT-VAE+S | BT-VAE+S&C(Ours)
+  C = lesion binary classification gate on μ
+  S = skip connections (BT-VAE_CODE backbone + B0..B3 fuse)
 
-Two independent Fig. 2 curves, so a later plot can overlay or extend them:
-  s5      raw SkipVAE (no gate)
-  s5_cls  same S5 mask, kept iff P(lesion) ≥ τ (τ picked on VAL)
-No second encoder, no 2.5D CNN, no weighted product. A new series is
-another mode directory with its own report.json.
+Val/test = full covid_8_1_1. Train subsampled to ratio.
 """
 from __future__ import annotations
 
@@ -25,8 +23,9 @@ from torch.utils.data import DataLoader, Dataset
 from pipeline import config as C
 from pipeline.data import datasets
 from pipeline.metrics import binary_auroc, metrics_bundle
+from pipeline.model_names import DIR, display as model_display
 from pipeline.models_presence import LesionPresenceHead
-from pipeline.models_skip import VAE as SkipVAE
+from pipeline.models_skip import VAE as BTVAE_S
 from pipeline.engine import (
     DEVICE,
     OrigVAE,
@@ -46,13 +45,39 @@ from pipeline.engine import (
 RATIOS = (0.1, 0.3, 0.5, 0.7, 0.9)
 SEED = 0
 OUT_ROOT = C.RESULT_DIR / "label_ratio"
-# RTX 5060 8151 MiB. One AdamW step, 256², base 32 (measured reserved):
-#   none bs8 = 6700, s5 bs8 = 7806 (too tight), both bs4 <= 4800.
-# Keep reserved under ~60% so the desktop is not paged out.
-VRAM_BATCH = {"none": 4, "s5": 4}
+# RTX 5060 8151 MiB. AdamW step 256² base32: BT-VAE/BT-VAE+S bs4 safe.
+VRAM_BATCH = {
+    "BT-VAE": 4,
+    "BT-VAE+S": 4,
+    "none": 4,  # legacy alias → BT-VAE
+    "s5": 4,    # legacy alias → BT-VAE+S
+}
 CLS_EPOCHS = 40
 CLS_ES = 10
 CLS_POS_WEIGHT = 2.0
+
+# CLI / internal mode → official display name
+_MODE_ALIAS = {
+    "none": "BT-VAE",
+    "bt-vae": "BT-VAE",
+    "bt_vae": "BT-VAE",
+    "BT-VAE": "BT-VAE",
+    "s5": "BT-VAE+S",
+    "bt-vae+s": "BT-VAE+S",
+    "bt_vae_s": "BT-VAE+S",
+    "BT-VAE+S": "BT-VAE+S",
+}
+
+
+def normalize_mode(mode: str) -> str:
+    key = mode.strip()
+    if key in _MODE_ALIAS:
+        return _MODE_ALIAS[key]
+    raise ValueError(f"unknown mode {mode!r}; use BT-VAE or BT-VAE+S")
+
+
+def mode_dir(display_name: str) -> str:
+    return DIR[display_name]
 
 
 class IndexSubset(Dataset):
@@ -118,6 +143,7 @@ def make_bundle(ratio: float, batch_size: int):
 def eval_split(model, loader, kind: str) -> dict:
     """Deterministic μ decode. Dice mean is the Fig. 2 style score."""
     model.eval()
+    kind_d = normalize_mode(kind) if kind in _MODE_ALIAS or kind in ("BT-VAE", "BT-VAE+S") else kind
     dices, gts, preds = [], [], []
     for batch in loader:
         x, y = batch[0].to(DEVICE), batch[1].to(DEVICE)
@@ -125,7 +151,7 @@ def eval_split(model, loader, kind: str) -> dict:
             x = x.unsqueeze(1)
         if y.ndim == 3:
             y = y.unsqueeze(1)
-        if kind == "s5":
+        if kind_d == "BT-VAE+S":
             mu, _lv, _z, skips = model.encoder.forward_features(x)
             logits = model.decoder(mu, skips)
         else:
@@ -146,8 +172,8 @@ def eval_split(model, loader, kind: str) -> dict:
 
 
 SERIES_NOTE = (
-    "Independent curves. s5 = raw segmentation, s5_cls = S5 gated by "
-    "P(lesion). Add another mode's report.json to extend the plot later."
+    "Models: VAE | BT-VAE | BT-VAE+C | BT-VAE+S | BT-VAE+S&C(Ours). "
+    "C=lesion binary cls gate; S=skip connections on BT-VAE_CODE backbone."
 )
 
 
@@ -258,15 +284,17 @@ def prob_group_stats(gt: np.ndarray, score: np.ndarray) -> dict:
     return {"p_lesion": pack(score[lesion]), "p_empty": pack(score[empty])}
 
 
-def train_s5_cls(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_loader, n_train: int):
+def train_btvae_sc(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_loader, n_train: int):
+    """BT-VAE+S&C(Ours): freeze BT-VAE+S + lesion presence head (C)."""
     pct = int(round(ratio * 100))
-    out_dir = OUT_ROOT / f"r{pct:02d}" / "s5_cls"
+    name = "BT-VAE+S&C(Ours)"
+    out_dir = OUT_ROOT / f"r{pct:02d}" / mode_dir(name)
     out_dir.mkdir(parents=True, exist_ok=True)
     report_path = out_dir / "report.json"
     if report_path.exists():
         safe_print(f"skip existing {report_path}")
         return
-    model = SkipVAE(base=32).to(DEVICE)
+    model = BTVAE_S(base=32).to(DEVICE)
     st = safe_load(seg_ckpt, map_location="cpu")
     model.load_state_dict(st["model"])
     model.eval()
@@ -279,7 +307,7 @@ def train_s5_cls(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_lo
     best_path = out_dir / "head_best.pt"
     trend = []
     safe_print(
-        f"[r{pct} s5+cls] freeze S5 | Head(μ) logit → p=σ(logit)=P(lesion) | "
+        f"[r{pct} {name}] freeze BT-VAE+S | Head(μ)→P(lesion) | "
         f"BCEWithLogits pos_weight={CLS_POS_WEIGHT}"
     )
     for ep in range(1, CLS_EPOCHS + 1):
@@ -311,7 +339,7 @@ def train_s5_cls(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_lo
         }
         trend.append(rec)
         safe_print(
-            f"[r{pct} cls {ep}/{CLS_EPOCHS}] bce={rec['train_bce']:.4f} auroc={auroc:.4f} "
+            f"[r{pct} {name} {ep}/{CLS_EPOCHS}] bce={rec['train_bce']:.4f} auroc={auroc:.4f} "
             f"P(lesion)|GT+={rec['val_p_lesion_mean']:.3f} "
             f"P(lesion)|empty={rec['val_p_empty_mean']:.3f} ({time.time()-t0:.1f}s)"
         )
@@ -321,7 +349,7 @@ def train_s5_cls(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_lo
         else:
             bad += 1
             if bad >= CLS_ES:
-                safe_print(f"early stop cls r{pct} @ {ep}")
+                safe_print(f"early stop {name} r{pct} @ {ep}")
                 break
     head.load_state_dict(safe_load(best_path, map_location="cpu")["head"])
     (out_dir / "prob_trend.json").write_text(json.dumps(trend, indent=2), encoding="utf-8")
@@ -333,7 +361,7 @@ def train_s5_cls(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_lo
     report = {
         "dataset": "covid",
         "ratio": ratio,
-        "mode": "s5_cls",
+        "mode": name,
         "n_train": n_train,
         "loss": "BCEWithLogits",
         "probability": "p = sigmoid(Head(μ)) = P(lesion present | slice)",
@@ -353,11 +381,11 @@ def train_s5_cls(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_lo
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     try:
         from pipeline.cases import save_covid_case
-        save_covid_case("s5_cls", ratio, model, head, tau)
+        save_covid_case(name, ratio, model, head, tau)
     except Exception as exc:
-        safe_print(f"case panel skip s5_cls r{pct}: {exc}")
+        safe_print(f"case panel skip {name} r{pct}: {exc}")
     safe_print(
-        f"TEST r{pct} s5+cls τ={tau:.2f} dice={mt['overall_dice']:.4f} "
+        f"TEST r{pct} {name} τ={tau:.2f} dice={mt['overall_dice']:.4f} "
         f"ne={mt['nonempty_dice']:.4f} fp={mt['empty_fp_rate']:.3f}"
     )
     del model, head
@@ -366,28 +394,31 @@ def train_s5_cls(ratio: float, seg_ckpt: Path, train_loader, val_loader, test_lo
     refresh_curve()
 
 
+# backward-compatible alias
+train_s5_cls = train_btvae_sc
+
+
 def run_one(mode: str, ratio: float, max_ep: int):
-    assert mode in {"none", "s5"}
+    name = normalize_mode(mode)  # BT-VAE | BT-VAE+S
     pct = int(round(ratio * 100))
-    out_dir = OUT_ROOT / f"r{pct:02d}" / mode
+    out_dir = OUT_ROOT / f"r{pct:02d}" / mode_dir(name)
     out_dir.mkdir(parents=True, exist_ok=True)
     report_path = out_dir / "report_seg.json"
-    # none writes report.json when SEG finishes. r10 already has that point.
-    if report_path.exists() or (mode == "none" and (out_dir / "report.json").exists()):
-        safe_print(f"skip existing {out_dir}")
-        if mode == "s5":
-            seg_bs = VRAM_BATCH["s5"]
+    if report_path.exists() or (out_dir / "report.json").exists():
+        safe_print(f"skip existing {out_dir} ({name})")
+        if name == "BT-VAE+S":
+            seg_bs = VRAM_BATCH["BT-VAE+S"]
             full, train_loader, val_loader, test_loader, n_train = make_bundle(ratio, seg_bs)
-            train_s5_cls(ratio, out_dir / "seg_best.pt", train_loader, val_loader, test_loader, n_train)
+            train_btvae_sc(ratio, out_dir / "seg_best.pt", train_loader, val_loader, test_loader, n_train)
         return
-    seg_bs = VRAM_BATCH[mode]
+    seg_bs = VRAM_BATCH[name]
     full, train_loader, val_loader, test_loader, n_train = make_bundle(ratio, seg_bs)
     safe_print(
-        f"[ratio {ratio:.1f} {mode}] train={n_train}/{len(full.train)} "
+        f"[{name} ratio={ratio:.1f}] train={n_train}/{len(full.train)} "
         f"val={len(full.val)} test={len(full.test)} batch={seg_bs} "
-        f"(5060 8GB, reserved budget ~4.8GB)"
+        f"backbone=BT-VAE_CODE/models1.py"
     )
-    model = (OrigVAE if mode == "none" else SkipVAE)(base=32).to(DEVICE)
+    model = (OrigVAE if name == "BT-VAE" else BTVAE_S)(base=32).to(DEVICE)
     bt = C.BT_BEST if C.BT_BEST.exists() else C.BT_LAST
     opt = torch.optim.AdamW(model.parameters(), lr=SEG_LR, weight_decay=1e-4)
     sched = ReduceLROnPlateau(opt, mode="min", factor=0.95, patience=3, min_lr=1e-8)
@@ -401,7 +432,7 @@ def run_one(mode: str, ratio: float, max_ep: int):
         best_loss = float(st.get("best_loss", best_loss))
         best_ep = int(st.get("best_ep", 0))
         bad = max(0, start_ep - 1 - best_ep)
-        safe_print(f"resume {mode} r{pct} from ep {start_ep} best={best_loss:.4f} @ {best_ep}")
+        safe_print(f"resume {name} r{pct} from ep {start_ep} best={best_loss:.4f} @ {best_ep}")
         del st
     else:
         load_bt_into_encoder(model.encoder, bt)
@@ -428,9 +459,15 @@ def run_one(mode: str, ratio: float, max_ep: int):
                 nva += 1
         va_loss /= max(1, nva)
         sched.step(va_loss)
+        vram = ""
+        if DEVICE == "cuda":
+            vram = (
+                f" vram={torch.cuda.memory_reserved()/1e9:.2f}G"
+                f"/{torch.cuda.get_device_properties(0).total_memory/1e9:.1f}G"
+            )
         safe_print(
-            f"[r{pct} {mode} {ep}/{limit}] train={tr_loss/max(1,ntr):.4f} "
-            f"val={va_loss:.4f} ({time.time()-t0:.1f}s)"
+            f"[{name} r{pct} {ep}/{limit}] train={tr_loss/max(1,ntr):.4f} "
+            f"val={va_loss:.4f} ({time.time()-t0:.1f}s){vram}"
         )
         payload = {
             "model": model.state_dict(),
@@ -438,7 +475,7 @@ def run_one(mode: str, ratio: float, max_ep: int):
             "best_loss": best_loss,
             "best_ep": best_ep,
             "ratio": ratio,
-            "mode": mode,
+            "mode": name,
         }
         atomic_torch_save(payload, last_path)
         if va_loss < best_loss - 1e-5:
@@ -449,16 +486,16 @@ def run_one(mode: str, ratio: float, max_ep: int):
         else:
             bad += 1
             if bad >= SEG_ES_PATIENCE:
-                safe_print(f"early stop r{pct} {mode} @ {ep}")
+                safe_print(f"early stop {name} r{pct} @ {ep}")
                 break
 
     st = safe_load(best_path if best_path.exists() else last_path, map_location="cpu")
     model.load_state_dict(st["model"])
-    test = eval_split(model, test_loader, mode)
+    test = eval_split(model, test_loader, name)
     report = {
         "dataset": "covid",
         "ratio": ratio,
-        "mode": mode,
+        "mode": name,
         "n_train": n_train,
         "n_train_full": len(full.train),
         "best_ep": int(st.get("best_ep", best_ep)),
@@ -467,30 +504,28 @@ def run_one(mode: str, ratio: float, max_ep: int):
         "seed": SEED,
     }
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
-    # Same numbers under report.json so the raw S5 curve is a first-class
-    # series, separate from rXX/s5_cls/report.json.
     (out_dir / "report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     try:
         from pipeline.cases import save_covid_case
-        save_covid_case(mode, ratio, model)
+        save_covid_case(name, ratio, model)
     except Exception as exc:
-        safe_print(f"case panel skip {mode} r{pct}: {exc}")
+        safe_print(f"case panel skip {name} r{pct}: {exc}")
     safe_print(
-        f"TEST r{pct} {mode} raw dice={test['dice']:.4f} ne={test['nonempty_dice']:.4f} "
+        f"TEST r{pct} {name} raw dice={test['dice']:.4f} ne={test['nonempty_dice']:.4f} "
         f"fp={test['empty_fp_rate']:.3f}"
     )
     del model
     if DEVICE == "cuda":
         torch.cuda.empty_cache()
-    if mode == "s5":
-        train_s5_cls(ratio, best_path if best_path.exists() else last_path, train_loader, val_loader, test_loader, n_train)
+    if name == "BT-VAE+S":
+        train_btvae_sc(ratio, best_path if best_path.exists() else last_path, train_loader, val_loader, test_loader, n_train)
     refresh_curve()
 
 
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument("--ratios", default="0.1,0.3,0.5,0.7,0.9")
-    p.add_argument("--modes", default="none,s5")
+    p.add_argument("--modes", default="BT-VAE,BT-VAE+S", help="BT-VAE and/or BT-VAE+S (aliases: none,s5)")
     p.add_argument("--max-ep", type=int, default=SEG_EPOCHS)
     return p.parse_args()
 
@@ -498,11 +533,11 @@ def parse_args():
 def main():
     args = parse_args()
     ratios = [float(x) for x in args.ratios.split(",") if x.strip()]
-    modes = [x.strip() for x in args.modes.split(",") if x.strip()]
+    modes = [normalize_mode(x.strip()) for x in args.modes.split(",") if x.strip()]
     OUT_ROOT.mkdir(parents=True, exist_ok=True)
-    # sanity: full covid sizes
     data = datasets.covid(batch_size=4, num_workers=0, pin_memory=False)
     safe_print(f"covid full train/val/test {len(data.train)}/{len(data.val)}/{len(data.test)}")
+    safe_print("models:", ", ".join(modes))
     for r in ratios:
         n = len(subset_indices(list(data.train.filenames), r))
         safe_print(f"  ratio {r:.1f} -> {n} train slices")

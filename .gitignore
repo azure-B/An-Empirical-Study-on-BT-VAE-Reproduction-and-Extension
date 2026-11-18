@@ -1,11 +1,40 @@
 .venv/
 __pycache__/
 *.py[cod]
+*.egg-info/
 .idea/
 .vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Required: local upstream / scratch tooling
+BT-VAE_CODE/
+scripts/
+
+# Local dumps / parked code
 original/
-old/wheels/
+old/
+_ref/
+
+# Data & weights
 datasets/
 checkpoints/
 *.pt
 *.pth
+*.ckpt
+*.onnx
+
+# Secrets
+token.txt
+kaggle.json
+.kaggle/
+.env
+.env.*
+
+# Slide capture intermediates (keep PPTX/HTML)
+presentation/exports/_shots_*/
+
+# Experiment outputs (keep tree placeholder if present)
+results/
+!results/.gitkeep

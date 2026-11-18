@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 633.0" width="1280" height="633.0">
+<rect width="1280" height="633.0" fill="#ffffff"/>
+<style>
+.t{font-family:DejaVu Sans,Arial,Helvetica,sans-serif}
+.title{font-size:28px;font-weight:700;fill:#222}
+.sub{font-size:14px;font-weight:400;fill:#333}
+.lbl{font-size:14px;font-weight:700;fill:#222}
+.tiny{font-size:13px;font-weight:500;fill:#333}
+.math{font-size:17px;font-weight:700;fill:#222}
+.boxlbl{font-size:16px;font-weight:700;fill:#222}
+.boxtiny{font-size:14px;font-weight:500;fill:#333}
+.leg{font-size:12px;font-weight:500;fill:#333}
+</style>
+<text class="t title" x="640.0" y="40" text-anchor="middle">BT-VAE+S&amp;C</text>
+<rect x="223.5" y="102.0" width="50" height="38" fill="#fff" stroke="#222" stroke-width="1.8"/>
+<text class="t math" x="248.5" y="126.0" text-anchor="middle">X</text>
+<text class="t tiny" x="248.5" y="156.0" text-anchor="middle">Input</text>
+<line x1="273.5" y1="121.0" x2="300.5" y2="121.0" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M310.5,121.0 L300.5,115.5 L300.5,126.5 Z" fill="#222"/>
+<path d="M318.5 90.0 L508.5 90.0 L498.5 152.0 L328.5 152.0 Z" fill="#cfe8cf" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="413.5" y="128" text-anchor="middle">Encoder B1</text>
+<line x1="413.5" y1="152" x2="413.5" y2="165" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M413.5,175 L408.0,165 L419.0,165 Z" fill="#222"/>
+<path d="M328.5 175.0 L498.5 175.0 L488.5 237.0 L338.5 237.0 Z" fill="#cfe8cf" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="413.5" y="213" text-anchor="middle">Encoder B2</text>
+<line x1="413.5" y1="237" x2="413.5" y2="250" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M413.5,260 L408.0,250 L419.0,250 Z" fill="#222"/>
+<path d="M338.5 260.0 L488.5 260.0 L478.5 322.0 L348.5 322.0 Z" fill="#cfe8cf" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="413.5" y="298" text-anchor="middle">Encoder B3</text>
+<line x1="413.5" y1="322" x2="413.5" y2="335" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M413.5,345 L408.0,335 L419.0,335 Z" fill="#222"/>
+<path d="M348.5 345.0 L478.5 345.0 L468.5 407.0 L358.5 407.0 Z" fill="#cfe8cf" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="413.5" y="383" text-anchor="middle">Encoder B4</text>
+<line x1="413.5" y1="407" x2="413.5" y2="420" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M413.5,430 L408.0,420 L419.0,420 Z" fill="#222"/>
+<path d="M358.5 430.0 L468.5 430.0 L461.0 492.0 L366.0 492.0 Z" fill="#cfe8cf" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="413.5" y="468" text-anchor="middle">Encoder B5</text>
+<path d="M573.5 90.0 L773.5 90.0 L763.5 152.0 L583.5 152.0 Z" fill="#cfe0f5" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="673.5" y="128" text-anchor="middle">Decoder D1</text>
+<path d="M583.5 175.0 L763.5 175.0 L753.5 237.0 L593.5 237.0 Z" fill="#cfe0f5" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="673.5" y="213" text-anchor="middle">Decoder D2</text>
+<path d="M593.5 260.0 L753.5 260.0 L743.5 322.0 L603.5 322.0 Z" fill="#cfe0f5" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="673.5" y="298" text-anchor="middle">Decoder D3</text>
+<path d="M603.5 345.0 L743.5 345.0 L733.5 407.0 L613.5 407.0 Z" fill="#cfe0f5" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="673.5" y="383" text-anchor="middle">Decoder D4</text>
+<path d="M613.5 430.0 L733.5 430.0 L723.5 492.0 L623.5 492.0 Z" fill="#cfe0f5" stroke="#222" stroke-width="1.8"/>
+<text class="t lbl" x="673.5" y="468" text-anchor="middle">Decoder D5</text>
+<line x1="673.5" y1="175" x2="673.5" y2="162" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M673.5,152 L668.0,162 L679.0,162 Z" fill="#222"/>
+<line x1="673.5" y1="260" x2="673.5" y2="247" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M673.5,237 L668.0,247 L679.0,247 Z" fill="#222"/>
+<line x1="673.5" y1="345" x2="673.5" y2="332" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M673.5,322 L668.0,332 L679.0,332 Z" fill="#222"/>
+<line x1="673.5" y1="430" x2="673.5" y2="417" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M673.5,407 L668.0,417 L679.0,417 Z" fill="#222"/>
+<path d="M413.5 492 L413.5 528 L475.6 528" fill="none" stroke="#222" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="475.6" y1="490.0" x2="475.6" y2="507.0" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="475.6" y1="549.0" x2="475.6" y2="566.0" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="475.6" y1="528" x2="475.6" y2="507.0" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="475.6" y1="528" x2="475.6" y2="549.0" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="475.6" y1="490.0" x2="489.6" y2="490.0" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="475.6" y1="566.0" x2="489.6" y2="566.0" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="489.6" y="475.0" width="30" height="30" fill="#cfe8cf" stroke="#222" stroke-width="1.6"/>
+<text class="t math" x="504.6" y="496.0" text-anchor="middle">σ</text>
+<rect x="489.6" y="510.0" width="30" height="36" fill="#fff" stroke="#222" stroke-width="1.6"/>
+<text class="t math" x="504.6" y="534.0" text-anchor="middle">ε</text>
+<rect x="489.6" y="551.0" width="30" height="30" fill="#cfe8cf" stroke="#222" stroke-width="1.6"/>
+<text class="t math" x="504.6" y="572.0" text-anchor="middle">μ</text>
+<path d="M519.6 490.0 L531.6 490.0 L531.6 518" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="519.6" y1="528" x2="531.6" y2="528" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M519.6 566.0 L531.6 566.0 L531.6 538" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="531.6" y1="518" x2="531.6" y2="538" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<line x1="531.6" y1="528" x2="563.6" y2="528" stroke="#222" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="563.6" y="502.0" width="28" height="52" fill="#F0A89A" stroke="#C07070" stroke-width="1.6"/>
+<text class="t math" x="577.6" y="534.0" text-anchor="middle">z</text>
+<path d="M591.6 528 L673.5 528 L673.5 510" fill="none" stroke="#222" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M673.5,500 L668.0,510 L679.0,510 Z" fill="#222"/>
+<line x1="511.5" y1="121.0" x2="560.5" y2="121.0" stroke="#002FA7" stroke-width="2" stroke-dasharray="7 4" stroke-linecap="round"/>
+<path d="M570.5,121.0 L560.5,115.5 L560.5,126.5 Z" fill="#002FA7"/>
+<line x1="501.5" y1="206.0" x2="570.5" y2="206.0" stroke="#002FA7" stroke-width="2" stroke-dasharray="7 4" stroke-linecap="round"/>
+<path d="M580.5,206.0 L570.5,200.5 L570.5,211.5 Z" fill="#002FA7"/>
+<line x1="491.5" y1="291.0" x2="580.5" y2="291.0" stroke="#002FA7" stroke-width="2" stroke-dasharray="7 4" stroke-linecap="round"/>
+<path d="M590.5,291.0 L580.5,285.5 L580.5,296.5 Z" fill="#002FA7"/>
+<line x1="481.5" y1="376.0" x2="590.5" y2="376.0" stroke="#002FA7" stroke-width="2" stroke-dasharray="7 4" stroke-linecap="round"/>
+<path d="M600.5,376.0 L590.5,370.5 L590.5,381.5 Z" fill="#002FA7"/>
+<line x1="768.5" y1="121.0" x2="906.5" y2="121.0" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M916.5,121.0 L906.5,115.5 L906.5,126.5 Z" fill="#222"/>
+<circle cx="932.5" cy="121.0" r="16" fill="#fff" stroke="#222" stroke-width="1.8"/>
+<line x1="925.3" y1="113.8" x2="939.7" y2="128.2" stroke="#222" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="925.3" y1="128.2" x2="939.7" y2="113.8" stroke="#222" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="948.5" y1="121.0" x2="970.5" y2="121.0" stroke="#222" stroke-width="2.1" stroke-linecap="round"/><path d="M980.5,121.0 L970.5,115.5 L970.5,126.5 Z" fill="#222"/>
+<text class="t boxlbl" x="1013.5" y="70.0" text-anchor="middle">Lesion</text>
+<text class="t boxlbl" x="1013.5" y="84.0" text-anchor="middle">Segmentation</text>
+<rect x="988.5" y="102.0" width="50" height="38" fill="#fff" stroke="#222" stroke-width="1.8"/>
+<text class="t math" x="1013.5" y="127.0" text-anchor="middle">x&#x2032;</text>
+<rect x="808.5" y="193.0" width="248" height="78" fill="#FFD8B0" stroke="#E06710" stroke-width="1.8"/>
+<text class="t boxlbl" x="932.5" y="226.0" text-anchor="middle" fill="#8B3A00">Binary Lesion</text>
+<text class="t boxlbl" x="932.5" y="246.0" text-anchor="middle" fill="#8B3A00">Classification</text>
+<path d="M504.6 581.0 L504.6 609.0 L932.5 609.0 L932.5 289.0" fill="none" stroke="#FF7A00" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M932.5,279.0 L927.0,289.0 L938.0,289.0 Z" fill="#FF7A00"/>
+<line x1="932.5" y1="193.0" x2="932.5" y2="147.0" stroke="#FF7A00" stroke-width="2.1" stroke-linecap="round"/><path d="M932.5,137.0 L927.0,147.0 L938.0,147.0 Z" fill="#FF7A00"/>
+</svg>

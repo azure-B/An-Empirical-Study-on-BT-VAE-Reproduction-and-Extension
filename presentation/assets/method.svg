@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 385" width="1400" height="385">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#222"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M9,1.5 L1,5 L9,8.5 Z" fill="#222"/>
+    </marker>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#A2CA7F"/>
+    </marker>
+    <marker id="arrSkip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#002FA7"/>
+    </marker>
+    <marker id="arrP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M1,1.5 L9,5 L1,8.5 Z" fill="#E06710"/>
+    </marker>
+  </defs>
+  <style>
+    .t{font-family:"Times New Roman",Times,serif}
+    .h{font-size:15px;font-weight:700;fill:#222}
+    .lbl{font-family:"Times New Roman",Times,serif;font-size:15px;font-weight:700;fill:#222;text-anchor:middle;dominant-baseline:central}
+    .sub{font-size:14px;font-weight:700;fill:#222}
+    .math{font-size:16px;font-weight:700;font-style:italic;fill:#222;text-anchor:middle;dominant-baseline:central}
+    .msub{font-size:10px;font-style:normal;font-weight:700}
+  </style>
+  <rect width="1400" height="385" fill="#fff"/>
+
+  <!-- divider: clear of I (right=666) and Input x (left=755) -->
+  <line x1="710" y1="55" x2="710" y2="285" stroke="#B0B0B0" stroke-width="2" stroke-dasharray="7 5"/>
+
+  <!-- titles: Augmented margin to x1 top(162) halved; others centered on their blocks -->
+  <text class="t h" x="172" y="17" text-anchor="middle">Augmented</text>
+  <text class="t h" x="172" y="33" text-anchor="middle">Images</text>
+  <text class="t h" x="557" y="42" text-anchor="middle">Target-cross</text>
+  <text class="t h" x="557" y="58" text-anchor="middle">Correlation</text>
+  <text class="t h" x="767" y="58" text-anchor="middle">Input Image</text>
+  <text class="t h" x="1278" y="42" text-anchor="middle">Lesion</text>
+  <text class="t h" x="1278" y="58" text-anchor="middle">Segmentation</text>
+
+  <!-- LEFT pretrain: row cy=180/340, trunk cy=260 -->
+  <rect x="82" y="150" width="39" height="40" fill="#fff" stroke="#222" stroke-width="1.15"/>
+  <text class="t math" x="102" y="170">x</text>
+
+  <line x1="121" y1="170" x2="153" y2="90" stroke="#222" stroke-width="1.85" marker-end="url(#arr)"/>
+  <line x1="121" y1="170" x2="153" y2="250" stroke="#222" stroke-width="1.85" marker-end="url(#arr)"/>
+
+  <rect x="153" y="72" width="39" height="36" fill="#fff" stroke="#222" stroke-width="1.15"/>
+  <text class="t math" x="172" y="90">x<tspan class="msub" dy="2" font-size="10">1</tspan></text>
+  <rect x="153" y="232" width="39" height="36" fill="#fff" stroke="#222" stroke-width="1.15"/>
+  <text class="t math" x="172" y="250">x<tspan class="msub" dy="2" font-size="10">2</tspan></text>
+
+  <line x1="192" y1="90" x2="222" y2="90" stroke="#222" stroke-width="1.85" marker-end="url(#arr)"/>
+  <line x1="192" y1="250" x2="222" y2="250" stroke="#222" stroke-width="1.85" marker-end="url(#arr)"/>
+
+  <path d="M 228 30 L 290 50 L 290 130 L 228 150 Z" fill="#B2E1A1" stroke="#8AB27E" stroke-width="1.35"/>
+  <text class="t lbl" x="259" y="90" font-weight="bold">Encoder</text>
+  <path d="M 228 190 L 290 210 L 290 290 L 228 310 Z" fill="#B2E1A1" stroke="#8AB27E" stroke-width="1.35"/>
+  <text class="t lbl" x="259" y="250" font-weight="bold">Encoder</text>
+
+  <line x1="259" y1="154" x2="259" y2="186" stroke="#222" stroke-width="1.1" marker-start="url(#arrB)" marker-end="url(#arr)"/>
+
+  <line x1="290" y1="77" x2="318" y2="77" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <line x1="290" y1="103" x2="318" y2="103" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <rect x="322" y="64.5" width="24" height="51" fill="#fff" stroke="#222" stroke-width="1.15"/>
+  <text class="t math" x="334" y="77" font-weight="bold">&#x3C3;<tspan class="msub" dy="2" font-size="10" font-weight="bold">1</tspan></text>
+  <text class="t math" x="334" y="103" font-weight="bold">&#x3BC;<tspan class="msub" dy="2" font-size="10" font-weight="bold">1</tspan></text>
+
+  <line x1="290" y1="237" x2="318" y2="237" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <line x1="290" y1="263" x2="318" y2="263" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <rect x="322" y="224.5" width="24" height="51" fill="#fff" stroke="#222" stroke-width="1.15"/>
+  <text class="t math" x="334" y="237" font-weight="bold">&#x3C3;<tspan class="msub" dy="2" font-size="10" font-weight="bold">2</tspan></text>
+  <text class="t math" x="334" y="263" font-weight="bold">&#x3BC;<tspan class="msub" dy="2" font-size="10" font-weight="bold">2</tspan></text>
+
+  <line x1="346" y1="90" x2="449" y2="170" stroke="#222" stroke-width="1.85" marker-end="url(#arr)"/>
+  <line x1="346" y1="250" x2="449" y2="170" stroke="#222" stroke-width="1.85" marker-end="url(#arr)"/>
+
+  <g transform="translate(449,135)">
+    <rect x="0" y="0" width="14" height="14" fill="#185878"/><rect x="14" y="0" width="14" height="14" fill="#7A9AB0"/><rect x="28" y="0" width="14" height="14" fill="#A0A8B0"/><rect x="42" y="0" width="14" height="14" fill="#C8D0D8"/><rect x="56" y="0" width="14" height="14" fill="#7A9AB0"/>
+    <rect x="0" y="14" width="14" height="14" fill="#7A9AB0"/><rect x="14" y="14" width="14" height="14" fill="#185878"/><rect x="28" y="14" width="14" height="14" fill="#C8D0D8"/><rect x="42" y="14" width="14" height="14" fill="#909898"/><rect x="56" y="14" width="14" height="14" fill="#7A9AB0"/>
+    <rect x="0" y="28" width="14" height="14" fill="#909898"/><rect x="14" y="28" width="14" height="14" fill="#C8D0D8"/><rect x="28" y="28" width="14" height="14" fill="#185878"/><rect x="42" y="28" width="14" height="14" fill="#7A9AB0"/><rect x="56" y="28" width="14" height="14" fill="#C8D0D8"/>
+    <rect x="0" y="42" width="14" height="14" fill="#C8D0D8"/><rect x="14" y="42" width="14" height="14" fill="#7A9AB0"/><rect x="28" y="42" width="14" height="14" fill="#A0A8B0"/><rect x="42" y="42" width="14" height="14" fill="#185878"/><rect x="56" y="42" width="14" height="14" fill="#7A9AB0"/>
+    <rect x="0" y="56" width="14" height="14" fill="#7A9AB0"/><rect x="14" y="56" width="14" height="14" fill="#909898"/><rect x="28" y="56" width="14" height="14" fill="#C8D0D8"/><rect x="42" y="56" width="14" height="14" fill="#7A9AB0"/><rect x="56" y="56" width="14" height="14" fill="#185878"/>
+    <text class="t lbl" x="35" y="91" style="font-style:italic">C</text>
+  </g>
+
+  <line x1="525" y1="170" x2="584" y2="170" stroke="#222" stroke-width="1.85" marker-start="url(#arrB)" marker-end="url(#arr)"/>
+  <text class="t sub" x="554.5" y="192" text-anchor="middle">Loss</text>
+
+  <g transform="translate(596,135)">
+    <rect x="0" y="0" width="14" height="14" fill="#185878"/><rect x="14" y="0" width="14" height="14" fill="#C8D0D8"/><rect x="28" y="0" width="14" height="14" fill="#C8D0D8"/><rect x="42" y="0" width="14" height="14" fill="#C8D0D8"/><rect x="56" y="0" width="14" height="14" fill="#C8D0D8"/>
+    <rect x="0" y="14" width="14" height="14" fill="#C8D0D8"/><rect x="14" y="14" width="14" height="14" fill="#185878"/><rect x="28" y="14" width="14" height="14" fill="#C8D0D8"/><rect x="42" y="14" width="14" height="14" fill="#C8D0D8"/><rect x="56" y="14" width="14" height="14" fill="#C8D0D8"/>
+    <rect x="0" y="28" width="14" height="14" fill="#C8D0D8"/><rect x="14" y="28" width="14" height="14" fill="#C8D0D8"/><rect x="28" y="28" width="14" height="14" fill="#185878"/><rect x="42" y="28" width="14" height="14" fill="#C8D0D8"/><rect x="56" y="28" width="14" height="14" fill="#C8D0D8"/>
+    <rect x="0" y="42" width="14" height="14" fill="#C8D0D8"/><rect x="14" y="42" width="14" height="14" fill="#C8D0D8"/><rect x="28" y="42" width="14" height="14" fill="#C8D0D8"/><rect x="42" y="42" width="14" height="14" fill="#185878"/><rect x="56" y="42" width="14" height="14" fill="#C8D0D8"/>
+    <rect x="0" y="56" width="14" height="14" fill="#C8D0D8"/><rect x="14" y="56" width="14" height="14" fill="#C8D0D8"/><rect x="28" y="56" width="14" height="14" fill="#C8D0D8"/><rect x="42" y="56" width="14" height="14" fill="#C8D0D8"/><rect x="56" y="56" width="14" height="14" fill="#185878"/>
+    <text class="t lbl" x="35" y="91" style="font-style:italic">I</text>
+  </g>
+
+  <!-- weight transfer ? seg Encoder bottom -->
+  <path d="M 259 310 L 259 335 L 843 335 L 843 225"
+        fill="none" stroke="#A2CA7F" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter" marker-end="url(#arrG)"/>
+
+  <!-- RIGHT seg: shared trunk cy=260 -->
+  <rect x="755" y="80" width="24" height="180" fill="#fff" stroke="#222" stroke-width="1.15"/>
+  <text class="t math" x="767" y="170">x</text>
+  <line x1="779" y1="170" x2="806" y2="170" stroke="#222" stroke-width="1.85" marker-end="url(#arr)"/>
+
+  <path d="M 812 110 L 874 130 L 874 210 L 812 230 Z" fill="#B2E1A1" stroke="#8AB27E" stroke-width="1.35"/>
+  <text class="t lbl" x="843" y="170" font-weight="bold">Encoder</text>
+
+  <!-- Skip: up ? right ? down into Decoder -->
+  <path d="M 843 110 L 843 58 L 1134 58 L 1134 115"
+        fill="none" stroke="#002FA7" stroke-width="1.6" stroke-dasharray="7 4"
+        stroke-linecap="square" stroke-linejoin="miter" marker-end="url(#arrSkip)"/>
+  <text class="t h" x="988" y="48" text-anchor="middle" fill="#002FA7" font-size="12">Skip connection</text>
+
+  <!-- Encoder → σ/μ trunk -->
+  <line x1="874" y1="170" x2="926" y2="170" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <line x1="926" y1="110" x2="926" y2="230" stroke="#222" stroke-width="1.1"/>
+
+  <line x1="926" y1="110" x2="950" y2="110" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <rect x="956" y="89" width="24" height="42" fill="#B2E1A1" stroke="#222" stroke-width="1.1"/>
+  <text class="t math" x="968" y="110">&#x3C3;</text>
+
+  <rect x="956" y="140" width="24" height="60" fill="#fff" stroke="#222" stroke-width="1.1"/>
+  <text class="t math" x="968" y="170">&#x3B5;</text>
+
+  <line x1="926" y1="230" x2="950" y2="230" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <rect x="956" y="209" width="24" height="42" fill="#B2E1A1" stroke="#222" stroke-width="1.1"/>
+  <text class="t math" x="968" y="230">&#x3BC;</text>
+
+  <path d="M 980 110 L 1010 110 L 1010 152" fill="none" stroke="#222" stroke-width="1.1"/>
+  <line x1="980" y1="170" x2="1028" y2="170" stroke="#222" stroke-width="1.1"/>
+  <path d="M 980 230 L 1010 230 L 1010 188" fill="none" stroke="#222" stroke-width="1.1"/>
+  <line x1="1010" y1="152" x2="1010" y2="188" stroke="#222" stroke-width="1.1"/>
+  <line x1="1028" y1="170" x2="1043" y2="170" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+
+  <rect x="1049" y="137" width="21" height="66" fill="#F0A89A" stroke="#C07070" stroke-width="1.25"/>
+  <text class="t math" x="1060" y="170">z</text>
+  <line x1="1070" y1="170" x2="1097" y2="170" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+
+  <path d="M 1103 130 L 1165 110 L 1165 230 L 1103 210 Z" fill="#C6E8F5" stroke="#7AB3D0" stroke-width="1.35"/>
+  <text class="t lbl" x="1134" y="170" font-weight="bold">Decoder</text>
+
+  <!-- Decoder → × → x′ ; Binary Lesion Classification gates via × -->
+  <line x1="1165" y1="170" x2="1192" y2="170" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+  <circle cx="1208" cy="170" r="14" fill="#fff" stroke="#222" stroke-width="1.25"/>
+  <line x1="1201.5" y1="163.5" x2="1214.5" y2="176.5" stroke="#222" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="1201.5" y1="176.5" x2="1214.5" y2="163.5" stroke="#222" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="1222" y1="170" x2="1260" y2="170" stroke="#222" stroke-width="1.1" marker-end="url(#arr)"/>
+
+  <rect x="1266" y="80" width="24" height="180" fill="#fff" stroke="#222" stroke-width="1.15"/>
+  <text class="t math" x="1278" y="170">x&#x2032;</text>
+
+  <!-- Binary Lesion Classification: mid of μ→× horizontal at weight-transfer y=335 -->
+  <rect x="1028" y="309" width="120" height="52" fill="#FFD8B0" stroke="#E06710" stroke-width="1.35"/>
+  <text class="t h" x="1088" y="329" text-anchor="middle" font-size="11" fill="#8B3A00">Binary Lesion</text>
+  <text class="t h" x="1088" y="345" text-anchor="middle" font-size="11" fill="#8B3A00">Classification</text>
+
+  <!-- μ ↓ → BLC → under × ↑ into × (orange arrows) -->
+  <path d="M 968 251 L 968 335 L 1028 335"
+        fill="none" stroke="#E06710" stroke-width="1.6"
+        stroke-linecap="square" stroke-linejoin="miter" marker-end="url(#arrP)"/>
+  <path d="M 1148 335 L 1208 335 L 1208 184"
+        fill="none" stroke="#E06710" stroke-width="1.6"
+        stroke-linecap="square" stroke-linejoin="miter" marker-end="url(#arrP)"/>
+</svg>

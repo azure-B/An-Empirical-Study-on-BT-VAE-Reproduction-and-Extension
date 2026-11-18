@@ -2,7 +2,7 @@
 
 **스킵 연결과 분류를 결합한 BT-VAE 기반 제한된 레이블 환경의 의료영상 분할**
 
-Code and results for the study above. The full pipeline (encoder, skip decoder, presence head) is walked through in [Main.ipynb](Main.ipynb). All figures are in [`results/`](results/).
+Code and results for the study above. The full pipeline (encoder, skip decoder, presence head) is walked through in [Main.ipynb](Main.ipynb). Seminar slides and figures are in [`presentation/`](presentation/).
 
 [English](#english) · [한국어](#한국어)
 
@@ -27,7 +27,7 @@ The two components therefore have separate jobs: skip connections restore the le
 
 ### 2. Method
 
-![Method overview](results/method.png)
+![Method overview](presentation/assets/method.png)
 
 *Figure 1. Barlow Twins pre-training, skip-connection segmentation, and lesion-presence gating.*
 
@@ -55,9 +55,9 @@ Four models are compared:
 
 #### 4.1 Effect of the labeled-data ratio (COVID)
 
-![Dice vs label ratio](results/covid/label_ratio/figures/dice_vs_ratio.png)
+![Dice vs label ratio](presentation/assets/dice_vs_ratio.png)
 
-![Dice table](results/covid/label_ratio/figures/dice_vs_ratio_table.png)
+![Dice table](presentation/assets/dice_vs_ratio_table.png)
 
 *Figure 2. Overall Dice on the 94 test slices as the training labels are reduced.*
 
@@ -74,7 +74,7 @@ Overall Dice includes empty slices, so part of the gain comes from suppressing f
 
 **Qualitative comparison (30%).**
 
-![COVID qualitative panel](results/covid_panel.png)
+![COVID qualitative panel](presentation/assets/covid_panel.png)
 
 *Figure 5. Input, ground truth, and the four models on COVID test slices. Green: true positive. Red: false positive. White: missed lesion.*
 
@@ -85,7 +85,7 @@ Overall Dice includes empty slices, so part of the gain comes from suppressing f
 
 #### 4.2 Skip-connection ablation (full COVID training set)
 
-![Skip ablation](results/test_dice_by_skip_setting.jpg)
+![Skip ablation](presentation/assets/test_dice_by_skip_setting.jpg)
 
 *Figure 3. Test Dice for different skip ranges and fusion methods.*
 
@@ -101,7 +101,7 @@ B0–B3 concatenation is best on both test Dice and lesion-slice Dice (0.7890), 
 
 #### 4.3 Presence head versus a standalone CNN
 
-![Presence AUROC](results/cls_auroc_cnn.png)
+![Presence AUROC](presentation/assets/cls_auroc_cnn.png)
 
 *Figure 4. Test AUROC of heads on μ and of a CNN trained from scratch.*
 
@@ -109,7 +109,7 @@ At 10% and 30%, the BT-VAE head scores highest (0.990 at both). At 30%, the Skip
 
 #### 4.4 Second modality: BP ultrasound (30%)
 
-![BP qualitative panel](results/bp_panel.png)
+![BP qualitative panel](presentation/assets/bp_panel.png)
 
 *Figure 6. Qualitative comparison on BP test slices.*
 
@@ -151,7 +151,7 @@ COVID-19 CT에서 학습 라벨 30%만 사용했을 때 두 구성을 결합한 
 
 ### 2. 방법
 
-![방법 개요](results/method.png)
+![방법 개요](presentation/assets/method.png)
 
 *그림 1. Barlow Twins 사전학습, 스킵 연결 분할, 병변 존재 게이팅.*
 
@@ -179,9 +179,9 @@ COVID-19 CT에서 학습 라벨 30%만 사용했을 때 두 구성을 결합한 
 
 #### 4.1 레이블 비율에 따른 성능 (COVID)
 
-![레이블 비율별 Dice](results/covid/label_ratio/figures/dice_vs_ratio.png)
+![레이블 비율별 Dice](presentation/assets/dice_vs_ratio.png)
 
-![Dice 표](results/covid/label_ratio/figures/dice_vs_ratio_table.png)
+![Dice 표](presentation/assets/dice_vs_ratio_table.png)
 
 *그림 2. 학습 라벨을 줄였을 때 테스트 94장의 전체 Dice.*
 
@@ -198,7 +198,7 @@ COVID-19 CT에서 학습 라벨 30%만 사용했을 때 두 구성을 결합한 
 
 **정성 비교 (30%).**
 
-![COVID 정성 비교](results/covid_panel.png)
+![COVID 정성 비교](presentation/assets/covid_panel.png)
 
 *그림 5. COVID 테스트 슬라이스의 입력, 정답, 네 모델 결과. 초록: 정답과 일치, 빨강: 거짓 양성, 흰색: 미검출.*
 
@@ -209,7 +209,7 @@ COVID-19 CT에서 학습 라벨 30%만 사용했을 때 두 구성을 결합한 
 
 #### 4.2 스킵 연결 소거 실험 (COVID 전체 학습 집합)
 
-![스킵 소거](results/test_dice_by_skip_setting.jpg)
+![스킵 소거](presentation/assets/test_dice_by_skip_setting.jpg)
 
 *그림 3. 스킵 범위와 결합 방식에 따른 테스트 Dice.*
 
@@ -225,7 +225,7 @@ B0–B3 concat이 테스트 Dice와 병변 슬라이스 Dice(0.7890) 모두 가�
 
 #### 4.3 존재 헤드와 독립 CNN 비교
 
-![존재 AUROC](results/cls_auroc_cnn.png)
+![존재 AUROC](presentation/assets/cls_auroc_cnn.png)
 
 *그림 4. μ 위의 헤드와 처음부터 학습한 CNN의 테스트 AUROC.*
 
@@ -233,7 +233,7 @@ B0–B3 concat이 테스트 Dice와 병변 슬라이스 Dice(0.7890) 모두 가�
 
 #### 4.4 다른 영상 종류: BP 초음파 (30%)
 
-![BP 정성 비교](results/bp_panel.png)
+![BP 정성 비교](presentation/assets/bp_panel.png)
 
 *그림 6. BP 테스트 슬라이스의 정성 비교.*
 
